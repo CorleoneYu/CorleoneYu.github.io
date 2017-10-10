@@ -79,12 +79,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="�������� Undefined Null Boolean Number String  typeof   ����ֵ ֵ����     undefined ����ֵδ����   boolean ����ֵ   sring �ַ���   number ��ֵ   object ��������Null   function ����    ע�⣺  typeof��һ���������">
+<meta property="og:type" content="article">
+<meta property="og:title" content="helloworld">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/helloworld/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="�������� Undefined Null Boolean Number String  typeof   ����ֵ ֵ����     undefined ����ֵδ����   boolean ����ֵ   sring �ַ���   number ��ֵ   object ��������Null   function ����    ע�⣺  typeof��һ���������">
+<meta property="og:updated_time" content="2017-10-10T10:34:39.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="helloworld">
+<meta name="twitter:description" content="�������� Undefined Null Boolean Number String  typeof   ����ֵ ֵ����     undefined ����ֵδ����   boolean ����ֵ   sring �ַ���   number ��ֵ   object ��������Null   function ����    ע�⣺  typeof��һ���������">
 
 
 
@@ -114,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/helloworld/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title>helloworld | Hexo</title>
   
 
 
@@ -139,8 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +216,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -245,9 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/helloworld/" itemprop="url">helloworld</a></h1>
+          <h1 class="post-title" itemprop="name headline">helloworld</h1>
         
 
         <div class="post-meta">
@@ -297,9 +298,7 @@
       
 
       
-        
-          
-            <h2 id="��������"><a href="#��������" class="headerlink" title="��������"></a>��������</h2><ol>
+        <h2 id="��������"><a href="#��������" class="headerlink" title="��������"></a>��������</h2><ol>
 <li>Undefined</li>
 <li>Null</li>
 <li>Boolean</li>
@@ -674,8 +673,6 @@
 <h4 id="Element����"><a href="#Element����" class="headerlink" title="Element����"></a>Element����</h4><hr>
 <h2 id="�¼�"><a href="#�¼�" class="headerlink" title="�¼�"></a>�¼�</h2><h3 id="�¼���"><a href="#�¼���" class="headerlink" title="�¼���"></a>�¼���</h3><p>�¼����������Ǵ�ҳ�������¼���˳��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">var EventUtil = &#123;</div><div class="line">           addHandler: function(element, type, handler) &#123;</div><div class="line">               if( element.addEventListener) &#123; //����DOM2������</div><div class="line">                   element.addEventListener(type, handler, false);</div><div class="line">               &#125;   else if(elemnt.attachEvent) &#123;</div><div class="line">                   element.attachEvent(&quot;on&quot; + type, handler);</div><div class="line">               &#125;   else &#123;</div><div class="line">                   element[&quot;on&quot;+type] = handler;</div><div class="line">               &#125;</div><div class="line">           &#125;,</div><div class="line"></div><div class="line">           removerHandler: function(element, type, handler) &#123;</div><div class="line">               if( element.removeEventListener) &#123;</div><div class="line">                   element.removeEventListener(type, handler, false);</div><div class="line">               &#125;   else if(element.detachEvent ) &#123;</div><div class="line">                   element.detachEvent(&quot;on&quot;+type, handler);</div><div class="line">               &#125;   else &#123;</div><div class="line">                   element[&quot;on&quot;+type] = null;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;;</div><div class="line"></div><div class="line">       var btn = document.getElementById(&quot;mybtn&quot;);</div><div class="line">       var yourBtn = document.getElementById(&apos;yourbtn&apos;);</div><div class="line">       var handle = function() &#123;</div><div class="line">           console.log(this.value);</div><div class="line">       &#125;</div><div class="line">       EventUtil.addHandler(btn, &quot;click&quot;, handle);</div><div class="line"></div><div class="line">       yourBtn.addEventListener(&quot;click&quot;, function() &#123;</div><div class="line">           EventUtil.removerHandler(btn, &quot;click&quot;, handle);</div><div class="line">           console.log(&quot;delete success&quot;);</div><div class="line">       &#125;)</div></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
@@ -692,505 +689,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/article-title/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/article-title/" itemprop="url">article title</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-10T15:07:41+08:00">
-                2017-10-10
-              </time>
+              <a href="/2017/10/10/article-title/" rel="next" title="article title">
+                <i class="fa fa-chevron-left"></i> article title
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ol>
-<li>Undefined</li>
-<li>Null</li>
-<li>Boolean</li>
-<li>Number</li>
-<li>String</li>
-</ol>
-<h5 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h5><table>
-<thead>
-<tr>
-<th>返回值</th>
-<th>值类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>undefined</td>
-<td>这个值未定义</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>布尔值</td>
-</tr>
-<tr>
-<td>sring</td>
-<td>字符串</td>
-</tr>
-<tr>
-<td>number</td>
-<td>数值</td>
-</tr>
-<tr>
-<td>object</td>
-<td>对象或者Null</td>
-</tr>
-<tr>
-<td>function</td>
-<td>函数</td>
-</tr>
-</tbody>
-</table>
-<p>注意：</p>
-<ol>
-<li>typeof是一个操作符而不是函数，所以可以typeof(value)<br>也可以 typeof value  </li>
-<li>typeof(null)返回 object 因为特殊值null被认为是一个空对象的引用 <h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//example 1</div><div class="line">var message;</div><div class="line">alert( message == undefined); //true;</div><div class="line"></div><div class="line">//example 2</div><div class="line">var message = undefined;</div><div class="line">alert( message == undefined ); //true</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>没有必要使用undefined显式初始化message，未经初始化的值默认为undefined<br>注：</p>
-<ol>
-<li>未初始化和未声明的区别<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message; //未初始化</div><div class="line">alert(message); //打印“undefined”</div><div class="line">alert(age); //未声明 报错</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message; //未初始化，获得默认值undefined</div><div class="line">alert(typeof message); //打印“undefined”</div><div class="line">alert(typeof age); //打印&quot;undefined&quot;&quot;</div></pre></td></tr></table></figure>
-<p>未初始化和未声明的变量执行typeof都返回undefined，因此，我们声明值的时候应该显式初始化变量，那么当typeof操作符返回undefined的时候，我们就知道这个变量是未声明，而不是未初始化。</p>
-<h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h4><p>null值表示一个空对象指针，这也是typeof操作符检测null时返回object的原因<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var car = null;</div><div class="line">alert(typeof car); //object</div></pre></td></tr></table></figure></p>
-<p>如果定义的变量准备在将来用来保存对象，那么最好将该变量初始化为null.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if( car != null)</div><div class="line">&#123;</div><div class="line">    //对car对象的操作</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注意：</p>
-<ol>
-<li>Null 与 undefined的关系<br>undefined派生自null,因此在判断如下时，出现这种状况<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert( null == undefined ); //true</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h4><table>
-<thead>
-<tr>
-<th>参数类型</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Undefined</td>
-<td>false</td>
-</tr>
-<tr>
-<td>Null</td>
-<td>false</td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>结果等于输入的参数（不转换）</td>
-</tr>
-<tr>
-<td>Number</td>
-<td>如果参数为：+0，-0 或 NaN, 则结果为false 否则为true.</td>
-</tr>
-<tr>
-<td>String</td>
-<td>如果参数为空字符串，则结果为false,否则为true</td>
-</tr>
-<tr>
-<td>Object</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><h5 id="不要测定某个特定的浮点数值"><a href="#不要测定某个特定的浮点数值" class="headerlink" title="不要测定某个特定的浮点数值"></a>不要测定某个特定的浮点数值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( a + b == 0.3) &#123;</div><div class="line">    alert(&quot;you got 0.3&quot;);  //不要如此测试</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为在 0.1 + 0.2的时候，结果为0.300000000000004<br>注意：浮点数值计算会产生舍入误差，这是使用IEEE754数值的浮点计算的通病   </p>
-<h5 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h5><p>Number.MIN_VALUE = 5e-324<br>Number.MAX_VALUE = 1.7976931348623157e+308<br>如果计算结果超过数值范围，这个数值自动转换为 <strong>Infinity</strong>，为正负无穷<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var result = Number.MAX_VALUE + Number.MAX_VALUE;</div><div class="line">alert(isFinite(result) ); //false;</div></pre></td></tr></table></figure></p>
-<p>虽然可能性很小，但是检测监控还是必需的。</p>
-<h5 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h5><p>即非数值（Not a Number）,是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误）。<br>在其他语言中，任何数值除以非数值都会导致错误，从而导致停止执行，但在ECMAScript中，任何数值除以非数值会返回NaN，不影响其他代码的执行。<br>注意：</p>
-<ol>
-<li>任何涉及NaN的操作（NaN/10）都会返回NaN，这个特点会在多步计算中可能导致问题</li>
-<li><p>NaN与任何值都不想等，包括本身</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(NaN == NaN); //false</div></pre></td></tr></table></figure>
-</li>
-<li><p>针对以上特点，定义了isNaN()函数，接受一个参数，该参数可以是任何类型，帮助我们判断这个参数是否“不是数值”。<br>接受参数之后，它会尝试着将这个值转换为数值，某些不是数值的值会直接转换成数值，例如”10”或者Boolean值。而任何不能被转换为数值的值都会导致这个函数返回true.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">alert(isNaN(NaN) ); //true</div><div class="line">alert( isNaN(10) ); //false</div><div class="line">alert(isNaN(&quot;10&quot;)）; //false 可以被转换成数值10</div><div class="line">alert( isNaN(&quot;blue&quot;) ); //true 不能被转换</div><div class="line">alert( isNaN(true) ); //false 可以被转换成数值1</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="数值转换"><a href="#数值转换" class="headerlink" title="数值转换"></a>数值转换</h5><ol>
-<li><p>Number()可用于全部类型</p>
-</li>
-<li><p>parseInt() 字符串转为数值</p>
-</li>
-<li>parseFloat() 字符串转为数值</li>
-</ol>
-<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><h5 id="字符字面量"><a href="#字符字面量" class="headerlink" title="字符字面量"></a>字符字面量</h5><h5 id="字符串特点"><a href="#字符串特点" class="headerlink" title="字符串特点"></a>字符串特点</h5><p>字符串是不可变的，也就是，字符串一旦创建，值就不能改变。<br>因此，要改变某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var lang = &quot;java&quot;;</div><div class="line">lang = lang + &quot;script&quot;；</div></pre></td></tr></table></figure></p>
-<p>lang开始时包含”java”,第二句代码把lang重新定义为”javascript“。<br>实现它的过程： 首先创建一个能容纳10个字符的新字符串，然后填充”javascript”,销毁”java”,”script”，因为他们已经没用了。  </p>
-<h5 id="转换为字符串"><a href="#转换为字符串" class="headerlink" title="转换为字符串"></a>转换为字符串</h5><ol>
-<li><p>toString()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var age = 11;</div><div class="line">var ageString = age.toString(); //字符串&quot;11&quot;</div><div class="line">var found = true;</div><div class="line">var foundString = found.toString(); //字符串&quot;true&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>String()</p>
-</li>
-</ol>
-<h5 id="object"><a href="#object" class="headerlink" title="object"></a>object</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h4 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h4><ol>
-<li>++ –前置后置</li>
-<li><ul>
-<li>-</li>
-</ul>
-</li>
-</ol>
-<h4 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h4><table>
-<thead>
-<tr>
-<th>header 1</th>
-<th>header 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>NOT</td>
-<td>~</td>
-</tr>
-<tr>
-<td>AND</td>
-<td>&amp;</td>
-</tr>
-<tr>
-<td>OR</td>
-<td></td>
-</tr>
-<tr>
-<td>XOR</td>
-<td>^</td>
-</tr>
-<tr>
-<td>左移</td>
-<td>&lt;&lt;</td>
-</tr>
-<tr>
-<td>有符号右移</td>
-<td>&gt;&gt;</td>
-</tr>
-<tr>
-<td>无符号右移</td>
-<td>&gt;&gt;&gt;</td>
-</tr>
-</tbody>
-</table>
-<p>注意：</p>
-<ol>
-<li>左移不会影响操作数的符号位</li>
-</ol>
-<h4 id="布尔操作符"><a href="#布尔操作符" class="headerlink" title="布尔操作符"></a>布尔操作符</h4><table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>符号</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>逻辑非</td>
-<td>！</td>
-<td>无论这个值是什么数据，都会返回一个布尔值 特殊：！！实际上会模拟Boolean()转型函数的行为</td>
-</tr>
-<tr>
-<td>逻辑与</td>
-<td>&amp;&amp;</td>
-<td>短路操作</td>
-</tr>
-<tr>
-<td>逻辑或</td>
-<td>11</td>
-<td>避免为变量赋值null或underfined</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myObject = preferredObject || backupObject</div></pre></td></tr></table></figure>
-<p><strong>myObject将被赋予等号后面两个值中的一个。变量preferredObject包含优先赋给变量myObject的值，变量backupObject负责在前面的值不包含有效值的情况下提供后备，如果preferredObject的值不是null，那么他的值将赋给myObject，如果是null，则将backupObject赋值给myObject。</strong></p>
-<h4 id="乘性操作符"><a href="#乘性操作符" class="headerlink" title="乘性操作符"></a>乘性操作符</h4><table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>乘法</td>
-<td>*</td>
-</tr>
-<tr>
-<td>除法</td>
-<td>/</td>
-</tr>
-<tr>
-<td>求模</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="变量，作用域和内存问题"><a href="#变量，作用域和内存问题" class="headerlink" title="变量，作用域和内存问题"></a>变量，作用域和内存问题</h2><h3 id="基本类型，引用类型"><a href="#基本类型，引用类型" class="headerlink" title="基本类型，引用类型"></a>基本类型，引用类型</h3><p><strong>基本类型值</strong>： 简单的数据段<br>5种基本数据类型：Undefined,Null,Boolean,Number,String<br>按值访问（因为可以操作保存在变量中的实际的值）<br><strong>引用类型</strong>：引用类型的值是保存在内存中的对象，引用类型是按引用访问的   </p>
-<h4 id="两者在复制变量值时的区别"><a href="#两者在复制变量值时的区别" class="headerlink" title="两者在复制变量值时的区别"></a>两者在复制变量值时的区别</h4><h4 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h4><h4 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h4><ol>
-<li>typeof</li>
-<li>variable instanceof constructor</li>
-</ol>
-<h3 id="执行环境以及作用域"><a href="#执行环境以及作用域" class="headerlink" title="执行环境以及作用域"></a>执行环境以及作用域</h3><p>每个执行环境都有一个与之关联的 <strong>变量对象</strong></p>
-<h4 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h4><ol>
-<li>try-catch中的catch</li>
-<li>with</li>
-</ol>
-<h4 id="没有块级作用域"><a href="#没有块级作用域" class="headerlink" title="没有块级作用域"></a>没有块级作用域</h4><p>注意：</p>
-<ol>
-<li>if,for语句中定义的变量，会添加到当前执行环境中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if(true) &#123;</div><div class="line">    var color = &quot;blue&quot;;</div><div class="line">&#125;</div><div class="line">alert(color); //&quot;blue&quot;不会报错</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>for语句创建的i,即使在循环执行结束后，依旧会存在于循环外部的执行环境中。</p>
-<ol>
-<li><p>var 声明变量</p>
-</li>
-<li><p>查询标识符的过程</p>
-</li>
-</ol>
-<h4 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h4><ol>
-<li><p>垃圾收集的方式 </p>
-<ol>
-<li>标记清除</li>
-<li>引用计数</li>
-</ol>
-</li>
-<li><p>内存管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">object = null;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>手动解除引用</p>
-<hr>
-<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><h3 id="object类型"><a href="#object类型" class="headerlink" title="object类型"></a>object类型</h3><p>创建object实例的方式</p>
-<ol>
-<li><p>使用new操作符后面跟着object的构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var person = new Object();</div><div class="line">person.name = &quot;john&quot;;</div><div class="line">person.age = 29;</div></pre></td></tr></table></figure>
-</li>
-<li><p>对象字面量（简化写法，目的在于简化创建包含大量属性的对象的过程）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    name : &quot;john&quot;,</div><div class="line">    age ： 29</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意： 1. “john”后面的<strong>逗号</strong> 2.age：29后面不能加逗号 3.花括号后面的<strong>分号</strong><br>对象字面量可以用于向函数传递大量可选参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function displayInfo(args) &#123;</div><div class="line">            var output = &quot;&quot;;</div><div class="line">            if( typeof args.name == &quot;string&quot; ) &#123;</div><div class="line">                output += &quot;Name: &quot; + args.name + &quot;\n&quot;;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            if(typeof(args.age) == &quot;number&quot;) &#123;</div><div class="line">                output += &quot;Age: &quot; + args.age + &quot;\n&quot;;</div><div class="line">            &#125;</div><div class="line">            console.log(output);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        displayInfo( &#123;</div><div class="line">            name: &quot;john&quot;,</div><div class="line">            age : 18</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        displayInfo( &#123;</div><div class="line">            name: &quot;nibaba&quot;</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></p>
-<p>访问对象属性的方法</p>
-<ol>
-<li>点方法</li>
-<li>方括号法，将要访问的属性以字符串的形式放在方括号中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log( person.name);</div><div class="line">console.log( person[&quot;name&quot;]);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>方括号的优点在于可以通过变量来访问属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var propertyName = &quot;name&quot;; //字符串</div><div class="line">console.log(person[ propertyName]);</div></pre></td></tr></table></figure></p>
-<p>还有一个优点是，如果属性名中包含导致语法错误的字符，或者属性名使用的是关键字或者保留字，需要使用方括号来访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person[&quot;first name&quot;] = &quot;coleon&quot;;</div></pre></td></tr></table></figure></p>
-<p>由于first name属性名包含一个空格，所以不能用点表示法来访问。<br><strong>通常使用点访问法</strong></p>
-<h3 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h3><ol>
-<li>数组的每一项都可以保存任何类型的数据  </li>
-<li>数组的大小是动态调整的，随着数据的添加自动增长以容纳新增数据   </li>
-<li><p>创建数组的方式<br> <strong>使用构造函数</strong></p>
-<ol>
-<li>var colors = new Array();</li>
-<li>var colors = new Array(20); 创建length为20的数组</li>
-<li><p>var colors = new Array(“red”, “blue”, “green”);</p>
-<p><strong>数组字面量表示</strong></p>
-</li>
-<li>var colors = [“red”, “blue”, “green”]；</li>
-<li>var name = []; //创建空数组</li>
-</ol>
-</li>
-<li>使用方括号中的索引表示要访问的值</li>
-<li>length,通过设置这个属性，可以从数组的末尾移除项或向数组添加新项</li>
-</ol>
-<h4 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h4><ol>
-<li>value instanceof Array<br>对于一个网页，或者一个全局作用域来说，使用instanceof操作符就能得到满意的结果<br>如果网页中存在多个框架，实际上就存在两个以上不同的全局执行环境，从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数</li>
-<li>Array.isArray()最终确定某个值是不是数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( Array.isArray(value) &#123;</div><div class="line">    //一些操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h4><ol>
-<li>toString返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串</li>
-<li>valueOf()返回的还是数组</li>
-<li>toLocaleString()</li>
-<li>join(分隔符)默认情况下是,</li>
-</ol>
-<h4 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h4><ol>
-<li>push()接收任意数量的参数，把他们逐个添加到数组末尾，并返回修改后数组的长度</li>
-<li>pop()则从数组末尾移除最后一项，减少数组的length，并返回移除的项 </li>
-</ol>
-<h4 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h4><ol>
-<li>shift()能够移除数组中的第一个项并返回该项，length-1；</li>
-<li>push()</li>
-<li>unshift()</li>
-</ol>
-<h4 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h4><ol>
-<li>reverse()反转数组</li>
-<li>sort()默认升序排列，会调用每个数组项的toString()转型方法，然后比较得到字符串，以确定如何排序，即使数组都是数值，比较的也是字符串</li>
-</ol>
-<hr>
-<h2 id="面向对象的程序设计"><a href="#面向对象的程序设计" class="headerlink" title="面向对象的程序设计"></a>面向对象的程序设计</h2><hr>
-<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><h3 id="结点层次"><a href="#结点层次" class="headerlink" title="结点层次"></a>结点层次</h3><h4 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h4><p>12种节点类型</p>
-<ol>
-<li>元素节点</li>
-<li>属性节点</li>
-<li>文本节点<br>。。。   </li>
-<li>nodeName nodeValue属性</li>
-<li>每个节点都有一个childNodes属性，保存一个NodeList对象（类数组对象），这个对象有length</li>
-<li>parentNode属性</li>
-<li>nextSibling 以及 previousSibling</li>
-<li>ownerDocument属性，指向表示整个文档的文档结点</li>
-<li>appendChild(),用于向childNodes列表末尾添加一个节点，添加节点后，childNodes新增节点，父节点以及以前的最后一个子节点的关系指针都会更新，更新之后，appendChild()返回新增的节点。  </li>
-<li>insertBefore()把节点放在childNodes列表中某个特定的位置上，这个方法接受两个参数，要插入的节点，作为参照的节点，插入节点后，被插入的节点会变成参照节点的前一个同胞节点(previousSibling)，同时被方法返回。</li>
-<li>replaceChild()替换节点</li>
-<li>removeChild()移除节点</li>
-<li><p>cloneNode(),接受一个参数，true表示深复制，复制节点以及整个节点数。false表示浅复制，复制节点本身。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">        &lt;li&gt;item 1&lt;/li&gt;</div><div class="line">        &lt;li&gt;item 2&lt;/li&gt;</div><div class="line">        &lt;li&gt;item 3&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        var ulNode = document.getElementsByTagName(&apos;ul&apos;)[0];</div><div class="line">        var deepList = ulNode.cloneNode(true);</div><div class="line">        console.log(deepList.childNodes);</div><div class="line"></div><div class="line">        var shallowList = ulNode.cloneNode(false);</div><div class="line">        console.log(shallowList.childNodes.length);</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>normalize()</p>
-<h4 id="Document类型"><a href="#Document类型" class="headerlink" title="Document类型"></a>Document类型</h4><p>Document类型表示整个文档，在浏览器中，documnent对象是HTMLDocument（继承自Document类型）的一个实例，表示HTML页面。而且，document对象是window对象的一个属性，因此可以将其作为全局对象来访问。Document节点具有下列特征</p>
-</li>
-<li>nodeType 的值为9</li>
-<li>nodeName 的值为”#document”</li>
-<li>nodeValue 的值为null</li>
-<li>parentNode 的值为null</li>
-<li>ownerDocument 的值为null</li>
-</ol>
-<p>文档的子节点<br>Document节点的子节点可以是DocumentType Element ProcessingInstruction Comment  </p>
-<ol>
-<li>document.documentElement始终只想HTML页面的<html>元素</html></li>
-<li>document.body指向<body></body></li>
-<li>document.doctype浏览器支持不一致</li>
-<li>document.childNodes整个HTML页面的子节点（不同浏览器不一致）</li>
-</ol>
-<p>文档信息<br>作为HTMLdocument的实例，document对象还有标准HTMLdocument对象所没有的属性，这些属性提供了document对象所表现的网页信息</p>
-<ol>
-<li>document.title文档标题</li>
-<li>URL包含页面完整的URL</li>
-<li>domain包含页面域名</li>
-<li>referrer保存着链接到当前页面的那个页面的URL，没有来源页的情况下，可能会包含空字符串</li>
-</ol>
-<p>查找元素</p>
-<ol>
-<li><p>getElementById() 接受一个参数，取得元素的ID</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;myDiv&quot;&gt;Some content&lt;/div&gt;</div><div class="line"></div><div class="line">var div = document.getElementById(&quot;myDiv&quot;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>getElementsByTagName()</p>
-</li>
-</ol>
-<h4 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h4><hr>
-<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><p>事件流描述的是从页面接收事件的顺序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">var EventUtil = &#123;</div><div class="line">           addHandler: function(element, type, handler) &#123;</div><div class="line">               if( element.addEventListener) &#123; //存在DOM2级方法</div><div class="line">                   element.addEventListener(type, handler, false);</div><div class="line">               &#125;   else if(elemnt.attachEvent) &#123;</div><div class="line">                   element.attachEvent(&quot;on&quot; + type, handler);</div><div class="line">               &#125;   else &#123;</div><div class="line">                   element[&quot;on&quot;+type] = handler;</div><div class="line">               &#125;</div><div class="line">           &#125;,</div><div class="line"></div><div class="line">           removerHandler: function(element, type, handler) &#123;</div><div class="line">               if( element.removeEventListener) &#123;</div><div class="line">                   element.removeEventListener(type, handler, false);</div><div class="line">               &#125;   else if(element.detachEvent ) &#123;</div><div class="line">                   element.detachEvent(&quot;on&quot;+type, handler);</div><div class="line">               &#125;   else &#123;</div><div class="line">                   element[&quot;on&quot;+type] = null;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;;</div><div class="line"></div><div class="line">       var btn = document.getElementById(&quot;mybtn&quot;);</div><div class="line">       var yourBtn = document.getElementById(&apos;yourbtn&apos;);</div><div class="line">       var handle = function() &#123;</div><div class="line">           console.log(this.value);</div><div class="line">       &#125;</div><div class="line">       EventUtil.addHandler(btn, &quot;click&quot;, handle);</div><div class="line"></div><div class="line">       yourBtn.addEventListener(&quot;click&quot;, function() &#123;</div><div class="line">           EventUtil.removerHandler(btn, &quot;click&quot;, handle);</div><div class="line">           console.log(&quot;delete success&quot;);</div><div class="line">       &#125;)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1200,138 +720,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-10T14:31:42+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1339,6 +732,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1359,8 +756,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1404,6 +810,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#��������"><span class="nav-number">1.</span> <span class="nav-text">��������</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#typeof"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">typeof</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">Undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null"><span class="nav-number">1.0.2.</span> <span class="nav-text">Null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boolean"><span class="nav-number">1.0.3.</span> <span class="nav-text">Boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Number"><span class="nav-number">1.0.4.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#��Ҫ�ⶨĳ���ض��ĸ�����ֵ"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">��Ҫ�ⶨĳ���ض��ĸ�����ֵ</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#��ֵ��Χ"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">��ֵ��Χ</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NaN"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">NaN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#��ֵת��"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">��ֵת��</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">1.0.5.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#�ַ�������"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">�ַ�������</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#�ַ����ص�"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">�ַ����ص�</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ת��Ϊ�ַ���"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">ת��Ϊ�ַ���</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#object"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">object</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#������"><span class="nav-number">2.</span> <span class="nav-text">������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#һԪ������"><span class="nav-number">2.0.1.</span> <span class="nav-text">һԪ������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#λ������"><span class="nav-number">2.0.2.</span> <span class="nav-text">λ������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#����������"><span class="nav-number">2.0.3.</span> <span class="nav-text">����������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#���Բ�����"><span class="nav-number">2.0.4.</span> <span class="nav-text">���Բ�����</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#���������������ڴ�����"><span class="nav-number">3.</span> <span class="nav-text">���������������ڴ�����</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#�������ͣ���������"><span class="nav-number">3.1.</span> <span class="nav-text">�������ͣ���������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#�����ڸ��Ʊ���ֵʱ������"><span class="nav-number">3.1.1.</span> <span class="nav-text">�����ڸ��Ʊ���ֵʱ������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#���ݲ���"><span class="nav-number">3.1.2.</span> <span class="nav-text">���ݲ���</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#��������-1"><span class="nav-number">3.1.3.</span> <span class="nav-text">��������</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ִ�л����Լ�������"><span class="nav-number">3.2.</span> <span class="nav-text">ִ�л����Լ�������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#�ӳ���������"><span class="nav-number">3.2.1.</span> <span class="nav-text">�ӳ���������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u�п鼶������"><span class="nav-number">3.2.2.</span> <span class="nav-text">û�п鼶������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#�����ռ�"><span class="nav-number">3.2.3.</span> <span class="nav-text">�����ռ�</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#��������-2"><span class="nav-number">4.</span> <span class="nav-text">��������</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#object����"><span class="nav-number">4.1.</span> <span class="nav-text">object����</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array����"><span class="nav-number">4.2.</span> <span class="nav-text">Array����</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#��������-3"><span class="nav-number">4.2.1.</span> <span class="nav-text">��������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ת������"><span class="nav-number">4.2.2.</span> <span class="nav-text">ת������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ջ����"><span class="nav-number">4.2.3.</span> <span class="nav-text">ջ����</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#���з���"><span class="nav-number">4.2.4.</span> <span class="nav-text">���з���</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#�����򷽷�"><span class="nav-number">4.2.5.</span> <span class="nav-text">�����򷽷�</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#���������ĳ�������"><span class="nav-number">5.</span> <span class="nav-text">���������ĳ�������</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">6.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#��������-4"><span class="nav-number">6.1.</span> <span class="nav-text">��������</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node����"><span class="nav-number">6.1.1.</span> <span class="nav-text">Node����</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Document����"><span class="nav-number">6.1.2.</span> <span class="nav-text">Document����</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element����"><span class="nav-number">6.1.3.</span> <span class="nav-text">Element����</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#�¼�"><span class="nav-number">7.</span> <span class="nav-text">�¼�</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#�¼���"><span class="nav-number">7.1.</span> <span class="nav-text">�¼���</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1532,6 +954,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
