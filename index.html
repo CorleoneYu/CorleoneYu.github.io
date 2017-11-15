@@ -232,6 +232,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2017/11/15/mockAndExpress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayu Lin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林大羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/15/mockAndExpress/" itemprop="url">Unbenannt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T22:57:07+08:00">
+                2017-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: mockAndExpress<br>date: 2017-11-15 00:01:54<br>tags:<br>—# mockjs</p>
+<ol>
+<li>准备工作<br>安装一下mockjs<br>cmd –&gt; 进入项目路径 –&gt; npm install moockjs –save<br>在项目中下载安装mockjs</li>
+<li>mockjs简介：mockjs是node module下的一个组件<br>主要功能是你自己自定义一个数据类型<br>然后给一个url<br>之后前端或者其他地方可以去在这个url发送请求，然后拿下数据<br>详情看文档<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//生成Mock对象</div><div class="line">var Mock = require(&apos;mockjs&apos;);</div><div class="line">//Mock 生成特定类型的数据 这里其实是为了给layui 所以根据layui的数据要求做了一些调整</div><div class="line">var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;阿斯顿&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>另一种使用方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://mockjs.com/dist/mock.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>在HTML中引入后<br>直接就可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var mockData =  Mock.mock(&#123;</div><div class="line">    &apos;cakyData|5&apos;: [&#123;</div><div class="line">        &apos;value&apos;: &apos;@integer(10, 100)&apos;,</div><div class="line">        &apos;name&apos;: &apos;@cname()&apos;</div><div class="line">        &#125;],</div><div class="line">    &apos;broken_lineData|5&apos;: [&#123;</div><div class="line">        &apos;name&apos;: &apos;@cname()&apos;,</div><div class="line">        &apos;type&apos;: &apos;line&apos;,</div><div class="line">        &apos;stack&apos;: &apos;总量&apos;,</div><div class="line">        &apos;data&apos;: [</div><div class="line">           &apos;@integer(60, 100)&apos;,</div><div class="line">           &apos;@integer(80, 120)&apos;,</div><div class="line">           &apos;@integer(60, 140)&apos;,</div><div class="line">           &apos;@integer(60, 160)&apos;,</div><div class="line">           &apos;@integer(60, 180)&apos;,</div><div class="line">           &apos;@integer(60, 200)&apos;,</div><div class="line">           &apos;@integer(60, 100)&apos;</div><div class="line">        ]</div><div class="line">    &#125;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><ol>
+<li>准备工作<br>安装一下express<br>cmd –&gt; 进入项目路径 –&gt; npm install express –save<br>同样是在项目中安装express  </li>
+<li>express简介： express是node module 下的一个组建<br>在这里主要功能是做一个路由功能<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">//生成Mock express的对象</div><div class="line">var Mock = require(&apos;mockjs&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">//app对应的get方法</div><div class="line">app.get(&apos;/api/tableData&apos;, function(req, res) &#123;</div><div class="line"></div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;阿斯顿&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div><div class="line">    </div><div class="line">    res.header(&apos;Access-Control-Allow-Origin&apos;, &apos;*&apos;);</div><div class="line">    </div><div class="line">    //express发送mock生成的数据</div><div class="line">    res.json(data);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.post(&apos;/api/tableData&apos;, function(req, res) &#123;</div><div class="line"></div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;阿斯顿&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div><div class="line">    res.header(&apos;Access-Control-Allow-Origin&apos;, &apos;*&apos;);</div><div class="line">    res.json(data);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//生成服务器对象 监听端口3000</div><div class="line">var server = app.listen(3000, function () &#123;</div><div class="line">    var host = server.address().address;</div><div class="line">    var port = server.address().port;</div><div class="line"></div><div class="line">    console.log(&apos;Example app listening at http://%s:%s&apos;, host, port);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2017/10/27/propertyManagementSummary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -590,7 +722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
