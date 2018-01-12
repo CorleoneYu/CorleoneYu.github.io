@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2017/11/15/mockAndExpress-1/">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/rule/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayu Lin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/15/mockAndExpress-1/" itemprop="url">mockAndExpress</a></h1>
+                <a class="post-title-link" href="/2018/01/12/rule/" itemprop="url">rule</a></h1>
         
 
         <div class="post-meta">
@@ -261,10 +261,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T23:09:09+08:00">
-                2017-11-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:52:28+08:00">
+                2018-01-12
               </time>
             
 
@@ -303,18 +303,174 @@
       
         
           
-            <h1 id="mockjs"><a href="#mockjs" class="headerlink" title="mockjs"></a>mockjs</h1><ol>
-<li>׼������<br>��װһ��mockjs<br>cmd –&gt; ������Ŀ·�� –&gt; npm install moockjs –save<br>����Ŀ�����ذ�װmockjs</li>
-<li>mockjs���飺mockjs��node module�µ�һ������<br>��Ҫ���������Լ��Զ���һ����������<br>Ȼ����һ��url<br>֮��ǰ�˻��������ط�����ȥ������url����������Ȼ����������<br>���鿴�ĵ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//����Mock����</div><div class="line">var Mock = require(&apos;mockjs&apos;);</div><div class="line">//Mock �����ض����͵����� ������ʵ��Ϊ�˸�layui ���Ը���layui������Ҫ������һЩ����</div><div class="line">var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;��˹��&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+            <h1 id="�����ĸ�ʽ��"><a href="#�����ĸ�ʽ��" class="headerlink" title="�����ĸ�ʽ��"></a>�����ĸ�ʽ��</h1><h2 id="����"><a href="#����" class="headerlink" title="����"></a>����</h2><blockquote>
+<p>����������ѧֻ�����������⣺����ʧ�ܺ�������������Phil Karlton</p>
+</blockquote>
+<h3 id="������С�շ壩"><a href="#������С�շ壩" class="headerlink" title="������С�շ壩"></a>������С�շ壩</h3><p>�Ƽ�д��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
+<p>���Ƽ�д�� ������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
+<p>�����ڱ����������ֳ��������ͣ��磺  </p>
+<ol>
+<li>count,length,size ����</li>
+<li>name,title,message �ַ���</li>
+<li>i,j,k ѭ������</li>
+</ol>
+<h3 id="����-1"><a href="#����-1" class="headerlink" title="����"></a>����</h3><p>��ȻES6֮ǰ��JSû�������ĳ������<br>���ǣ�Ϊ��������ͨ�ı�������������һ��ͨ�õ�����Լ������д��ĸ �»���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="�n���-������-��С�շ壩"><a href="#�n���-������-��С�շ壩" class="headerlink" title="(�ǹ���)������ ��С�շ壩"></a>(�ǹ���)������ ��С�շ壩</h3><p>�Ƽ�д��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>���Ƽ�д�� ������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>��һ������Ӧ���Ƕ��ʣ�����Լ�����£�</p>
+<ol>
+<li>can has is ��������ֵ��һ������ֵ</li>
+<li>get ��������һ���ǲ���ֵ</li>
+<li>set ������������һ��ֵ</li>
+</ol>
+<h3 id="���캯�������շ壩"><a href="#���캯�������շ壩" class="headerlink" title="���캯�������շ壩"></a>���캯�������շ壩</h3><p>��д��ĸ��ͷ��Ϊ�����ֹ��캯������ͨ������<br>�Ƽ�����<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="�ַ���"><a href="#�ַ���" class="headerlink" title="�ַ���"></a>�ַ���</h3><p>ʹ��˫������ס�ַ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//���������ַ����ķ�ʽ</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
+<h2 id="ֱ����"><a href="#ֱ����" class="headerlink" title="ֱ����"></a>ֱ����</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="�����г�����ʹ�a�"><a href="#�����г�����ʹ�a�" class="headerlink" title="�����г�����ʹ�ã�"></a>�����г�����ʹ�ã�</h4><ol>
+<li>������ʼ��һ��������������������֮�����ܸ�ֵΪһ������</li>
+<li>������һ���Ѿ���ʼ���ı����Ƚϡ�</li>
+<li>���������������Ƕ���ʱ��������������</li>
+<li>����������ֵ�����Ƕ���ʱ����������ֵ������<br>�Ƽ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//������ʼ��һ��������������������֮�����ܸ�ֵΪһ������</div><div class="line">var person = null��</div><div class="line"></div><div class="line">//����������ֵ�����Ƕ���ʱ����������ֵ������</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//������һ���Ѿ���ʼ���ı����Ƚϡ�</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>��һ��ʹ�÷�ʽ<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://mockjs.com/dist/mock.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>��HTML��������<br>ֱ�ӾͿ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var mockData =  Mock.mock(&#123;</div><div class="line">    &apos;cakyData|5&apos;: [&#123;</div><div class="line">        &apos;value&apos;: &apos;@integer(10, 100)&apos;,</div><div class="line">        &apos;name&apos;: &apos;@cname()&apos;</div><div class="line">        &#125;],</div><div class="line">    &apos;broken_lineData|5&apos;: [&#123;</div><div class="line">        &apos;name&apos;: &apos;@cname()&apos;,</div><div class="line">        &apos;type&apos;: &apos;line&apos;,</div><div class="line">        &apos;stack&apos;: &apos;����&apos;,</div><div class="line">        &apos;data&apos;: [</div><div class="line">           &apos;@integer(60, 100)&apos;,</div><div class="line">           &apos;@integer(80, 120)&apos;,</div><div class="line">           &apos;@integer(60, 140)&apos;,</div><div class="line">           &apos;@integer(60, 160)&apos;,</div><div class="line">           &apos;@integer(60, 180)&apos;,</div><div class="line">           &apos;@integer(60, 200)&apos;,</div><div class="line">           &apos;@integer(60, 100)&apos;</div><div class="line">        ]</div><div class="line">    &#125;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><ol>
-<li>׼������<br>��װһ��express<br>cmd –&gt; ������Ŀ·�� –&gt; npm install express –save<br>ͬ��������Ŀ�а�װexpress  </li>
-<li>express���飺 express��node module �µ�һ���齨<br>��������Ҫ��������һ��·�ɹ���<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">//����Mock express�Ķ���</div><div class="line">var Mock = require(&apos;mockjs&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">//app��Ӧ��get����</div><div class="line">app.get(&apos;/api/tableData&apos;, function(req, res) &#123;</div><div class="line"></div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;��˹��&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div><div class="line">    </div><div class="line">    res.header(&apos;Access-Control-Allow-Origin&apos;, &apos;*&apos;);</div><div class="line">    </div><div class="line">    //express����mock���ɵ�����</div><div class="line">    res.json(data);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.post(&apos;/api/tableData&apos;, function(req, res) &#123;</div><div class="line"></div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">            &apos;code&apos;:0,</div><div class="line">            &apos;msg&apos;: &apos;nothing&apos;,</div><div class="line">            &apos;count&apos;: 1000,</div><div class="line">            &apos;data|1-1000&apos;: [&#123;</div><div class="line">                &apos;name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_name&apos;: &apos;@character&apos;,</div><div class="line">                &apos;contact_phone&apos;: &apos;18588557892&apos;,</div><div class="line">                &apos;create_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;update_time&apos;: &apos;@DATETIME&apos;,</div><div class="line">                &apos;status_data&apos;: &apos;��˹��&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;);</div><div class="line">    res.header(&apos;Access-Control-Allow-Origin&apos;, &apos;*&apos;);</div><div class="line">    res.json(data);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//���ɷ��������� �����˿�3000</div><div class="line">var server = app.listen(3000, function () &#123;</div><div class="line">    var host = server.address().address;</div><div class="line">    var port = server.address().port;</div><div class="line"></div><div class="line">    console.log(&apos;Example app listening at http://%s:%s&apos;, host, port);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+<h4 id="�����г����в�Ӧ��ʹ��null"><a href="#�����г����в�Ӧ��ʹ��null" class="headerlink" title="�����г����в�Ӧ��ʹ��null"></a>�����г����в�Ӧ��ʹ��null</h4><ol>
+<li>��Ҫʹ��null�������Ƿ�������ĳ������</li>
+<li>��Ҫʹ��null������һ��δ��ʼ���ı���<br>���Ƽ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//��Ҫ��δ��ʼ���ı����Ƚ�</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//��Ҫ���������Ƿ������˲��� </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
+<h3 id="����ֱ����"><a href="#����ֱ����" class="headerlink" title="����ֱ����"></a>����ֱ����</h3><p>�����еķ�ʽ��ʹ�ö���ֱ������������������ֱ������ֱ��д�����е����ԡ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>�෴�� ��Ҫʹ��������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="����ֱ����-1"><a href="#����ֱ����-1" class="headerlink" title="����ֱ����"></a>����ֱ����</h3><p>�Ƽ�������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
+<p>�෴�ģ���Ҫʹ��Array���캯��������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="ע��"><a href="#ע��" class="headerlink" title="ע��"></a>ע��</h1>
+          
+        
+      
+    </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/wxBUGs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayu Lin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林大羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/12/wxBUGs/" itemprop="url">wxBUGs</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:45:18+08:00">
+                2018-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="΢��С�����ĸ���BUG"><a href="#΢��С�����ĸ���BUG" class="headerlink" title="΢��С�����ĸ���BUG"></a>΢��С�����ĸ���BUG</h1><h2 id="tabBar�������޷���ת"><a href="#tabBar�������޷���ת" class="headerlink" title="tabBar�������޷���ת"></a>tabBar�������޷���ת</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">app.json�ļ���</div><div class="line">&#123;</div><div class="line">  ......</div><div class="line">  &quot;tabBar&quot;: &#123;</div><div class="line">    &quot;list&quot;: [</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/index/index&quot;,</div><div class="line">        &quot;text&quot;: &quot;��ҳ&quot;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</div><div class="line">        &quot;text&quot;: &quot;����&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">index.wxml�ļ���</div><div class="line"> &lt;!-- &lt;navigator&gt;������a��ǩ </div><div class="line">redirect�Լ�navgatorTo���ֲ�ͬ����ת</div><div class="line">redirect��ж�ص�ǰҳ�� --&gt;</div><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;�ı�һ&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
+<p>ԭ�򣺲�ѯ�����ĵ���������֮������:������ȫ��app.json��������tabBar�����õ�������wx.navigateToҳ����תurl��ַ��ͬ���޷�ʵ����ת��</p>
+<hr>
+<p>��Ȼ�漰��ת���Ǿ���˵˵��ת�ķ�ʽ��</p>
+<h3 id="ʵ����ת�l��ַ�ʽ"><a href="#ʵ����ת�l��ַ�ʽ" class="headerlink" title="ʵ����ת�ļ��ַ�ʽ"></a>ʵ����ת�ļ��ַ�ʽ</h3><h4 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;�ı�һ&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
+<p>navigator�൱��a��ǩ ע����������<strong>url</strong></p>
+<h4 id="wx-navigateTo����"><a href="#wx-navigateTo����" class="headerlink" title="wx.navigateTo����"></a>wx.navigateTo����</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bitemClick: function() &#123;</div><div class="line">   wx.navigateTo(&#123;</div><div class="line">      url: &apos;../logs/logs?id=1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>��ת֮����ж��ҳ��</p>
+<h4 id="wx-redirectTo����"><a href="#wx-redirectTo����" class="headerlink" title="wx.redirectTo����"></a>wx.redirectTo����</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ҳ���滻����һ��ҳ��</div><div class="line"> * ��������ǰҳ����onHide </div><div class="line"> * ������onUnload</div><div class="line"> */</div><div class="line">// wx.redirectTo(&#123;</div><div class="line">//   url: &apos;../logs/logs&apos;,</div><div class="line">// &#125;)</div></pre></td></tr></table></figure>
+<h3 id="�޸�ҳ������-������һ��ֵ"><a href="#�޸�ҳ������-������һ��ֵ" class="headerlink" title="�޸�ҳ������ ������һ��ֵ"></a>�޸�ҳ������ ������һ��ֵ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">  /**</div><div class="line">   * ҳ���ĳ�ʼ����</div><div class="line">   */</div><div class="line">  data: &#123;</div><div class="line">    schoolYear: &#123;</div><div class="line">      ary: [</div><div class="line">      &apos;2017-2018&apos;,</div><div class="line">      &apos;2018-2019&apos;</div><div class="line">      ],</div><div class="line"></div><div class="line">      index: 0</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">//����</div><div class="line">this.setData(&#123;</div><div class="line">      schoolYear.index: e.detail.value</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">//��ȷд��</div><div class="line">this.setData(&#123;</div><div class="line">      &quot;schoolYear.index&quot;: e.detail.value</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
           
         
       
@@ -391,7 +547,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-27T00:01:54+08:00">
                 2017-10-27
@@ -584,7 +740,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-10T14:31:42+08:00">
                 2017-10-10
@@ -720,8 +876,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -763,7 +919,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -773,7 +929,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
