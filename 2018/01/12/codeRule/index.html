@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="codeRule">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/01/12/codeRule/index.html">
+<meta property="og:site_name" content="林大羽">
+<meta property="og:description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-12T09:56:39.924Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="codeRule">
+<meta name="twitter:description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://corleoneyu.github.io/2018/01/12/codeRule/"/>
+
+
+
+
+
+  <title>codeRule | 林大羽</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">林大羽</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个有味道的大帅逼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/codeRule/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dayu Lin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林大羽">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">codeRule</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:56:14+08:00">
+                2018-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基本的格式化"><a href="#基本的格式化" class="headerlink" title="基本的格式化"></a>基本的格式化</h1><h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><blockquote>
+<p>“计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton</p>
+</blockquote>
+<h3 id="变量（小驼峰）"><a href="#变量（小驼峰）" class="headerlink" title="变量（小驼峰）"></a>变量（小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
+<p>尽量在变量名中体现出数据类型，如：  </p>
+<ol>
+<li>count,length,size 数字</li>
+<li>name,title,message 字符串</li>
+<li>i,j,k 循环迭代</li>
+</ol>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>虽然ES6之前，JS没有真正的常量概念。<br>但是，为了区分普通的变量、常量，有一种通用的命名约定：大写字母 下划线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="非构造-函数名-（小驼峰）"><a href="#非构造-函数名-（小驼峰）" class="headerlink" title="(非构造)函数名 （小驼峰）"></a>(非构造)函数名 （小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个单词应该是动词，常见约定如下：</p>
+<ol>
+<li>can has is 函数返回值是一个布尔值</li>
+<li>get 函数返回一个非布尔值</li>
+<li>set 函数用来保存一个值</li>
+</ol>
+<h3 id="构造函数（大驼峰）"><a href="#构造函数（大驼峰）" class="headerlink" title="构造函数（大驼峰）"></a>构造函数（大驼峰）</h3><p>大写字母开头（为了区分构造函数和普通函数）<br>推荐做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用双引号括住字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//创建多行字符串的方式</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
+<h2 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="在下列场景中使用："><a href="#在下列场景中使用：" class="headerlink" title="在下列场景中使用："></a>在下列场景中使用：</h4><ol>
+<li>用来初始化一个变量，表明这个变量之后可能赋值为一个对象</li>
+<li>用来和一个已经初始化的变量比较。</li>
+<li>当函数参数期望是对象时，用作参数传入</li>
+<li>当函数返回值期望是对象时，用作返回值传出。<br>推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//用来初始化一个变量，表明这个变量之后可能赋值为一个对象</div><div class="line">var person = null；</div><div class="line"></div><div class="line">//当函数返回值期望是对象时，用作返回值传出。</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//用来和一个已经初始化的变量比较。</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="在下列场景中不应当使用null"><a href="#在下列场景中不应当使用null" class="headerlink" title="在下列场景中不应当使用null"></a>在下列场景中不应当使用null</h4><ol>
+<li>不要使用null来检测是否传入了某个参数</li>
+<li>不要使用null来检测一个未初始化的变量<br>不推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//不要和未初始化的变量比较</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//不要用来检测是否传入了参数 </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h3><p>最流行的方式是使用对象直接量来创建对象，在直接量中直接写出所有的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>相反的 不要使用下面这种做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="数组直接量"><a href="#数组直接量" class="headerlink" title="数组直接量"></a>数组直接量</h3><p>推荐的做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
+<p>相反的，不要使用Array构造函数来创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/27/propertyManagementSummary/" rel="next" title="propertyManagementSummary">
+                <i class="fa fa-chevron-left"></i> propertyManagementSummary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Dayu Lin" />
+            
+              <p class="site-author-name" itemprop="name">Dayu Lin</p>
+              <p class="site-description motion-element" itemprop="description">没错我就是梁朝伟</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本的格式化"><span class="nav-number">1.</span> <span class="nav-text">基本的格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名"><span class="nav-number">1.1.</span> <span class="nav-text">命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量（小驼峰）"><span class="nav-number">1.1.1.</span> <span class="nav-text">变量（小驼峰）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">1.1.2.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非构造-函数名-（小驼峰）"><span class="nav-number">1.1.3.</span> <span class="nav-text">(非构造)函数名 （小驼峰）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数（大驼峰）"><span class="nav-number">1.1.4.</span> <span class="nav-text">构造函数（大驼峰）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">1.1.5.</span> <span class="nav-text">字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接量"><span class="nav-number">1.2.</span> <span class="nav-text">直接量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.1.</span> <span class="nav-text">null</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在下列场景中使用："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">在下列场景中使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在下列场景中不应当使用null"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">在下列场景中不应当使用null</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象直接量"><span class="nav-number">1.2.2.</span> <span class="nav-text">对象直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组直接量"><span class="nav-number">1.2.3.</span> <span class="nav-text">数组直接量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dayu Lin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

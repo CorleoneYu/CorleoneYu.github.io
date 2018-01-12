@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/rule/">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/codeRule/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayu Lin">
@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/12/rule/" itemprop="url">rule</a></h1>
+                <a class="post-title-link" href="/2018/01/12/codeRule/" itemprop="url">codeRule</a></h1>
         
 
         <div class="post-meta">
@@ -263,7 +263,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:52:28+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:56:14+08:00">
                 2018-01-12
               </time>
             
@@ -303,174 +303,46 @@
       
         
           
-            <h1 id="�����ĸ�ʽ��"><a href="#�����ĸ�ʽ��" class="headerlink" title="�����ĸ�ʽ��"></a>�����ĸ�ʽ��</h1><h2 id="����"><a href="#����" class="headerlink" title="����"></a>����</h2><blockquote>
-<p>����������ѧֻ�����������⣺����ʧ�ܺ�������������Phil Karlton</p>
+            <h1 id="基本的格式化"><a href="#基本的格式化" class="headerlink" title="基本的格式化"></a>基本的格式化</h1><h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><blockquote>
+<p>“计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton</p>
 </blockquote>
-<h3 id="������С�շ壩"><a href="#������С�շ壩" class="headerlink" title="������С�շ壩"></a>������С�շ壩</h3><p>�Ƽ�д��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
-<p>���Ƽ�д�� ������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
-<p>�����ڱ����������ֳ��������ͣ��磺  </p>
+<h3 id="变量（小驼峰）"><a href="#变量（小驼峰）" class="headerlink" title="变量（小驼峰）"></a>变量（小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
+<p>尽量在变量名中体现出数据类型，如：  </p>
 <ol>
-<li>count,length,size ����</li>
-<li>name,title,message �ַ���</li>
-<li>i,j,k ѭ������</li>
+<li>count,length,size 数字</li>
+<li>name,title,message 字符串</li>
+<li>i,j,k 循环迭代</li>
 </ol>
-<h3 id="����-1"><a href="#����-1" class="headerlink" title="����"></a>����</h3><p>��ȻES6֮ǰ��JSû�������ĳ������<br>���ǣ�Ϊ��������ͨ�ı�������������һ��ͨ�õ�����Լ������д��ĸ �»���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="�n���-������-��С�շ壩"><a href="#�n���-������-��С�շ壩" class="headerlink" title="(�ǹ���)������ ��С�շ壩"></a>(�ǹ���)������ ��С�շ壩</h3><p>�Ƽ�д��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>���Ƽ�д�� ������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>��һ������Ӧ���Ƕ��ʣ�����Լ�����£�</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>虽然ES6之前，JS没有真正的常量概念。<br>但是，为了区分普通的变量、常量，有一种通用的命名约定：大写字母 下划线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="非构造-函数名-（小驼峰）"><a href="#非构造-函数名-（小驼峰）" class="headerlink" title="(非构造)函数名 （小驼峰）"></a>(非构造)函数名 （小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个单词应该是动词，常见约定如下：</p>
 <ol>
-<li>can has is ��������ֵ��һ������ֵ</li>
-<li>get ��������һ���ǲ���ֵ</li>
-<li>set ������������һ��ֵ</li>
+<li>can has is 函数返回值是一个布尔值</li>
+<li>get 函数返回一个非布尔值</li>
+<li>set 函数用来保存一个值</li>
 </ol>
-<h3 id="���캯�������շ壩"><a href="#���캯�������շ壩" class="headerlink" title="���캯�������շ壩"></a>���캯�������շ壩</h3><p>��д��ĸ��ͷ��Ϊ�����ֹ��캯������ͨ������<br>�Ƽ�����<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="�ַ���"><a href="#�ַ���" class="headerlink" title="�ַ���"></a>�ַ���</h3><p>ʹ��˫������ס�ַ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//���������ַ����ķ�ʽ</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
-<h2 id="ֱ����"><a href="#ֱ����" class="headerlink" title="ֱ����"></a>ֱ����</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="�����г�����ʹ�a�"><a href="#�����г�����ʹ�a�" class="headerlink" title="�����г�����ʹ�ã�"></a>�����г�����ʹ�ã�</h4><ol>
-<li>������ʼ��һ��������������������֮�����ܸ�ֵΪһ������</li>
-<li>������һ���Ѿ���ʼ���ı����Ƚϡ�</li>
-<li>���������������Ƕ���ʱ��������������</li>
-<li>����������ֵ�����Ƕ���ʱ����������ֵ������<br>�Ƽ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//������ʼ��һ��������������������֮�����ܸ�ֵΪһ������</div><div class="line">var person = null��</div><div class="line"></div><div class="line">//����������ֵ�����Ƕ���ʱ����������ֵ������</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//������һ���Ѿ���ʼ���ı����Ƚϡ�</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="构造函数（大驼峰）"><a href="#构造函数（大驼峰）" class="headerlink" title="构造函数（大驼峰）"></a>构造函数（大驼峰）</h3><p>大写字母开头（为了区分构造函数和普通函数）<br>推荐做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用双引号括住字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//创建多行字符串的方式</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
+<h2 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="在下列场景中使用："><a href="#在下列场景中使用：" class="headerlink" title="在下列场景中使用："></a>在下列场景中使用：</h4><ol>
+<li>用来初始化一个变量，表明这个变量之后可能赋值为一个对象</li>
+<li>用来和一个已经初始化的变量比较。</li>
+<li>当函数参数期望是对象时，用作参数传入</li>
+<li>当函数返回值期望是对象时，用作返回值传出。<br>推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//用来初始化一个变量，表明这个变量之后可能赋值为一个对象</div><div class="line">var person = null；</div><div class="line"></div><div class="line">//当函数返回值期望是对象时，用作返回值传出。</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//用来和一个已经初始化的变量比较。</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="�����г����в�Ӧ��ʹ��null"><a href="#�����г����в�Ӧ��ʹ��null" class="headerlink" title="�����г����в�Ӧ��ʹ��null"></a>�����г����в�Ӧ��ʹ��null</h4><ol>
-<li>��Ҫʹ��null�������Ƿ�������ĳ������</li>
-<li>��Ҫʹ��null������һ��δ��ʼ���ı���<br>���Ƽ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//��Ҫ��δ��ʼ���ı����Ƚ�</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//��Ҫ���������Ƿ������˲��� </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="在下列场景中不应当使用null"><a href="#在下列场景中不应当使用null" class="headerlink" title="在下列场景中不应当使用null"></a>在下列场景中不应当使用null</h4><ol>
+<li>不要使用null来检测是否传入了某个参数</li>
+<li>不要使用null来检测一个未初始化的变量<br>不推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//不要和未初始化的变量比较</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//不要用来检测是否传入了参数 </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="����ֱ����"><a href="#����ֱ����" class="headerlink" title="����ֱ����"></a>����ֱ����</h3><p>�����еķ�ʽ��ʹ�ö���ֱ������������������ֱ������ֱ��д�����е����ԡ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>�෴�� ��Ҫʹ��������������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="����ֱ����-1"><a href="#����ֱ����-1" class="headerlink" title="����ֱ����"></a>����ֱ����</h3><p>�Ƽ�������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
-<p>�෴�ģ���Ҫʹ��Array���캯��������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h3><p>最流行的方式是使用对象直接量来创建对象，在直接量中直接写出所有的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>相反的 不要使用下面这种做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="数组直接量"><a href="#数组直接量" class="headerlink" title="数组直接量"></a>数组直接量</h3><p>推荐的做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
+<p>相反的，不要使用Array构造函数来创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
 <hr>
-<h1 id="ע��"><a href="#ע��" class="headerlink" title="ע��"></a>ע��</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/wxBUGs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dayu Lin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林大羽">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/12/wxBUGs/" itemprop="url">wxBUGs</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:45:18+08:00">
-                2018-01-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="΢��С�����ĸ���BUG"><a href="#΢��С�����ĸ���BUG" class="headerlink" title="΢��С�����ĸ���BUG"></a>΢��С�����ĸ���BUG</h1><h2 id="tabBar�������޷���ת"><a href="#tabBar�������޷���ת" class="headerlink" title="tabBar�������޷���ת"></a>tabBar�������޷���ת</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">app.json�ļ���</div><div class="line">&#123;</div><div class="line">  ......</div><div class="line">  &quot;tabBar&quot;: &#123;</div><div class="line">    &quot;list&quot;: [</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/index/index&quot;,</div><div class="line">        &quot;text&quot;: &quot;��ҳ&quot;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</div><div class="line">        &quot;text&quot;: &quot;����&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">index.wxml�ļ���</div><div class="line"> &lt;!-- &lt;navigator&gt;������a��ǩ </div><div class="line">redirect�Լ�navgatorTo���ֲ�ͬ����ת</div><div class="line">redirect��ж�ص�ǰҳ�� --&gt;</div><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;�ı�һ&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
-<p>ԭ�򣺲�ѯ�����ĵ���������֮������:������ȫ��app.json��������tabBar�����õ�������wx.navigateToҳ����תurl��ַ��ͬ���޷�ʵ����ת��</p>
-<hr>
-<p>��Ȼ�漰��ת���Ǿ���˵˵��ת�ķ�ʽ��</p>
-<h3 id="ʵ����ת�l��ַ�ʽ"><a href="#ʵ����ת�l��ַ�ʽ" class="headerlink" title="ʵ����ת�ļ��ַ�ʽ"></a>ʵ����ת�ļ��ַ�ʽ</h3><h4 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;�ı�һ&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
-<p>navigator�൱��a��ǩ ע����������<strong>url</strong></p>
-<h4 id="wx-navigateTo����"><a href="#wx-navigateTo����" class="headerlink" title="wx.navigateTo����"></a>wx.navigateTo����</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bitemClick: function() &#123;</div><div class="line">   wx.navigateTo(&#123;</div><div class="line">      url: &apos;../logs/logs?id=1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>��ת֮����ж��ҳ��</p>
-<h4 id="wx-redirectTo����"><a href="#wx-redirectTo����" class="headerlink" title="wx.redirectTo����"></a>wx.redirectTo����</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ҳ���滻����һ��ҳ��</div><div class="line"> * ��������ǰҳ����onHide </div><div class="line"> * ������onUnload</div><div class="line"> */</div><div class="line">// wx.redirectTo(&#123;</div><div class="line">//   url: &apos;../logs/logs&apos;,</div><div class="line">// &#125;)</div></pre></td></tr></table></figure>
-<h3 id="�޸�ҳ������-������һ��ֵ"><a href="#�޸�ҳ������-������һ��ֵ" class="headerlink" title="�޸�ҳ������ ������һ��ֵ"></a>�޸�ҳ������ ������һ��ֵ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">  /**</div><div class="line">   * ҳ���ĳ�ʼ����</div><div class="line">   */</div><div class="line">  data: &#123;</div><div class="line">    schoolYear: &#123;</div><div class="line">      ary: [</div><div class="line">      &apos;2017-2018&apos;,</div><div class="line">      &apos;2018-2019&apos;</div><div class="line">      ],</div><div class="line"></div><div class="line">      index: 0</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">//����</div><div class="line">this.setData(&#123;</div><div class="line">      schoolYear.index: e.detail.value</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">//��ȷд��</div><div class="line">this.setData(&#123;</div><div class="line">      &quot;schoolYear.index&quot;: e.detail.value</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1>
           
         
       
@@ -876,7 +748,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
