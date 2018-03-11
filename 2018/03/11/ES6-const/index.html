@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="es6," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="微信小程序的各种BUGtabBar带来的无法跳转12345678910111213141516171819202122232425app.json文件：&amp;#123;  ......  &amp;quot;tabBar&amp;quot;: &amp;#123;    &amp;quot;list&amp;quot;: [      &amp;#123;        &amp;quot;pagePath&amp;quot;: &amp;quot;pages/index">
+<meta name="description" content="const1.不可修改1234&amp;#123;    const Name = &amp;apos;张三&amp;apos;;    //Name = &amp;apos;李四&amp;apos;; //错误 企图修改常量const Assignment to constant variable.&amp;#125; 2.只在块级作用域生效1234&amp;#123;    const Person = &amp;apos;李四&amp;apos;;&amp;#125;/">
+<meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="youmeng_mini_summary">
-<meta property="og:url" content="https://corleoneyu.github.io/2018/01/12/youmeng-mini-summary/index.html">
+<meta property="og:title" content="ES6--const">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/03/11/ES6-const/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="微信小程序的各种BUGtabBar带来的无法跳转12345678910111213141516171819202122232425app.json文件：&amp;#123;  ......  &amp;quot;tabBar&amp;quot;: &amp;#123;    &amp;quot;list&amp;quot;: [      &amp;#123;        &amp;quot;pagePath&amp;quot;: &amp;quot;pages/index">
+<meta property="og:description" content="const1.不可修改1234&amp;#123;    const Name = &amp;apos;张三&amp;apos;;    //Name = &amp;apos;李四&amp;apos;; //错误 企图修改常量const Assignment to constant variable.&amp;#125; 2.只在块级作用域生效1234&amp;#123;    const Person = &amp;apos;李四&amp;apos;;&amp;#125;/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-12T10:00:03.378Z">
+<meta property="og:updated_time" content="2018-03-11T14:20:21.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="youmeng_mini_summary">
-<meta name="twitter:description" content="微信小程序的各种BUGtabBar带来的无法跳转12345678910111213141516171819202122232425app.json文件：&amp;#123;  ......  &amp;quot;tabBar&amp;quot;: &amp;#123;    &amp;quot;list&amp;quot;: [      &amp;#123;        &amp;quot;pagePath&amp;quot;: &amp;quot;pages/index">
+<meta name="twitter:title" content="ES6--const">
+<meta name="twitter:description" content="const1.不可修改1234&amp;#123;    const Name = &amp;apos;张三&amp;apos;;    //Name = &amp;apos;李四&amp;apos;; //错误 企图修改常量const Assignment to constant variable.&amp;#125; 2.只在块级作用域生效1234&amp;#123;    const Person = &amp;apos;李四&amp;apos;;&amp;#125;/">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://corleoneyu.github.io/2018/01/12/youmeng-mini-summary/"/>
+  <link rel="canonical" href="https://corleoneyu.github.io/2018/03/11/ES6-const/"/>
 
 
 
 
 
-  <title>youmeng_mini_summary | 林大羽</title>
+  <title>ES6--const | 林大羽</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/01/12/youmeng-mini-summary/">
+    <link itemprop="mainEntityOfPage" href="https://corleoneyu.github.io/2018/03/11/ES6-const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dayu Lin">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">youmeng_mini_summary</h1>
+          <h1 class="post-title" itemprop="name headline">ES6--const</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T17:59:36+08:00">
-                2018-01-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T22:18:40+08:00">
+                2018-03-11
               </time>
             
 
@@ -299,16 +300,12 @@
       
 
       
-        <h1 id="微信小程序的各种BUG"><a href="#微信小程序的各种BUG" class="headerlink" title="微信小程序的各种BUG"></a>微信小程序的各种BUG</h1><h2 id="tabBar带来的无法跳转"><a href="#tabBar带来的无法跳转" class="headerlink" title="tabBar带来的无法跳转"></a>tabBar带来的无法跳转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">app.json文件：</div><div class="line">&#123;</div><div class="line">  ......</div><div class="line">  &quot;tabBar&quot;: &#123;</div><div class="line">    &quot;list&quot;: [</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/index/index&quot;,</div><div class="line">        &quot;text&quot;: &quot;首页&quot;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</div><div class="line">        &quot;text&quot;: &quot;详情&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">index.wxml文件：</div><div class="line"> &lt;!-- &lt;navigator&gt;类似于a标签 </div><div class="line">redirect以及navgatorTo两种不同的跳转</div><div class="line">redirect会卸载当前页面 --&gt;</div><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;文本一&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
-<p>原因：查询各类文档发现问题之处在于:若是在全局app.json中配置了tabBar，引用的链接与wx.navigateTo页面跳转url地址相同就无法实现跳转。</p>
-<hr>
-<p>既然涉及跳转，那就来说说跳转的方式。</p>
-<h3 id="实现跳转的几种方式"><a href="#实现跳转的几种方式" class="headerlink" title="实现跳转的几种方式"></a>实现跳转的几种方式</h3><h4 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;文本一&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
-<p>navigator相当于a标签 注意参数是是<strong>url</strong></p>
-<h4 id="wx-navigateTo方法"><a href="#wx-navigateTo方法" class="headerlink" title="wx.navigateTo方法"></a>wx.navigateTo方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bitemClick: function() &#123;</div><div class="line">   wx.navigateTo(&#123;</div><div class="line">      url: &apos;../logs/logs?id=1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>跳转之后不卸载页面</p>
-<h4 id="wx-redirectTo方法"><a href="#wx-redirectTo方法" class="headerlink" title="wx.redirectTo方法"></a>wx.redirectTo方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将页面替换成另一个页面</div><div class="line"> * 不触发当前页面的onHide </div><div class="line"> * 触发发onUnload</div><div class="line"> */</div><div class="line">// wx.redirectTo(&#123;</div><div class="line">//   url: &apos;../logs/logs&apos;,</div><div class="line">// &#125;)</div></pre></td></tr></table></figure>
-<h3 id="修改页面数据-对象的一个值"><a href="#修改页面数据-对象的一个值" class="headerlink" title="修改页面数据 对象的一个值"></a>修改页面数据 对象的一个值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">  /**</div><div class="line">   * 页面的初始数据</div><div class="line">   */</div><div class="line">  data: &#123;</div><div class="line">    schoolYear: &#123;</div><div class="line">      ary: [</div><div class="line">      &apos;2017-2018&apos;,</div><div class="line">      &apos;2018-2019&apos;</div><div class="line">      ],</div><div class="line"></div><div class="line">      index: 0</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">//报错</div><div class="line">this.setData(&#123;</div><div class="line">      schoolYear.index: e.detail.value</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">//正确写法</div><div class="line">this.setData(&#123;</div><div class="line">      &quot;schoolYear.index&quot;: e.detail.value</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+        <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="1-不可修改"><a href="#1-不可修改" class="headerlink" title="1.不可修改"></a>1.不可修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    const Name = &apos;张三&apos;;</div><div class="line">    //Name = &apos;李四&apos;; //错误 企图修改常量const Assignment to constant variable.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-只在块级作用域生效"><a href="#2-只在块级作用域生效" class="headerlink" title="2.只在块级作用域生效"></a>2.只在块级作用域生效</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    const Person = &apos;李四&apos;;</div><div class="line">&#125;</div><div class="line">// console.log(Person); //Person is not defined</div></pre></td></tr></table></figure>
+<h4 id="3-不存在变量提升-与let类似"><a href="#3-不存在变量提升-与let类似" class="headerlink" title="3.不存在变量提升 与let类似"></a>3.不存在变量提升 与let类似</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //console.log(Person);//Person is not defined</div><div class="line">    //const Person = &apos;李四&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-不可重复声明同一个变量-与let类似"><a href="#4-不可重复声明同一个变量-与let类似" class="headerlink" title="4.不可重复声明同一个变量 与let类似"></a>4.不可重复声明同一个变量 与let类似</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    var Name = &apos;张三&apos;;</div><div class="line">    //const Name = &apos;李四&apos;; // Identifier &apos;Name&apos; has already been declared</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-声明后必须赋值"><a href="#5-声明后必须赋值" class="headerlink" title="5.声明后必须赋值"></a>5.声明后必须赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //const Name; //Missing initializer in const declaration</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-常量是一个对象的情况"><a href="#6-常量是一个对象的情况" class="headerlink" title="6.常量是一个对象的情况"></a>6.常量是一个对象的情况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //6.1 改变地址（指针）所指向的对象的值无影响</div><div class="line">    //理解Person是一个地址</div><div class="line">    //改变Person.name以及添加age并不会改变Person的值</div><div class="line">    const Person  = &#123; &quot;name&quot;: &apos;张三&apos;&#125;;</div><div class="line">    Person.name = &apos;李四&apos;;</div><div class="line">    Person.age = 20;</div><div class="line">    console.log(Person); //&#123;name: &quot;李四&quot;, age: 20&#125;</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //6.2 改变地址（指针）会报错</div><div class="line">    const Person = &#123; &quot;name&quot;: &apos;张三&apos;&#125;;</div><div class="line">    //企图给常量Person赋新值（新地址）</div><div class="line">    //Person = &#123;&#125;;//Assignment to constant variable.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -323,6 +320,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/es6/" rel="tag"># es6</a>
+          
+        </div>
+      
 
       
       
@@ -332,8 +335,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/12/codeRule/" rel="next" title="codeRule">
-                <i class="fa fa-chevron-left"></i> codeRule
+              <a href="/2018/03/11/ES6-Destructuring/" rel="next" title="ES6--Destructuring">
+                <i class="fa fa-chevron-left"></i> ES6--Destructuring
               </a>
             
           </div>
@@ -341,10 +344,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/12/编写高质量代码/" rel="prev" title="编写高质量代码">
-                编写高质量代码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,7 +472,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小程序的各种BUG"><span class="nav-number">1.</span> <span class="nav-text">微信小程序的各种BUG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tabBar带来的无法跳转"><span class="nav-number">1.1.</span> <span class="nav-text">tabBar带来的无法跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现跳转的几种方式"><span class="nav-number">1.1.1.</span> <span class="nav-text">实现跳转的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#navigator"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-navigateTo方法"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">wx.navigateTo方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-redirectTo方法"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">wx.redirectTo方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改页面数据-对象的一个值"><span class="nav-number">1.1.2.</span> <span class="nav-text">修改页面数据 对象的一个值</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">1.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-不可修改"><span class="nav-number">1.1.</span> <span class="nav-text">1.不可修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-只在块级作用域生效"><span class="nav-number">1.2.</span> <span class="nav-text">2.只在块级作用域生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-不存在变量提升-与let类似"><span class="nav-number">1.3.</span> <span class="nav-text">3.不存在变量提升 与let类似</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-不可重复声明同一个变量-与let类似"><span class="nav-number">1.4.</span> <span class="nav-text">4.不可重复声明同一个变量 与let类似</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-声明后必须赋值"><span class="nav-number">1.5.</span> <span class="nav-text">5.声明后必须赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-常量是一个对象的情况"><span class="nav-number">1.6.</span> <span class="nav-text">6.常量是一个对象的情况</span></a></li></ol></li></ol></div>
             
 
           </div>
