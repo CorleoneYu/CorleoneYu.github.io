@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="es6," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="1. ��ͳ��ֵ1234567&amp;#123;    let arr = [1, 2, 3]; //��������ֵ�ֱ���ֵ������    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 �����Ľ⹹��ֵ1234&amp;#123;    let[a,b">
+<meta name="description" content="1. 传统赋值1234567&amp;#123;    let arr = [1, 2, 3]; //把数组的值分别赋值给变量    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 数组的解构赋值1234&amp;#123;    let[a,b,c] = [1, 2, 3">
+<meta name="keywords" content="es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6--Destructuring">
 <meta property="og:url" content="https://corleoneyu.github.io/2018/03/11/ES6-Destructuring/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="1. ��ͳ��ֵ1234567&amp;#123;    let arr = [1, 2, 3]; //��������ֵ�ֱ���ֵ������    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 �����Ľ⹹��ֵ1234&amp;#123;    let[a,b">
+<meta property="og:description" content="1. 传统赋值1234567&amp;#123;    let arr = [1, 2, 3]; //把数组的值分别赋值给变量    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 数组的解构赋值1234&amp;#123;    let[a,b,c] = [1, 2, 3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-11T13:52:08.755Z">
+<meta property="og:updated_time" content="2018-03-11T13:47:51.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6--Destructuring">
-<meta name="twitter:description" content="1. ��ͳ��ֵ1234567&amp;#123;    let arr = [1, 2, 3]; //��������ֵ�ֱ���ֵ������    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 �����Ľ⹹��ֵ1234&amp;#123;    let[a,b">
+<meta name="twitter:description" content="1. 传统赋值1234567&amp;#123;    let arr = [1, 2, 3]; //把数组的值分别赋值给变量    let a = arr[0];    let b = arr[1];    let c = arr[2];    console.log(a,b,c); //1,2,3&amp;#125; 2.1 数组的解构赋值1234&amp;#123;    let[a,b,c] = [1, 2, 3">
 
 
 
@@ -185,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -195,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -259,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T21:13:03+08:00">
                 2018-03-11
@@ -299,17 +300,17 @@
       
 
       
-        <h4 id="1-��ͳ��ֵ"><a href="#1-��ͳ��ֵ" class="headerlink" title="1. ��ͳ��ֵ"></a>1. ��ͳ��ֵ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1, 2, 3]; //��������ֵ�ֱ���ֵ������</div><div class="line">    let a = arr[0];</div><div class="line">    let b = arr[1];</div><div class="line">    let c = arr[2];</div><div class="line">    console.log(a,b,c); //1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-1-�����L⹹��ֵ"><a href="#2-1-�����L⹹��ֵ" class="headerlink" title="2.1 �����Ľ⹹��ֵ"></a>2.1 �����Ľ⹹��ֵ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c] = [1, 2, 3];</div><div class="line">    console.log(a,b,c);//1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-2-Ƕ��"><a href="#2-2-Ƕ��" class="headerlink" title="2.2 Ƕ��"></a>2.2 Ƕ��</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let [a, b, [c1, c2]] = [1, 2, [3.1, 3.2]];</div><div class="line">    console.log(a,b,c1,c2);//1 2 3.1 3.2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-3-����o�⹹"><a href="#2-3-����o�⹹" class="headerlink" title="2.3 ����ȫ�⹹"></a>2.3 ����ȫ�⹹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//��ֵ���ɹ� ֵΪundefined</div><div class="line">&#123;</div><div class="line">    let [a,b,c] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-4-�趨I��ֵ"><a href="#2-4-�趨I��ֵ" class="headerlink" title="2.4 �趨Ĭ��ֵ"></a>2.4 �趨Ĭ��ֵ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c=3] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="3-1-�����ĸ�ֵ�⹹"><a href="#3-1-�����ĸ�ֵ�⹹" class="headerlink" title="3.1 �����ĸ�ֵ�⹹"></a>3.1 �����ĸ�ֵ�⹹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//������Ҫ��������һ��</div><div class="line">&#123;</div><div class="line">    //��˳���޹�</div><div class="line">    let &#123;a,b,c&#125; = &#123;&quot;a&quot;:1, &quot;c&quot;:3, &quot;b&quot;:2&#125;;</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line"></div><div class="line">    //��һ������ֵ���ɹ�</div><div class="line">    let &#123; d &#125; = &#123;&quot;b&quot;: 2&#125;;</div><div class="line">    console.log(d); //undefined</div><div class="line"></div><div class="line">    //���� Ϊe��&quot;b&quot;��ֵ</div><div class="line">    let &#123; b:e&#125; = &#123; &quot;b&quot;:2 &#125;;</div><div class="line">    console.log(e); //2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="3-2-Ƕ��"><a href="#3-2-Ƕ��" class="headerlink" title="3.2 Ƕ��"></a>3.2 Ƕ��</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //a��ֵΪһ������</div><div class="line">    let &#123;a&#125; = &#123; &quot;a&quot;:&#123;&quot;b&quot;: 1&#125;&#125;;</div><div class="line">    console.log(a.b); //1</div><div class="line">    console.log(a); // object</div><div class="line"></div><div class="line">    //cΪһ���м�����֮�����ʲ�����</div><div class="line">    //Ϊd��ֵ</div><div class="line">    let &#123;c:&#123;d&#125;&#125; = &#123; &quot;c&quot;:&#123;d:1&#125; &#125;;</div><div class="line">    //console.log(c); //���� c is not defined</div><div class="line">    console.log(d); //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-��ֵ�⹹��Ӧ��-С����"><a href="#4-��ֵ�⹹��Ӧ��-С����" class="headerlink" title="4. ��ֵ�⹹��Ӧ�� С����"></a>4. ��ֵ�⹹��Ӧ�� С����</h4><h4 id="4-1-��������"><a href="#4-1-��������" class="headerlink" title="4.1 ��������"></a>4.1 ��������</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //��ͳ����</div><div class="line">    let x = 1, y =2;</div><div class="line">    let z = x;</div><div class="line">    x = y;</div><div class="line">    y = z;</div><div class="line">    console.log(x, y); //2, 1</div><div class="line"></div><div class="line">    //��ֵ�⹹</div><div class="line">    let a = 1, b =2;</div><div class="line">    [a,b] = [b, a];</div><div class="line">    console.log(a, b); //2, 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-2-��ȡ�����K�������ֵ"><a href="#4-2-��ȡ�����K�������ֵ" class="headerlink" title="4.2 ��ȡ�����Ķ�������ֵ"></a>4.2 ��ȡ�����Ķ�������ֵ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//һ�㺯��ֻ�ܷ���һ��ֵ</div><div class="line">//���ǿ���ͨ�����ض���ֵ���ɵĶ�����������</div><div class="line">//�ٽ⹹����</div><div class="line">&#123;</div><div class="line">    let demo = function() &#123;</div><div class="line">        return &#123;</div><div class="line">            &quot;name&quot;: &apos;����&apos;,</div><div class="line">            &quot;age&quot;: 18</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //������ȡ</div><div class="line">    let &#123;name, age&#125; = demo();</div><div class="line">    console.log(name, age);//���� 18</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-3���庯������"><a href="#4-3���庯������" class="headerlink" title="4.3���庯������"></a>4.3���庯������</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//ͨ������д�����ܷ�����ȡJSON��������Ҫ������</div><div class="line">//����Ҫ��ע��������</div><div class="line">&#123;</div><div class="line">    let demo = function(&#123;name, weight&#125;) &#123;</div><div class="line">        console.log(&quot;name: &quot;+ name);</div><div class="line">        console.log(&quot;weight: &quot; + weight);</div><div class="line">    &#125;</div><div class="line">    demo(&#123; name: &apos;����&apos;, weight: &apos;100kg&apos;, height: &apos;100cm&apos;&#125;); //name: ���� weight: 100kg</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-4-����������I��ֵ"><a href="#4-4-����������I��ֵ" class="headerlink" title="4.4 ����������Ĭ��ֵ"></a>4.4 ����������Ĭ��ֵ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //��ͳ���������жϸò����Ƿ�undefined</div><div class="line">    //��������û�� �ֶ���ֵ</div><div class="line">    let demo = function(a) &#123;</div><div class="line">        let name;</div><div class="line">        if( a === undefined) &#123;</div><div class="line">            name = &apos;����&apos;; //�趨Ĭ��ֵ</div><div class="line">        &#125; else &#123;</div><div class="line">            name = a;</div><div class="line">        &#125;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //�⹹��ֵ�ķ���</div><div class="line">    //ԭ���̳��� function(&#123;name=&quot;����&quot;&#125;)</div><div class="line">    //����������д�ͱ����� �Ҳ���name</div><div class="line">    let test = function(name=&quot;����&quot;) &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //demo �� test ������ͬ</div><div class="line">    demo(); //����</div><div class="line">    test(); //����</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h4 id="1-传统赋值"><a href="#1-传统赋值" class="headerlink" title="1. 传统赋值"></a>1. 传统赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1, 2, 3]; //把数组的值分别赋值给变量</div><div class="line">    let a = arr[0];</div><div class="line">    let b = arr[1];</div><div class="line">    let c = arr[2];</div><div class="line">    console.log(a,b,c); //1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-1-数组的解构赋值"><a href="#2-1-数组的解构赋值" class="headerlink" title="2.1 数组的解构赋值"></a>2.1 数组的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c] = [1, 2, 3];</div><div class="line">    console.log(a,b,c);//1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-2-嵌套"><a href="#2-2-嵌套" class="headerlink" title="2.2 嵌套"></a>2.2 嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let [a, b, [c1, c2]] = [1, 2, [3.1, 3.2]];</div><div class="line">    console.log(a,b,c1,c2);//1 2 3.1 3.2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-3-不完全解构"><a href="#2-3-不完全解构" class="headerlink" title="2.3 不完全解构"></a>2.3 不完全解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//赋值不成功 值为undefined</div><div class="line">&#123;</div><div class="line">    let [a,b,c] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-4-设定默认值"><a href="#2-4-设定默认值" class="headerlink" title="2.4 设定默认值"></a>2.4 设定默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c=3] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-1-对象的赋值解构"><a href="#3-1-对象的赋值解构" class="headerlink" title="3.1 对象的赋值解构"></a>3.1 对象的赋值解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//变量名要和属性名一致</div><div class="line">&#123;</div><div class="line">    //与顺序无关</div><div class="line">    let &#123;a,b,c&#125; = &#123;&quot;a&quot;:1, &quot;c&quot;:3, &quot;b&quot;:2&#125;;</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line"></div><div class="line">    //不一致则赋值不成功</div><div class="line">    let &#123; d &#125; = &#123;&quot;b&quot;: 2&#125;;</div><div class="line">    console.log(d); //undefined</div><div class="line"></div><div class="line">    //补救 为e赋&quot;b&quot;的值</div><div class="line">    let &#123; b:e&#125; = &#123; &quot;b&quot;:2 &#125;;</div><div class="line">    console.log(e); //2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-2-嵌套"><a href="#3-2-嵌套" class="headerlink" title="3.2 嵌套"></a>3.2 嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //a的值为一个对象</div><div class="line">    let &#123;a&#125; = &#123; &quot;a&quot;:&#123;&quot;b&quot;: 1&#125;&#125;;</div><div class="line">    console.log(a.b); //1</div><div class="line">    console.log(a); // object</div><div class="line"></div><div class="line">    //c为一个中间量，之后访问不到的</div><div class="line">    //为d赋值</div><div class="line">    let &#123;c:&#123;d&#125;&#125; = &#123; &quot;c&quot;:&#123;d:1&#125; &#125;;</div><div class="line">    //console.log(c); //报错 c is not defined</div><div class="line">    console.log(d); //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-赋值解构的应用-小技巧"><a href="#4-赋值解构的应用-小技巧" class="headerlink" title="4. 赋值解构的应用 小技巧"></a>4. 赋值解构的应用 小技巧</h4><h4 id="4-1-交换变量"><a href="#4-1-交换变量" class="headerlink" title="4.1 交换变量"></a>4.1 交换变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统做法</div><div class="line">    let x = 1, y =2;</div><div class="line">    let z = x;</div><div class="line">    x = y;</div><div class="line">    y = z;</div><div class="line">    console.log(x, y); //2, 1</div><div class="line"></div><div class="line">    //赋值解构</div><div class="line">    let a = 1, b =2;</div><div class="line">    [a,b] = [b, a];</div><div class="line">    console.log(a, b); //2, 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-2-提取函数的多个返回值"><a href="#4-2-提取函数的多个返回值" class="headerlink" title="4.2 提取函数的多个返回值"></a>4.2 提取函数的多个返回值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//一般函数只能返回一个值</div><div class="line">//我们可以通过返回多个值组成的对象或者数组</div><div class="line">//再解构出来</div><div class="line">&#123;</div><div class="line">    let demo = function() &#123;</div><div class="line">        return &#123;</div><div class="line">            &quot;name&quot;: &apos;张三&apos;,</div><div class="line">            &quot;age&quot;: 18</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //快速提取</div><div class="line">    let &#123;name, age&#125; = demo();</div><div class="line">    console.log(name, age);//张三 18</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-3定义函数参数"><a href="#4-3定义函数参数" class="headerlink" title="4.3定义函数参数"></a>4.3定义函数参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//通过这种写法，很方便提取JSON对象中想要的数据</div><div class="line">//不需要关注其他参数</div><div class="line">&#123;</div><div class="line">    let demo = function(&#123;name, weight&#125;) &#123;</div><div class="line">        console.log(&quot;name: &quot;+ name);</div><div class="line">        console.log(&quot;weight: &quot; + weight);</div><div class="line">    &#125;</div><div class="line">    demo(&#123; name: &apos;张三&apos;, weight: &apos;100kg&apos;, height: &apos;100cm&apos;&#125;); //name: 张三 weight: 100kg</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-4-函数参数的默认值"><a href="#4-4-函数参数的默认值" class="headerlink" title="4.4 函数参数的默认值"></a>4.4 函数参数的默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统方法：先判断该参数是否undefined</div><div class="line">    //是则代表没传 手动赋值</div><div class="line">    let demo = function(a) &#123;</div><div class="line">        let name;</div><div class="line">        if( a === undefined) &#123;</div><div class="line">            name = &apos;张三&apos;; //设定默认值</div><div class="line">        &#125; else &#123;</div><div class="line">            name = a;</div><div class="line">        &#125;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //解构赋值的方法</div><div class="line">    //原本教程是 function(&#123;name=&quot;张三&quot;&#125;)</div><div class="line">    //但是我这样写就报错了 找不到name</div><div class="line">    let test = function(name=&quot;张三&quot;) &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //demo 与 test 功能相同</div><div class="line">    demo(); //张三</div><div class="line">    test(); //张三</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -323,6 +324,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/es6/" rel="tag"># es6</a>
+          
+        </div>
       
 
       
@@ -395,10 +402,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -423,13 +430,22 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
             
 
           </nav>
@@ -461,7 +477,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-��ͳ��ֵ"><span class="nav-number">1.</span> <span class="nav-text">1. ��ͳ��ֵ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-�����L⹹��ֵ"><span class="nav-number">2.</span> <span class="nav-text">2.1 �����Ľ⹹��ֵ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Ƕ��"><span class="nav-number">3.</span> <span class="nav-text">2.2 Ƕ��</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-����o�⹹"><span class="nav-number">4.</span> <span class="nav-text">2.3 ����ȫ�⹹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-�趨I��ֵ"><span class="nav-number">5.</span> <span class="nav-text">2.4 �趨Ĭ��ֵ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-�����ĸ�ֵ�⹹"><span class="nav-number">6.</span> <span class="nav-text">3.1 �����ĸ�ֵ�⹹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Ƕ��"><span class="nav-number">7.</span> <span class="nav-text">3.2 Ƕ��</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-��ֵ�⹹��Ӧ��-С����"><span class="nav-number">8.</span> <span class="nav-text">4. ��ֵ�⹹��Ӧ�� С����</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-��������"><span class="nav-number">9.</span> <span class="nav-text">4.1 ��������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-��ȡ�����K�������ֵ"><span class="nav-number">10.</span> <span class="nav-text">4.2 ��ȡ�����Ķ�������ֵ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3���庯������"><span class="nav-number">11.</span> <span class="nav-text">4.3���庯������</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-����������I��ֵ"><span class="nav-number">12.</span> <span class="nav-text">4.4 ����������Ĭ��ֵ</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-传统赋值"><span class="nav-number">1.</span> <span class="nav-text">1. 传统赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-数组的解构赋值"><span class="nav-number">2.</span> <span class="nav-text">2.1 数组的解构赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-嵌套"><span class="nav-number">3.</span> <span class="nav-text">2.2 嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-不完全解构"><span class="nav-number">4.</span> <span class="nav-text">2.3 不完全解构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-设定默认值"><span class="nav-number">5.</span> <span class="nav-text">2.4 设定默认值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-对象的赋值解构"><span class="nav-number">6.</span> <span class="nav-text">3.1 对象的赋值解构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-嵌套"><span class="nav-number">7.</span> <span class="nav-text">3.2 嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-赋值解构的应用-小技巧"><span class="nav-number">8.</span> <span class="nav-text">4. 赋值解构的应用 小技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-交换变量"><span class="nav-number">9.</span> <span class="nav-text">4.1 交换变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-提取函数的多个返回值"><span class="nav-number">10.</span> <span class="nav-text">4.2 提取函数的多个返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3定义函数参数"><span class="nav-number">11.</span> <span class="nav-text">4.3定义函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-函数参数的默认值"><span class="nav-number">12.</span> <span class="nav-text">4.4 函数参数的默认值</span></a></li></ol></div>
             
 
           </div>
@@ -491,7 +507,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
