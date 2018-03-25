@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
   <title>vue-component-sliders | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图： .gif) 因为前前后后做了两种实现，第二">
+  <meta name="description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
 <meta name="keywords" content="vue component">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-component-sliders">
 <meta property="og:url" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图： .gif) 因为前前后后做了两种实现，第二">
+<meta property="og:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish(2">
+<meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish.gif">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/1.jpg">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/2.jpg">
-<meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish-1.0(1">
-<meta property="og:updated_time" content="2018-03-25T12:09:04.028Z">
+<meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish-1.0.gif">
+<meta property="og:updated_time" content="2018-03-25T12:16:53.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-component-sliders">
-<meta name="twitter:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图： .gif) 因为前前后后做了两种实现，第二">
-<meta name="twitter:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish(2">
+<meta name="twitter:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
+<meta name="twitter:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish.gif">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -200,7 +200,7 @@
 <p>说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。</p>
 </blockquote>
 <p>先上一下效果图：</p>
-<p><img src="/2018/03/25/vue-component-sliders/finish(2" alt="最终效果图">.gif)</p>
+<p><img src="/2018/03/25/vue-component-sliders/finish.gif" alt="最终效果图"></p>
 <p>因为前前后后做了两种实现，第二种是在第一种的基础上优化的（其实第一种没做完），所以分开来讲。</p>
 <h2 id="版本一"><a href="#版本一" class="headerlink" title="版本一"></a>版本一</h2><p>版本一的思路是按照掘金上的教程来的<br><a href="https://juejin.im/post/5aaf0907f265da23870e9fed" target="_blank" rel="external">这里贴一下教程地址 作者：limingru</a><br>侵联立删</p>
 <h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ol>
@@ -238,7 +238,7 @@
 </ol>
 <p>我刚开始这样写，直接报错<br>原因很简单，绑定类名的时候，如果类名带有-等，则需要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;dot&quot; :class=&quot;&#123;&apos;dot-active&apos;: cur == index&apos;&#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>在这里上个效果图：</p>
-<p><img src="/2018/03/25/vue-component-sliders/finish-1.0(1" alt="版本一效果图">.gif)<br>很明显可以看出，在最后一张继续点击向右，会很明显的反方向拉到第一张，根据原作者的解决思路，是要在从第五张啦，然后接下来是再拉向右是右边的第一张，（所以在html那里会有<br><figure class="highlight plain"><figcaption><span>:src</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">所以做到这里，我决定重新构建</div><div class="line"></div><div class="line">## 版本二</div><div class="line">### vue列表过渡</div><div class="line">![vue](vue-component-sliders\vue-2.0.gif)</div><div class="line">大家可以看到，这里的插入删除的时候，每个数字因为布局（某个元素插入或者删除导致位置变更）而产生的移动是可以做出动画效果的，这就给了我启发，我何不用这个特性来做图片轮播呢</div><div class="line"></div><div class="line">#### 踩坑实例</div><div class="line">模仿着官网demo</div></pre></td></tr></table></figure></p>
+<p><img src="/2018/03/25/vue-component-sliders/finish-1.0.gif" alt="版本一效果图"><br>很明显可以看出，在最后一张继续点击向右，会很明显的反方向拉到第一张，根据原作者的解决思路，是要在从第五张啦，然后接下来是再拉向右是右边的第一张，（所以在html那里会有<br><figure class="highlight plain"><figcaption><span>:src</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">所以做到这里，我决定重新构建</div><div class="line"></div><div class="line">## 版本二</div><div class="line">### vue列表过渡</div><div class="line">![vue](vue-component-sliders\vue-2.0.gif)</div><div class="line">大家可以看到，这里的插入删除的时候，每个数字因为布局（某个元素插入或者删除导致位置变更）而产生的移动是可以做出动画效果的，这就给了我启发，我何不用这个特性来做图片轮播呢</div><div class="line"></div><div class="line">#### 踩坑实例</div><div class="line">模仿着官网demo</div></pre></td></tr></table></figure></p>
 <p><head><br>    <meta charset="UTF-8"><br>    <title>测试</title><br>    <style><br>        .list-item {<br>          display: inline-block;<br>          margin-right: 10px;<br>        }<br>        .list-enter-active, .list-leave-active {<br>          transition: all 1s;<br>        }<br>        .list-enter, .list-leave-to<br>        /<em> .list-leave-active for below version 2.1.8 </em>/ {<br>          opacity: 0;<br>          transform: translateY(30px);<br>        }<br>        .list-move {<br>            transition: transform 1s;<br>        }</p>
 <pre><code>    .fade-enter-active, .fade-leave-active {
         transition: all 1s;
@@ -309,7 +309,7 @@
         }
     }
 })
-</code></pre><p></script><br></body><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">![效果图2](vue-component-sliders\vue-2.1(1).gif)</div><div class="line">可以看到，连续快速点击会造成节点过快删除而出现白色大块</div><div class="line">这个也很好解决，稍微节流一下</div><div class="line">这里值得注意的是：在使用setTimeout的时候this指针的指向问题</div><div class="line">这里使用箭头函数解决</div></pre></td></tr></table></figure></p>
+</code></pre><p></script><br></body><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">![效果图2](vue-component-sliders\vue-2.1.gif)</div><div class="line">可以看到，连续快速点击会造成节点过快删除而出现白色大块</div><div class="line">这个也很好解决，稍微节流一下</div><div class="line">这里值得注意的是：在使用setTimeout的时候this指针的指向问题</div><div class="line">这里使用箭头函数解决</div></pre></td></tr></table></figure></p>
 <p>//加锁<br>//1s后开锁<br>if( !this.lock ) return;<br>this.lock = false;<br>setTimeout(()=&gt;{<br>    this.lock = true;<br>},1000);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">至此，轮播图开发完毕</div><div class="line"></div><div class="line">### 等等，怎么还没完</div><div class="line">标题写的很清楚，这次是开发一个轮播图组件</div><div class="line">说到组件，vue给我们实现的机制非常便利，我们在封装东西的时候也十分简单</div></pre></td></tr></table></figure></p>
 <p>//slide.js<br>var sliders_component = {<br>    template:<br>    <code>&lt;div class=&quot;window&quot; &gt;
             &lt;transition-group name=&quot;fade&quot; class=&quot;container&quot; tag=&quot;ul&quot; &gt;
