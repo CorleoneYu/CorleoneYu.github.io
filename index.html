@@ -171,6 +171,278 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-component-sliders" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/25/vue-component-sliders/">vue-component-sliders</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/25/vue-component-sliders/" class="archive-article-date">
+  	<time datetime="2018-03-25T12:02:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。</p>
+</blockquote>
+<p>先上一下效果图：</p>
+<p><img src="/2018/03/25/vue-component-sliders/finish(2" alt="最终效果图">.gif)</p>
+<p>因为前前后后做了两种实现，第二种是在第一种的基础上优化的（其实第一种没做完），所以分开来讲。</p>
+<h2 id="版本一"><a href="#版本一" class="headerlink" title="版本一"></a>版本一</h2><p>版本一的思路是按照掘金上的教程来的<br><a href="https://juejin.im/post/5aaf0907f265da23870e9fed" target="_blank" rel="external">这里贴一下教程地址 作者：limingru</a><br>侵联立删</p>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ol>
+<li>在点击右侧箭头时，图片向左滑动到下一张；点击左侧箭头时，图片向右滑到下一张</li>
+<li>过渡效果，图片滑动</li>
+<li>小圆点指示当前图片（当前图片对应的小圆点有特殊样式）</li>
+<li>无限滚动，即在滚动到最后一张时，再点击下一张时会继续向左滑动到第一张</li>
+</ol>
+<h3 id="原理讲解"><a href="#原理讲解" class="headerlink" title="原理讲解"></a>原理讲解</h3><p>原理图<img src="/2018/03/25/vue-component-sliders/1.jpg" alt="原理图1"><br>    图中红线区域即是我们的视口（其他图片会被隐藏）。<br>这个轮播只展示5张图片，但是在它的首尾各还有两张图片，在图1前面放置了图5，在图5后面放置了图1。<br>之所以这么做，是为了做无限滚动。<br>无限滚动的原理在于：当整个图向左侧滚动到右边的图5时，会继续向前走到图1，在完全显示出图1后，会切换到最左边的图1。<br>这样，即使再向左侧滑动看到的就是图2了。<br>如下图：在最后的图1完成过渡完全显示出来后，再将整个列表瞬间向右拉到左侧的图1。<br>另一张边界图图5的滚动也是，不过方向相反。</p>
+<p><img src="/2018/03/25/vue-component-sliders/2.jpg" alt="原理图2"></p>
+<p>接下来，我们怎么实现移动呢？<br>其实很简单，我们只要改变我们的视口（如图红色框框）的样式，<br>比如说他的初始样式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform: translate3d(-888px, 0,0);</div></pre></td></tr></table></figure></p>
+<p>我们改变为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform: translate3d(0px, 0,0);</div></pre></td></tr></table></figure></p>
+<p>视口就向左移动一张图片的宽度了（这里图片宽度为888px）<br>然后，我们只要给左右按钮一个点击事件，点击的时候传递参数（移动距离，移动方向）<br>就可以移动视口</p>
+<h3 id="代码架构"><a href="#代码架构" class="headerlink" title="代码架构"></a>代码架构</h3><ol>
+<li>html架构<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;slide&quot;&gt;</div><div class="line">    &lt;!-- 视窗 --&gt;</div><div class="line">    &lt;div class=&quot;window&quot;&gt;</div><div class="line">        &lt;!-- 图片区域 --&gt;</div><div class="line">        &lt;ul class=&quot;container&quot;</div><div class="line">        :style=&quot;containerStyle&quot;&gt;</div><div class="line">            &lt;li&gt;&lt;img :src=&quot;sliders[sliders.length-1].img&quot; alt=&quot;&quot;&gt;&lt;/li&gt;</div><div class="line">            &lt;li v-for=&quot;(item, index) in sliders&quot;&gt;&lt;img :src=&quot;item.img&quot; alt=&quot;&quot;&gt;&lt;/li&gt;</div><div class="line">            &lt;li&gt;&lt;img :src=&quot;sliders[0].img&quot; alt=&quot;&quot;&gt;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line"></div><div class="line">        &lt;!-- 左右箭头 --&gt;</div><div class="line">        &lt;div class=&quot;direction&quot;&gt;</div><div class="line">            &lt;div @click=&quot;move(888,1)&quot; class=&quot;left-btn icon-box&quot;&gt;</div><div class="line">                &lt;i class=&quot;icon&quot;&gt;&amp;#xe617;&lt;/i&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div @click=&quot;move(888,-1)&quot; class=&quot;right-btn icon-box&quot;&gt;</div><div class="line">                &lt;i class=&quot;icon&quot;&gt;&amp;#xe616;&lt;/i&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line"></div><div class="line">        &lt;!-- 下面的小点 --&gt;</div><div class="line">        &lt;div class=&quot;dots-box&quot;&gt;</div><div class="line">            &lt;div v-for=&quot;(item,index) in sliders&quot;</div><div class="line">            class=&quot;dot&quot; :class=&quot;&#123;&apos;dot-active&apos;: cur == index&apos;&#125;&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script src=&quot;../vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;slide.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    let sliders = new Vue(&#123;</div><div class="line">        el: &apos;.slide&apos;,</div><div class="line">        data: &#123;</div><div class="line">            sliders: [</div><div class="line">            &#123;</div><div class="line">                img: &apos;imgs/0.jpg&apos;</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                img: &apos;imgs/1.jpg&apos;</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                img: &apos;imgs/2.jpg&apos;</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                img: &apos;imgs/3.jpg&apos;</div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                img: &apos;imgs/4.jpg&apos;</div><div class="line">            &#125;</div><div class="line">            ],</div><div class="line">            cur: 0,</div><div class="line">            distance: -888,</div><div class="line">        &#125;,</div><div class="line">        computed: &#123;</div><div class="line">            containerStyle() &#123;  //这里用了计算属性，用transform来移动整个图片列表</div><div class="line">                console.log(&apos;------change containerStyle-------&apos;);</div><div class="line">                  return &#123;</div><div class="line">                    transform:`translate3d($&#123;this.distance&#125;px, 0, 0)`</div><div class="line">                  &#125;</div><div class="line">                &#125;</div><div class="line">        &#125;,</div><div class="line">        methods: &#123;</div><div class="line">            move(offset, direction) &#123;</div><div class="line">                this.distance += offset * direction;</div><div class="line">                if( direction == 1) &#123;</div><div class="line">                    this.cur--;</div><div class="line">                &#125; else &#123;</div><div class="line">                    this.cur++;</div><div class="line">                &#125;</div><div class="line">                if(this.cur == 5 ) this.cur = 0;</div><div class="line">                if(this.cur == -1) this.cur = 4;</div><div class="line"></div><div class="line">                console.log(&apos;------set distance-------&apos;);</div><div class="line">                if (this.distance &lt; -4440) &#123;</div><div class="line">                    console.log(&apos;------set distance 4440to888-------&apos;);</div><div class="line">                    this.distance = -888;</div><div class="line">                &#125;</div><div class="line">                if (this.distance &gt; -888) &#123;</div><div class="line">                    console.log(&apos;------set distance 888to4440-------&apos;);</div><div class="line">                    this.distance = -4440;</div><div class="line"></div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>简单讲解下关键的布局要求：</p>
+<ol>
+<li>window会有一个overflow：hidden的样式，所以页面上其实是存在一排的图片，而我们只看得到视口位置的图片</li>
+<li>上面原理图所标志的红色框就是container，为了可以在初始时显示图一而不是图五，我们得给他一个transform: translate3d(${-图片宽度}px, 0, 0)的样式</li>
+<li>为了实现图片并排而不是挤下来，我们给container display:flex</li>
+<li>为了实现图片移动的时候有动画过渡，我们再给container transition: all .5s;</li>
+</ol>
+<h3 id="有关Vue的代码解释"><a href="#有关Vue的代码解释" class="headerlink" title="有关Vue的代码解释"></a>有关Vue的代码解释</h3><ol>
+<li><p>v-for指令，遍历在js中注册的data中的sliders数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li v-for=&quot;(item, index) in sliders&quot;&gt;&lt;img :src=&quot;item.img&quot; alt=&quot;&quot;&gt;&lt;/li&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>@click绑定事件,给元素绑定move()这个事件，事件在Vue实例中声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;direction&quot;&gt;</div><div class="line">    &lt;div @click=&quot;move(888,1)&quot; class=&quot;left-btn icon-box&quot;&gt;</div><div class="line">        &lt;i class=&quot;icon&quot;&gt;&amp;#xe617;&lt;/i&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div @click=&quot;move(888,-1)&quot; class=&quot;right-btn icon-box&quot;&gt;</div><div class="line">        &lt;i class=&quot;icon&quot;&gt;&amp;#xe616;&lt;/i&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>:class绑定类名<br>踩坑实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 下面的小点 --&gt;</div><div class="line">&lt;div class=&quot;dots-box&quot;&gt;</div><div class="line">    &lt;div v-for=&quot;(item,index) in sliders&quot;</div><div class="line">    class=&quot;dot&quot; :class=&quot;&#123;dot-active: cur == index&apos;&#125;&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>我刚开始这样写，直接报错<br>原因很简单，绑定类名的时候，如果类名带有-等，则需要这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;dot&quot; :class=&quot;&#123;&apos;dot-active&apos;: cur == index&apos;&#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>在这里上个效果图：</p>
+<p><img src="/2018/03/25/vue-component-sliders/finish-1.0(1" alt="版本一效果图">.gif)<br>很明显可以看出，在最后一张继续点击向右，会很明显的反方向拉到第一张，根据原作者的解决思路，是要在从第五张啦，然后接下来是再拉向右是右边的第一张，（所以在html那里会有<br><figure class="highlight plain"><figcaption><span>:src</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">所以做到这里，我决定重新构建</div><div class="line"></div><div class="line">## 版本二</div><div class="line">### vue列表过渡</div><div class="line">![vue](vue-component-sliders\vue-2.0.gif)</div><div class="line">大家可以看到，这里的插入删除的时候，每个数字因为布局（某个元素插入或者删除导致位置变更）而产生的移动是可以做出动画效果的，这就给了我启发，我何不用这个特性来做图片轮播呢</div><div class="line"></div><div class="line">#### 踩坑实例</div><div class="line">模仿着官网demo</div></pre></td></tr></table></figure></p>
+<p><head><br>    <meta charset="UTF-8"><br>    <title>测试</title><br>    <style><br>        .list-item {<br>          display: inline-block;<br>          margin-right: 10px;<br>        }<br>        .list-enter-active, .list-leave-active {<br>          transition: all 1s;<br>        }<br>        .list-enter, .list-leave-to<br>        /<em> .list-leave-active for below version 2.1.8 </em>/ {<br>          opacity: 0;<br>          transform: translateY(30px);<br>        }<br>        .list-move {<br>            transition: transform 1s;<br>        }</p>
+<pre><code>    .fade-enter-active, .fade-leave-active {
+        transition: all 1s;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    .fade-move {
+        transition: all 1s;
+    }
+    .li-item {
+        display: inline-block;
+    }
+    .li-img {
+        width: 100px;
+        margin-right: 10px;
+    }
+&lt;/style&gt;
+</code></pre><p></head></p>
+<p><body></p>
+<div id="list-demo" class="demo"><br>  <button v-on:click="add">Add</button><br>  <button v-on:click="remove">Remove</button><br>  <transition-group name="list" tag="p"><br>    <span v-for="item in items" v-bind:key="item" class="list-item"><br>      <br>    </span><br>  </transition-group><br>  <transition-group name="fade" tag="ul"><br>    <li v-for="(item, index) in sliders"  class="li-item"><br>        <img class="li-img" :src="item.img" alt=""><br>    </li><br>  </transition-group><br></div>
+
+<p><script src="../vue.js"></script></p>
+<p><script><br>    new Vue({<br>      el: ‘#list-demo’,<br>      data: {<br>        items: [1,2,3,4,5,6,7,8,9],<br>        nextNum: 10,<br>        sliders: [<br>            {<br>                img: ‘imgs/0.jpg’<br>            },<br>            {<br>                img: ‘imgs/1.jpg’<br>            },<br>            {<br>                img: ‘imgs/2.jpg’<br>            },<br>            {<br>                img: ‘imgs/3.jpg’<br>            },<br>            {<br>                img: ‘imgs/4.jpg’<br>            }<br>            ],<br>      },<br>      methods: {<br>        randomIndex: function () {<br>          return Math.floor(Math.random() * this.sliders.length)<br>        },<br>        add: function () {<br>          this.items.splice(this.randomIndex(), 0, this.nextNum++);<br>          this.sliders.splice(this.randomIndex(), 0, {img: ‘imgs/4.jpg’})<br>        },<br>        remove: function () {<br>          this.items.splice(this.randomIndex(), 1);<br>          this.sliders.splice(2,1);<br>        },<br>      }<br>    })<br></script><br></body><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">但是发现结果并不是我想的那样</div><div class="line">![test-demo](vue-component-sliders\vue-1.0.gif)</div><div class="line">可以看到，图片并没有因为位置变化而平滑过度，而是瞬移的，简单说就是-move没有作用</div><div class="line">这是怎么回事呢？</div><div class="line">其实问题在于 v-for的复用</div><div class="line">解决： 给li-img  设置独有的key值 不然vue只是在原来基础上更换src而已</div><div class="line">并没有插入删除dom元素造成-move没有效果</div><div class="line">&gt; 官方：当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</div><div class="line"></div><div class="line">其实从原理分析，为什么要复用</div><div class="line">我是这么理解的：我们在一个数组[0,1,2,3]第二个元素的位置插入一个4，变成[0,4,1,2,3]</div><div class="line">一般按照常理我们做法是，直接在第二个元素插入4，然后后面的向后移动一个位置</div><div class="line">但是，学过数组插入的我们都知道，数组插入的耗费很大</div><div class="line">所以会有另一个办法：把第二个元素的值改成4，之后的依次拿前面的值，再在最后添加原来最后的值（比如说这里的3）</div><div class="line">以上都是本人一本正经瞎解释的，如果有人知道底层实现的话麻烦指导我一下。</div><div class="line"></div><div class="line"></div><div class="line">知道了问题所在，不就是设置一个key吗，简单</div></pre></td></tr></table></figure></p>
+<p><transition-group name="fade" tag="ul"><br>    <li v-for="(item, index) in sliders"  key="index" class="li-item"><br>        <img class="li-img" :src="item.img" alt=""><br>    </li><br>  </transition-group><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">然和我就写出了这样的代码，可以运行一下发现，依然无效</div><div class="line">这又是怎么回事？</div><div class="line">稍一分析，不难发现，这里的key值我用了index，这就是问题所在</div><div class="line">设想一下，我们在插入/删除的瞬间，这个index其实也是会跟着变化的，这就达不到key预期所要标志元素的效果</div><div class="line">改进一下</div></pre></td></tr></table></figure></p>
+<p>//html</p>
+<p><transition-group name="fade" tag="ul"><br>    <li v-for="(item, index) in sliders" :key="item.tag" class="li-item"><br>        <img class="li-img" :src="item.img" alt=""><br>    </li><br></transition-group></p>
+<p>//js<br>new Vue({<br>      el: ‘#list-demo’,<br>      data: {<br>        items: [1,2,3,4,5,6,7,8,9],<br>        nextNum: 10,<br>        sliders: [<br>            {<br>                tag: 0,<br>                img: ‘imgs/0.jpg’<br>            },<br>            {<br>                tag: 1,<br>                img: ‘imgs/1.jpg’<br>            },<br>            {<br>                tag: 2,<br>                img: ‘imgs/2.jpg’<br>            },<br>            {<br>                tag: 3,<br>                img: ‘imgs/3.jpg’<br>            },<br>            {<br>                tag: 4,<br>                img: ‘imgs/4.jpg’<br>            }<br>            ],<br>            tag: 5<br>      },<br>      methods: {<br>        randomIndex: function () {<br>          return Math.floor(Math.random() * this.sliders.length)<br>        },<br>        add: function () {<br>          this.items.splice(this.randomIndex(), 0, this.nextNum++);<br>          this.sliders.splice(this.randomIndex(), 0, {img: ‘imgs/4.jpg’ ,tag: this.tag++})<br>        },<br>        remove: function () {<br>          this.items.splice(this.randomIndex(), 1);<br>          this.sliders.splice(2,1);<br>        },<br>      }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">可以发现我给slider每个元素一个独一无二的tag</div><div class="line">![vue-text](vue-component-sliders\vue-1.1.gif)</div><div class="line">可以发现，在插入图片的时候，可以符合我们的预期，但是，删除的时候</div><div class="line">阿勒，你怎么瞬移呀？内心好崩溃</div><div class="line">在网上查了一下解决方式后,发现需要给fade-leave-active这个类加一个绝对定位</div></pre></td></tr></table></figure></p>
+<p>//css<br>.fade-leave-active {<br>  position: absolute;<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">个人理解：这个类的作用是元素在被删除，进入离开直至动画结束都保有的一个类</div><div class="line">在原来没加的时候，动画完成之前，元素一直占据他的布局位置，直到结束后才瞬间失去他的位置，造成其他元素瞬移（这时其他元素没有-move变化延时）</div><div class="line">绝对定位之后，刚进入动画的时候就失去位置，其他元素被出发-move的变化延时</div><div class="line">![vue-text](vue-component-sliders\vue-1.2.gif)</div><div class="line">完美实现</div><div class="line"></div><div class="line">### 原理分析</div><div class="line">我们顺着vue列表过渡这个思路来</div><div class="line">再对图片数量进行优化，要实现轮播效果，其实我们页面只需要三个图片元素</div><div class="line">#### 页面常规状态</div><div class="line">![原理图1](vue-component-sliders\1-2.0.png)</div><div class="line"></div><div class="line">#### 图片向右滑动</div><div class="line">![原理图2](vue-component-sliders\2-2.0.png)</div><div class="line">在pre的前面，插入pre-1对应的图片，以此让pre,cur,next布局位置向右移动一个图片位置，实现突破向右滑动，之后删除掉next就行</div><div class="line">结束后，又变成常规状态，上一个状态的pre-1,pre,cur分别对应现在的pre,cur,next</div><div class="line"></div><div class="line">#### 图片向左滑动</div><div class="line">![原理图3](vue-component-sliders\3-2.0.png)</div><div class="line">删除pre,实现cur,next布局位置向左滑动一个图片位置，实现图片向左滑动，之后在next后面添加一个next+1就行</div><div class="line">结束后，变成常规状态，上一个状态的cur,next,next+1变成现在的pre,cur,next</div></pre></td></tr></table></figure>
+<p>//没有overflow:hidden</p>
+<p><body></p>
+<div class="slide"><br>    <!-- 视窗 --><br>    <div class="window" id="sliders"><br>        <!-- 图片区域 --><br>        <transition-group name="fade" class="container" tag="ul" ><br>            <li v-for="(item,index) in sliders" :key="item.tag"><br>                <img :src="imgs[item.imgIndex]" alt=""><br>            </li><br>        </transition-group><br><br><br>        <!-- 左右箭头 --><br>        <div class="direction"><br>            <div @click="toRight()" class="left-btn icon-box"><br>                <i class="icon">&#xe617;</i><br>            </div><br>            <div @click="toLeft()" class="right-btn icon-box"><br>                <i class="icon">&#xe616;</i><br>            </div><br>        </div>
+
+<pre><code>    &lt;!-- 下面的小点 --&gt;
+    &lt;div class=&quot;dots-box&quot;&gt;
+        &lt;div v-for=&quot;(item,index) in imgs&quot; :key=&quot;index&quot; class=&quot;dot&quot;
+        :class=&quot;{&apos;dot-active&apos;: index === cur}&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p></div></p>
+<p><script src="../vue.js"></script></p>
+<p><script src="slide.js"></script></p>
+<p><script><br>    let sliders = new Vue({<br>        el: ‘.slide’,<br>        data: {<br>            imgs: [‘imgs/0.jpg’,’imgs/1.jpg’,’imgs/2.jpg’,’imgs/3.jpg’,’imgs/4.jpg’],<br>            sliders: [<br>            {<br>                imgIndex: 0,<br>                tag: 0<br>            },<br>            {<br>                imgIndex: 1,<br>                tag: 1<br>            },<br>            {<br>                imgIndex: 2,<br>                tag: 2<br>            }<br>            ],<br>            tag: 3,<br>            cur: 1,<br>            lock: true<br>        },<br>        computed: {</p>
+<pre><code>    },
+    methods: {
+        toRight: function() {
+            this.sliders.pop();
+
+            let insert = this.sliders[0].imgIndex-1;
+            if(insert == -1) insert = 4;
+            this.sliders.unshift({ imgIndex: insert, tag: insert});
+
+
+            if( --this.cur == -1) this.cur = 4;
+
+        },
+        toLeft: function() {
+
+            let insert = this.sliders[this.sliders.length-1].imgIndex+1;
+            if(insert == 5) insert = 0;
+            this.sliders.push({ imgIndex:insert, tag: insert});
+
+            this.sliders.shift();
+
+            if( ++this.cur == 5) this.cur = 0;
+        }
+    }
+})
+</code></pre><p></script><br></body><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">![效果图2](vue-component-sliders\vue-2.1(1).gif)</div><div class="line">可以看到，连续快速点击会造成节点过快删除而出现白色大块</div><div class="line">这个也很好解决，稍微节流一下</div><div class="line">这里值得注意的是：在使用setTimeout的时候this指针的指向问题</div><div class="line">这里使用箭头函数解决</div></pre></td></tr></table></figure></p>
+<p>//加锁<br>//1s后开锁<br>if( !this.lock ) return;<br>this.lock = false;<br>setTimeout(()=&gt;{<br>    this.lock = true;<br>},1000);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">至此，轮播图开发完毕</div><div class="line"></div><div class="line">### 等等，怎么还没完</div><div class="line">标题写的很清楚，这次是开发一个轮播图组件</div><div class="line">说到组件，vue给我们实现的机制非常便利，我们在封装东西的时候也十分简单</div></pre></td></tr></table></figure></p>
+<p>//slide.js<br>var sliders_component = {<br>    template:<br>    <code>&lt;div class=&quot;window&quot; &gt;
+            &lt;transition-group name=&quot;fade&quot; class=&quot;container&quot; tag=&quot;ul&quot; &gt;
+                &lt;li v-for=&quot;(item,index) in sliders&quot; :key=&quot;item.tag&quot;&gt;
+                    &lt;img :src=&quot;sonimgs[item.imgIndex]&quot; alt=&quot;&quot;&gt;
+                &lt;/li&gt;
+            &lt;/transition-group&gt;
+            &lt;div class=&quot;direction&quot;&gt;
+                &lt;div @click=&quot;toRight()&quot; class=&quot;left-btn icon-box&quot;&gt;
+                    &lt;i class=&quot;icon&quot;&gt;&amp;#xe617;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div @click=&quot;toLeft()&quot; class=&quot;right-btn icon-box&quot;&gt;
+                    &lt;i class=&quot;icon&quot;&gt;&amp;#xe616;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dots-box&quot;&gt;
+                &lt;div v-for=&quot;(item,index) in sonimgs&quot; :key=&quot;index&quot; class=&quot;dot&quot;
+                :class=&quot;{&#39;dot-active&#39;: index === cur}&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;</code>,<br>    props: [<br>        ‘sonimgs’, ‘length’<br>    ],<br>    data: function(){<br>        return {</p>
+<pre><code>        sliders: [
+        {
+            imgIndex: 0,
+            tag: 0
+        },
+        {
+            imgIndex: 1,
+            tag: 1
+        },
+        {
+            imgIndex: 2,
+            tag: 2
+        }
+        ],
+        tag: 3,
+        cur: 1,
+        lock: true
+    };
+},
+methods: {
+    toRight: function() {
+        //加锁
+        //1s后开锁
+        if( !this.lock ) return;
+        this.lock = false;
+        setTimeout(()=&gt;{
+            this.lock = true;
+        },1000);
+
+
+        this.sliders.pop();
+
+        let insert = this.sliders[0].imgIndex-1;
+        if(insert == -1) insert = this.length-1;
+        this.sliders.unshift({ imgIndex: insert, tag: insert});
+
+
+        if( --this.cur == -1) this.cur = this.length-1;
+
+    },
+    toLeft: function() {
+        //加锁
+        //1s后开锁
+        if( !this.lock ) return;
+        this.lock = false;
+        setTimeout(()=&gt;{
+            this.lock = true;
+        },1000);
+
+        let insert = this.sliders[this.sliders.length-1].imgIndex+1;
+        if(insert == this.length) insert = 0;
+        this.sliders.push({ imgIndex:insert, tag: insert});
+
+        this.sliders.shift();
+
+        if( ++this.cur == this.length) this.cur = 0;
+    }
+}
+</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">这个js文件中定义了一个sliders组件</div><div class="line">我们在使用的时候，只需要引入对应的css，vue原件，还有这个slide.js文件</div></pre></td></tr></table></figure>
+<div id="app"><br>    <sliders :sonimgs=ParentImgs :length=ParentImgs.length ></sliders><br></div>
+
+<p><script src="../vue.js"></script></p>
+<p><script src="slide.js"></script></p>
+<p><script><br>    new Vue({<br>        el: ‘#app’,<br>        components: {<br>            sliders: sliders_component<br>        },<br>        data: {<br>            ParentImgs: [‘imgs/0.jpg’,’imgs/1.jpg’,’imgs/2.jpg’,’imgs/3.jpg’,’imgs/4.jpg’],<br>        }<br>    })<br></script><br>```<br>在使用的时候通过父子通信传递图片链接就行了。</p>
+<h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2></style></head></p>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue component</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/25/vue-component-sliders/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-newCode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -895,99 +1167,6 @@
 
 
   
-    <article id="post-ES6-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/12/ES6-String/">ES6--String</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/12/ES6-String/" class="archive-article-date">
-  	<time datetime="2018-03-12T15:24:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-模板字符串"><a href="#1-模板字符串" class="headerlink" title="1. 模板字符串"></a>1. 模板字符串</h3><h4 id="1-1-传统拼接"><a href="#1-1-传统拼接" class="headerlink" title="1.1 传统拼接"></a>1.1 传统拼接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let name = &quot;jacky&quot;;</div><div class="line">    let occupation = &quot;doctor&quot;;</div><div class="line">    let str = &quot;He is &quot;+ name +&quot;,he is a &quot;+ occupation;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ES6简便写法<br>模板字符串使得我们不再需要反复使用双引号（或者单引号）了；而是改用反引号标识符（`），<br>插入变量的时候也不需要再使用加号（+）了，而是把变量放入${ }即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let name = &quot;Jacky&quot;;</div><div class="line">    let occupation = &quot;doctor&quot;;</div><div class="line">    //模板字符串拼接</div><div class="line">    //He is Jacky,he is a doctor</div><div class="line">    let str = `He is $&#123;name&#125;,he is a $&#123;occupation&#125;`;</div><div class="line">    console.log(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="1-2-传统多行字符串"><a href="#1-2-传统多行字符串" class="headerlink" title="1.2 传统多行字符串"></a>1.2 传统多行字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let str = &quot;write once ,&quot; +</div><div class="line">                &quot;another line&quot;;</div><div class="line">    //输出形式</div><div class="line">    //write once ,another line</div><div class="line">    console.log(str);</div><div class="line">&#125;</div><div class="line">//模板字符串写法</div><div class="line">/*</div><div class="line">直接换行即可，但是要注意的是：所有的空格和所进都会被保留在输出中。</div><div class="line">如果控制台输出字符串str的话，代码上换了行，控制台输出的时候也会换行。</div><div class="line"> */</div><div class="line">&#123;</div><div class="line">    let str = `write once,</div><div class="line">                another line`;</div><div class="line">    //输出形式：</div><div class="line">    // write once,</div><div class="line">    //             another line</div><div class="line">    console.log(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-3-的运用"><a href="#1-3-的运用" class="headerlink" title="1.3 ${}的运用"></a>1.3 ${}的运用</h3><h4 id="1-3-1-可以放运算表达式"><a href="#1-3-1-可以放运算表达式" class="headerlink" title="1.3.1 可以放运算表达式"></a>1.3.1 可以放运算表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let a = 1;</div><div class="line">    let b = 2;</div><div class="line">    let str = `sum is $&#123;a+b&#125;`;</div><div class="line">    console.log(str); //sum is 3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="1-3-2-可以放对象属性"><a href="#1-3-2-可以放对象属性" class="headerlink" title="1.3.2 可以放对象属性"></a>1.3.2 可以放对象属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let obj = &#123; a: 1, b:2 &#125;;</div><div class="line">    //sum is 3</div><div class="line">    console.log(`sum is $&#123;obj.a + obj.b&#125;`);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="1-3-3-可以放函数的调用"><a href="#1-3-3-可以放函数的调用" class="headerlink" title="1.3.3 可以放函数的调用"></a>1.3.3 可以放函数的调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function fn() &#123;</div><div class="line">        return 3;</div><div class="line">    &#125;</div><div class="line">    //sum is 3</div><div class="line">    console.log(`sum is $&#123;fn()&#125;`);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-4-标签模板"><a href="#1-4-标签模板" class="headerlink" title="1.4 标签模板"></a>1.4 标签模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/*tagFn函数，是我们自定义的一个函数，它有三个参数分别是arr，v1，v2。</div><div class="line">函数tagFn的调用方式跟以往的不太一样，以往我们使用括号( )表示函数调用执行，这一次我们在函数名后面直接加上一个模板字符串</div><div class="line">第一个参数arr是数组类型，它是内容是模板字符串中除了$&#123; &#125;以外的其他字符，按顺序组成了数组的内容，</div><div class="line">所以arr的值是[ &quot;他叫&quot;,  &quot;，身高&quot;  ,  &quot;米。&quot; ]；</div><div class="line">第2,3个参数则是模板字符串中对应次序的变量name和height的值。</div><div class="line">*/</div><div class="line">&#123;</div><div class="line">    let name = &apos;张三&apos;;</div><div class="line">    let height = 1.8;</div><div class="line"></div><div class="line">    tagFn`他叫$&#123;name&#125;,身高$&#123;height&#125;米。`;</div><div class="line">    //定义一个函数 作为标签</div><div class="line">    function tagFn(arr, v1, v2) &#123;</div><div class="line">        console.log(arr);</div><div class="line">        //结果：[ &quot;他叫&quot;,&quot;，身高&quot;,&quot;米。&quot; ]</div><div class="line"></div><div class="line">        console.log(v1);</div><div class="line">        //结果：张三</div><div class="line"></div><div class="line">        console.log(v2);</div><div class="line">        //结果：1.8</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-5-ES6为字符串String类拓展了其他函数"><a href="#1-5-ES6为字符串String类拓展了其他函数" class="headerlink" title="1.5 ES6为字符串String类拓展了其他函数"></a>1.5 ES6为字符串String类拓展了其他函数</h3><p>在此不过多赘叙 只做列举</p>
-<ol>
-<li><p>1.5.1  repeat( )函数：将目标字符串重复N次，返回一个新的字符串，不影响目标字符串。</p>
-</li>
-<li><p>1.5.2  includes( )函数：判断字符串中是否含有指定的子字符串<br> 返回true表示含有和false表示未含有。第二个参数选填，表示开始搜索的位置。</p>
-</li>
-<li><p>1.5.3 startsWith( )函数：判断指定的子字符串是否出现在目标字符串的开头位置<br> 第二个参数选填，表示开始搜索的位置。</p>
-</li>
-<li><p>1.5.4 endsWith( )函数：判断子字符串是否出现在目标字符串的尾部位置<br>第二个参数选填，表示针对前N个字符。</p>
-</li>
-<li><p>1.5.5 String.raw( )看函数名raw是未加工的的意思，正如这个函数的作用一样：<br> 返回字符串最原始的样貌，即使字符串中含有转义符，它都视而不见，直接输出。</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/12/ES6-String/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1090,6 +1269,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue component</a>
               </li>
             
             <div class="clearfix"></div>
