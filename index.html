@@ -535,86 +535,8 @@
 <h3 id="Promise-catch"><a href="#Promise-catch" class="headerlink" title="Promise.catch()"></a>Promise.catch()</h3><p>catch只接受一个参数，用于处理操作异常后的业务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="综合写法"><a href="#综合写法" class="headerlink" title="综合写法"></a>综合写法</h3><p>综合上面的两个方法<br>建议将then方法用于处理操作成功<br>catch方法用于处理操作异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.then(function(res)&#123;</div><div class="line">        //操作成功的处理程序</div><div class="line">    &#125;).catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>之所以能够使用链式调用,是因为then方法和catch方法调用后，都会返回promise对象。</p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>{<br>    let pro = new Promise(function(resolve, reject) {<br>        if(true) {<br>            //调用操作成功方法<br>            resolve(‘操作成功’);<br>            //状态：pending-&gt;fulfilled<br>        } else {<br>            //调用操作异常方法<br>            reject(‘操作异常’);<br>            //状态：pending-&gt;rejected<br>        }<br>    });</p>
-<pre><code>//用then处理操作成功，catch处理操作异常
-pro.then(requestA)
-    .then(requestB)
-    .then(requestC)
-    .catch(requestError);
-
-function requestA(){
-    console.log(&apos;请求A成功&apos;);
-    return &apos;请求B，下一个就是你了&apos;;
-}
-function requestB(res){
-    console.log(&apos;上一步的结果：&apos;+res);
-    console.log(&apos;请求B成功&apos;);
-    return &apos;请求C，下一个就是你了&apos;;
-}
-function requestC(res){
-    console.log(&apos;上一步的结果：&apos;+res);
-    console.log(&apos;请求C成功&apos;);
-}
-function requestError(){
-    console.log(&apos;请求失败&apos;);
-}
-
-//打印结果：
-//请求A成功
-//上一步的结果：请求B，下一个就是你了
-//请求B成功
-//上一步的结果：请求C，下一个就是你了
-//请求C成功
-
-/*案例中，先是创建一个实例，还声明了4个函数，其中三个是分别代表着请求A，请求B，请求C；有了then方法，三个请求操作再也不用层层嵌套了。我们使用then方法，按照调用顺序，很直观地完成了三个操作的绑定，并且，如果请求B依赖于请求A的结果，那么，可以在请求A的程序用使用return语句把需要的数据作为参数，传递给下一个请求，案例中我们就是使用return实现传递参数给下一步操作的。*/
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### 附上demo</div></pre></td></tr></table></figure></p>
-<p>{<br>    function fn(num) {<br>        return new Promise(function(resolve, reject){<br>            if( typeof num == ‘number’ ) {<br>                resolve();<br>            } else {<br>                reject();<br>            }<br>        }).then(function(){<br>            console.log(num + ‘参数是一个number’);<br>        }, function(){<br>            console.log(num + ‘参数不是一个number’);<br>        });</p>
-<pre><code>}
-
-fn(&apos;hahah&apos;);
-fn(1234);
-</code></pre><p>}<br>{<br>    //数据传递<br>    let fn = function(num) {<br>        return new Promise(function(resolve, reject) {<br>            if(typeof num == ‘number’) {<br>                resolve(num);<br>            } else {<br>                reject(‘TypeError’);<br>            }<br>        })<br>    }</p>
-<pre><code>fn(2).then(function(num){
-    console.log(&apos;first：&apos; + num);
-    return num+1;
-})
-.then(function(num){
-    console.log(&apos;second:&apos; + num);
-    return num+1;
-})
-.then(function(num){
-    console.log(&apos;third:&apos; + num);
-    return num+1;
-});
-//first: 2
-//second: 3
-//third: 4
-</code></pre><p>}<br>{<br>    //对ajax封装<br>    function getJSON(url) {<br>        return new Promise(function(resolve, reject){<br>            var XHR = new XMLHttpRequest();<br>            XHR.open(‘GET’, url, true);<br>            XHR.send();</p>
-<pre><code>        XHR.onreadystatechange = function() {
-            if( XHR.readyState == 4) {
-                try {
-                    var response = JSON.parse(XHR.responseText);
-                    console.log(&apos;进入resolve&apos;)
-                    resolve(response);
-                } catch(e) {
-                    reject(e);
-                }
-            }
-        }
-    })
-}
-
-let url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-02-26/2017-06-10&apos;;
-let url1 = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-03-26/2017-06-10&apos;;
-
-function renderAll() {
-    return Promise.all([getJSON(url), getJSON(url1)]);
-}
-renderAll().then( value =&gt; {
-    console.log(value);
-})
-</code></pre><p>}<br>```</p>
-
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let pro = new Promise(function(resolve, reject) &#123;</div><div class="line">        if(true) &#123;</div><div class="line">            //调用操作成功方法</div><div class="line">            resolve(&apos;操作成功&apos;);</div><div class="line">            //状态：pending-&gt;fulfilled</div><div class="line">        &#125; else &#123;</div><div class="line">            //调用操作异常方法</div><div class="line">            reject(&apos;操作异常&apos;);</div><div class="line">            //状态：pending-&gt;rejected</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    //用then处理操作成功，catch处理操作异常</div><div class="line">    pro.then(requestA)</div><div class="line">        .then(requestB)</div><div class="line">        .then(requestC)</div><div class="line">        .catch(requestError);</div><div class="line"></div><div class="line">    function requestA()&#123;</div><div class="line">        console.log(&apos;请求A成功&apos;);</div><div class="line">        return &apos;请求B，下一个就是你了&apos;;</div><div class="line">    &#125;</div><div class="line">    function requestB(res)&#123;</div><div class="line">        console.log(&apos;上一步的结果：&apos;+res);</div><div class="line">        console.log(&apos;请求B成功&apos;);</div><div class="line">        return &apos;请求C，下一个就是你了&apos;;</div><div class="line">    &#125;</div><div class="line">    function requestC(res)&#123;</div><div class="line">        console.log(&apos;上一步的结果：&apos;+res);</div><div class="line">        console.log(&apos;请求C成功&apos;);</div><div class="line">    &#125;</div><div class="line">    function requestError()&#123;</div><div class="line">        console.log(&apos;请求失败&apos;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //打印结果：</div><div class="line">    //请求A成功</div><div class="line">    //上一步的结果：请求B，下一个就是你了</div><div class="line">    //请求B成功</div><div class="line">    //上一步的结果：请求C，下一个就是你了</div><div class="line">    //请求C成功</div><div class="line"></div><div class="line">    /*案例中，先是创建一个实例，还声明了4个函数，其中三个是分别代表着请求A，请求B，请求C；有了then方法，三个请求操作再也不用层层嵌套了。我们使用then方法，按照调用顺序，很直观地完成了三个操作的绑定，并且，如果请求B依赖于请求A的结果，那么，可以在请求A的程序用使用return语句把需要的数据作为参数，传递给下一个请求，案例中我们就是使用return实现传递参数给下一步操作的。*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="附上demo"><a href="#附上demo" class="headerlink" title="附上demo"></a>附上demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function fn(num) &#123;</div><div class="line">        return new Promise(function(resolve, reject)&#123;</div><div class="line">            if( typeof num == &apos;number&apos; ) &#123;</div><div class="line">                resolve();</div><div class="line">            &#125; else &#123;</div><div class="line">                reject();</div><div class="line">            &#125;</div><div class="line">        &#125;).then(function()&#123;</div><div class="line">            console.log(num + &apos;参数是一个number&apos;);</div><div class="line">        &#125;, function()&#123;</div><div class="line">            console.log(num + &apos;参数不是一个number&apos;);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    fn(&apos;hahah&apos;);</div><div class="line">    fn(1234);</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //数据传递</div><div class="line">    let fn = function(num) &#123;</div><div class="line">        return new Promise(function(resolve, reject) &#123;</div><div class="line">            if(typeof num == &apos;number&apos;) &#123;</div><div class="line">                resolve(num);</div><div class="line">            &#125; else &#123;</div><div class="line">                reject(&apos;TypeError&apos;);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    fn(2).then(function(num)&#123;</div><div class="line">        console.log(&apos;first：&apos; + num);</div><div class="line">        return num+1;</div><div class="line">    &#125;)</div><div class="line">    .then(function(num)&#123;</div><div class="line">        console.log(&apos;second:&apos; + num);</div><div class="line">        return num+1;</div><div class="line">    &#125;)</div><div class="line">    .then(function(num)&#123;</div><div class="line">        console.log(&apos;third:&apos; + num);</div><div class="line">        return num+1;</div><div class="line">    &#125;);</div><div class="line">    //first: 2</div><div class="line">    //second: 3</div><div class="line">    //third: 4</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //对ajax封装</div><div class="line">    function getJSON(url) &#123;</div><div class="line">        return new Promise(function(resolve, reject)&#123;</div><div class="line">            var XHR = new XMLHttpRequest();</div><div class="line">            XHR.open(&apos;GET&apos;, url, true);</div><div class="line">            XHR.send();</div><div class="line"></div><div class="line">            XHR.onreadystatechange = function() &#123;</div><div class="line">                if( XHR.readyState == 4) &#123;</div><div class="line">                    try &#123;</div><div class="line">                        var response = JSON.parse(XHR.responseText);</div><div class="line">                        console.log(&apos;进入resolve&apos;)</div><div class="line">                        resolve(response);</div><div class="line">                    &#125; catch(e) &#123;</div><div class="line">                        reject(e);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-02-26/2017-06-10&apos;;</div><div class="line">    let url1 = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-03-26/2017-06-10&apos;;</div><div class="line"></div><div class="line">    function renderAll() &#123;</div><div class="line">        return Promise.all([getJSON(url), getJSON(url1)]);</div><div class="line">    &#125;</div><div class="line">    renderAll().then( value =&gt; &#123;</div><div class="line">        console.log(value);</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
 
       
@@ -1251,11 +1173,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
