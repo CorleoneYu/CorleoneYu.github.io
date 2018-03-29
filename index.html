@@ -171,6 +171,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learn-java-again" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/learn-java-again/">learn-java-again</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/29/learn-java-again/" class="archive-article-date">
+  	<time datetime="2018-03-29T03:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="封装、隐藏"><a href="#封装、隐藏" class="headerlink" title="封装、隐藏"></a>封装、隐藏</h3><h4 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h4><h4 id="package-import-import-static"><a href="#package-import-import-static" class="headerlink" title="package\import\import static"></a>package\import\import static</h4><ol>
+<li><p>package=&gt;解决命名冲突<br>父包子包<br>使用时： 包名.类名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//调用lee包下子包sub下的Apple类</div><div class="line">lee.sub.Apple a = new lee.sub.Apple();</div></pre></td></tr></table></figure>
+</li>
+<li><p>import=&gt;解决使用其他包中内容时繁琐的前缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//格式：import package.subpackage..ClassName;</div><div class="line">//例子：引入lee包下子包sub下的Apple类</div><div class="line">import lee.sub.Apple;</div><div class="line">//使用的时候可以省略前缀</div><div class="line">Apple a = new Apple();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>import导入指定包下全部类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//格式： import package.subpackage.. .*;</div><div class="line">//*只能代表类，不能代表包（即不能导入子包中的类）</div></pre></td></tr></table></figure></p>
+<ol>
+<li>import static=&gt;静态导入：导入指定类的某个静态成员变量、方法或全部静态成员、方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//导入指定类的单个静态成员变量、方法</div><div class="line">//格式:import static package.subpackage...ClassName.fieldName|methodName;</div><div class="line"></div><div class="line">//导入指定类的全部静态成员变量、方法</div><div class="line">import static package.subpackage...ClassName.*;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="深入构造器"><a href="#深入构造器" class="headerlink" title="深入构造器"></a>深入构造器</h3><h4 id="构造器重载"><a href="#构造器重载" class="headerlink" title="构造器重载"></a>构造器重载</h4><ol>
+<li>参数列表不同即可</li>
+<li>如果要在一个构造器中使用另一个构造器，关键字this</li>
+</ol>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    修饰符 calss SubClass extends SuperClass &#123;</div><div class="line">        //code</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="继承的特点"><a href="#继承的特点" class="headerlink" title="继承的特点"></a>继承的特点</h4><ol>
+<li>子类拓展了父类，可以获得父类全部的成员变量和方法<br>注：子类不能获得父类的构造器</li>
+<li>java的单继承：子类只能有一个直接父类，可以有多个间接父类<br>注：java类默认拓展java.lang.Object这个类</li>
+</ol>
+<h4 id="重写父类方法-Override"><a href="#重写父类方法-Override" class="headerlink" title="重写父类方法 Override"></a>重写父类方法 Override</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//父类</div><div class="line">public class Bird &#123;</div><div class="line">    public void fly() &#123;</div><div class="line">        System.out.println(&quot;fly in the sky&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//子类</div><div class="line">public class Ostrich extends Bird &#123;</div><div class="line">    //重写Bird类的fly()</div><div class="line">    public void fly() &#123;</div><div class="line">        System.out.println(&quot;I can&apos;t fly in the sky&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>方法重写遵循</p>
+<ol>
+<li>方法名相同，参数列表相同</li>
+<li>子类方法返回值类型比父类返回值类型小或相等</li>
+<li>子类方法声明抛出的异常比父类抛出的异常小或相等</li>
+<li>子类父类方法需同时为静态方法或实例方法</li>
+</ol>
+</li>
+<li><p>子类重写父类方法后，子类对象无法访问父类被重写的方法<br>注：如果需要调用父类中被重写的方法：使用super(实例方法)或者类名(类方法)来调用</p>
+</li>
+<li><p>父类方法具有private访问权限的，该方法对子类隐藏，所以子类无法重写<br>注：如果子类定义了一个与父类private方法具有相同方法名，参数列表，返回值的方法，这不是重写</p>
+</li>
+</ol>
+<h4 id="super限定"><a href="#super限定" class="headerlink" title="super限定"></a>super限定</h4><p>super是java提供的一个关键字，限定该对象调用它从父类继承的实例变量或方法<br>注：所以不对类方法（static修饰）有效</p>
+<p>如果子类定义了和父类相同的实例变量，则子类实例变量隐藏父类实例变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Bird &#123;</div><div class="line">    public String name = &quot;鸟&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Ostrich extends Bird&#123;</div><div class="line">    //覆盖父类实例变量</div><div class="line">    public String name = &quot;鸵鸟&quot;;</div><div class="line">    public void accessOwner() &#123;</div><div class="line">        System.out.println(name);</div><div class="line">    &#125;</div><div class="line">    public void accessBase() &#123;</div><div class="line">        System.out.println(super.name);</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        // TODO Auto-generated method stub</div><div class="line">        Ostrich os = new Ostrich();</div><div class="line">        os.accessOwner(); //鸵鸟</div><div class="line">        os.accessBase(); //鸟</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/29/learn-java-again/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue-component-sliders" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -411,7 +523,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>假设一个需求：你需要用ajax进行多次请求，而且，每次请求都依赖上一次请求返回的数据来作为参数，然后继续发出请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//传统写法</div><div class="line">&#123;</div><div class="line">    //请求C需要依赖请求B返回的数据，所以，C只能放在B的success函数内；</div><div class="line">    //B需要依赖A请求得到的数据作为参数，所以，B只能放在A的success函数内；</div><div class="line">    //也就是：请求A包含着请求B，请求B又包含了请求C。</div><div class="line">    //------请求A 开始---------</div><div class="line">    $.ajax(&#123;</div><div class="line">        success:function(res1)&#123;</div><div class="line">            //------请求B 开始----</div><div class="line">            $.ajax(&#123;</div><div class="line">                success:function(res2)&#123;</div><div class="line">                    //----请求C 开始---</div><div class="line">                    $.ajax(&#123;</div><div class="line">                        success:function(res3)&#123;</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">                    //---请求C 结束---</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            //------请求B 结束-----</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    //------请求A 结束---------</div><div class="line">&#125;</div><div class="line">### Promise</div></pre></td></tr></table></figure></p>
+<p>Promise对象能使我们更合理、更规范地进行处理异步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //Promise对象是全局对象，你也可以理解为一个类，创建Promise实例的时候，要有那个new关键字。</div><div class="line">    //参数是一个匿名函数，其中有两个参数：resolve和reject，两个均为方法。</div><div class="line">    //resolve方法用于处理异步操作成功后业务；</div><div class="line">    //reject方法用于操作异步操作失败后的业务。</div><div class="line">    let pro = new Promise(function(resolve, reject)&#123;</div><div class="line">        //...</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Promise-三种状态"><a href="#Promise-三种状态" class="headerlink" title="Promise 三种状态"></a>Promise 三种状态</h3><ol>
+<li>pending: 刚刚创建一个Promise实例的时候，表示初始状态；</li>
+<li>fulfilled: resolve方法调用的时候，表示操作成功；</li>
+<li>rejected: reject方法调用的时候，表示操作失败；<br>4 状态只能从 初始化 -&gt; 成功  或者  初始化 -&gt; 失败，不能逆向转换，也不能在成功fulfilled 和失败rejected之间转换。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let pro = new Promise(function(resolve, reject)&#123;</div><div class="line">        //现在状态pending</div><div class="line"></div><div class="line">        if(&apos;success&apos;) &#123;</div><div class="line">            resolve();//状态fulfilled</div><div class="line">        &#125; else &#123;</div><div class="line">            reject();//状态rejected</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Promise-then-方法"><a href="#Promise-then-方法" class="headerlink" title="Promise.then()方法"></a>Promise.then()方法</h3><p>参数是两个函数<br>第一个用于处理操作成功后的业务<br>第二个用于处理操作异常后的业务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.then(function (res)&#123;</div><div class="line">        //操作成功的处理程序</div><div class="line">    &#125;,function(err) &#123;</div><div class="line">        //操作失败处理程序</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Promise-catch"><a href="#Promise-catch" class="headerlink" title="Promise.catch()"></a>Promise.catch()</h3><p>catch只接受一个参数，用于处理操作异常后的业务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="综合写法"><a href="#综合写法" class="headerlink" title="综合写法"></a>综合写法</h3><p>综合上面的两个方法<br>建议将then方法用于处理操作成功<br>catch方法用于处理操作异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.then(function(res)&#123;</div><div class="line">        //操作成功的处理程序</div><div class="line">    &#125;).catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之所以能够使用链式调用,是因为then方法和catch方法调用后，都会返回promise对象。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>{<br>    let pro = new Promise(function(resolve, reject) {<br>        if(true) {<br>            //调用操作成功方法<br>            resolve(‘操作成功’);<br>            //状态：pending-&gt;fulfilled<br>        } else {<br>            //调用操作异常方法<br>            reject(‘操作异常’);<br>            //状态：pending-&gt;rejected<br>        }<br>    });</p>
+<pre><code>//用then处理操作成功，catch处理操作异常
+pro.then(requestA)
+    .then(requestB)
+    .then(requestC)
+    .catch(requestError);
+
+function requestA(){
+    console.log(&apos;请求A成功&apos;);
+    return &apos;请求B，下一个就是你了&apos;;
+}
+function requestB(res){
+    console.log(&apos;上一步的结果：&apos;+res);
+    console.log(&apos;请求B成功&apos;);
+    return &apos;请求C，下一个就是你了&apos;;
+}
+function requestC(res){
+    console.log(&apos;上一步的结果：&apos;+res);
+    console.log(&apos;请求C成功&apos;);
+}
+function requestError(){
+    console.log(&apos;请求失败&apos;);
+}
+
+//打印结果：
+//请求A成功
+//上一步的结果：请求B，下一个就是你了
+//请求B成功
+//上一步的结果：请求C，下一个就是你了
+//请求C成功
+
+/*案例中，先是创建一个实例，还声明了4个函数，其中三个是分别代表着请求A，请求B，请求C；有了then方法，三个请求操作再也不用层层嵌套了。我们使用then方法，按照调用顺序，很直观地完成了三个操作的绑定，并且，如果请求B依赖于请求A的结果，那么，可以在请求A的程序用使用return语句把需要的数据作为参数，传递给下一个请求，案例中我们就是使用return实现传递参数给下一步操作的。*/
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### 附上demo</div></pre></td></tr></table></figure></p>
+<p>{<br>    function fn(num) {<br>        return new Promise(function(resolve, reject){<br>            if( typeof num == ‘number’ ) {<br>                resolve();<br>            } else {<br>                reject();<br>            }<br>        }).then(function(){<br>            console.log(num + ‘参数是一个number’);<br>        }, function(){<br>            console.log(num + ‘参数不是一个number’);<br>        });</p>
+<pre><code>}
+
+fn(&apos;hahah&apos;);
+fn(1234);
+</code></pre><p>}<br>{<br>    //数据传递<br>    let fn = function(num) {<br>        return new Promise(function(resolve, reject) {<br>            if(typeof num == ‘number’) {<br>                resolve(num);<br>            } else {<br>                reject(‘TypeError’);<br>            }<br>        })<br>    }</p>
+<pre><code>fn(2).then(function(num){
+    console.log(&apos;first：&apos; + num);
+    return num+1;
+})
+.then(function(num){
+    console.log(&apos;second:&apos; + num);
+    return num+1;
+})
+.then(function(num){
+    console.log(&apos;third:&apos; + num);
+    return num+1;
+});
+//first: 2
+//second: 3
+//third: 4
+</code></pre><p>}<br>{<br>    //对ajax封装<br>    function getJSON(url) {<br>        return new Promise(function(resolve, reject){<br>            var XHR = new XMLHttpRequest();<br>            XHR.open(‘GET’, url, true);<br>            XHR.send();</p>
+<pre><code>        XHR.onreadystatechange = function() {
+            if( XHR.readyState == 4) {
+                try {
+                    var response = JSON.parse(XHR.responseText);
+                    console.log(&apos;进入resolve&apos;)
+                    resolve(response);
+                } catch(e) {
+                    reject(e);
+                }
+            }
+        }
+    })
+}
+
+let url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-02-26/2017-06-10&apos;;
+let url1 = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-03-26/2017-06-10&apos;;
+
+function renderAll() {
+    return Promise.all([getJSON(url), getJSON(url1)]);
+}
+renderAll().then( value =&gt; {
+    console.log(value);
+})
+</code></pre><p>}<br>```</p>
+
       
 
       
@@ -947,90 +1150,6 @@
 
 
   
-    <article id="post-ES6-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/12/ES6-Number/">ES6--Number</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/12/ES6-Number/" class="archive-article-date">
-  	<time datetime="2018-03-12T15:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>全局函数 isNaN(), isFinite(), parseInt(), parseFloat() 挂载在全局对象上的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //ES5</div><div class="line">    isNaN(2.5); //false</div><div class="line">    window.isNaN(2.5); //false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>ES6中 他们被移植到了Number对象上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //ES6</div><div class="line">    Number.isNaN(2.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="1-Number-isNaN与传统的区别"><a href="#1-Number-isNaN与传统的区别" class="headerlink" title="1 Number.isNaN与传统的区别"></a>1 Number.isNaN与传统的区别</h3><p>Number下面的isNaN都懒得给字符串’abc’做类型转换，直接返回false。<br>而ES5中的isNaN函数会对字符串’abc’进行类型转换后，发现它是一个NaN（非数值），才返回true。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    isNaN(&apos;abc&apos;); //true</div><div class="line">    //&apos;abc&apos;无法转为一个数值，返回true</div><div class="line"></div><div class="line">    Number.isNaN(&apos;abc&apos;); //结果：false</div><div class="line">    //&apos;abc&apos;是字符串，Number.isNaN不做类型转换，直接返回false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>所以我们在使用这个ES6函数的时候还要小心，当返回false的时候，不一定就是一个数值，<br>有可能是一个非数值类型的参数。</p>
-<h3 id="2-Number-isFinite函数"><a href="#2-Number-isFinite函数" class="headerlink" title="2 Number.isFinite函数"></a>2 Number.isFinite函数</h3><p>判断一个数值是否非无穷<br>isFinite函数跟isNaN函数一样，也只是对数值类型有效，对非数值类型的参数一律返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    Number.isFinite(1);</div><div class="line">    //结果：true，数值1是有穷，即非无穷</div><div class="line"></div><div class="line">    Number.isFinite(Infinity);</div><div class="line">    //结果：false，Infinity表示无穷大的特殊值</div><div class="line"></div><div class="line">    Number.isFinite(&apos;abc&apos;); //结果：false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>所以同样要注意，当Number.isFinite函数返回false的时候，参数不一定就是一个有穷的数值类型，<br>也有可能是一个非数值类型的参数。如：字符串’abc’。</p>
-<h3 id="3-新函数Number-isInteger函数"><a href="#3-新函数Number-isInteger函数" class="headerlink" title="3. 新函数Number.isInteger函数"></a>3. 新函数Number.isInteger函数</h3><p>判断是否是整数<br>因为整数和浮点数存储方式一致<br>所以小数点为0的浮点数也是整数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    Number.isInteger(3.2);</div><div class="line">    //结果：false</div><div class="line"></div><div class="line">    Number.isInteger(3);</div><div class="line">    //结果：true</div><div class="line"></div><div class="line">    Number.isInteger(3.0);</div><div class="line">   //结果：true</div><div class="line"></div><div class="line">   Number.isInteger(3.00);</div><div class="line">   //结果：true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="4-极小变量Number-EPSILON常量"><a href="#4-极小变量Number-EPSILON常量" class="headerlink" title="4. 极小变量Number.EPSILON常量"></a>4. 极小变量Number.EPSILON常量</h3><p>Number.EPSILON的出现是用来判断浮点数的计算误差<br>如果浮点数计算得到的误差不超过Number.EPSILON的值，就表示可以接受这样的误差。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    console.log(Number.EPSILON);</div><div class="line">    //结果：2.220446049250313e-16</div><div class="line">    // 2.220446049250313e-16是一个极小的数值，约等于0.00000000000000022204。</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="5-安全整数"><a href="#5-安全整数" class="headerlink" title="5. 安全整数"></a>5. 安全整数</h3><p>原来JavaScript能够准确表示的整数范围在-2^53到2^53之间<br>超过这个范围，无法精确表示这个值。故称之为不安全。<br>为此，ES6定义了两个常量来表示这个范围的最大值和最小值：<br>Number.MAX_SAFE_INTEGER和Number.MIN_SAFE_INTEGER。<br>此外，如果给你一个数值，你不知道它是否超出了这个安全范围:<br>你可以使用ES6给我们新增的一个函数Number.isSafeInteger来进行判断。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    Number.isSafeInteger(Number.MAX_SAFE_INTEGER);</div><div class="line">    //结果：true</div><div class="line"></div><div class="line">    Number.isSafeInteger(Number.MAX_SAFE_INTEGER+1);</div><div class="line">    //结果：false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="6-Math对象的扩展"><a href="#6-Math对象的扩展" class="headerlink" title="6. Math对象的扩展"></a>6. Math对象的扩展</h3><p>在这里讲一下常用的</p>
-<h4 id="6-1-Math-trunc函数：用于去除一个数的小数部分，返回整数部分。"><a href="#6-1-Math-trunc函数：用于去除一个数的小数部分，返回整数部分。" class="headerlink" title="6.1 Math.trunc函数：用于去除一个数的小数部分，返回整数部分。"></a>6.1 Math.trunc函数：用于去除一个数的小数部分，返回整数部分。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    Math.trunc(3);</div><div class="line">    //结果：3</div><div class="line"></div><div class="line">    Math.trunc(3.1);</div><div class="line">    //结果：3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="6-2-Math-sign函数：用来判断一个数到底是正数、负数、还是零。"><a href="#6-2-Math-sign函数：用来判断一个数到底是正数、负数、还是零。" class="headerlink" title="6.2 Math.sign函数：用来判断一个数到底是正数、负数、还是零。"></a>6.2 Math.sign函数：用来判断一个数到底是正数、负数、还是零。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   Math.sign(3);</div><div class="line">   //结果：1</div><div class="line"></div><div class="line">   Math.sign(-3);</div><div class="line">   //结果：-1</div><div class="line"></div><div class="line">   Math.sign(0);</div><div class="line">   //结果：0</div><div class="line"></div><div class="line">   Math.sign(&apos;abc&apos;);</div><div class="line">   //结果：NaN</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/12/ES6-Number/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1129,6 +1248,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

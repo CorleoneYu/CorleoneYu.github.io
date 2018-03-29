@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
-  <title>Archives: 2017 | 林大羽</title>
+  <title>learn-java-again | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="没错我就是梁朝伟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="林大羽">
-<meta property="og:url" content="https://corleoneyu.github.io/archives/2017/index.html">
+  <meta name="description" content="Object封装、隐藏访问控制符package\import\import static package=&amp;gt;解决命名冲突父包子包使用时： 包名.类名 12//调用lee包下子包sub下的Apple类lee.sub.Apple a = new lee.sub.Apple();  import=&amp;gt;解决使用其他包中内容时繁琐的前缀 12345//格式：import package.subpa">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="learn-java-again">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/03/29/learn-java-again/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="没错我就是梁朝伟">
+<meta property="og:description" content="Object封装、隐藏访问控制符package\import\import static package=&amp;gt;解决命名冲突父包子包使用时： 包名.类名 12//调用lee包下子包sub下的Apple类lee.sub.Apple a = new lee.sub.Apple();  import=&amp;gt;解决使用其他包中内容时繁琐的前缀 12345//格式：import package.subpa">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-29T06:17:17.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林大羽">
-<meta name="twitter:description" content="没错我就是梁朝伟">
+<meta name="twitter:title" content="learn-java-again">
+<meta name="twitter:description" content="Object封装、隐藏访问控制符package\import\import static package=&amp;gt;解决命名冲突父包子包使用时： 包名.类名 12//调用lee包下子包sub下的Apple类lee.sub.Apple a = new lee.sub.Apple();  import=&amp;gt;解决使用其他包中内容时繁琐的前缀 12345//格式：import package.subpa">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -169,76 +171,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-learn-java-again" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/27/propertyManagementSummary/" class="archive-article-date">
-  	<time datetime="2017-10-26T16:01:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/27/propertyManagementSummary/">propertyManagementSummary</a>
+    <h1 class="article-title" itemprop="name">
+      learn-java-again
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/hello-world/" class="archive-article-date">
-  	<time datetime="2017-10-10T06:31:42.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        
+        <a href="/2018/03/29/learn-java-again/" class="archive-article-date">
+  	<time datetime="2018-03-29T03:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/hello-world/">Hello World</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="封装、隐藏"><a href="#封装、隐藏" class="headerlink" title="封装、隐藏"></a>封装、隐藏</h3><h4 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h4><h4 id="package-import-import-static"><a href="#package-import-import-static" class="headerlink" title="package\import\import static"></a>package\import\import static</h4><ol>
+<li><p>package=&gt;解决命名冲突<br>父包子包<br>使用时： 包名.类名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//调用lee包下子包sub下的Apple类</div><div class="line">lee.sub.Apple a = new lee.sub.Apple();</div></pre></td></tr></table></figure>
+</li>
+<li><p>import=&gt;解决使用其他包中内容时繁琐的前缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//格式：import package.subpackage..ClassName;</div><div class="line">//例子：引入lee包下子包sub下的Apple类</div><div class="line">import lee.sub.Apple;</div><div class="line">//使用的时候可以省略前缀</div><div class="line">Apple a = new Apple();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>import导入指定包下全部类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//格式： import package.subpackage.. .*;</div><div class="line">//*只能代表类，不能代表包（即不能导入子包中的类）</div></pre></td></tr></table></figure></p>
+<ol>
+<li>import static=&gt;静态导入：导入指定类的某个静态成员变量、方法或全部静态成员、方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//导入指定类的单个静态成员变量、方法</div><div class="line">//格式:import static package.subpackage...ClassName.fieldName|methodName;</div><div class="line"></div><div class="line">//导入指定类的全部静态成员变量、方法</div><div class="line">import static package.subpackage...ClassName.*;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="深入构造器"><a href="#深入构造器" class="headerlink" title="深入构造器"></a>深入构造器</h3><h4 id="构造器重载"><a href="#构造器重载" class="headerlink" title="构造器重载"></a>构造器重载</h4><ol>
+<li>参数列表不同即可</li>
+<li>如果要在一个构造器中使用另一个构造器，关键字this</li>
+</ol>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    修饰符 calss SubClass extends SuperClass &#123;</div><div class="line">        //code</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="继承的特点"><a href="#继承的特点" class="headerlink" title="继承的特点"></a>继承的特点</h4><ol>
+<li>子类拓展了父类，可以获得父类全部的成员变量和方法<br>注：子类不能获得父类的构造器</li>
+<li>java的单继承：子类只能有一个直接父类，可以有多个间接父类<br>注：java类默认拓展java.lang.Object这个类</li>
+</ol>
+<h4 id="重写父类方法-Override"><a href="#重写父类方法-Override" class="headerlink" title="重写父类方法 Override"></a>重写父类方法 Override</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//父类</div><div class="line">public class Bird &#123;</div><div class="line">    public void fly() &#123;</div><div class="line">        System.out.println(&quot;fly in the sky&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//子类</div><div class="line">public class Ostrich extends Bird &#123;</div><div class="line">    //重写Bird类的fly()</div><div class="line">    public void fly() &#123;</div><div class="line">        System.out.println(&quot;I can&apos;t fly in the sky&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>方法重写遵循</p>
+<ol>
+<li>方法名相同，参数列表相同</li>
+<li>子类方法返回值类型比父类返回值类型小或相等</li>
+<li>子类方法声明抛出的异常比父类抛出的异常小或相等</li>
+<li>子类父类方法需同时为静态方法或实例方法</li>
+</ol>
+</li>
+<li><p>子类重写父类方法后，子类对象无法访问父类被重写的方法<br>注：如果需要调用父类中被重写的方法：使用super(实例方法)或者类名(类方法)来调用</p>
+</li>
+<li><p>父类方法具有private访问权限的，该方法对子类隐藏，所以子类无法重写<br>注：如果子类定义了一个与父类private方法具有相同方法名，参数列表，返回值的方法，这不是重写</p>
+</li>
+</ol>
+<h4 id="super限定"><a href="#super限定" class="headerlink" title="super限定"></a>super限定</h4><p>super是java提供的一个关键字，限定该对象调用它从父类继承的实例变量或方法<br>注：所以不对类方法（static修饰）有效</p>
+<p>如果子类定义了和父类相同的实例变量，则子类实例变量隐藏父类实例变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Bird &#123;</div><div class="line">    public String name = &quot;鸟&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Ostrich extends Bird&#123;</div><div class="line">    //覆盖父类实例变量</div><div class="line">    public String name = &quot;鸵鸟&quot;;</div><div class="line">    public void accessOwner() &#123;</div><div class="line">        System.out.println(name);</div><div class="line">    &#125;</div><div class="line">    public void accessBase() &#123;</div><div class="line">        System.out.println(super.name);</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        // TODO Auto-generated method stub</div><div class="line">        Ostrich os = new Ostrich();</div><div class="line">        os.accessOwner(); //鸵鸟</div><div class="line">        os.accessBase(); //鸟</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/money.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/03/29/learn-java-again/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/25/vue-component-sliders/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-component-sliders</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -261,8 +397,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

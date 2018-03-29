@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
   <title>ES6--Promise | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="没错我就是梁朝伟">
+  <meta name="description" content="假设一个需求：你需要用ajax进行多次请求，而且，每次请求都依赖上一次请求返回的数据来作为参数，然后继续发出请求12345678910111213141516171819202122232425//传统写法&amp;#123;    //请求C需要依赖请求B返回的数据，所以，C只能放在B的success函数内；    //B需要依赖A请求得到的数据作为参数，所以，B只能放在A的success函数内；">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6--Promise">
 <meta property="og:url" content="https://corleoneyu.github.io/2018/03/13/ES6-Promise/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="没错我就是梁朝伟">
+<meta property="og:description" content="假设一个需求：你需要用ajax进行多次请求，而且，每次请求都依赖上一次请求返回的数据来作为参数，然后继续发出请求12345678910111213141516171819202122232425//传统写法&amp;#123;    //请求C需要依赖请求B返回的数据，所以，C只能放在B的success函数内；    //B需要依赖A请求得到的数据作为参数，所以，B只能放在A的success函数内；">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T13:28:38.450Z">
+<meta property="og:updated_time" content="2018-03-29T14:53:37.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6--Promise">
-<meta name="twitter:description" content="没错我就是梁朝伟">
+<meta name="twitter:description" content="假设一个需求：你需要用ajax进行多次请求，而且，每次请求都依赖上一次请求返回的数据来作为参数，然后继续发出请求12345678910111213141516171819202122232425//传统写法&amp;#123;    //请求C需要依赖请求B返回的数据，所以，C只能放在B的success函数内；    //B需要依赖A请求得到的数据作为参数，所以，B只能放在A的success函数内；">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -191,7 +191,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>假设一个需求：你需要用ajax进行多次请求，而且，每次请求都依赖上一次请求返回的数据来作为参数，然后继续发出请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//传统写法</div><div class="line">&#123;</div><div class="line">    //请求C需要依赖请求B返回的数据，所以，C只能放在B的success函数内；</div><div class="line">    //B需要依赖A请求得到的数据作为参数，所以，B只能放在A的success函数内；</div><div class="line">    //也就是：请求A包含着请求B，请求B又包含了请求C。</div><div class="line">    //------请求A 开始---------</div><div class="line">    $.ajax(&#123;</div><div class="line">        success:function(res1)&#123;</div><div class="line">            //------请求B 开始----</div><div class="line">            $.ajax(&#123;</div><div class="line">                success:function(res2)&#123;</div><div class="line">                    //----请求C 开始---</div><div class="line">                    $.ajax(&#123;</div><div class="line">                        success:function(res3)&#123;</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">                    //---请求C 结束---</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            //------请求B 结束-----</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    //------请求A 结束---------</div><div class="line">&#125;</div><div class="line">### Promise</div></pre></td></tr></table></figure></p>
+<p>Promise对象能使我们更合理、更规范地进行处理异步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //Promise对象是全局对象，你也可以理解为一个类，创建Promise实例的时候，要有那个new关键字。</div><div class="line">    //参数是一个匿名函数，其中有两个参数：resolve和reject，两个均为方法。</div><div class="line">    //resolve方法用于处理异步操作成功后业务；</div><div class="line">    //reject方法用于操作异步操作失败后的业务。</div><div class="line">    let pro = new Promise(function(resolve, reject)&#123;</div><div class="line">        //...</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Promise-三种状态"><a href="#Promise-三种状态" class="headerlink" title="Promise 三种状态"></a>Promise 三种状态</h3><ol>
+<li>pending: 刚刚创建一个Promise实例的时候，表示初始状态；</li>
+<li>fulfilled: resolve方法调用的时候，表示操作成功；</li>
+<li>rejected: reject方法调用的时候，表示操作失败；<br>4 状态只能从 初始化 -&gt; 成功  或者  初始化 -&gt; 失败，不能逆向转换，也不能在成功fulfilled 和失败rejected之间转换。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let pro = new Promise(function(resolve, reject)&#123;</div><div class="line">        //现在状态pending</div><div class="line"></div><div class="line">        if(&apos;success&apos;) &#123;</div><div class="line">            resolve();//状态fulfilled</div><div class="line">        &#125; else &#123;</div><div class="line">            reject();//状态rejected</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Promise-then-方法"><a href="#Promise-then-方法" class="headerlink" title="Promise.then()方法"></a>Promise.then()方法</h3><p>参数是两个函数<br>第一个用于处理操作成功后的业务<br>第二个用于处理操作异常后的业务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.then(function (res)&#123;</div><div class="line">        //操作成功的处理程序</div><div class="line">    &#125;,function(err) &#123;</div><div class="line">        //操作失败处理程序</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Promise-catch"><a href="#Promise-catch" class="headerlink" title="Promise.catch()"></a>Promise.catch()</h3><p>catch只接受一个参数，用于处理操作异常后的业务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="综合写法"><a href="#综合写法" class="headerlink" title="综合写法"></a>综合写法</h3><p>综合上面的两个方法<br>建议将then方法用于处理操作成功<br>catch方法用于处理操作异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    pro.then(function(res)&#123;</div><div class="line">        //操作成功的处理程序</div><div class="line">    &#125;).catch(function(err) &#123;</div><div class="line">        //操作失败的处理程序</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之所以能够使用链式调用,是因为then方法和catch方法调用后，都会返回promise对象。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>{<br>    let pro = new Promise(function(resolve, reject) {<br>        if(true) {<br>            //调用操作成功方法<br>            resolve(‘操作成功’);<br>            //状态：pending-&gt;fulfilled<br>        } else {<br>            //调用操作异常方法<br>            reject(‘操作异常’);<br>            //状态：pending-&gt;rejected<br>        }<br>    });</p>
+<pre><code>//用then处理操作成功，catch处理操作异常
+pro.then(requestA)
+    .then(requestB)
+    .then(requestC)
+    .catch(requestError);
+
+function requestA(){
+    console.log(&apos;请求A成功&apos;);
+    return &apos;请求B，下一个就是你了&apos;;
+}
+function requestB(res){
+    console.log(&apos;上一步的结果：&apos;+res);
+    console.log(&apos;请求B成功&apos;);
+    return &apos;请求C，下一个就是你了&apos;;
+}
+function requestC(res){
+    console.log(&apos;上一步的结果：&apos;+res);
+    console.log(&apos;请求C成功&apos;);
+}
+function requestError(){
+    console.log(&apos;请求失败&apos;);
+}
+
+//打印结果：
+//请求A成功
+//上一步的结果：请求B，下一个就是你了
+//请求B成功
+//上一步的结果：请求C，下一个就是你了
+//请求C成功
+
+/*案例中，先是创建一个实例，还声明了4个函数，其中三个是分别代表着请求A，请求B，请求C；有了then方法，三个请求操作再也不用层层嵌套了。我们使用then方法，按照调用顺序，很直观地完成了三个操作的绑定，并且，如果请求B依赖于请求A的结果，那么，可以在请求A的程序用使用return语句把需要的数据作为参数，传递给下一个请求，案例中我们就是使用return实现传递参数给下一步操作的。*/
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### 附上demo</div></pre></td></tr></table></figure></p>
+<p>{<br>    function fn(num) {<br>        return new Promise(function(resolve, reject){<br>            if( typeof num == ‘number’ ) {<br>                resolve();<br>            } else {<br>                reject();<br>            }<br>        }).then(function(){<br>            console.log(num + ‘参数是一个number’);<br>        }, function(){<br>            console.log(num + ‘参数不是一个number’);<br>        });</p>
+<pre><code>}
+
+fn(&apos;hahah&apos;);
+fn(1234);
+</code></pre><p>}<br>{<br>    //数据传递<br>    let fn = function(num) {<br>        return new Promise(function(resolve, reject) {<br>            if(typeof num == ‘number’) {<br>                resolve(num);<br>            } else {<br>                reject(‘TypeError’);<br>            }<br>        })<br>    }</p>
+<pre><code>fn(2).then(function(num){
+    console.log(&apos;first：&apos; + num);
+    return num+1;
+})
+.then(function(num){
+    console.log(&apos;second:&apos; + num);
+    return num+1;
+})
+.then(function(num){
+    console.log(&apos;third:&apos; + num);
+    return num+1;
+});
+//first: 2
+//second: 3
+//third: 4
+</code></pre><p>}<br>{<br>    //对ajax封装<br>    function getJSON(url) {<br>        return new Promise(function(resolve, reject){<br>            var XHR = new XMLHttpRequest();<br>            XHR.open(‘GET’, url, true);<br>            XHR.send();</p>
+<pre><code>        XHR.onreadystatechange = function() {
+            if( XHR.readyState == 4) {
+                try {
+                    var response = JSON.parse(XHR.responseText);
+                    console.log(&apos;进入resolve&apos;)
+                    resolve(response);
+                } catch(e) {
+                    reject(e);
+                }
+            }
+        }
+    })
+}
+
+let url = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-02-26/2017-06-10&apos;;
+let url1 = &apos;https://hq.tigerbrokers.com/fundamental/finance_calendar/getType/2017-03-26/2017-06-10&apos;;
+
+function renderAll() {
+    return Promise.all([getJSON(url), getJSON(url1)]);
+}
+renderAll().then( value =&gt; {
+    console.log(value);
+})
+</code></pre><p>}<br>```</p>
+
       
 
       
@@ -438,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
