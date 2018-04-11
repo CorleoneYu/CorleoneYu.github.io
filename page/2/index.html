@@ -171,6 +171,180 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/13/ES6-Object/">ES6--Object</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/13/ES6-Object/" class="archive-article-date">
+  	<time datetime="2018-03-13T13:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-es6的简洁写法"><a href="#1-es6的简洁写法" class="headerlink" title="1. es6的简洁写法"></a>1. es6的简洁写法</h3><p>属性写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let name = &quot;zhangsan&quot;;</div><div class="line">    let age = 18;</div><div class="line"></div><div class="line">    //传统属性写法</div><div class="line">    let person_es5 = &#123;</div><div class="line">        &quot;name&quot;: name,</div><div class="line">        &quot;age&quot;: age</div><div class="line">    &#125;;</div><div class="line">    console.log(person_es5);</div><div class="line">    //结果：&#123;name: &quot;Zhangsan&quot;, age: 12&#125;</div><div class="line"></div><div class="line">    //ES6简洁写法</div><div class="line">    //变量名可以作为键值对的键（变量名name和age）</div><div class="line">    //而变量的值作为值（变量的值Zhangsan和12）</div><div class="line">    let person_es6 = &#123;</div><div class="line">        name,</div><div class="line">        age</div><div class="line">    &#125;;</div><div class="line">    console.log(person_es6);</div><div class="line">    //结果：&#123;name: &quot;Zhangsan&quot;, age: 12&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统写法</div><div class="line">    let person_es5 = &#123;</div><div class="line">        say:function() &#123;</div><div class="line">            console.log(&apos;-----es5-----&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //es6</div><div class="line">    let person = &#123;</div><div class="line">        say() &#123;</div><div class="line">            console.log(&apos;-----es6-----&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-es6新方法"><a href="#2-es6新方法" class="headerlink" title="2. es6新方法"></a>2. es6新方法</h3><h4 id="2-1-Object-is-函数"><a href="#2-1-Object-is-函数" class="headerlink" title="2.1 Object.is( )函数"></a>2.1 Object.is( )函数</h4><p>比较两个值是否严格相等，或者说全等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    var str = &apos;12&apos;;</div><div class="line">    var num = 12;</div><div class="line">    var num2 = 12;</div><div class="line"></div><div class="line">    Object.is(str,num);</div><div class="line">    //结果：false</div><div class="line"></div><div class="line">    Object.is(num2,num);</div><div class="line">    //结果：true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-2-Object-assign-函数"><a href="#2-2-Object-assign-函数" class="headerlink" title="2.2 Object.assign()函数"></a>2.2 Object.assign()函数</h4><p>将源对象的属性赋值到目标对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let target = &#123; &quot;a&quot;: 1&#125;;</div><div class="line">    let origin = &#123;&quot;b&quot;: 2, &quot;c&quot;: 3&#125;;</div><div class="line"></div><div class="line">    Object.assign(target, origin);</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 1, b: 2, c: 3&#125;</div><div class="line">    //origin的属性被添加到target上面</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //这个充当目标对象</div><div class="line">    let target = &#123;&quot;a&quot;:1&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin1 = &#123;&quot;b&quot;:2,&quot;c&quot;:3&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin2 = &#123;&quot;d&quot;:4,&quot;e&quot;:5&#125;;</div><div class="line"></div><div class="line">    Object.assign(target,origin1,origin2);</div><div class="line"></div><div class="line">    //打印target对象出来看一下</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 1, b: 2, c: 3, d: 4, e: 5&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Object.assign()函数处理的过程中，会把最后出现的属性覆盖前面的同名属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //这个充当目标对象</div><div class="line">    let target = &#123;&quot;a&quot;:1&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin1 = &#123;&quot;a&quot;:2&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin2 = &#123;&quot;a&quot;:3&#125;;</div><div class="line"></div><div class="line">    Object.assign(target,origin1,origin2);</div><div class="line"></div><div class="line">    //打印target对象出来看一下</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 3&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-3-Object-getPrototypeOf-函数"><a href="#2-3-Object-getPrototypeOf-函数" class="headerlink" title="2.3 Object.getPrototypeOf( )函数"></a>2.3 Object.getPrototypeOf( )函数</h4><p>获取一个对象的prototype属性。</p>
+<h4 id="2-4-Object-setPrototypeOf-函数"><a href="#2-4-Object-setPrototypeOf-函数" class="headerlink" title="2.4 Object.setPrototypeOf()函数"></a>2.4 Object.setPrototypeOf()函数</h4><p>设置一个对象的prototype属性。<br>这两个函数可以互相配合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function Person() &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Person.prototype = &#123;</div><div class="line">        //给原型添加一个say方法</div><div class="line">        say()&#123;</div><div class="line">            console.log(&apos;hello&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //实例化Person对象allen</div><div class="line">    let allen = new Person();</div><div class="line">    allen.say();</div><div class="line"></div><div class="line">    //获取allen对象的prototype属性</div><div class="line">   console.log(Object.getPrototypeOf(allen));</div><div class="line">   //结果：打印&#123;say:function()&#123;.....&#125;&#125;</div><div class="line"></div><div class="line">   Object.setPrototypeOf(</div><div class="line">        allen,</div><div class="line">        &#123;</div><div class="line">            say() &#123;</div><div class="line">                console.log(&apos;hi&apos;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">   );</div><div class="line"></div><div class="line">   allen.say();// hi</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-es6关于class的实现"><a href="#3-es6关于class的实现" class="headerlink" title="3. es6关于class的实现"></a>3. es6关于class的实现</h3><p>JavaScript的类class本质上也是基于原型prototype的实现方式做了进一步的封装，让我们使用起来更简单明了。<br>也就是说它实际上也是函数function和原型prototype实现。</p>
+<h4 id="3-1-基本用法"><a href="#3-1-基本用法" class="headerlink" title="3.1 基本用法"></a>3.1 基本用法</h4><p>构造方法constructor是一个类必须要有的方法，默认返回实例对象；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(color) &#123;</div><div class="line">            this.color = color;</div><div class="line">            console.log(this.color);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    let dog = new Animal(&apos;blue&apos;); //blue</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果你没有编写constructor方法，执行的时候也会被加上一个默认的空的constructor方法。</p>
+<h4 id="3-2-类的属性和方法"><a href="#3-2-类的属性和方法" class="headerlink" title="3.2 类的属性和方法"></a>3.2 类的属性和方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            //属性name</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line">        //自定义方法getName</div><div class="line">        getName() &#123;</div><div class="line">            return this.name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>必须使用new创建字来创建类的实例对象<br>先声明定义类，再创建实例，否则会报错</p>
+<h4 id="3-3-类静态方法"><a href="#3-3-类静态方法" class="headerlink" title="3.3 类静态方法"></a>3.3 类静态方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //静态方法</div><div class="line">        static friends(a1, a2) &#123;</div><div class="line">            return `$&#123;a1.name&#125; and $&#123;a2.name&#125;`;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let dog = new Animal(&apos;dog&apos;);</div><div class="line">    let cat = new Animal(&apos;cat&apos;);</div><div class="line"></div><div class="line">    //调用静态方法</div><div class="line">    console.log(Animal.friends(dog, cat));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-4-继承"><a href="#3-4-继承" class="headerlink" title="3.4 继承"></a>3.4 继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //父类</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        say() &#123;</div><div class="line">            console.log(&apos;animal&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //子类</div><div class="line">    class Dog extends Animal &#123;</div><div class="line">        constructor(name, color) &#123;</div><div class="line">            super(name);</div><div class="line">            this.color = color;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //重写父类say()</div><div class="line">        say() &#123;</div><div class="line">            //使用父类同名方法</div><div class="line">            super.say(this.name);</div><div class="line">            console.log(this.color);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let wangcai = new Dog(&apos;dog&apos;, &apos;black&apos;);</div><div class="line">    wangcai.say();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/13/ES6-Object/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/13/ES6-Array/">ES6--Array</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/13/ES6-Array/" class="archive-article-date">
+  	<time datetime="2018-03-12T16:07:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Array的新静态方法"><a href="#1-Array的新静态方法" class="headerlink" title="1. Array的新静态方法"></a>1. Array的新静态方法</h2><h3 id="1-1-Array-of-函数：将一组值，转换成数组。"><a href="#1-1-Array-of-函数：将一组值，转换成数组。" class="headerlink" title="1.1 Array.of()函数：将一组值，转换成数组。"></a>1.1 Array.of()函数：将一组值，转换成数组。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">     Array.of(1,2,3,4,5);</div><div class="line">    //结果：[1,2,3,4,5]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-2-Array-from-函数-可以将类似数组的对象或者可遍历的对象转换成真正的数组"><a href="#1-2-Array-from-函数-可以将类似数组的对象或者可遍历的对象转换成真正的数组" class="headerlink" title="1.2 Array.from( )函数: 可以将类似数组的对象或者可遍历的对象转换成真正的数组"></a>1.2 Array.from( )函数: 可以将类似数组的对象或者可遍历的对象转换成真正的数组</h3><h4 id="1-2-1-元素对象转化成数组"><a href="#1-2-1-元素对象转化成数组" class="headerlink" title="1.2.1 元素对象转化成数组"></a>1.2.1 元素对象转化成数组</h4><p>有哪些是类似数组的对象？最常见的就是调用getElementsByTagName方法得到的结果，<br>它就是一个类似数组的结果，getElementsByTagName方法一定不陌生吧，我们来看一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    let ele = document.getElementsByTagName(&apos;a&apos;);</div><div class="line"></div><div class="line">    console.log(ele instanceof Array);</div><div class="line">    //结果：false，不是数组</div><div class="line"></div><div class="line">    console.log(ele instanceof Object);</div><div class="line">    //结果:true，是对象</div><div class="line"></div><div class="line">    /*发现变量ele并不是一个数组，而是一个对象Array，一个类似数组的对象Object，</div><div class="line">    接下来我们用Array.from( )对其进行处理，并再一次进行类型判断。*/</div><div class="line">    console.log(Array.from(ele) instanceof Array);</div><div class="line">    //结果：true，是数组</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="1-2-2-将字符串转换成数组"><a href="#1-2-2-将字符串转换成数组" class="headerlink" title="1.2.2 将字符串转换成数组"></a>1.2.2 将字符串转换成数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let str = &apos;hello&apos;;</div><div class="line">    Array.from(str);</div><div class="line">    //结果：[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-Array的新实例方法"><a href="#2-Array的新实例方法" class="headerlink" title="2. Array的新实例方法"></a>2. Array的新实例方法</h2><h3 id="2-1-find-函数"><a href="#2-1-find-函数" class="headerlink" title="2.1 find( )函数"></a>2.1 find( )函数</h3><p>找出数组中符合条件的第一个元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1,2,3,4,5,6];</div><div class="line">    arr.find(function(value)&#123;</div><div class="line">        return value &gt; 2;</div><div class="line">    &#125;);</div><div class="line">    //结果：value=3</div><div class="line">&#125;</div><div class="line">/* 看上面的代码，find()函数的参数是一个匿名函数，数组的每个元素都会进入匿名函数执行.</div><div class="line">直到结果为true,find函数就会返回value的值：3。</div><div class="line">倘若所有元素都不符合匿名函数的条件，find( )函数就会返回undefind。看下面的代码案例：*/</div><div class="line"></div><div class="line">&#123;</div><div class="line">    let arr = [1,2,3,4,5,6];</div><div class="line">    arr.find(function(value)&#123;</div><div class="line">        return value &gt; 7;</div><div class="line">    &#125;)</div><div class="line">    //结果：undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-2-findIndex-函数"><a href="#2-2-findIndex-函数" class="headerlink" title="2.2 findIndex( )函数"></a>2.2 findIndex( )函数</h3><p>返回符合条件的第一个数组成员的位置。<br>倘若所有元素都不符合匿名函数的条件，findIndex( )函数就会返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [0,1,2,3,4];</div><div class="line">    arr.findIndex(function(value)&#123;</div><div class="line">        return value &gt; 1;</div><div class="line">    &#125;);</div><div class="line">    //结果：2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-3-fill-函数：用指定的值，填充到数组。"><a href="#2-3-fill-函数：用指定的值，填充到数组。" class="headerlink" title="2.3 fill( )函数：用指定的值，填充到数组。"></a>2.3 fill( )函数：用指定的值，填充到数组。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1,2,3];</div><div class="line">    arr.fill(4);</div><div class="line">    //结果：[4,4,4]</div><div class="line">&#125;</div><div class="line">// 经过fill( )函数处理后的数组arr已经变成了[4,4,4]</div><div class="line">// 正如函数名fill（填充）一样。所有元素都被填充为数字4了。</div><div class="line">&#123;</div><div class="line">    //fill( )函数提供了一些参数，用于指定填充的起始位置和结束位置。</div><div class="line">    let arr = [1,2,3];</div><div class="line">    arr.fill(4, 1, 3);</div><div class="line">     //结果：[1,4,4]</div><div class="line">&#125;</div><div class="line">//第2个参数和第3个参数的意思是：从位置1的元素开始填充数字4，截止到位置3之前，</div><div class="line">//所以是位置1和位置2的元素被数字4填充了，得到的结果：[1,4,4]。</div></pre></td></tr></table></figure>
+<h3 id="2-4遍历："><a href="#2-4遍历：" class="headerlink" title="2.4遍历："></a>2.4遍历：</h3><ol>
+<li>对键值进行便利 使用entries()</li>
+<li>如果只想对索引键进行遍历 则使用keys()</li>
+<li>如果只想对元素进行遍历 则使用values()</li>
+</ol>
+<h4 id="2-4-1-entries-函数-对数组的键值对进行遍历，返回一个遍历器，可以用for-of对其进行遍历。"><a href="#2-4-1-entries-函数-对数组的键值对进行遍历，返回一个遍历器，可以用for-of对其进行遍历。" class="headerlink" title="2.4.1 entries()函数:对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历。"></a>2.4.1 entries()函数:对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    for(let [i,v] of [&apos;a&apos;, &quot;b&quot;].entries()) &#123;</div><div class="line">        console.log(i,v);</div><div class="line">    &#125;</div><div class="line">    //0 &quot;a&quot;</div><div class="line">    //1 &quot;b&quot;</div><div class="line">&#125;</div><div class="line">/*我们将entries( )函数返回的一个遍历器，用for...of进行遍历，</div><div class="line">并打印出结果，能得到数组的键值：0和1，以及对应的数组元素：‘a‘和’b‘。*/</div></pre></td></tr></table></figure>
+<h4 id="2-4-2-keys-对数组的索引键进行遍历，返回一个遍历器。"><a href="#2-4-2-keys-对数组的索引键进行遍历，返回一个遍历器。" class="headerlink" title="2.4.2 keys():对数组的索引键进行遍历，返回一个遍历器。"></a>2.4.2 keys():对数组的索引键进行遍历，返回一个遍历器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    for(let index of [&apos;a&apos;, &apos;b&apos;].keys())</div><div class="line">    &#123;</div><div class="line">        console.log(index);</div><div class="line">    &#125;</div><div class="line">    //0</div><div class="line">    //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-4-3-values-对数组的元素进行遍历，返回一个遍历器"><a href="#2-4-3-values-对数组的元素进行遍历，返回一个遍历器" class="headerlink" title="2.4.3 values()对数组的元素进行遍历，返回一个遍历器"></a>2.4.3 values()对数组的元素进行遍历，返回一个遍历器</h4><p>注： 在谷歌浏览器上报错：values返回的不是一个遍历器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // for(let value of [&apos;a&apos;, &apos;b&apos;].values())</div><div class="line">    // &#123;</div><div class="line">    //     console.log(value);</div><div class="line">    // &#125;</div><div class="line">    //a</div><div class="line">    //b</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-数组推导"><a href="#3-数组推导" class="headerlink" title="3. 数组推导"></a>3. 数组推导</h2><p>简洁写法，直接通过现有的数组生成新的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //es5</div><div class="line">    let arr1 = [1,2,3,4];</div><div class="line">    let arr2 = arr1.map(function(value)&#123;</div><div class="line">        return value*2;</div><div class="line">    &#125;)</div><div class="line">    console.log(arr2);</div><div class="line">    //结果：[2,4,6,8]</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //es6 数组推导</div><div class="line">    //谷歌浏览器报错：Uncaught SyntaxError: Unexpected token for</div><div class="line">    let arr1 = [1,2,3,4];</div><div class="line">    let arr2 = [for(i of arr1) i * 2];</div><div class="line">    console.log(arr2);</div><div class="line">    //结果： [ 2, 4, 6, 8 ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/13/ES6-Array/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES6-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -884,80 +1058,9 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/hello-world/" class="archive-article-date">
-  	<time datetime="2017-10-10T06:31:42.941Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

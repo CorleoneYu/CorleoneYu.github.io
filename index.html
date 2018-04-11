@@ -171,19 +171,253 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-java-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java-CollectionAndMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/29/java-Object/">Java-Object</a>
+      <a class="article-title" href="/2018/04/11/Java-CollectionAndMap/">Java-CollectionAndMap</a>
     </h1>
   
 
         
-        <a href="/2018/03/29/java-Object/" class="archive-article-date">
+        <a href="/2018/04/11/Java-CollectionAndMap/" class="archive-article-date">
+  	<time datetime="2018-04-11T15:31:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/11/Java-CollectionAndMap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-basicClass" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/Java-basicClass/">Java-basicClass</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/09/Java-basicClass/" class="archive-article-date">
+  	<time datetime="2018-04-09T15:38:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java基础类库"><a href="#Java基础类库" class="headerlink" title="Java基础类库"></a>Java基础类库</h1><h2 id="与用户互动"><a href="#与用户互动" class="headerlink" title="与用户互动"></a>与用户互动</h2><h3 id="运行java程序的参数"><a href="#运行java程序的参数" class="headerlink" title="运行java程序的参数"></a>运行java程序的参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//main()方法</div><div class="line">public static void main(String[] args) &#123;</div><div class="line">    //...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>public: JAVA类有JVM调用,为了让JVM自由调用这个main()，所以使用public暴露出来</li>
+<li>static: JVM调用时，直接通过该类来调用，而不是创建主类的对象来调用，所以使用static</li>
+<li>void： 因为JVM调用，该方法返回值将返回给JVM，无意义，所以使用void</li>
+<li>args: 参数可以在使用cmd的时候传入</li>
+</ol>
+<p>###<br>使用Scanner获取键盘输入<br>Scanner是一个基于正则表达式的文本扫描器，可以从文件、输入流、字符串中解析出基本类型值和字符串值。</p>
+<ol>
+<li>hasNextXxx(): 是否还有下个输入项，Xxx可以是int,Long等，如果只是判断是否包含下一个字符串，直接使用hasNext()</li>
+<li>nextXxx(): 获取下一个输入项。</li>
+<li>默认条件下，使用空白（包括空格、Tab、回车）作为多个输入项之间的分隔。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">public class ScannerKeyBoradTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        //System.in代表标准输入 就是键盘输入</div><div class="line">        Scanner sc = new Scanner(System.in);</div><div class="line">        //将只把回车作为分隔</div><div class="line">        sc.useDelimiter(&quot;\n&quot;);</div><div class="line">        //判断是否还有下一个输入项</div><div class="line">        while(sc.hasNext()) &#123;</div><div class="line">            //输出输入项</div><div class="line">            System.out.println(&quot;输入了： &quot; + sc.next());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Scanner提供了两个简单的方法来逐行读取</p>
+<ol>
+<li>boolean hsNextLine(): 返回输入源中是否还有下一个行</li>
+<li>String nextLine(): 返回输入源中下一行的字符串</li>
+</ol>
+<h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><p>System类代表当前Java程序的运行平台，System提供了一些类变量和类方法</p>
+<ol>
+<li>提供了标准输入、标准输出和错误输出的类变量:比如in,out,err分别代表系统的标准输入(通常是键盘)，标准输出(通常是显示器)和错误输出流，并提供了setIn(),setOut(),setErr();</li>
+<li>提供了一些静态方法用于访问环境变量、系统属性的方法</li>
+<li>提供了加载文件和动态链接库的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import java.io.FileNotFoundException;</div><div class="line">import java.io.FileOutputStream;</div><div class="line">import java.io.IOException;</div><div class="line">import java.util.Map;</div><div class="line">import java.util.Properties;</div><div class="line"></div><div class="line">public class SystemTest &#123;</div><div class="line">    public static void main(String[] args) throws FileNotFoundException, IOException &#123;</div><div class="line">        //获取系统所有的环境变量</div><div class="line">        Map&lt;String, String&gt; env = System.getenv();</div><div class="line">        for(String name : env.keySet() ) &#123;</div><div class="line">            System.out.println(name + &quot; ---&gt; &quot; + env.get(name));</div><div class="line">        &#125;</div><div class="line">        //获取指定环境变量的值</div><div class="line">        System.out.println(System.getenv(&quot;JAVA_HOME&quot;));</div><div class="line">        //将系统属性保存在特定文件中</div><div class="line">        Properties props = System.getProperties();</div><div class="line">        props.store(new FileOutputStream(&quot;props.txt&quot;), &quot;System Properties&quot;);</div><div class="line">        //输出特定的系统变量</div><div class="line">        System.out.println(System.getProperty(&quot;os.name&quot;));//Windows 10</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面程序调用System类的getenv(),getProperties(),getProperty()等方法来访问程序所在平台的环境变量和系统属性，之后还会在当前路径下生成一个props.txt文件</p>
+<h4 id="identityHashCode-Object-x"><a href="#identityHashCode-Object-x" class="headerlink" title="identityHashCode(Object x)"></a>identityHashCode(Object x)</h4><p>该方法返回指定对象的精确hashCode值，也就是根据该对象的地址计算得到的hashCode值.<br>用途： 如果两个对象identityHashCode值相同，则两个对象绝对是同一个对象。<br>场景： 当某个类的hashCode()被重写后，该类的实例的hashCode()方法就不能唯一标识该对象，此时，可以通过identityHashCode(Object x)返回该对象的hashCode。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class IdentityHashCodeTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        //下面s1,s2是不同的对象</div><div class="line">        String s1 = new String(&quot;Hello&quot;);</div><div class="line">        String s2 = new String(&quot;Hello&quot;);</div><div class="line">        //String重写了hashCode()-&gt;改为通过字符序列计算hashCode</div><div class="line">        //因为s1,s2字符序列相同，所以hashCode方法返回值相同</div><div class="line">        //69609650------69609650</div><div class="line">        System.out.println(s1.hashCode() + &quot;------&quot; + s2.hashCode());</div><div class="line">        //s1,s2是不同的字符串对象。所以他们的identityHashCode不同</div><div class="line">        //1829164700------2018699554</div><div class="line">        System.out.println(System.identityHashCode(s1) + &quot;------&quot; +</div><div class="line">        System.identityHashCode(s2));</div><div class="line"></div><div class="line">        String s3 = &quot;java&quot;;</div><div class="line">        String s4 = &quot;java&quot;;</div><div class="line">        //s3,s4是相同的字符串对象,所以他们的identityHashCode相同</div><div class="line">        System.out.println(System.identityHashCode(s3) + &quot;------&quot; +</div><div class="line">        System.identityHashCode(s4));</div><div class="line">        //1311053135------1311053135</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>identityHashCode是根据对象地址计算得到，所以任何两个对象的identityHashCode总不想等</p>
+<h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><h2 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h2><h3 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h3><p>Object是所有类、数组、枚举类的父类。 提供了几个常用方法</p>
+<ol>
+<li>boolean equals(Object obj): 判断指定对象与该对象是否相同-&gt;两个对象是否是同一个对象(常常需要重写)</li>
+<li>protected void finalize(): 当系统中没有引用变量引用到该对象时，垃圾回收器调用此方法来清理该对象的资源</li>
+<li>Class&lt;?&gt; getClass(): 返回该对象运行时的类</li>
+<li>int hashCode(): 返回该对象的hashCode,默认情况下，根据该对象的地址来计算(与identityHashCode(Object x)相同)。</li>
+<li>String toString():返回该对象的字符串表示，当程序使用System.out.println()输出一个对象,或者把某个对象与字符串进行连接操作，系统会自动调用该对象的toString()返回该对象的字符串表示：运行时类名@十六进制hashCode</li>
+<li>protected clone():用于帮助其他对象来实现”自我克隆”，得到一个当前对象的副本，而且两个类完全隔离，由于clone使用protected修饰，因此该方法只能被子类重写或调用<br>自定义类实现”克隆”(想起了js中的浅克隆)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class Address &#123;</div><div class="line">    String detail;</div><div class="line">    public Address(String detail) &#123;</div><div class="line">        this.detail = detail;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//实现Cloneable接口</div><div class="line">class User implements Cloneable &#123;</div><div class="line">    int age;</div><div class="line">    Address address;</div><div class="line">    public User(int age) &#123;</div><div class="line">        this.age = age;</div><div class="line">        address = new Address(&quot;广州番禺&quot;);</div><div class="line">    &#125;</div><div class="line">    //通过super.clone()来实现clone()方法</div><div class="line">    public User clone()</div><div class="line">            throws CloneNotSupportedException&#123;</div><div class="line">        return (User)super.clone();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class CloneTest &#123;</div><div class="line">    public static void main(String[] args)</div><div class="line">            throws CloneNotSupportedException   &#123;</div><div class="line">        User u1 = new User(42);</div><div class="line">        //clone得到u1对象的副本</div><div class="line">        User u2 = u1.clone();</div><div class="line">        //判断u1 u2是否相同</div><div class="line">        System.out.println(u1 == u2);</div><div class="line">        //判断u1 u2 的address是否相同</div><div class="line">        System.out.println(u1.address == u2.address);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>程序判断原有User对象u1与克隆出来的u2是否相同，返回false，但是，判断u1.address与u2.address是否相同时，返回的是true。<br>说明clone()只是简单的浅克隆，对于引用类型只是简单的复制他的地址，而不是在堆内存中重新开辟然后赋值——类似于js中的浅克隆。</p>
+<h3 id="String-StringBuffer-StringBuilder"><a href="#String-StringBuffer-StringBuilder" class="headerlink" title="String StringBuffer StringBuilder"></a>String StringBuffer StringBuilder</h3><p>字符串就是一连串的字符序列，JAVA提供了String StringBuffer来封装，并提供了一系列方法来操作</p>
+<ol>
+<li>String是不可变类，即一旦一个String对象创建后，包含在这个对象中的字符序列是不可改变的，直至销毁</li>
+<li>StringBuffer对象则代表一个字符序列可变的字符串，当一个StringBuffer对象创建后，可以通过append(),insert(),reverse(),setCharAt(),setLength()方法来改变(学过js的我表示莫名熟悉)，一旦生成最终字符串，可以通过toString()将其转化。</li>
+<li>StringBuilder类。代表字符串对象，与StringBuffer基本相似，构造器和方法也基本相同，不同的是StringBuffer是线程安全的，而StringBuilder没有实现线程安全功能，所以性能略高，通常，优先考虑StringBuilder。</li>
+</ol>
+<h4 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h4><p>提供了大量构造器</p>
+<ol>
+<li>String(): 创建一个包含0个字符串序列的String(并不会返回null)</li>
+<li>String(byte[] bytes, Charset charset): 使用指定的字符集将指定的byte[]数组解码成一个新的String</li>
+<li>String(byte[] bytes, int offset, int length): 使用平台默认字符集将指定的byte[]数组从offset开始，长度为length的子数组解码成一个新的String</li>
+<li>…(不再赘叙)</li>
+<li>String(StringBuffer buffer),String(StringBuilder builder): 转换成String<br>提供了大量方法</li>
+<li><p>char charAt(int index): 获取字符串指定位置的字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = new String(&quot;dashuaibi&quot;);</div><div class="line">System.out.println(&quot;s.charAt(2): &quot; + s.charAt(2)); //s.charAt(2): s</div></pre></td></tr></table></figure>
+</li>
+<li><p>int compareTo(String anotherString): 比较两个字符串的大小 如果字符串序列相等，返回0，不想等时，从两个字符串第0个字符开始比较，返回第一个不想等的字符差。特殊情况：较长字符串前面恰巧是短字符串，则返回长度差</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class FunctionTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        String s1 = new String(&quot;abcdefghijklmn&quot;);</div><div class="line">        String s2 = new String(&quot;abcdefghij&quot;);</div><div class="line">        String s3 = new String(&quot;abcdefghijalmn&quot;);</div><div class="line">        System.out.println(&quot;s1.compareTo(s2): &quot; + s1.compareTo(s2));//返回长度差 4</div><div class="line">        System.out.println(&quot;s1.compareTo(s3): &quot; + s1.compareTo(s3));//返回&apos;k&apos;-&apos;a&apos; 10</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>String concat(String str): 将该String对象与str拼接</p>
+</li>
+<li>boolean contentEquals(StringBuffer sb): 将String与StringBuffer对象sb比较，如果包含的字符串序列相同时返回true</li>
+<li>boolean endsWith(String suffix): 返回该String是否以suffix结尾<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s4 = &quot;fit.org&quot;; String s5 = &quot;.org&quot;;</div><div class="line">System.out.println(&quot;s4.endsWith(s5): &quot; + s4.endsWith(s5));//s4.endsWith(s5): true</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>[类似的：boolean startsWith(String prefix),boolean startsWith(String prefix, int toffset)]</p>
+<ol>
+<li>boolean equals(Object anObject)| equalsIgnoreCase(String str)[忽略大小写]: 将该字符串与指定对象比较，如果两个包含的字符序列相等，返回true</li>
+<li>void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin):将字符串从srcBegin开始，到srcEnd结束复制到dst字符数组中,dstBegin为目标数组的起始复制位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">char[] s6 = &#123;&apos;I&apos;, &apos; &apos;, &apos;l&apos;, &apos;o&apos;, &apos;v&apos;, &apos;e&apos;, &apos; &apos;, &apos;j&apos;, &apos;a&apos;, &apos;v&apos;, &apos;a&apos;&#125;;//I love java</div><div class="line">String s7 = new String(&quot;ejb&quot;);</div><div class="line">s7.getChars(0, 2, s6, 7);</div><div class="line">System.out.println(s6);//I love ejva</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注： 这里是srcEnd之前的字符被复制，不包含srcEnd(例子中2位置是’b’并没有被复制)</p>
+<ol>
+<li>int indexOf(int ch): 返回指定字符在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。</li>
+<li>int indexOf(int ch, int fromIndex): 返回从 fromIndex 位置开始查找指定字符在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。</li>
+<li>int indexOf(String str): 返回指定字符在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。</li>
+<li>int indexOf(String str, int fromIndex): 返回从 fromIndex 位置开始查找指定字符在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。<br>(以上方法有对应的lastIndex方法，功能为找出最后一次出现的位置，不再赘叙)</li>
+<li>int lenght(): 返回字符串长度</li>
+<li>String replace(char oldChar, char newChar): 将字符串中第一个oldChar替换成newChar.</li>
+<li>String substring(int beginIndex):获取从beginIndex位置开始到结束的子字符串。<br>String substring(int beginIndex, int endIndex):获取从beginIndex到endIndex的子字符串</li>
+<li>char[] toCharArray(): 转换成char数组</li>
+<li>String toLowerCase(), String toUpperCase()</li>
+<li>static String valueOf(X x):一系列将基本类型转换成String对象的方法<br>在这里罗列了各种方法，以供未来查询</li>
+</ol>
+<p>String类是不可变的，一旦生成就不会再改变，可能不是很直观，我们来看代码解释下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String s1 = &quot;java&quot;;</div><div class="line">s1 += &quot;struts&quot;;</div><div class="line">s1 += &quot;spring&quot;;</div></pre></td></tr></table></figure></p>
+<p>程序使用了3个字符串直接量之外，还会额外生成2个字符串直接亮——“java”,”struts”连接生成”javastruts”,接着再与”spring”连接生成”javastrutsspring”.<br>可以看出，使用String会额外产生很多临时变量，不过，使用StringBuffer或StringBuilder就可以避免</p>
+<h4 id="StringBuffer-StringBuilder"><a href="#StringBuffer-StringBuilder" class="headerlink" title="StringBuffer StringBuilder"></a>StringBuffer StringBuilder</h4><p>他们有两个属性: length,capacity,与String不同的是，他们的length可以改变(通过lsetLength(int len)来修改)，capacity表示容量,通常比length大,不过程序通常不关心capacity<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class StringBuilderTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        StringBuilder sb = new StringBuilder();</div><div class="line">        sb.append(&quot;java&quot;); //sb = &quot;java&quot;</div><div class="line">        //插入</div><div class="line">        sb.insert(0, &quot;hello &quot;); //sb = &quot;hello java&quot;</div><div class="line">        //替换</div><div class="line">        sb.replace(5, 6, &quot;,&quot;); //sb = &quot;hello,java&quot;</div><div class="line">        //删除</div><div class="line">        sb.delete(5,  6);//sb = &quot;hellojava&quot;</div><div class="line">        System.out.println(sb);</div><div class="line"></div><div class="line">        //反转</div><div class="line">        sb.reverse(); //sb=&quot;avajolleh&quot;</div><div class="line">        System.out.println(sb.length());//9</div><div class="line">        System.out.println(sb.capacity());//16</div><div class="line">        //改变sb的长度 将只保留前面部分</div><div class="line">        sb.setLength(5); //sb=&quot;avajo&quot;</div><div class="line">        System.out.println(sb);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">public class MathTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        /*三角运算*/</div><div class="line">        //将弧度转换为角度</div><div class="line">        System.out.println(&quot;Math.toDegrees(1.57): &quot; + Math.toDegrees(1.57));//89.95437383553926</div><div class="line">        //将角度转换为弧度</div><div class="line">        System.out.println(&quot;Math.toRadians(90): &quot; + Math.toRadians(90));//1.5707963267948966</div><div class="line"></div><div class="line">        //计算反余弦 返回的角度范围在0.0 到 pi 之 间</div><div class="line">        System.out.println(&quot;Math.acos(1.2): &quot; + Math.acos(1.2));//NaN</div><div class="line">        //计算反正弦 Math.asin() 反正切Math.atan()</div><div class="line">        //计算余弦Math.cos() 正弦Math.sin() 正切Math.tan() 双曲正切Math.tanh()</div><div class="line"></div><div class="line">        //将矩形左边(x,y)转换成极坐标(r, thet)</div><div class="line">        System.out.println(&quot;Math.atan2(0.1, 0.2): &quot; + Math.atan2(0.1, 0.2));</div><div class="line"></div><div class="line">        /*取整运算*/</div><div class="line">        //取整 返回小于目标数的最大整数</div><div class="line">        System.out.println(&quot;Math.floor(-1.2): &quot; + Math.floor(-1.2)); //-2.0</div><div class="line">        //取整 返回大于目标数的最小整数</div><div class="line">        System.out.println(&quot;Math.ceil(1.2): &quot; + Math.ceil(1.2));//2.0</div><div class="line">        //四舍五入取整</div><div class="line">        System.out.println(&quot;Math.round(2.3): &quot; + Math.round(2.3));//2</div><div class="line"></div><div class="line">        /*乘方 开方 指数运算*/</div><div class="line">        //计算平方根</div><div class="line">        System.out.println(&quot;Math.sqrt(4): &quot; + Math.sqrt(4));//2.0</div><div class="line">        //计算立方根 Math.cbrt()</div><div class="line"></div><div class="line">        //返回e的n次幂</div><div class="line">        System.out.println(&quot;Math.exp(2): &quot; + Math.exp(2));// 7.38905609893065</div><div class="line"></div><div class="line">        /*符号相关的运算*/</div><div class="line">        //计算绝对值</div><div class="line">        System.out.println(&quot;Math.abs(-4.5): &quot; + Math.abs(-4.5)); //4.5</div><div class="line">        //符号赋值 将第二个参数的符号给第一个参数</div><div class="line">        System.out.println(&quot;Math.copySign(1.2, -1.0): &quot; + Math.copySign(1.2, -1.0));//-1.2</div><div class="line">        /**</div><div class="line">         * 符号函数</div><div class="line">         * 如果参数为0 返回0</div><div class="line">         * 大于0 返回1.0</div><div class="line">         * 小于0 返回-1.0</div><div class="line">         */</div><div class="line">        System.out.println(&quot;Math.signum(2.3): &quot; + Math.signum(2.3) );//1.0</div><div class="line">        /*大小相关的运算*/</div><div class="line">        //找出最大值</div><div class="line">        System.out.println(&quot;Math.max(2.3, 3.5): &quot; + Math.max(2.3, 3.5));//3.5</div><div class="line">        //找出最小值</div><div class="line">        System.out.println(&quot;Math.min(1, 5): &quot; + Math.min(1, 5));//1</div><div class="line">        //返回比目标略大的浮点数</div><div class="line">        System.out.println(&quot;Math.nextUp(1.2): &quot; + Math.nextUp(1.2));//1.2000000000000002</div><div class="line">        //返回一个伪随机数，该值大于等于0.0 且小于1.0</div><div class="line">        System.out.println(&quot;Math.random(): &quot; + Math.random());//0.5873627413485286</div><div class="line">        //返回第一个参数和第二个参数之间 与 第一个参数相邻的浮点数</div><div class="line">        System.out.println(&quot;Math.nextAfter(1.2, 1.0): &quot; + Math.nextAfter(1.2, 1.0));//1.1999999999999997</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ThreadLocalRandom-与-Random"><a href="#ThreadLocalRandom-与-Random" class="headerlink" title="ThreadLocalRandom 与 Random"></a>ThreadLocalRandom 与 Random</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/09/Java-basicClass/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/Java-Object/">Java-Object</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/29/Java-Object/" class="archive-article-date">
   	<time datetime="2018-03-29T03:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-29</time>
 </a>
         
@@ -476,7 +710,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/29/java-Object/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/29/Java-Object/">展开全文 >></a>
         </p>
       
 
@@ -1121,183 +1355,9 @@
 
 
   
-    <article id="post-ES6-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-Object/">ES6--Object</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-Object/" class="archive-article-date">
-  	<time datetime="2018-03-13T13:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-es6的简洁写法"><a href="#1-es6的简洁写法" class="headerlink" title="1. es6的简洁写法"></a>1. es6的简洁写法</h3><p>属性写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let name = &quot;zhangsan&quot;;</div><div class="line">    let age = 18;</div><div class="line"></div><div class="line">    //传统属性写法</div><div class="line">    let person_es5 = &#123;</div><div class="line">        &quot;name&quot;: name,</div><div class="line">        &quot;age&quot;: age</div><div class="line">    &#125;;</div><div class="line">    console.log(person_es5);</div><div class="line">    //结果：&#123;name: &quot;Zhangsan&quot;, age: 12&#125;</div><div class="line"></div><div class="line">    //ES6简洁写法</div><div class="line">    //变量名可以作为键值对的键（变量名name和age）</div><div class="line">    //而变量的值作为值（变量的值Zhangsan和12）</div><div class="line">    let person_es6 = &#123;</div><div class="line">        name,</div><div class="line">        age</div><div class="line">    &#125;;</div><div class="line">    console.log(person_es6);</div><div class="line">    //结果：&#123;name: &quot;Zhangsan&quot;, age: 12&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>方法写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统写法</div><div class="line">    let person_es5 = &#123;</div><div class="line">        say:function() &#123;</div><div class="line">            console.log(&apos;-----es5-----&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //es6</div><div class="line">    let person = &#123;</div><div class="line">        say() &#123;</div><div class="line">            console.log(&apos;-----es6-----&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-es6新方法"><a href="#2-es6新方法" class="headerlink" title="2. es6新方法"></a>2. es6新方法</h3><h4 id="2-1-Object-is-函数"><a href="#2-1-Object-is-函数" class="headerlink" title="2.1 Object.is( )函数"></a>2.1 Object.is( )函数</h4><p>比较两个值是否严格相等，或者说全等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    var str = &apos;12&apos;;</div><div class="line">    var num = 12;</div><div class="line">    var num2 = 12;</div><div class="line"></div><div class="line">    Object.is(str,num);</div><div class="line">    //结果：false</div><div class="line"></div><div class="line">    Object.is(num2,num);</div><div class="line">    //结果：true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="2-2-Object-assign-函数"><a href="#2-2-Object-assign-函数" class="headerlink" title="2.2 Object.assign()函数"></a>2.2 Object.assign()函数</h4><p>将源对象的属性赋值到目标对象上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let target = &#123; &quot;a&quot;: 1&#125;;</div><div class="line">    let origin = &#123;&quot;b&quot;: 2, &quot;c&quot;: 3&#125;;</div><div class="line"></div><div class="line">    Object.assign(target, origin);</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 1, b: 2, c: 3&#125;</div><div class="line">    //origin的属性被添加到target上面</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //这个充当目标对象</div><div class="line">    let target = &#123;&quot;a&quot;:1&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin1 = &#123;&quot;b&quot;:2,&quot;c&quot;:3&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin2 = &#123;&quot;d&quot;:4,&quot;e&quot;:5&#125;;</div><div class="line"></div><div class="line">    Object.assign(target,origin1,origin2);</div><div class="line"></div><div class="line">    //打印target对象出来看一下</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 1, b: 2, c: 3, d: 4, e: 5&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Object.assign()函数处理的过程中，会把最后出现的属性覆盖前面的同名属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //这个充当目标对象</div><div class="line">    let target = &#123;&quot;a&quot;:1&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin1 = &#123;&quot;a&quot;:2&#125;;</div><div class="line"></div><div class="line">    //这个充当源对象</div><div class="line">    let origin2 = &#123;&quot;a&quot;:3&#125;;</div><div class="line"></div><div class="line">    Object.assign(target,origin1,origin2);</div><div class="line"></div><div class="line">    //打印target对象出来看一下</div><div class="line">    console.log(target);</div><div class="line">    //结果 &#123;a: 3&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="2-3-Object-getPrototypeOf-函数"><a href="#2-3-Object-getPrototypeOf-函数" class="headerlink" title="2.3 Object.getPrototypeOf( )函数"></a>2.3 Object.getPrototypeOf( )函数</h4><p>获取一个对象的prototype属性。</p>
-<h4 id="2-4-Object-setPrototypeOf-函数"><a href="#2-4-Object-setPrototypeOf-函数" class="headerlink" title="2.4 Object.setPrototypeOf()函数"></a>2.4 Object.setPrototypeOf()函数</h4><p>设置一个对象的prototype属性。<br>这两个函数可以互相配合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function Person() &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Person.prototype = &#123;</div><div class="line">        //给原型添加一个say方法</div><div class="line">        say()&#123;</div><div class="line">            console.log(&apos;hello&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //实例化Person对象allen</div><div class="line">    let allen = new Person();</div><div class="line">    allen.say();</div><div class="line"></div><div class="line">    //获取allen对象的prototype属性</div><div class="line">   console.log(Object.getPrototypeOf(allen));</div><div class="line">   //结果：打印&#123;say:function()&#123;.....&#125;&#125;</div><div class="line"></div><div class="line">   Object.setPrototypeOf(</div><div class="line">        allen,</div><div class="line">        &#123;</div><div class="line">            say() &#123;</div><div class="line">                console.log(&apos;hi&apos;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">   );</div><div class="line"></div><div class="line">   allen.say();// hi</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-es6关于class的实现"><a href="#3-es6关于class的实现" class="headerlink" title="3. es6关于class的实现"></a>3. es6关于class的实现</h3><p>JavaScript的类class本质上也是基于原型prototype的实现方式做了进一步的封装，让我们使用起来更简单明了。<br>也就是说它实际上也是函数function和原型prototype实现。</p>
-<h4 id="3-1-基本用法"><a href="#3-1-基本用法" class="headerlink" title="3.1 基本用法"></a>3.1 基本用法</h4><p>构造方法constructor是一个类必须要有的方法，默认返回实例对象；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(color) &#123;</div><div class="line">            this.color = color;</div><div class="line">            console.log(this.color);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    let dog = new Animal(&apos;blue&apos;); //blue</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>如果你没有编写constructor方法，执行的时候也会被加上一个默认的空的constructor方法。</p>
-<h4 id="3-2-类的属性和方法"><a href="#3-2-类的属性和方法" class="headerlink" title="3.2 类的属性和方法"></a>3.2 类的属性和方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            //属性name</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line">        //自定义方法getName</div><div class="line">        getName() &#123;</div><div class="line">            return this.name;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>必须使用new创建字来创建类的实例对象<br>先声明定义类，再创建实例，否则会报错</p>
-<h4 id="3-3-类静态方法"><a href="#3-3-类静态方法" class="headerlink" title="3.3 类静态方法"></a>3.3 类静态方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //静态方法</div><div class="line">        static friends(a1, a2) &#123;</div><div class="line">            return `$&#123;a1.name&#125; and $&#123;a2.name&#125;`;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let dog = new Animal(&apos;dog&apos;);</div><div class="line">    let cat = new Animal(&apos;cat&apos;);</div><div class="line"></div><div class="line">    //调用静态方法</div><div class="line">    console.log(Animal.friends(dog, cat));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="3-4-继承"><a href="#3-4-继承" class="headerlink" title="3.4 继承"></a>3.4 继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //父类</div><div class="line">    class Animal &#123;</div><div class="line">        constructor(name) &#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        say() &#123;</div><div class="line">            console.log(&apos;animal&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //子类</div><div class="line">    class Dog extends Animal &#123;</div><div class="line">        constructor(name, color) &#123;</div><div class="line">            super(name);</div><div class="line">            this.color = color;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //重写父类say()</div><div class="line">        say() &#123;</div><div class="line">            //使用父类同名方法</div><div class="line">            super.say(this.name);</div><div class="line">            console.log(this.color);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let wangcai = new Dog(&apos;dog&apos;, &apos;black&apos;);</div><div class="line">    wangcai.say();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-Object/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-Array/">ES6--Array</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-Array/" class="archive-article-date">
-  	<time datetime="2018-03-12T16:07:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Array的新静态方法"><a href="#1-Array的新静态方法" class="headerlink" title="1. Array的新静态方法"></a>1. Array的新静态方法</h2><h3 id="1-1-Array-of-函数：将一组值，转换成数组。"><a href="#1-1-Array-of-函数：将一组值，转换成数组。" class="headerlink" title="1.1 Array.of()函数：将一组值，转换成数组。"></a>1.1 Array.of()函数：将一组值，转换成数组。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">     Array.of(1,2,3,4,5);</div><div class="line">    //结果：[1,2,3,4,5]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-2-Array-from-函数-可以将类似数组的对象或者可遍历的对象转换成真正的数组"><a href="#1-2-Array-from-函数-可以将类似数组的对象或者可遍历的对象转换成真正的数组" class="headerlink" title="1.2 Array.from( )函数: 可以将类似数组的对象或者可遍历的对象转换成真正的数组"></a>1.2 Array.from( )函数: 可以将类似数组的对象或者可遍历的对象转换成真正的数组</h3><h4 id="1-2-1-元素对象转化成数组"><a href="#1-2-1-元素对象转化成数组" class="headerlink" title="1.2.1 元素对象转化成数组"></a>1.2.1 元素对象转化成数组</h4><p>有哪些是类似数组的对象？最常见的就是调用getElementsByTagName方法得到的结果，<br>它就是一个类似数组的结果，getElementsByTagName方法一定不陌生吧，我们来看一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"></div><div class="line">    let ele = document.getElementsByTagName(&apos;a&apos;);</div><div class="line"></div><div class="line">    console.log(ele instanceof Array);</div><div class="line">    //结果：false，不是数组</div><div class="line"></div><div class="line">    console.log(ele instanceof Object);</div><div class="line">    //结果:true，是对象</div><div class="line"></div><div class="line">    /*发现变量ele并不是一个数组，而是一个对象Array，一个类似数组的对象Object，</div><div class="line">    接下来我们用Array.from( )对其进行处理，并再一次进行类型判断。*/</div><div class="line">    console.log(Array.from(ele) instanceof Array);</div><div class="line">    //结果：true，是数组</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="1-2-2-将字符串转换成数组"><a href="#1-2-2-将字符串转换成数组" class="headerlink" title="1.2.2 将字符串转换成数组"></a>1.2.2 将字符串转换成数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let str = &apos;hello&apos;;</div><div class="line">    Array.from(str);</div><div class="line">    //结果：[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="2-Array的新实例方法"><a href="#2-Array的新实例方法" class="headerlink" title="2. Array的新实例方法"></a>2. Array的新实例方法</h2><h3 id="2-1-find-函数"><a href="#2-1-find-函数" class="headerlink" title="2.1 find( )函数"></a>2.1 find( )函数</h3><p>找出数组中符合条件的第一个元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1,2,3,4,5,6];</div><div class="line">    arr.find(function(value)&#123;</div><div class="line">        return value &gt; 2;</div><div class="line">    &#125;);</div><div class="line">    //结果：value=3</div><div class="line">&#125;</div><div class="line">/* 看上面的代码，find()函数的参数是一个匿名函数，数组的每个元素都会进入匿名函数执行.</div><div class="line">直到结果为true,find函数就会返回value的值：3。</div><div class="line">倘若所有元素都不符合匿名函数的条件，find( )函数就会返回undefind。看下面的代码案例：*/</div><div class="line"></div><div class="line">&#123;</div><div class="line">    let arr = [1,2,3,4,5,6];</div><div class="line">    arr.find(function(value)&#123;</div><div class="line">        return value &gt; 7;</div><div class="line">    &#125;)</div><div class="line">    //结果：undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-2-findIndex-函数"><a href="#2-2-findIndex-函数" class="headerlink" title="2.2 findIndex( )函数"></a>2.2 findIndex( )函数</h3><p>返回符合条件的第一个数组成员的位置。<br>倘若所有元素都不符合匿名函数的条件，findIndex( )函数就会返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [0,1,2,3,4];</div><div class="line">    arr.findIndex(function(value)&#123;</div><div class="line">        return value &gt; 1;</div><div class="line">    &#125;);</div><div class="line">    //结果：2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-3-fill-函数：用指定的值，填充到数组。"><a href="#2-3-fill-函数：用指定的值，填充到数组。" class="headerlink" title="2.3 fill( )函数：用指定的值，填充到数组。"></a>2.3 fill( )函数：用指定的值，填充到数组。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1,2,3];</div><div class="line">    arr.fill(4);</div><div class="line">    //结果：[4,4,4]</div><div class="line">&#125;</div><div class="line">// 经过fill( )函数处理后的数组arr已经变成了[4,4,4]</div><div class="line">// 正如函数名fill（填充）一样。所有元素都被填充为数字4了。</div><div class="line">&#123;</div><div class="line">    //fill( )函数提供了一些参数，用于指定填充的起始位置和结束位置。</div><div class="line">    let arr = [1,2,3];</div><div class="line">    arr.fill(4, 1, 3);</div><div class="line">     //结果：[1,4,4]</div><div class="line">&#125;</div><div class="line">//第2个参数和第3个参数的意思是：从位置1的元素开始填充数字4，截止到位置3之前，</div><div class="line">//所以是位置1和位置2的元素被数字4填充了，得到的结果：[1,4,4]。</div></pre></td></tr></table></figure>
-<h3 id="2-4遍历："><a href="#2-4遍历：" class="headerlink" title="2.4遍历："></a>2.4遍历：</h3><ol>
-<li>对键值进行便利 使用entries()</li>
-<li>如果只想对索引键进行遍历 则使用keys()</li>
-<li>如果只想对元素进行遍历 则使用values()</li>
-</ol>
-<h4 id="2-4-1-entries-函数-对数组的键值对进行遍历，返回一个遍历器，可以用for-of对其进行遍历。"><a href="#2-4-1-entries-函数-对数组的键值对进行遍历，返回一个遍历器，可以用for-of对其进行遍历。" class="headerlink" title="2.4.1 entries()函数:对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历。"></a>2.4.1 entries()函数:对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    for(let [i,v] of [&apos;a&apos;, &quot;b&quot;].entries()) &#123;</div><div class="line">        console.log(i,v);</div><div class="line">    &#125;</div><div class="line">    //0 &quot;a&quot;</div><div class="line">    //1 &quot;b&quot;</div><div class="line">&#125;</div><div class="line">/*我们将entries( )函数返回的一个遍历器，用for...of进行遍历，</div><div class="line">并打印出结果，能得到数组的键值：0和1，以及对应的数组元素：‘a‘和’b‘。*/</div></pre></td></tr></table></figure>
-<h4 id="2-4-2-keys-对数组的索引键进行遍历，返回一个遍历器。"><a href="#2-4-2-keys-对数组的索引键进行遍历，返回一个遍历器。" class="headerlink" title="2.4.2 keys():对数组的索引键进行遍历，返回一个遍历器。"></a>2.4.2 keys():对数组的索引键进行遍历，返回一个遍历器。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    for(let index of [&apos;a&apos;, &apos;b&apos;].keys())</div><div class="line">    &#123;</div><div class="line">        console.log(index);</div><div class="line">    &#125;</div><div class="line">    //0</div><div class="line">    //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-4-3-values-对数组的元素进行遍历，返回一个遍历器"><a href="#2-4-3-values-对数组的元素进行遍历，返回一个遍历器" class="headerlink" title="2.4.3 values()对数组的元素进行遍历，返回一个遍历器"></a>2.4.3 values()对数组的元素进行遍历，返回一个遍历器</h4><p>注： 在谷歌浏览器上报错：values返回的不是一个遍历器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // for(let value of [&apos;a&apos;, &apos;b&apos;].values())</div><div class="line">    // &#123;</div><div class="line">    //     console.log(value);</div><div class="line">    // &#125;</div><div class="line">    //a</div><div class="line">    //b</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="3-数组推导"><a href="#3-数组推导" class="headerlink" title="3. 数组推导"></a>3. 数组推导</h2><p>简洁写法，直接通过现有的数组生成新的数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //es5</div><div class="line">    let arr1 = [1,2,3,4];</div><div class="line">    let arr2 = arr1.map(function(value)&#123;</div><div class="line">        return value*2;</div><div class="line">    &#125;)</div><div class="line">    console.log(arr2);</div><div class="line">    //结果：[2,4,6,8]</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //es6 数组推导</div><div class="line">    //谷歌浏览器报错：Uncaught SyntaxError: Unexpected token for</div><div class="line">    let arr1 = [1,2,3,4];</div><div class="line">    let arr2 = [for(i of arr1) i * 2];</div><div class="line">    console.log(arr2);</div><div class="line">    //结果： [ 2, 4, 6, 8 ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-Array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
