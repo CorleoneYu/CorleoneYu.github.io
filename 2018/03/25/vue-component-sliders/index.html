@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
   <title>vue-component-sliders | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
+  <meta name="description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：">
 <meta name="keywords" content="vue component">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-component-sliders">
 <meta property="og:url" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
+<meta property="og:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish.gif">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/1.jpg">
@@ -28,10 +28,10 @@
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/2-2.0.png">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/3-2.0.png">
 <meta property="og:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/vue-2.1.gif">
-<meta property="og:updated_time" content="2018-03-25T12:21:45.923Z">
+<meta property="og:updated_time" content="2018-04-17T13:03:34.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-component-sliders">
-<meta name="twitter:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：  因为前前后后做了两种实现，第二种是在第一">
+<meta name="twitter:description" content="说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。  先上一下效果图：">
 <meta name="twitter:image" content="https://corleoneyu.github.io/2018/03/25/vue-component-sliders/finish.gif">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
@@ -213,8 +213,7 @@
 <p>说起轮播图，就会想起自己刚学js以及css动画的那段日子，也曾经用原生js什么的去实现过，也说得出不同实现方式的优劣。之后呢，做项目都是用框架，用过layui、jq-weui什么的，都是直接用他们封装好的轮播图组件。直到最近学了Vue，看着他2.0有动画过渡什么的，就想着自己尝试着封装一下，之前没有造轮子的经验，写的不好好请多指教。</p>
 </blockquote>
 <p>先上一下效果图：</p>
-<p><img src="/2018/03/25/vue-component-sliders/finish.gif" alt="最终效果图"></p>
-<p>因为前前后后做了两种实现，第二种是在第一种的基础上优化的（其实第一种没做完），所以分开来讲。</p>
+<p><img src="/2018/03/25/vue-component-sliders/finish.gif" alt="最终效果图"><br><a id="more"></a><br>因为前前后后做了两种实现，第二种是在第一种的基础上优化的（其实第一种没做完），所以分开来讲。</p>
 <h2 id="版本一"><a href="#版本一" class="headerlink" title="版本一"></a>版本一</h2><p>版本一的思路是按照掘金上的教程来的<br><a href="https://juejin.im/post/5aaf0907f265da23870e9fed" target="_blank" rel="external">这里贴一下教程地址 作者：limingru</a><br>侵联立删</p>
 <h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ol>
 <li>在点击右侧箭头时，图片向左滑动到下一张；点击左侧箭头时，图片向右滑到下一张</li>

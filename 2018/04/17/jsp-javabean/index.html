@@ -9,14 +9,14 @@
   <title>jsp-javabean | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
-<meta name="keywords" content="jsp">
+<meta name="keywords" content="java,jsp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jsp-javabean">
 <meta property="og:url" content="https://corleoneyu.github.io/2018/04/17/jsp-javabean/index.html">
 <meta property="og:site_name" content="林大羽">
 <meta property="og:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T11:40:45.772Z">
+<meta property="og:updated_time" content="2018-04-17T12:22:06.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp-javabean">
 <meta name="twitter:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
@@ -206,46 +206,45 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//学生类</div><div class="line">//1. 公有类</div><div class="line">public class Students &#123;</div><div class="line">    //3. 属性私有</div><div class="line">    private String name;</div><div class="line">    //2. 无参的共有构造方法</div><div class="line">    public Students() &#123;&#125;</div><div class="line">    //4. setter getter</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="jsp动作元素"><a href="#jsp动作元素" class="headerlink" title="jsp动作元素"></a>jsp动作元素</h3><p>(action elements)动作元素: 为请求处理阶段提供信息。<br>遵循XML元素语法，有一个包含元素名的开始标签，可以有属性，可选内容，结束标签</p>
 <ol>
-<li><p>存取javaBean有关的</p>
-<ol>
+<li>存取javaBean有关的<ol>
 <li>&lt; jsp:useBean&gt;</li>
 <li>&lt; jsp:setProperty&gt;</li>
 <li>&lt; jsp:getProperty&gt;</li>
 </ol>
 </li>
-<li><p>基本元素</p>
+<li>基本元素<ol>
+<li>&lt; jsp:include&gt;</li>
+<li>&lt; jsp:forward&gt;</li>
+<li>&lt; jsp:param&gt;</li>
+<li>&lt; jsp:plugin&gt;</li>
+<li>&lt; jsp:params&gt;</li>
+<li>&lt; jsp:fallback&gt;</li>
+</ol>
 </li>
+<li>jsp Document有关<ol>
+<li>&lt; jsp:root&gt;</li>
+<li>&lt; jsp:declaration&gt;</li>
+<li>&lt; jsp:scriptlet&gt;</li>
+<li>&lt; jsp:expression&gt;</li>
+<li>&lt; jsp:text&gt;</li>
+<li>&lt; jsp:output&gt;</li>
 </ol>
-<pre><code>1. &lt; jsp:include&gt;
-2. &lt; jsp:forward&gt;
-3. &lt; jsp:param&gt;
-4. &lt; jsp:plugin&gt;
-5. &lt; jsp:params&gt;
-6. &lt; jsp:fallback&gt;
-</code></pre><ol>
-<li>jsp Document有关</li>
+</li>
+<li>用来动态生成XML元素标签的值<ol>
+<li>&lt; jsp:attribut&gt;</li>
+<li>&lt; jsp:body&gt;</li>
+<li>&lt; jsp:element&gt;</li>
 </ol>
-<pre><code>1. &lt; jsp:root&gt;
-2. &lt; jsp:declaration&gt;
-3. &lt; jsp:scriptlet&gt;
-4. &lt; jsp:expression&gt;
-5. &lt; jsp:text&gt;
-6. &lt; jsp:output&gt;
-</code></pre><ol>
-<li>用来动态生成XML元素标签的值</li>
+</li>
+<li>用在Tag File<ol>
+<li>&lt; jsp:invoke&gt;</li>
+<li>&lt; jsp:dobody&gt;<h3 id="在jsp页面中使用javabeans"><a href="#在jsp页面中使用javabeans" class="headerlink" title="在jsp页面中使用javabeans"></a>在jsp页面中使用javabeans</h3></li>
 </ol>
-<pre><code>1. &lt; jsp:attribut&gt;
-2. &lt; jsp:body&gt;
-3. &lt; jsp:element&gt;
-</code></pre><ol>
-<li>用在Tag File</li>
-</ol>
-<pre><code>1. &lt; jsp:invoke&gt;
-2. &lt; jsp:dobody&gt;
-</code></pre><h3 id="在jsp页面中使用javabeans"><a href="#在jsp页面中使用javabeans" class="headerlink" title="在jsp页面中使用javabeans"></a>在jsp页面中使用javabeans</h3><ol>
+</li>
 <li>像使用普通的java类一样，创建javabean实例</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//类文件路径： java web工程——javaResources——src——com.po(自定义包名)——Users(类名)</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//jsp文件路径：java web工程——WebContent——index.jsp</div><div class="line"></div><div class="line"></div><div class="line">//在开头引入Users类</div><div class="line">&lt;%@ page import=&quot;com.po.Users&quot; %&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h2&gt;使用普通方式创建javaBean实例&lt;/h2&gt;</div><div class="line">    &lt;%</div><div class="line">        Users user = new Users();</div><div class="line">        user.setPassword(&quot;123456&quot;);</div><div class="line">        user.setUsername(&quot;admin&quot;);</div><div class="line">    %&gt;</div><div class="line">    用户名： &lt;%=user.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=user.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;!--</div><div class="line">输出：</div><div class="line">用户名： admin</div><div class="line">密码： 123456</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ol>
 <li>在jsp页面通常使用jsp动作标签来使用javabean</li>
 </ol>
@@ -308,6 +307,10 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
         		</li>
