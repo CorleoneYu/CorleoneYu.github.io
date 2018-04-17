@@ -171,6 +171,312 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsp-javabean" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/jsp-javabean/">jsp-javabean</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/jsp-javabean/" class="archive-article-date">
+  	<time datetime="2018-04-17T11:39:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Javabean"><a href="#Javabean" class="headerlink" title="Javabean"></a>Javabean</h2><p>定义：Javabeans就是符合某种特定的规范Java类。<br>目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。</p>
+<h3 id="Javabean设计原则"><a href="#Javabean设计原则" class="headerlink" title="Javabean设计原则"></a>Javabean设计原则</h3><ol>
+<li>公有类</li>
+<li>无参的共有构造方法</li>
+<li>属性私有</li>
+<li>getter() setter()</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//学生类</div><div class="line">//1. 公有类</div><div class="line">public class Students &#123;</div><div class="line">    //3. 属性私有</div><div class="line">    private String name;</div><div class="line">    //2. 无参的共有构造方法</div><div class="line">    public Students() &#123;&#125;</div><div class="line">    //4. setter getter</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="jsp动作元素"><a href="#jsp动作元素" class="headerlink" title="jsp动作元素"></a>jsp动作元素</h3><p>(action elements)动作元素: 为请求处理阶段提供信息。<br>遵循XML元素语法，有一个包含元素名的开始标签，可以有属性，可选内容，结束标签</p>
+<ol>
+<li><p>存取javaBean有关的</p>
+<ol>
+<li>&lt; jsp:useBean&gt;</li>
+<li>&lt; jsp:setProperty&gt;</li>
+<li>&lt; jsp:getProperty&gt;</li>
+</ol>
+</li>
+<li><p>基本元素</p>
+</li>
+</ol>
+<pre><code>1. &lt; jsp:include&gt;
+2. &lt; jsp:forward&gt;
+3. &lt; jsp:param&gt;
+4. &lt; jsp:plugin&gt;
+5. &lt; jsp:params&gt;
+6. &lt; jsp:fallback&gt;
+</code></pre><ol>
+<li>jsp Document有关</li>
+</ol>
+<pre><code>1. &lt; jsp:root&gt;
+2. &lt; jsp:declaration&gt;
+3. &lt; jsp:scriptlet&gt;
+4. &lt; jsp:expression&gt;
+5. &lt; jsp:text&gt;
+6. &lt; jsp:output&gt;
+</code></pre><ol>
+<li>用来动态生成XML元素标签的值</li>
+</ol>
+<pre><code>1. &lt; jsp:attribut&gt;
+2. &lt; jsp:body&gt;
+3. &lt; jsp:element&gt;
+</code></pre><ol>
+<li>用在Tag File</li>
+</ol>
+<pre><code>1. &lt; jsp:invoke&gt;
+2. &lt; jsp:dobody&gt;
+</code></pre><h3 id="在jsp页面中使用javabeans"><a href="#在jsp页面中使用javabeans" class="headerlink" title="在jsp页面中使用javabeans"></a>在jsp页面中使用javabeans</h3><ol>
+<li>像使用普通的java类一样，创建javabean实例</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//类文件路径： java web工程——javaResources——src——com.po(自定义包名)——Users(类名)</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//jsp文件路径：java web工程——WebContent——index.jsp</div><div class="line"></div><div class="line"></div><div class="line">//在开头引入Users类</div><div class="line">&lt;%@ page import=&quot;com.po.Users&quot; %&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h2&gt;使用普通方式创建javaBean实例&lt;/h2&gt;</div><div class="line">    &lt;%</div><div class="line">        Users user = new Users();</div><div class="line">        user.setPassword(&quot;123456&quot;);</div><div class="line">        user.setUsername(&quot;admin&quot;);</div><div class="line">    %&gt;</div><div class="line">    用户名： &lt;%=user.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=user.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;!--</div><div class="line">输出：</div><div class="line">用户名： admin</div><div class="line">密码： 123456</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>在jsp页面通常使用jsp动作标签来使用javabean</li>
+</ol>
+<h4 id="jsp-useBeans"><a href="#jsp-useBeans" class="headerlink" title="jsp:useBeans"></a>jsp:useBeans</h4><p>作用： 在jsp中实例化或者在指定范围使用javabean</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//格式&lt;jsp:useBean id=&quot;标志符&quot; class=&quot;java类名&quot; scope=&quot;作用范围&quot; /&gt;</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;&gt;</div><div class="line">    &lt;h2&gt;使用useBean动作来创建javabean实例&lt;/h2&gt;</div><div class="line">    用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/jsp:useBean&gt;</div></pre></td></tr></table></figure>
+<p>配合使用 jsp:setProperty</p>
+<ol>
+<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”*”/&gt;(跟表单相关联-&gt;自动匹配)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//login.jsp</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;form name=&quot;loginForm&quot; action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">//doLogin.jsp</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;h2&gt;setProperty动作元素&lt;/h2&gt;</div><div class="line">&lt;!-- 根据表单匹配元素 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;myUser&quot;/&gt;</div><div class="line">用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line"></div><div class="line">//实现：</div><div class="line">//在login.jsp中输入的用户名 密码</div><div class="line">//在doLogin.jsp中显示出来</div></pre></td></tr></table></figure>
+</li>
+<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名”/&gt;(跟表单关联-&gt;部分匹配)</p>
+</li>
+<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” value=”BeanValue”/&gt;(手工设置)</li>
+<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” param=”request对象中的参数名”/&gt;(与request关联：可以是url传参)</li>
+</ol>
+<p>配合&lt; jsp:getProperty&gt;<br>作用： 获取javabean对象的属性值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//格式： &lt;jsp:getProperty name=&quot;javaBean实例名&quot; property=&quot;属性名&quot; /&gt;</div><div class="line">用户名： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;username&quot; /&gt;&lt;br&gt;</div><div class="line">密码： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;password&quot; /&gt;&lt;hr&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="javabean的四个作用域范围"><a href="#javabean的四个作用域范围" class="headerlink" title="javabean的四个作用域范围"></a>javabean的四个作用域范围</h4><p>说明： 使用useBeans的scope属性可以指定javabean作用范围</p>
+<ol>
+<li>page//当前页有效</li>
+<li>request //可以通过HttpRequest.getAttribute()方法取得JavaBean对象</li>
+<li>session //可以通过HttpSession.getAttribute()方法取得JavaBean对象</li>
+<li>application //可以通过application.getAttribute()方法取得javaBean对象</li>
+</ol>
+<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><h4 id="Mode1介绍"><a href="#Mode1介绍" class="headerlink" title="Mode1介绍"></a>Mode1介绍</h4><p>状况： Mode1出现之前，整个web应用几乎全部由jsp处理，jsp接收处理客户端请求，对请求处理后直接作出响应。<br>弊端： 界面层充斥大量业务逻辑代码和数据访问层的代码，可扩展性和可维护性差<br>解决方式： 使用javabean封装数据或者调用javabean业务逻辑代码，大大提升了程序的可维护性</p>
+<h3 id="使用javabean与jsp实现简单登录例子"><a href="#使用javabean与jsp实现简单登录例子" class="headerlink" title="使用javabean与jsp实现简单登录例子"></a>使用javabean与jsp实现简单登录例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">package com.po;</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 封装用户类登录的业务逻辑</div><div class="line"> */</div><div class="line">package com.dao;</div><div class="line"></div><div class="line">import com.po.Users;</div><div class="line"></div><div class="line">public class UserDao &#123;</div><div class="line">    public boolean userLogin(Users u) &#123;</div><div class="line">        if( &quot;admin&quot;.equals(u.getUsername()) &amp;&amp; &quot;admin&quot;.equals(u.getPassword())) &#123;</div><div class="line">            return true;</div><div class="line">        &#125; else &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//login.jsp</div><div class="line">    &lt;h2&gt;登录页面&lt;/h2&gt;</div><div class="line">    &lt;form action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line"></div><div class="line">//login页面后提交到doLogin.jsp</div><div class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</div><div class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</div><div class="line">&lt;!-- 实例化javabean --&gt;</div><div class="line">&lt;jsp:useBean id=&quot;loginUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;jsp:useBean id=&quot;userDAO&quot; class=&quot;com.dao.UserDao&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;!-- 用表单数据给loginUser赋值 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;loginUser&quot;/&gt;</div><div class="line">&lt;%</div><div class="line">    //调用dao层业务逻辑代码</div><div class="line">    if(userDAO.userLogin(loginUser)) &#123;</div><div class="line">        session.setAttribute(&quot;loginUser&quot;, loginUser.getUsername());</div><div class="line">        request.getRequestDispatcher(&quot;login_success.jsp&quot;).forward(request, response);</div><div class="line">    &#125; else &#123;</div><div class="line">        response.sendRedirect(&quot;login_failure.jsp&quot;);</div><div class="line">    &#125;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/jsp-javabean/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jsp-state" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/jsp-state/">jsp-state</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/17/jsp-state/" class="archive-article-date">
+  	<time datetime="2018-04-17T11:36:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Jsp状态管理"><a href="#Jsp状态管理" class="headerlink" title="Jsp状态管理"></a>Jsp状态管理</h2><h3 id="http协议无状态性"><a href="#http协议无状态性" class="headerlink" title="http协议无状态性"></a>http协议无状态性</h3><p>定义： 当浏览器发送请求给服务器时，服务器响应客户端请求，但是，当同一个浏览器再次发送请求给服务器的时候，服务器并不知道他就是刚才那个浏览器。简单说，就是服务器记不住浏览器用户，所以是无状态协议</p>
+<h3 id="保存用户状态的两大机制"><a href="#保存用户状态的两大机制" class="headerlink" title="保存用户状态的两大机制"></a>保存用户状态的两大机制</h3><p>Session和Cookie</p>
+<h3 id="Cookie简介"><a href="#Cookie简介" class="headerlink" title="Cookie简介"></a>Cookie简介</h3><p>定义：是Web服务器保存在客户端的一系列文本信息<br>作用：1. 对特定用户的追踪 2.保存用户网页浏览记录与习惯 3.简化登录<br>特点：安全风险：容易泄露用户信息<br>应用：1.判定注册用户是否登录过网站 2.”购物车”的处理——保存用户记录</p>
+<h3 id="Cookie的创建和使用"><a href="#Cookie的创建和使用" class="headerlink" title="Cookie的创建和使用"></a>Cookie的创建和使用</h3><p>在jsp中创建与使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//创建Cookie对象</div><div class="line">Cookie newCookie = new Cookie(String key, Object value);</div><div class="line"></div><div class="line">//写入Cookie</div><div class="line">response.addCookie(newCookie);</div><div class="line"></div><div class="line">//读取Cookie对象</div><div class="line">Cookie[] cookies = request.getCookies();</div></pre></td></tr></table></figure></p>
+<p>常用方法</p>
+<ol>
+<li>void setMaxAge(int expiry): 设置cookie有效期 秒为单位</li>
+<li>void setValue(String value): 在cookie创建后，对cookie进行赋值</li>
+<li>String getName(): 获取cookie名称</li>
+<li>String getValue(): 获取cookie值</li>
+<li>int getMaxAge(): 获取cookie有效期</li>
+</ol>
+<h4 id="具体实例"><a href="#具体实例" class="headerlink" title="具体实例"></a>具体实例</h4><p>实现记忆用户名和密码功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h3 id="Session与Cookie的对比"><a href="#Session与Cookie的对比" class="headerlink" title="Session与Cookie的对比"></a>Session与Cookie的对比</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/17/jsp-state/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java-Exception" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/15/java-Exception/">java-Exception</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/15/java-Exception/" class="archive-article-date">
+  	<time datetime="2018-04-15T02:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/15/java-Exception/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java-CollectionAndMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +499,7 @@
       
         <h1 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h1><p>java集合类是一种特别有用的工具类，可以用于存储数量不等的对象，并可以实现常用的数据结构：栈、队列。<br>大致分为1. Set:无序，不可重复的集合 2. List:有序，重复的集合 3. Map: 具有映射关系的集合 4. Queue队列的集合实现。</p>
 <h2 id="集合概叙"><a href="#集合概叙" class="headerlink" title="集合概叙"></a>集合概叙</h2><p>场景： 在编程时，常常需要集中存放多个数据,可以使用数组来保存多个对象，但一旦初始化时指定了数组长度，数组长度便不可变化，如果需要保存数量变化的数据，数组就有点无能为力了；而且，数组无法保存具有映射关系的数据，比如说成绩表：语文-79，数学-80，这种数据看上去像两个数组，但两个数组元素之间有一定的关联性。<br>解决： 为了保存数量不确定的数据，以及保存具有映射关系的数据，java提供了集合类：负责保存、盛装其他数据，因此也成为容器类，所有的集合类为了java.util包下，后来为了处理多线程环境下的并发安全问题，在java.util.concurrent下提供了一些多线程支持的集合类。<br>注： 集合里只能保存对象（准确地说，是保存对象的引用变量）<br>java集合类主要由两个接口派生而出：Collection,Map:这两个接口又包含了一些子接口或实现类</p>
-<h2 id="Collection-和-Iterator接口"><a href="#Collection-和-Iterator接口" class="headerlink" title="Collection 和 Iterator接口"></a>Collection 和 Iterator接口</h2><p><a href="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png" title="java Collection继承树" target="_blank" rel="external"><img src="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png" alt="java Collection继承树" title="java Collection继承树"></a><br>图中显示了Collection体系中的集合，其中Set代表了无序集合 List代表了有序集合；Queue是java提供的队列实现。<br>Collection接口是List,Set,Queue接口的父接口,该接口定义了以下方法</p>
+<h2 id="Collection-和-Iterator接口"><a href="#Collection-和-Iterator接口" class="headerlink" title="Collection 和 Iterator接口"></a>Collection 和 Iterator接口</h2><p><img src="/2018/04/11/Java-CollectionAndMap/CollectionAndMap.png" alt="最终效果图"><br>图中显示了Collection体系中的集合，其中Set代表了无序集合 List代表了有序集合；Queue是java提供的队列实现。<br>Collection接口是List,Set,Queue接口的父接口,该接口定义了以下方法</p>
 <ol>
 <li>boolean add(Object o): 该方法用于向集合添加一个元素，如果集合被添加操作改变了，返回true</li>
 <li>boolean addAll(Collection c): 该方法把集合c中的所有元素添加到指定集合里，如果集合被添加操作改变了，返回true。</li>
@@ -271,7 +577,7 @@
 <p>对于TreeSet集合来说，判断两个对象是否相等唯一标准是：两个对象通过compareTo(Object obj)方法比较是否返回0——如果为0，则认为他们相等，否则则认为不相等。<br>因此，在修改了Z类的compareTo(Object obj)之后，我们可以把该类的实例z1两次成功添加到TreeSet中(虽然他们的equals()方法总是返回true)<br>又因为集合中保存的是对象的引用，所以此时TreeSet有两个引用指向同一个实例对象，所以改变其中一个，就可以使集合中另一个引用的对象发生改变。<br>由此，需要注意的问题是——如果两个对象通过compareTo(Object obj)返回0时，equals()方法也应该返回true.</p>
 <h4 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h4><p>如果TreeSet添加一个可变对象后，修改该可变对象的实例变量，导致与其他元素的大小顺序发生变化，但此时TreeSet不会调整他们的顺序，甚至可能导致保存的对象中有两个被认为相等的情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">class R implements Comparable &#123;</div><div class="line">    int count;</div><div class="line">    public R(int count) &#123;</div><div class="line">        this.count = count;</div><div class="line">    &#125;</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;R[count: &quot; + count + &quot;]&quot;;</div><div class="line">    &#125;</div><div class="line">    //根据count判断是否相等</div><div class="line">    public boolean equals(Object obj) &#123;</div><div class="line">        if(obj == this) &#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        if( obj != null &amp;&amp; obj.getClass() == R.class) &#123;</div><div class="line">            return ((R)obj).count == this.count;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //根据count来比较大小</div><div class="line">    public int compareTo(Object obj) &#123;</div><div class="line">        R r = (R)obj;</div><div class="line">        return count &gt; r.count ? 1 : count &lt; r.count ? -1:0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class TreeSetTest2 &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        TreeSet ts = new TreeSet();</div><div class="line">        ts.add(new R(5));</div><div class="line">        ts.add(new R(-3));</div><div class="line">        ts.add(new R(9));</div><div class="line">        ts.add(new R(-2));</div><div class="line">        System.out.println(ts);//[R[count: -3], R[count: -2], R[count: 5], R[count: 9]]</div><div class="line"></div><div class="line">        //取出第一个元素 并改变值</div><div class="line">        R first = (R)ts.first();</div><div class="line">        first.count = 20;</div><div class="line"></div><div class="line">        //取出最后一个元素 并赋值使得与第二个元素-2值相等</div><div class="line">        R last = (R)ts.last();</div><div class="line">        last.count = -2;</div><div class="line"></div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: 5], R[count: -2]]</div><div class="line">        //可以发现此时集合无序，并且有重复元素</div><div class="line"></div><div class="line">        //删除被改变的变量</div><div class="line">        System.out.println(ts.remove(new R(-2)));//false</div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: 5], R[count: -2]]</div><div class="line"></div><div class="line">        //删除没有被改变的变量</div><div class="line">        System.out.println(ts.remove(new R(5)));//true</div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: -2]]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="定制排序"><a href="#定制排序" class="headerlink" title="定制排序"></a>定制排序</h4><h3 id="EnumSet类"><a href="#EnumSet类" class="headerlink" title="EnumSet类"></a>EnumSet类</h3><p>EnumSet专为枚举类设计的集合</p>
-<h3 id="各种Set实现类的性能分析"><a href="#各种Set实现类的性能分析" class="headerlink" title="各种Set实现类的性能分析"></a>各种Set实现类的性能分析</h3>
+<h3 id="各种Set实现类的性能分析"><a href="#各种Set实现类的性能分析" class="headerlink" title="各种Set实现类的性能分析"></a>各种Set实现类的性能分析</h3><h2 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h2>
       
 
       
@@ -1207,234 +1513,6 @@
 
 
   
-    <article id="post-ES6-for-of" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-for-of/">ES6--for...of</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-for-of/" class="archive-article-date">
-  	<time datetime="2018-03-13T13:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="for…of"><a href="#for…of" class="headerlink" title="for…of"></a>for…of</h3><p>一种用于遍历数据结构的方法。<br>它可遍历的对象包括数组，对象，字符串，set和map结构等具有iterator 接口的数据结构。<br>注：不能遍历object 因为object没有iterator 接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">//几种遍历</div><div class="line">&#123;</div><div class="line">    let arr = [1,2,3,4,5];</div><div class="line"></div><div class="line">    //1. for</div><div class="line">    //最普通的遍历</div><div class="line">    for(let i=0; i&lt;arr.length; i++) &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //2. forEach</div><div class="line">    //优点： 简洁</div><div class="line">    //缺点：无法中断停止循环</div><div class="line">    arr.forEach(function(value, index)&#123;</div><div class="line">        //..</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    //3.for..in</div><div class="line">    //更常用于对象属性的遍历</div><div class="line">    //注：如果用于数组，请注意每次循环得到的i是字符串类型，而不是数字类型</div><div class="line">    //如果要对i进行运算，请先转化</div><div class="line">    for(let i in arr) &#123;</div><div class="line">        console.log( typeof(i)); //string</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //4. for..of</div><div class="line">    //得到值</div><div class="line">    for(let value of arr) &#123;</div><div class="line">        if(value == 3) &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">        console.log(value);//1 2</div><div class="line">    &#125;</div><div class="line">    //可以结合keys()得到索引,而且是数字类型的</div><div class="line">    for(let index of arr.keys()) &#123;</div><div class="line">        console.log(typeof(index)); //Number</div><div class="line">        console.log(index);//0 1 2 3 4</div><div class="line">        console.log(arr[index]);//1 2 3 4 5</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-for-of/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-Iterator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-Iterator/">ES6--Iterator</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-Iterator/" class="archive-article-date">
-  	<time datetime="2018-03-13T13:01:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>for..of，我们可以使用它来遍历数组，字符串，Set和Map结构<br>但是为什么不能便利Obeject对象呢?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let obj = &#123;&quot;name&quot;: &apos;大帅比&apos;&#125;;</div><div class="line"></div><div class="line">    // for(let v of obj) &#123;</div><div class="line">    //     console.log(v);</div><div class="line">    // &#125;</div><div class="line">    //Uncaught TypeError: obj is not iterable</div><div class="line">&#125;</div><div class="line">//原因是Object没有[Symbol.iterator]</div><div class="line">&#123;</div><div class="line">    //数组</div><div class="line">    //ƒ values() &#123; [native code] &#125;</div><div class="line">    console.log(Array.prototype[Symbol.iterator]);</div><div class="line"></div><div class="line">    //set</div><div class="line">    //ƒ values() &#123; [native code] &#125;</div><div class="line">    console.log(Set.prototype[Symbol.iterator]);</div><div class="line"></div><div class="line">    //...</div><div class="line">    //Object</div><div class="line">    //undefined</div><div class="line">    console.log(Object.prototype[Symbol.iterator]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>唯独Object对象的原型上没有Symbol.iterator，返回了：undefined<br>其他的数据类型的原型上都含有一个名字叫Symbol.iterator的方法Function。<br>Symbol.iterator 是Symbol 对象的 iterator 属性，是一个特殊的Symbol值<br>只要一个数据结构拥有一个叫<a href="">Symbol.iterator</a>方法的数据结构，就可以被for…of遍历，我们称之为：可遍历对象。</p>
-<h4 id="Symbol-iterator-方法到底做了什么"><a href="#Symbol-iterator-方法到底做了什么" class="headerlink" title="[Symbol.iterator]方法到底做了什么"></a>[Symbol.iterator]方法到底做了什么</h4><p>当可遍历对象被for…of遍历的时候，<a href="">Symbol.iterator</a>就会被调用，<br>返回一个iterator对象。<br>其中还有一个很重要的方法：next( )；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">    //得到迭代器</div><div class="line">    let iter = arr[Symbol.iterator]();</div><div class="line"></div><div class="line">    iter.next();</div><div class="line">    //结果：&#123;value: &quot;a&quot;, done: false&#125;</div><div class="line"></div><div class="line">    iter.next();</div><div class="line">    //结果：&#123;value: &quot;b&quot;, done: false&#125;</div><div class="line"></div><div class="line">    iter.next();</div><div class="line">    //结果：&#123;value: &quot;c&quot;, done: false&#125;</div><div class="line"></div><div class="line">    iter.next();</div><div class="line">    //结果：&#123;value: undefined, done: true&#125;</div><div class="line">    //done变成true 则表示遍历结束</div><div class="line">&#125;</div><div class="line">/*for...of的原理就是：先调用可遍历对象的[Symbol.iterator]( )方法</div><div class="line">得到一个iterator遍历器对象，然后就在遍历器上不断调用next( )方法，</div><div class="line">直到done的值为true的时候，就表示遍历完成结束了。*/</div><div class="line">&#123;</div><div class="line">    //自定义Object的iterator遍历器</div><div class="line">    let obj = &#123;</div><div class="line">        0:&quot;我是0&quot;,</div><div class="line">        1:&quot;我是1&quot;,</div><div class="line">        2:&quot;我是2&quot;,</div><div class="line">        length:3,</div><div class="line">        //添加[Symbol.iterator]方法</div><div class="line">        [Symbol.iterator]: function() &#123;</div><div class="line">            let _this = this;</div><div class="line">            let index = 0;</div><div class="line">            return &#123;</div><div class="line">                next:() =&gt; &#123;</div><div class="line">                    let value = _this[index];</div><div class="line">                    let done = (index &gt;= _this.length);</div><div class="line">                    index++;</div><div class="line">                    return &#123;value, done&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    for(let v of obj) &#123;</div><div class="line">        console.log(v);</div><div class="line">    &#125;</div><div class="line">    //结果：&quot;我是0&quot;</div><div class="line">    //      &quot;我是1&quot;</div><div class="line">    //      &quot;我是2&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-Iterator/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-Proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-Proxy/">ES6--Proxy</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-Proxy/" class="archive-article-date">
-  	<time datetime="2018-03-13T13:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Proxy代理"><a href="#Proxy代理" class="headerlink" title="Proxy代理"></a>Proxy代理</h3><p>我们去银行存款或者取款的时候，需要在柜台前排队，等柜台工作人员帮我们办理业务，这也是一种代理.<br>我们自己无法修改我们银行账户上的数据，需要代理给柜员，帮我们办理存钱或者取现业务<br>而Proxy也是这样的一种机制。</p>
-<h4 id="1-get方法拦截了读取操作，set方法拦截了改写操作。"><a href="#1-get方法拦截了读取操作，set方法拦截了改写操作。" class="headerlink" title="1. get方法拦截了读取操作，set方法拦截了改写操作。"></a>1. get方法拦截了读取操作，set方法拦截了改写操作。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //被代理的对象</div><div class="line">    let bankAccount = &#123; &quot;RMB&quot;: 1000, &quot;dollar&quot;: 0&#125;;</div><div class="line"></div><div class="line">    //创建一个代理实例 代理bankAccount</div><div class="line">    let banker = new Proxy(bankAccount, &#123;</div><div class="line">        //get处理程序</div><div class="line">        get: function(target, propterty) &#123;</div><div class="line">            if( target[propterty] &gt; 0) &#123;</div><div class="line">                return target[propterty];</div><div class="line">            &#125; else &#123;</div><div class="line">                return &apos;余额不足&apos;;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        //set处理程序</div><div class="line">        set: function(target, propterty, value) &#123;</div><div class="line">            //存入的数额必须是一个数字类型</div><div class="line">            if( !Number.isInteger(value)) &#123;</div><div class="line">                return &apos;请设置正确数值&apos;;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            //修改属性的值</div><div class="line">            target[propterty] = value;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    //用户查询属性值</div><div class="line">    //注：通过banker而不是bankAccount</div><div class="line">    console.log(banker.RMB); //1000</div><div class="line">    console.log(banker.dollar);//结果：余额不足</div><div class="line"></div><div class="line">    //修改dollar属性的值，值是字符串导致出错</div><div class="line">    banker.dollar = &apos;五百&apos;;</div><div class="line">    console.log(banker.dollar);//结果：余额不足</div><div class="line"></div><div class="line">    //修改dollar属性的值，值是数字类型</div><div class="line">    banker.dollar = 500;</div><div class="line">    console.log(banker.dollar);//结果：500</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-常用的拦截函数"><a href="#2-常用的拦截函数" class="headerlink" title="2. 常用的拦截函数"></a>2. 常用的拦截函数</h3><h4 id="2-1-ownKeys-方法"><a href="#2-1-ownKeys-方法" class="headerlink" title="2.1 ownKeys( )方法"></a>2.1 ownKeys( )方法</h4><p>拦截操作，拦截过滤Object.keys()对对象的属性遍历。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //定义一个对象person，有三个属性</div><div class="line">    let person = &#123;&quot;name&quot;:&quot;老王&quot;,&quot;age&quot;:40,&quot;height&quot;:1.8&#125;;</div><div class="line"></div><div class="line"></div><div class="line">    let proxy = new Proxy(person, &#123;</div><div class="line">        //ownKeys过滤对对象属性的遍历</div><div class="line">        ownKeys: function(target) &#123;</div><div class="line">            return [&quot;name&quot;, &quot;age&quot;];</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    //person并没有过滤</div><div class="line">    console.log(Object.keys(person));</div><div class="line">    //结果：[&quot;name&quot;, &quot;age&quot;,&quot;height&quot;]</div><div class="line"></div><div class="line">    //Object.keys()对proxy只遍历到name,age</div><div class="line">    //过滤了其他值比如height</div><div class="line">    console.log(Object.keys(proxy));</div><div class="line">    //结果：[&quot;name&quot;, &quot;age&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<p>..未完待续</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-Proxy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1540,11 +1618,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>

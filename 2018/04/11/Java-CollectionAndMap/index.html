@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="林大羽">
 <meta property="og:description" content="Java集合java集合类是一种特别有用的工具类，可以用于存储数量不等的对象，并可以实现常用的数据结构：栈、队列。大致分为1. Set:无序，不可重复的集合 2. List:有序，重复的集合 3. Map: 具有映射关系的集合 4. Queue队列的集合实现。 集合概叙场景： 在编程时，常常需要集中存放多个数据,可以使用数组来保存多个对象，但一旦初始化时指定了数组长度，数组长度便不可变化，如果需要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png">
-<meta property="og:updated_time" content="2018-04-14T16:21:46.231Z">
+<meta property="og:image" content="https://corleoneyu.github.io/2018/04/11/Java-CollectionAndMap/CollectionAndMap.png">
+<meta property="og:updated_time" content="2018-04-15T03:07:46.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-CollectionAndMap">
 <meta name="twitter:description" content="Java集合java集合类是一种特别有用的工具类，可以用于存储数量不等的对象，并可以实现常用的数据结构：栈、队列。大致分为1. Set:无序，不可重复的集合 2. List:有序，重复的集合 3. Map: 具有映射关系的集合 4. Queue队列的集合实现。 集合概叙场景： 在编程时，常常需要集中存放多个数据,可以使用数组来保存多个对象，但一旦初始化时指定了数组长度，数组长度便不可变化，如果需要">
-<meta name="twitter:image" content="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png">
+<meta name="twitter:image" content="https://corleoneyu.github.io/2018/04/11/Java-CollectionAndMap/CollectionAndMap.png">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
       
         <h1 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h1><p>java集合类是一种特别有用的工具类，可以用于存储数量不等的对象，并可以实现常用的数据结构：栈、队列。<br>大致分为1. Set:无序，不可重复的集合 2. List:有序，重复的集合 3. Map: 具有映射关系的集合 4. Queue队列的集合实现。</p>
 <h2 id="集合概叙"><a href="#集合概叙" class="headerlink" title="集合概叙"></a>集合概叙</h2><p>场景： 在编程时，常常需要集中存放多个数据,可以使用数组来保存多个对象，但一旦初始化时指定了数组长度，数组长度便不可变化，如果需要保存数量变化的数据，数组就有点无能为力了；而且，数组无法保存具有映射关系的数据，比如说成绩表：语文-79，数学-80，这种数据看上去像两个数组，但两个数组元素之间有一定的关联性。<br>解决： 为了保存数量不确定的数据，以及保存具有映射关系的数据，java提供了集合类：负责保存、盛装其他数据，因此也成为容器类，所有的集合类为了java.util包下，后来为了处理多线程环境下的并发安全问题，在java.util.concurrent下提供了一些多线程支持的集合类。<br>注： 集合里只能保存对象（准确地说，是保存对象的引用变量）<br>java集合类主要由两个接口派生而出：Collection,Map:这两个接口又包含了一些子接口或实现类</p>
-<h2 id="Collection-和-Iterator接口"><a href="#Collection-和-Iterator接口" class="headerlink" title="Collection 和 Iterator接口"></a>Collection 和 Iterator接口</h2><p><a href="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png" title="java Collection继承树" target="_blank" rel="external"><img src="https://images0.cnblogs.com/blog/490648/201308/18174126-653273ab5abe491bb9724353360ed252.png" alt="java Collection继承树" title="java Collection继承树"></a><br>图中显示了Collection体系中的集合，其中Set代表了无序集合 List代表了有序集合；Queue是java提供的队列实现。<br>Collection接口是List,Set,Queue接口的父接口,该接口定义了以下方法</p>
+<h2 id="Collection-和-Iterator接口"><a href="#Collection-和-Iterator接口" class="headerlink" title="Collection 和 Iterator接口"></a>Collection 和 Iterator接口</h2><p><img src="/2018/04/11/Java-CollectionAndMap/CollectionAndMap.png" alt="最终效果图"><br>图中显示了Collection体系中的集合，其中Set代表了无序集合 List代表了有序集合；Queue是java提供的队列实现。<br>Collection接口是List,Set,Queue接口的父接口,该接口定义了以下方法</p>
 <ol>
 <li>boolean add(Object o): 该方法用于向集合添加一个元素，如果集合被添加操作改变了，返回true</li>
 <li>boolean addAll(Collection c): 该方法把集合c中的所有元素添加到指定集合里，如果集合被添加操作改变了，返回true。</li>
@@ -273,7 +273,7 @@
 <p>对于TreeSet集合来说，判断两个对象是否相等唯一标准是：两个对象通过compareTo(Object obj)方法比较是否返回0——如果为0，则认为他们相等，否则则认为不相等。<br>因此，在修改了Z类的compareTo(Object obj)之后，我们可以把该类的实例z1两次成功添加到TreeSet中(虽然他们的equals()方法总是返回true)<br>又因为集合中保存的是对象的引用，所以此时TreeSet有两个引用指向同一个实例对象，所以改变其中一个，就可以使集合中另一个引用的对象发生改变。<br>由此，需要注意的问题是——如果两个对象通过compareTo(Object obj)返回0时，equals()方法也应该返回true.</p>
 <h4 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h4><p>如果TreeSet添加一个可变对象后，修改该可变对象的实例变量，导致与其他元素的大小顺序发生变化，但此时TreeSet不会调整他们的顺序，甚至可能导致保存的对象中有两个被认为相等的情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">class R implements Comparable &#123;</div><div class="line">    int count;</div><div class="line">    public R(int count) &#123;</div><div class="line">        this.count = count;</div><div class="line">    &#125;</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;R[count: &quot; + count + &quot;]&quot;;</div><div class="line">    &#125;</div><div class="line">    //根据count判断是否相等</div><div class="line">    public boolean equals(Object obj) &#123;</div><div class="line">        if(obj == this) &#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        if( obj != null &amp;&amp; obj.getClass() == R.class) &#123;</div><div class="line">            return ((R)obj).count == this.count;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //根据count来比较大小</div><div class="line">    public int compareTo(Object obj) &#123;</div><div class="line">        R r = (R)obj;</div><div class="line">        return count &gt; r.count ? 1 : count &lt; r.count ? -1:0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class TreeSetTest2 &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        TreeSet ts = new TreeSet();</div><div class="line">        ts.add(new R(5));</div><div class="line">        ts.add(new R(-3));</div><div class="line">        ts.add(new R(9));</div><div class="line">        ts.add(new R(-2));</div><div class="line">        System.out.println(ts);//[R[count: -3], R[count: -2], R[count: 5], R[count: 9]]</div><div class="line"></div><div class="line">        //取出第一个元素 并改变值</div><div class="line">        R first = (R)ts.first();</div><div class="line">        first.count = 20;</div><div class="line"></div><div class="line">        //取出最后一个元素 并赋值使得与第二个元素-2值相等</div><div class="line">        R last = (R)ts.last();</div><div class="line">        last.count = -2;</div><div class="line"></div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: 5], R[count: -2]]</div><div class="line">        //可以发现此时集合无序，并且有重复元素</div><div class="line"></div><div class="line">        //删除被改变的变量</div><div class="line">        System.out.println(ts.remove(new R(-2)));//false</div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: 5], R[count: -2]]</div><div class="line"></div><div class="line">        //删除没有被改变的变量</div><div class="line">        System.out.println(ts.remove(new R(5)));//true</div><div class="line">        System.out.println(ts);//[R[count: 20], R[count: -2], R[count: -2]]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="定制排序"><a href="#定制排序" class="headerlink" title="定制排序"></a>定制排序</h4><h3 id="EnumSet类"><a href="#EnumSet类" class="headerlink" title="EnumSet类"></a>EnumSet类</h3><p>EnumSet专为枚举类设计的集合</p>
-<h3 id="各种Set实现类的性能分析"><a href="#各种Set实现类的性能分析" class="headerlink" title="各种Set实现类的性能分析"></a>各种Set实现类的性能分析</h3>
+<h3 id="各种Set实现类的性能分析"><a href="#各种Set实现类的性能分析" class="headerlink" title="各种Set实现类的性能分析"></a>各种Set实现类的性能分析</h3><h2 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h2>
       
 
       
@@ -381,6 +381,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/04/15/java-Exception/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java-Exception
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/09/Java-basicClass/" id="article-nav-older" class="article-nav-link-wrap">
@@ -518,11 +527,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>

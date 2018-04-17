@@ -171,6 +171,314 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-youmeng-mini-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/12/youmeng-mini-summary/">youmeng_mini_summary</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/12/youmeng-mini-summary/" class="archive-article-date">
+  	<time datetime="2018-01-12T09:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="微信小程序的各种BUG"><a href="#微信小程序的各种BUG" class="headerlink" title="微信小程序的各种BUG"></a>微信小程序的各种BUG</h1><h2 id="tabBar带来的无法跳转"><a href="#tabBar带来的无法跳转" class="headerlink" title="tabBar带来的无法跳转"></a>tabBar带来的无法跳转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">app.json文件：</div><div class="line">&#123;</div><div class="line">  ......</div><div class="line">  &quot;tabBar&quot;: &#123;</div><div class="line">    &quot;list&quot;: [</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/index/index&quot;,</div><div class="line">        &quot;text&quot;: &quot;首页&quot;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</div><div class="line">        &quot;text&quot;: &quot;详情&quot;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">index.wxml文件：</div><div class="line"> &lt;!-- &lt;navigator&gt;类似于a标签 </div><div class="line">redirect以及navgatorTo两种不同的跳转</div><div class="line">redirect会卸载当前页面 --&gt;</div><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;文本一&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
+<p>原因：查询各类文档发现问题之处在于:若是在全局app.json中配置了tabBar，引用的链接与wx.navigateTo页面跳转url地址相同就无法实现跳转。</p>
+<hr>
+<p>既然涉及跳转，那就来说说跳转的方式。</p>
+<h3 id="实现跳转的几种方式"><a href="#实现跳转的几种方式" class="headerlink" title="实现跳转的几种方式"></a>实现跳转的几种方式</h3><h4 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;navigator url=&quot;../logs/logs?id=100&amp;title=11&quot;&gt;</div><div class="line">  &lt;view&gt;</div><div class="line">    &lt;text class=&quot;user-motto&quot;&gt;文本一&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">&lt;/navigator&gt;</div></pre></td></tr></table></figure>
+<p>navigator相当于a标签 注意参数是是<strong>url</strong></p>
+<h4 id="wx-navigateTo方法"><a href="#wx-navigateTo方法" class="headerlink" title="wx.navigateTo方法"></a>wx.navigateTo方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bitemClick: function() &#123;</div><div class="line">   wx.navigateTo(&#123;</div><div class="line">      url: &apos;../logs/logs?id=1&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>跳转之后不卸载页面</p>
+<h4 id="wx-redirectTo方法"><a href="#wx-redirectTo方法" class="headerlink" title="wx.redirectTo方法"></a>wx.redirectTo方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将页面替换成另一个页面</div><div class="line"> * 不触发当前页面的onHide </div><div class="line"> * 触发发onUnload</div><div class="line"> */</div><div class="line">// wx.redirectTo(&#123;</div><div class="line">//   url: &apos;../logs/logs&apos;,</div><div class="line">// &#125;)</div></pre></td></tr></table></figure>
+<h3 id="修改页面数据-对象的一个值"><a href="#修改页面数据-对象的一个值" class="headerlink" title="修改页面数据 对象的一个值"></a>修改页面数据 对象的一个值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">  /**</div><div class="line">   * 页面的初始数据</div><div class="line">   */</div><div class="line">  data: &#123;</div><div class="line">    schoolYear: &#123;</div><div class="line">      ary: [</div><div class="line">      &apos;2017-2018&apos;,</div><div class="line">      &apos;2018-2019&apos;</div><div class="line">      ],</div><div class="line"></div><div class="line">      index: 0</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">//报错</div><div class="line">this.setData(&#123;</div><div class="line">      schoolYear.index: e.detail.value</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">//正确写法</div><div class="line">this.setData(&#123;</div><div class="line">      &quot;schoolYear.index&quot;: e.detail.value</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/12/youmeng-mini-summary/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-codeRule" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/12/codeRule/">codeRule</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/12/codeRule/" class="archive-article-date">
+  	<time datetime="2018-01-12T09:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本的格式化"><a href="#基本的格式化" class="headerlink" title="基本的格式化"></a>基本的格式化</h1><h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><blockquote>
+<p>“计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton</p>
+</blockquote>
+<h3 id="变量（小驼峰）"><a href="#变量（小驼峰）" class="headerlink" title="变量（小驼峰）"></a>变量（小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
+<p>尽量在变量名中体现出数据类型，如：  </p>
+<ol>
+<li>count,length,size 数字</li>
+<li>name,title,message 字符串</li>
+<li>i,j,k 循环迭代</li>
+</ol>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>虽然ES6之前，JS没有真正的常量概念。<br>但是，为了区分普通的变量、常量，有一种通用的命名约定：大写字母 下划线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="非构造-函数名-（小驼峰）"><a href="#非构造-函数名-（小驼峰）" class="headerlink" title="(非构造)函数名 （小驼峰）"></a>(非构造)函数名 （小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>不推荐写法 看起来像变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个单词应该是动词，常见约定如下：</p>
+<ol>
+<li>can has is 函数返回值是一个布尔值</li>
+<li>get 函数返回一个非布尔值</li>
+<li>set 函数用来保存一个值</li>
+</ol>
+<h3 id="构造函数（大驼峰）"><a href="#构造函数（大驼峰）" class="headerlink" title="构造函数（大驼峰）"></a>构造函数（大驼峰）</h3><p>大写字母开头（为了区分构造函数和普通函数）<br>推荐做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用双引号括住字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//创建多行字符串的方式</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
+<h2 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="在下列场景中使用："><a href="#在下列场景中使用：" class="headerlink" title="在下列场景中使用："></a>在下列场景中使用：</h4><ol>
+<li>用来初始化一个变量，表明这个变量之后可能赋值为一个对象</li>
+<li>用来和一个已经初始化的变量比较。</li>
+<li>当函数参数期望是对象时，用作参数传入</li>
+<li>当函数返回值期望是对象时，用作返回值传出。<br>推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//用来初始化一个变量，表明这个变量之后可能赋值为一个对象</div><div class="line">var person = null；</div><div class="line"></div><div class="line">//当函数返回值期望是对象时，用作返回值传出。</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//用来和一个已经初始化的变量比较。</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="在下列场景中不应当使用null"><a href="#在下列场景中不应当使用null" class="headerlink" title="在下列场景中不应当使用null"></a>在下列场景中不应当使用null</h4><ol>
+<li>不要使用null来检测是否传入了某个参数</li>
+<li>不要使用null来检测一个未初始化的变量<br>不推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//不要和未初始化的变量比较</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//不要用来检测是否传入了参数 </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h3><p>最流行的方式是使用对象直接量来创建对象，在直接量中直接写出所有的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>相反的 不要使用下面这种做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
+<h3 id="数组直接量"><a href="#数组直接量" class="headerlink" title="数组直接量"></a>数组直接量</h3><p>推荐的做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
+<p>相反的，不要使用Array构造函数来创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/12/codeRule/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-propertyManagementSummary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/27/propertyManagementSummary/">propertyManagementSummary</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/27/propertyManagementSummary/" class="archive-article-date">
+  	<time datetime="2017-10-26T16:01:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Html篇"><a href="#Html篇" class="headerlink" title="Html篇"></a>Html篇</h2><h3 id="1-嵌套太多"><a href="#1-嵌套太多" class="headerlink" title="1. 嵌套太多"></a>1. 嵌套太多</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;search-Box&quot;&gt;</div><div class="line">            &lt;form class=&quot;search&quot;&gt;</div><div class="line">                &lt;div class=&quot;input-Text&quot;&gt;</div><div class="line">                    &lt;label for=&quot;&quot;&gt;品质租房&lt;/label&gt;</div><div class="line">                    &lt;input type=&quot;text&quot; name=&quot;q&quot; id=&quot;search-text&quot; placeholder=&quot;输入地地区/小区名&quot;</div><div class="line">                    x-webkit-speech=&quot;&quot;&gt;</div><div class="line">                    &lt;ul id=&quot;search-suggestion&quot;&gt;</div><div class="line">                        &lt;li&gt;搜索1&lt;/li&gt;</div><div class="line">                        &lt;li&gt;搜索2&lt;/li&gt;</div><div class="line">                    &lt;/ul&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                &lt;button class=&quot;search-Button&quot; type=&quot;button&quot;&gt;搜索&lt;/button&gt;</div><div class="line">            &lt;/form&gt;</div><div class="line">        &lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>以上代码选自index.html<br>其实最外层的div可以不用加上的，这份代码嵌套还不明显，反正之后的代码结构应该注意精简，不要有太多的嵌套，当然还是得再结构清晰的基础之上。</p>
+<h3 id="2-结构要固定"><a href="#2-结构要固定" class="headerlink" title="2. 结构要固定"></a>2. 结构要固定</h3><p>每次一个区域就xxx-box呀yyy-contain呀什么的，一个人写的代码竟然还不统一，在这篇总结里面好好的统一一下，以后以此为鉴</p>
+<h4 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h4><h5 id=""><a href="#" class="headerlink" title=""></a><header></header></h5><h5 id="-1"><a href="#-1" class="headerlink" title=""></a><main></main></h5><h5 id="-2"><a href="#-2" class="headerlink" title=""></a><foot></foot></h5><h4 id="div划分"><a href="#div划分" class="headerlink" title="div划分"></a>div划分</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;div-box&quot;&gt;</div><div class="line">    &lt;div class=&quot;img-contain&quot;&gt;</div><div class="line">        &lt;img class=&quot;img-item&quot;&gt;</div><div class="line">        &lt;img class=&quot;img-item&quot;&gt;</div><div class="line">        &lt;img class=&quot;img-item&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;title-contain&quot;&gt;</div><div class="line">        &lt;h2 class=&quot;headline&quot;&gt;我是主标题&lt;/h2&gt;</div><div class="line">        &lt;h4 class=&quot;subheading&quot;&gt;我是副标题&lt;/h4&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;text-contain&quot;&gt;</div><div class="line">        &lt;p class=&quot;text-item&quot;&gt;我是文本&lt;/p&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;ul class=&quot;ul-contain&quot;&gt;</div><div class="line">        &lt;li class=&quot;ul-item&quot;&gt;&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;ul-item&quot;&gt;&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;ul-item&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>大概按照这种格式来</p>
+<ol>
+<li>BOX –&gt; 2. contain –&gt; 3. item<br><strong>注： 之后继续补充</strong></li>
+</ol>
+<hr>
+<h2 id="CSS篇"><a href="#CSS篇" class="headerlink" title="CSS篇"></a>CSS篇</h2><h3 id="补充先新姿势知识"><a href="#补充先新姿势知识" class="headerlink" title="补充先新姿势知识"></a>补充先新<del>姿势</del>知识</h3><h4 id="iconfont的使用"><a href="#iconfont的使用" class="headerlink" title="iconfont的使用"></a>iconfont的使用</h4><ol>
+<li>在iconfont阿里巴巴的网址选择要用的icon</li>
+<li><p>添加到项目之后，生成在线链接得到神秘代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@font-face &#123;</div><div class="line">  font-family: &apos;iconfont&apos;;  /* project id 412231 */</div><div class="line">  src: url(&apos;//at.alicdn.com/t/font_412231_gmo1267y4y96yldi.eot&apos;);</div><div class="line">  src: url(&apos;//at.alicdn.com/t/font_412231_gmo1267y4y96yldi.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_412231_gmo1267y4y96yldi.woff&apos;) format(&apos;woff&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_412231_gmo1267y4y96yldi.ttf&apos;) format(&apos;truetype&apos;),</div><div class="line">  url(&apos;//at.alicdn.com/t/font_412231_gmo1267y4y96yldi.svg#iconfont&apos;) format(&apos;svg&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在css中粘贴代码，调整font-family自定义名字</p>
+</li>
+<li><p>挑选相应图标并获取字体编码，在html中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//示例</div><div class="line">&lt;i class=&quot;iconfont&quot;&gt;&amp;#x33;&lt;/i&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>css代码中可以对icon进行与字体一样的修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.iconfont &#123;</div><div class="line">    font-family: &apos;iconfont&apos;;</div><div class="line">    font-size: 16px; //可以更改大小</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注： 也可以下载到本地去引用，不过没增添一次就要重新生成一次</strong></p>
+<h4 id="li设置浮动横向之后，无法撑开ul问题"><a href="#li设置浮动横向之后，无法撑开ul问题" class="headerlink" title="li设置浮动横向之后，无法撑开ul问题"></a>li设置浮动横向之后，无法撑开ul问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">html代码</div><div class="line">&lt;ul class=&quot;clear&quot;&gt;</div><div class="line">    &lt;li&gt;bababab&lt;/li&gt;</div><div class="line">    &lt;li&gt;bababab&lt;/li&gt;</div><div class="line">    &lt;li&gt;bababab&lt;/li&gt;</div><div class="line">    &lt;li&gt;bababab&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">css代码</div><div class="line">ul &#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line">li &#123;</div><div class="line">    float: left;</div><div class="line">&#125;</div><div class="line">.clear:after &#123;</div><div class="line">    content: &apos;&apos;;</div><div class="line">    display: block;</div><div class="line">    height: 0;</div><div class="line">    clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以后写一个公用类clear，用来清除浮动，原理为给父元素伪类after，使之添加了一个content为空的元素内容，让他clear: both即可。虽然不是最好的方法，但是比较简便。<br>题外话：其实想要另li横向还有其他方法，比如flex布局，不过考虑到兼容性问题，嗯…还是float兼容性好一点。</p>
+<h4 id="文本截断"><a href="#文本截断" class="headerlink" title="文本截断"></a>文本截断</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.cut-text &#123;</div><div class="line">    overflow: hidden;</div><div class="line">    display: -webkit-box!important;</div><div class="line">    -webkit-line-clamp: 2;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    text-overflow: ellipsis;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>直接一个文本截断类，简单粗暴</p>
+<h4 id="画三角形等"><a href="#画三角形等" class="headerlink" title="画三角形等"></a>画三角形等</h4><p>运用border属性结合before或者after，画出各种颜色大小朝向的三角形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//示例</div><div class="line">.second-nav:before &#123;</div><div class="line">    content: &quot;&quot;;</div><div class="line">    position: absolute;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    top: -.1rem/* 10px */;</div><div class="line">    left: 50%;</div><div class="line">    margin-left: -.1rem/* 10px */;</div><div class="line">    border-left: .1rem/* 10px */solid transparent;</div><div class="line">    border-right: .1rem/* 10px */ solid transparent;</div><div class="line">    border-bottom: .1rem/* 10px */ solid rgb( 171, 25, 45 );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="二级表单"><a href="#二级表单" class="headerlink" title="二级表单"></a>二级表单</h4><ol>
+<li>因为二级表单需要absolute对一级表单进行定位，以一级表单为基准，所以一级表单尽量不要用padding，比如说：如果一级表单有padding-left，二级表单需特定去left或padding-left定位，比较麻烦</li>
+<li>实现原理为hover一级表单，使得二级表单diplay:block出来。</li>
+</ol>
+<h4 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h4><p>比较中意的一个布局，不过因为浏览器IE9以下不怎么兼容，以后做一些项目需要注意，不过写一些自己的东西的话就随便用啦，下面列一些常用属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">father &#123;</div><div class="line">    diplay: flex;</div><div class="line">    justify-content: space-around/space-between/center/start/end</div><div class="line">    align-items: center; //神器，经常用它垂直居中</div><div class="line">    flex-direction: 设置列还是行</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="响应式问题"><a href="#响应式问题" class="headerlink" title="响应式问题"></a>响应式问题</h4><p>要理解透设计稿的样式，再去解决响应式的问题<br>比如这次的网心固定1170px，我们就要保证这1170px不会缩放，及这1170px不能用百分比去显示，要让他固定有这宽度，保证了这一点，很多样式都不会乱掉的！<br>此次解决办法为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">    min-width: 1170px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>简单粗暴又十分有效</p>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><ol>
+<li>文字垂直居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p &#123;</div><div class="line">    line-hight: (father-hight);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>最简单的方法是让他的行高等于他爸爸的高度，自动居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">father &#123;</div><div class="line">    display: flex;</div><div class="line">    align-items: center; //神器，经常用它垂直居中</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>flex直接居中 图片也适用</p>
+<ol>
+<li>图片垂直居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.box img &#123;</div><div class="line"> </div><div class="line"> vertical-align:middle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box &#123;</div><div class="line"> </div><div class="line"> display: table-cell;</div><div class="line"> vertical-align:middle;</div><div class="line"> display: block;</div><div class="line"> width:200px;</div><div class="line"> height:200px;</div><div class="line"> border: 1px solid #eee;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>感觉好麻烦，还是直接flex比较好<br>应该会有更好的解决办法，之后想到再补充</p>
+<h4 id="一些工具类的定义"><a href="#一些工具类的定义" class="headerlink" title="一些工具类的定义"></a>一些工具类的定义</h4><ol>
+<li>开始做项目之前，应该对项目样式有一个大概的理解，并做出一些工具类<br>比如：clear类用来清除浮动呀，多整合，代码才会越精炼</li>
+<li>除了工具类，其实也可以写一些样式类<br>比如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*颜色类*/</div><div class="line">.text_red &#123;</div><div class="line">    color: rgb( 171, 25, 45 )!important;</div><div class="line">&#125;</div><div class="line">.text_gray &#123;</div><div class="line">    color: rgb( 102, 102, 102 )!important;</div><div class="line">&#125;</div><div class="line">.bg_gray &#123;</div><div class="line">    background: #f5f5f5;</div><div class="line">&#125;</div><div class="line">.bg_red &#123;</div><div class="line">   color: rgb( 171, 25, 45 )!important; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>这几个样式在这个项目中经常用到，就可以整合出来嘛<br>这次没有经验，以后多注意！</strong></p>
+<h4 id="最后：之后写CSS的一些特效，比如hover链接啦图片啦什么的要什么效果，要有自己的想法，设计稿一些没办法全面顾全到，需要自己留意，比如这次第一次写首页的其实不能用hover要用js实现背景变红文字变白，还有租房卡片那里要有点击。"><a href="#最后：之后写CSS的一些特效，比如hover链接啦图片啦什么的要什么效果，要有自己的想法，设计稿一些没办法全面顾全到，需要自己留意，比如这次第一次写首页的其实不能用hover要用js实现背景变红文字变白，还有租房卡片那里要有点击。" class="headerlink" title="最后：之后写CSS的一些特效，比如hover链接啦图片啦什么的要什么效果，要有自己的想法，设计稿一些没办法全面顾全到，需要自己留意，比如这次第一次写首页的其实不能用hover要用js实现背景变红文字变白，还有租房卡片那里要有点击。"></a>最后：之后写CSS的一些特效，比如hover链接啦图片啦什么的要什么效果，要有自己的想法，设计稿一些没办法全面顾全到，需要自己留意，比如这次第一次写首页的其实不能用hover要用js实现背景变红文字变白，还有租房卡片那里要有点击。</h4><h4 id="CSS一些约定"><a href="#CSS一些约定" class="headerlink" title="CSS一些约定"></a>CSS一些约定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">html &#123;</div><div class="line">    font-size: 100px;</div><div class="line">&#125;</div><div class="line">body &#123;</div><div class="line">    font-size: .16rem; //16px</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>time: 2017-10-26-1:32</strong></p>
+<h2 id="JS篇"><a href="#JS篇" class="headerlink" title="JS篇"></a>JS篇</h2><h3 id="配合ajax的json"><a href="#配合ajax的json" class="headerlink" title="配合ajax的json"></a>配合ajax的json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/*1.定义数据 实际由后台给出*/</div><div class="line">    var data = [</div><div class="line">    &#123;&quot;img&quot;: &quot;homekeeper_head_pic.png&quot;, &quot;title&quot;:&quot;岭南新世界中楼层一厅两户&quot;, &quot;district&quot;:&quot;白云&quot;,&quot;area&quot;:&quot;白云大道北&quot;,</div><div class="line">    &quot;room_type&quot;:&quot;一房一厅&quot;, &quot;price&quot;:900, &quot;id&quot;:1, &quot;status&quot;:1&#125;,</div><div class="line">    &#123;&quot;img&quot;: &quot;homekeeper_head_pic.png&quot;, &quot;title&quot;:&quot;岭南新世界中楼层一厅两户&quot;, &quot;district&quot;:&quot;白云&quot;,&quot;area&quot;:&quot;白云大道北&quot;,</div><div class="line">    &quot;room_type&quot;:&quot;一房一厅&quot;, &quot;price&quot;:900, &quot;id&quot;:1, &quot;status&quot;:0&#125;,</div><div class="line">    &#123;&quot;img&quot;: &quot;homekeeper_head_pic.png&quot;, &quot;title&quot;:&quot;岭南新世界中楼层一厅两户&quot;, &quot;district&quot;:&quot;白云&quot;,&quot;area&quot;:&quot;白云大道北&quot;,</div><div class="line">    &quot;room_type&quot;:&quot;一房一厅&quot;, &quot;price&quot;:900, &quot;id&quot;:1, &quot;status&quot;:1&#125;</div><div class="line">    ];</div></pre></td></tr></table></figure>
+<p>这是前端自己定义的房屋数据，其实就是在模拟拿到后台数据之后怎么去渲染出来<br>基本使用方法是data[1].img,这样，没什么难度的，如果搞不明白就..找一下博客。<br><strong>需要注意的是，一定要与后台沟通好需要的数据类型，数据格式，数据组成</strong></p>
+<h3 id="拿到json之后的渲染处理"><a href="#拿到json之后的渲染处理" class="headerlink" title="拿到json之后的渲染处理"></a>拿到json之后的渲染处理</h3><h4 id="1-获取模板"><a href="#1-获取模板" class="headerlink" title="1.获取模板"></a>1.获取模板</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var tpl_main = &apos;&lt;a class=&quot;collect-item-a&quot; id=&quot;&#123;&#123;id&#125;&#125;&quot; href=&quot;&quot;&gt;&lt;div class=&quot;collectionBox&quot;&gt;&lt;div class=&quot;collectionContent&quot;&gt;&lt;div class=&quot;collectImg&quot;&gt;&lt;img src=&quot;../../img/&#123;&#123;pic&#125;&#125;&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;collectInfo&quot;&gt;&lt;p class=&quot;location&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;&lt;p class=&quot;street&quot;&gt;&#123;&#123;district&#125;&#125;-&#123;&#123;area&#125;&#125;&lt;/p&gt;&lt;p class=&quot;homeNumber&quot;&gt;&#123;&#123;room_type&#125;&#125;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;priceBox&quot;&gt;&lt;span class=&quot;price&quot;&gt;￥&#123;&#123;price&#125;&#125;&lt;/span&gt;&lt;span class=&quot;preMonth&quot;&gt;/月&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&apos;;</div></pre></td></tr></table></figure>
+<p>获取完模板，这个其实就是一个大体框架，需要对这个框架字符串进行一些replace，插入想要插入的内容进去</p>
+<h4 id="2-定义最终输出HTML"><a href="#2-定义最终输出HTML" class="headerlink" title="2.定义最终输出HTML"></a>2.定义最终输出HTML</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var out_main = [];</div></pre></td></tr></table></figure>
+<p>这个最后当成输出的内容，接下来要做的就是往里面添加东西</p>
+<h4 id="3-遍历数据-构建输出内容"><a href="#3-遍历数据-构建输出内容" class="headerlink" title="3.遍历数据 构建输出内容"></a>3.遍历数据 构建输出内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">for( i in data) &#123;</div><div class="line">            //_开头表示局部变量</div><div class="line">            var _html_main = tpl_main</div><div class="line">                            .replace(/&#123;&#123;pic&#125;&#125;/g, data[i].pic)</div><div class="line">                            .replace(/&#123;&#123;title&#125;&#125;/g, data[i].title)</div><div class="line">                            .replace(/&#123;&#123;district&#125;&#125;/g, data[i].district)</div><div class="line">                            .replace(/&#123;&#123;area&#125;&#125;/g, data[i].area)</div><div class="line">                            .replace(/&#123;&#123;room_type&#125;&#125;/g, data[i].room_type)</div><div class="line">                            .replace(/&#123;&#123;price&#125;&#125;/g, data[i].price)</div><div class="line">                            .replace(/&#123;&#123;id&#125;&#125;/g, data[i].id);</div><div class="line">            out_main.push(_html_main);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h4 id="4-回写到html页面"><a href="#4-回写到html页面" class="headerlink" title="4.回写到html页面"></a>4.回写到html页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//js代码</div><div class="line"> document.getElementById(&apos;tpl_main&apos;).innerHTML = out_main.join(&apos;&apos;);</div><div class="line">//html代码</div><div class="line">&lt;div class=&quot;content-box&quot; id=&quot;tpl_main&quot;&gt;</div><div class="line">    &lt;!--a标签的id用来写这个a标签要跳转到哪里 这个id--&gt;</div><div class="line">    &lt;a class=&quot;collect-item-a&quot; id=&quot;&#123;&#123;id&#125;&#125;&quot; href=&quot;&quot;&gt;</div><div class="line">        &lt;div class=&quot;collectionBox&quot;&gt;</div><div class="line">            &lt;div class=&quot;collectionContent&quot;&gt;</div><div class="line">                &lt;div class=&quot;collectImg&quot;&gt;</div><div class="line">                    &lt;img src=&quot;../../img/&#123;&#123;pic&#125;&#125;&quot; alt=&quot;&quot;&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                &lt;div class=&quot;collectInfo&quot;&gt;</div><div class="line">                    &lt;p class=&quot;location&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</div><div class="line">                    &lt;p class=&quot;street&quot;&gt;&#123;&#123;district&#125;&#125;-&#123;&#123;area&#125;&#125;&lt;/p&gt;</div><div class="line">                    &lt;p class=&quot;homeNumber&quot;&gt;&#123;&#123;room_type&#125;&#125;&lt;/p&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                &lt;div class=&quot;priceBox&quot;&gt;</div><div class="line">                    &lt;span class=&quot;price&quot;&gt;￥&#123;&#123;price&#125;&#125;&lt;/span&gt;</div><div class="line">                    &lt;span class=&quot;preMonth&quot;&gt;/月&lt;/span&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>就其实第一步的模板就是在这里直接拿的，不过记得删除掉空格回车，不然会报错。<br>这里原理就是直接替换到这里的INNERHTML.原理很简单的其实</p>
+<h3 id="ajax拿取数据以及发送数据"><a href="#ajax拿取数据以及发送数据" class="headerlink" title="ajax拿取数据以及发送数据"></a>ajax拿取数据以及发送数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    url: &apos;pcindex/room/SeekByButton&apos;,</div><div class="line">    type: &apos;GET&apos;,</div><div class="line">    dataType: &apos;json&apos;,</div><div class="line">    data: &#123;&quot;Btns&quot;: &#123; &apos;district&apos;: districtValue, &apos;area&apos;: areaValue, &apos;price_class&apos;: priceValue,&apos;room_struc&apos;: roomValue&#125;, &quot;oreder&quot;: orderValue, &quot;page&quot;: pageValue&#125;,</div><div class="line">    success: function(Roomdata) &#123;</div><div class="line">        RenderRooms();</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>直接使用JQ封装好的ajax<br>然后url是将要在后台哪个地方请求数据，type有GET和POST<br>dataType是定义发送给后台的数据类型，data是数据内容<br>success之后跟着成功之后的函数，参数可以自己定义名字，其实就是用来接受后台发送的数据</p>
+<h3 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h3><p>这次的代码逻辑在租客服务那里的查询功能会比较复杂，需要几种不同类型的ajax，并且涉及向后台传输数据以及接收返回的相应数据，然后进行渲染<br>需要注意的在于分页的实现，注意考虑</p>
+<ol>
+<li>分页什么时候需要重新渲染</li>
+<li>重新渲染之后需要重新获取元素进行按钮事件的添加</li>
+<li>按钮事件添加的逻辑，主要在于 ”前进一页“ “后退一页”的事件（在事件函数之中进行判断逻辑会比较清晰，主要在于什么时候需要失效）</li>
+<li>当前页分页按钮的样式更新</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/27/propertyManagementSummary/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -347,11 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
