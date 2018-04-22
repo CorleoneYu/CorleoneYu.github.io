@@ -171,6 +171,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6-Generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/13/ES6-Generator/">ES6--Generator</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/13/ES6-Generator/" class="archive-article-date">
+  	<time datetime="2018-03-13T13:03:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Generator函数，又称生成器函数"><a href="#1-Generator函数，又称生成器函数" class="headerlink" title="1. Generator函数，又称生成器函数"></a>1. Generator函数，又称生成器函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //1.1 Generator函数用function*声明。</div><div class="line">    //1.2 Generator函数内部有新的关键字：yield</div><div class="line">    function* Hello(name) &#123;</div><div class="line">        yield `hello $&#123;name&#125;`;</div><div class="line">        yield `how are you`;</div><div class="line">        yield `bye`;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //调用hello</div><div class="line">    let ite = Hello(&quot;大帅比&quot;);</div><div class="line"></div><div class="line">    //[object Generator]</div><div class="line">    console.log(ite);</div><div class="line"></div><div class="line">    //&#123;value: &quot;hello 前端君&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: &quot;how are you&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: &quot;bye&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: undefined, done: true&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //Generator函数被调用后得到的生成器</div><div class="line">    //理解成一个遍历器iterator，用于遍历函数内部的状态。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Generator函数被调用后并不会一直执行到最后，它是先回返回一个生成器对象，然后hold住不动<br>等到生成器对象的next( )方法被调用后，函数才会继续执行，<br>直到遇到关键字yield后，又会停止执行，并返回一个Object对象，<br>然后继续等待，直到next( )再一次被调用的时候，<br>才会继续接着往下执行，直到done的值为true。</p>
+<h3 id="2-yield作用"><a href="#2-yield作用" class="headerlink" title="2. yield作用"></a>2. yield作用</h3><p>而yield在这里起到了十分重要的作用，就相当于暂停执行并且返回信息。<br>有点像传统函数的return的作用，但不同的是普通函数只能return一次，但是Generator函数可以有很多个yield。<br>而return代表的是终止执行，yield代表的是暂停执行，后续通过调用生成器的next( )方法，可以恢复执行。</p>
+<h3 id="3-next-接收参数"><a href="#3-next-接收参数" class="headerlink" title="3. next()接收参数"></a>3. next()接收参数</h3><p>next( )方法还可以接受一个参数，<br>它的参数会作为上一个yield的返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function* Hello() &#123;</div><div class="line">        let res = yield `hello`;</div><div class="line">        yield res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let ite = Hello();</div><div class="line"></div><div class="line">    console.log(ite.next());</div><div class="line">    //结果：&#123;value: &quot;hello&quot;, done: false&#125;</div><div class="line"></div><div class="line">    console.log(ite.next(&apos;大帅比&apos;));</div><div class="line">    //&#123;value: &quot;大帅比&quot;, done: false&#125;</div><div class="line"></div><div class="line">    //个人理解</div><div class="line">    //第一次next() 函数给我们返回对象的属性是&quot;hello&quot;,done:false 暂停执行</div><div class="line">    //第二次next(&apos;大帅比&apos;),我们在第一次yield的地方向函数返回了一个&apos;大帅比&apos;</div><div class="line">    //所以res=&apos;大帅比&apos;</div><div class="line">    //所以第二次next()返回&#123;value: &quot;大帅比&quot;, done: false&#125;</div><div class="line">    //总结：next( )的参数会作为上一个yield的返回值（我们返回给函数的）。</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="4-多个Generator互动-yield"><a href="#4-多个Generator互动-yield" class="headerlink" title="4. 多个Generator互动 yield*"></a>4. 多个Generator互动 yield*</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function* gen1() &#123;</div><div class="line">        yield &apos;gen1 start&apos;;</div><div class="line">        yield &apos;gen1 end&apos;;</div><div class="line">    &#125;</div><div class="line">    function* gen2() &#123;</div><div class="line">        yield &apos;gen2 start&apos;;</div><div class="line">        yield &apos;gen2 end&apos;;</div><div class="line">    &#125;</div><div class="line">    function* start() &#123;</div><div class="line">        yield &apos;start&apos;;</div><div class="line"></div><div class="line">        //关键字yield*来实现调用另外两个Generator函数。</div><div class="line">        yield* gen1();</div><div class="line">        yield* gen2();</div><div class="line">        yield &apos;end&apos;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let ite = start();</div><div class="line"></div><div class="line">    ite.next(); //&#123;value: &quot;start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen1 start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen1 end&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen2 start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen2 end&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;end&quot;, done: false&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果一个Generator函数A执行过程中，进入（调用）了另一个Generator函数B，<br>那么会一直等到Generator函数B全部执行完毕后，才会返回Generator函数A继续执行。</p>
+<hr>
+<p>..未完待续</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/13/ES6-Generator/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES6-for-of" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -920,74 +1002,6 @@
 
 
   
-    <article id="post-tab变量闭包问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/12/tab变量闭包问题/">tab变量闭包问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/12/tab变量闭包问题/" class="archive-article-date">
-  	<time datetime="2018-01-12T12:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记得刚学到js的时候<br>看着视频有做一个tab切换的demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">html代码</div><div class="line">&lt;div class=&quot;tab&quot;&gt;</div><div class="line">    &lt;ul class=&quot;tab-menuWrapper&quot; id=&quot;tab-menuWrapper&quot;&gt;</div><div class="line">        &lt;li&gt;menu1&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu2&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu3&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu4&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;div class=&quot;tab-contentWrapper&quot; id=&quot;tab-contentWrapper&quot;&gt;</div><div class="line">        &lt;div&gt;content1&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content2&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content3&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content4&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">js代码</div><div class="line">//获取DOM元素</div><div class="line">var tabMenus = document.getElementById(&apos;tab-menuWrapper&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var tabContents = document.getElementById(&apos;tab-contentWrapper&apos;).getElementsByTagName(&apos;div&apos;);</div><div class="line"></div><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>依次点击1，2，3，4<br>理想输出应该为0，1，2，3<br>在浏览器跑一遍 输出确是：4，4，4，4<br>那个时候我搞不懂原理，最后解决方案好像是给每个li加个自定义index，div有对应的index  </p>
-<p>解决方案一：闭包解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    (function(_i)&#123;</div><div class="line">        tabMenus[_i].onclick = function() &#123;</div><div class="line">        console.log(_i);</div><div class="line">    &#125;</div><div class="line">    &#125;)(i);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>解决方案二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line"></div><div class="line">    tabMenus[i].index = i;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(this.index);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>解决方案三：基于ES6 let<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(let i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/12/tab变量闭包问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1099,11 +1113,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">

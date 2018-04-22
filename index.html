@@ -171,6 +171,195 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js-JQuery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/22/js-JQuery/">js-JQuery</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/22/js-JQuery/" class="archive-article-date">
+  	<time datetime="2018-04-22T09:23:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>说起jq, 虽然一直以来有学习有接触一点点，但我深知我只是停留在皮毛之上。刚好师姐有一本《锋利的JQ》在我这里，便从头开始学习jq，并给自己立个flag吧：刷完慕课上的Jq源码课程，学习一下引领了一个时代的jq。</p>
+</blockquote>
+<h2 id="JQuery中的事件和动画"><a href="#JQuery中的事件和动画" class="headerlink" title="JQuery中的事件和动画"></a>JQuery中的事件和动画</h2><h3 id="JQuery中的事件"><a href="#JQuery中的事件" class="headerlink" title="JQuery中的事件"></a>JQuery中的事件</h3><h4 id="加载DOM"><a href="#加载DOM" class="headerlink" title="加载DOM"></a>加载DOM</h4><p>浏览器装载文档，页面加载完毕后，浏览器会通过js为DOM元素添加事件<br>常规的js代码中，通常使用window.onload(function)<br>在jQ中，对应地使用$(document).ready(function)方法<br>两个函数的区别</p>
+<ol>
+<li><p>执行时机<br>window.onload方法是网页中所有的元素（包括元素的所有关联文件）完全加载到浏览器后才执行。<br>$(document).ready在DOM完全就绪就可以调用，此时网页的所有元素对jQ而言都是可以访问的，但是，元素关联的文件不一定下载完毕。<br>例子： 一个大型图库，为网页所有图片添加事件（例如单击让他显示隐藏）<br>如果使用window.onload来处理，赋予事件的时机必须等到每一副图片都加载完毕<br>而$(document).ready只需要DOM树构建完毕后就可以赋予事件了，不需要等待所有图片下载完毕<br>缺点： $(document).ready此时并不一定能访问到图片的高宽等属性，可以使用$(el).onload来获取</p>
+</li>
+<li><p>追加性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function one() &#123;</div><div class="line">    console.log(1);</div><div class="line">&#125;</div><div class="line">function two() &#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//window.onload</div><div class="line">window.onload = one;</div><div class="line">window.onload = two;</div><div class="line">//结果</div><div class="line">//只打印 2</div><div class="line">//原因： window.onload事件一次只能保存对一个函数的引用，后面的函数会自动覆盖前面的函数</div><div class="line"></div><div class="line">//$(document).ready</div><div class="line">$(document).ready(function()&#123;</div><div class="line">    one();</div><div class="line">&#125;)</div><div class="line">$(document).ready(function()&#123;</div><div class="line">    two();</div><div class="line">&#125;)</div><div class="line">//结果：</div><div class="line">//打印 1 2</div><div class="line">//后面的函数会追加</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>简写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(doucument).ready(function()&#123;</div><div class="line">    //coding....</div><div class="line">&#125;)</div><div class="line">//简写 因为$()默认参数是document</div><div class="line">$(function()&#123;</div><div class="line">    //coding....</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p>文档装载完成后($()后)，为元素绑定事件：使用bind()来匹配元素进行特定事件的绑定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind(type[, data], fn);</div></pre></td></tr></table></figure></p>
+<p>第一个参数是事件类型： blur, focus, load, resize, scroll, unload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error.<br>第二个参数为可选参数： 作为event.data属性值传递给事件对象的额外数据对象<br>第三个参数是绑定的处理函数</p>
+<blockquote>
+<p>经常使用原生js的会发现，jq的事件绑定类型少了’on’，比如： click()-&gt;onclick()<br>实例<br>需求： 实现一个折叠栏 点击展开再次点击缩回（想起了bing首页）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//伪代码</div><div class="line">if(&quot;内容&quot;显示) &#123;</div><div class="line">    &quot;内容&quot;隐藏</div><div class="line">&#125; else &#123;</div><div class="line">    &quot;内容&quot;显示</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(function() &#123;</div><div class="line">    $(el).bind(&quot;click&quot;, function() &#123;</div><div class="line">        if($(this).is(&quot;:visible&quot;)) &#123;</div><div class="line">            $(this).hide();</div><div class="line">        &#125; else &#123;</div><div class="line">            $(this).show();</div><div class="line">    &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">//使用jq自定义方法toggle()</div><div class="line">$(function()&#123;</div><div class="line">    $(el).toggle(function()&#123;</div><div class="line">            //show</div><div class="line">        &#125;, function()&#123;</div><div class="line">            //hide</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">&#125;)</div><div class="line">//用于模拟连续点击事件：第一次点击触发第一个，第二次点击触发第二个，依次循环</div><div class="line">//如果有更多函数，则依次触发。</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="合成事件"><a href="#合成事件" class="headerlink" title="合成事件"></a>合成事件</h4><p>jq两个合成事件——hover(),toggle()</p>
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><ol>
+<li><p>获取事件对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(el).bind(&apos;click&apos;, function(event) &#123;</div><div class="line">    //event事件对象</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>停止事件冒泡<br>jq提供了stopPropagation()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(el).bind(&apos;click&apos;, function(event) &#123;</div><div class="line">    //event事件对象</div><div class="line">    event.stopPropagation(); //停止事件冒泡</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>阻止默认行为<br>网页元素有自己默认的行为：比如单机超链接会跳转，点击”提交”按钮表单会提交，所以有时候需要阻止默认行为<br>jq提供了preventDefault()来阻止默认行为<br>场景： 验证表单，单击提交按钮后验证内容，如某元素是否是必填字段，是否够6位等，不符合条件时，应该阻止表单提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;jq&lt;/title&gt;</div><div class="line">    &lt;script typet=&quot;text/javascript&quot; src=&quot;http://libs.baidu.com/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;form class=&quot;&quot; action=&quot;&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline-item&quot;&gt;</div><div class="line">            &lt;label&gt;用户名: &lt;/label&gt;</div><div class="line">            &lt;input id=&quot;user&quot; type=&quot;text&quot; name=&quot;user&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line"></div><div class="line">        &lt;div id=&quot;submit-btn&quot; class=&quot;form-inline-item&quot;&gt;</div><div class="line">            &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line"></div><div class="line">        &lt;div id=&quot;tips&quot;&gt;</div><div class="line"></div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    $(&quot;#submit-btn&quot;).bind(&apos;click&apos;, function(ev)&#123;</div><div class="line">        let user = $(&quot;#user&quot;).val();</div><div class="line">        if(user == &quot;&quot;) &#123;</div><div class="line">            $(&quot;#tips&quot;).html(&quot;&lt;p&gt;文本值不能为空&lt;/p&gt;&quot;);</div><div class="line">            ev.preventDefault();</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>另一种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//ev.preventDefault();改为</div><div class="line">return false;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>事件捕获<br>因为并非所有主流浏览器都支持，所以这个缺陷无法通过js来修复，因此jq不支持事件捕获。</li>
+</ol>
+<h4 id="事件对象的属性"><a href="#事件对象的属性" class="headerlink" title="事件对象的属性"></a>事件对象的属性</h4><ol>
+<li>ev.type  获取事件的类型</li>
+<li>ev.preventDefault()方法： jq对其进行封装，使之兼容各种浏览器。</li>
+<li>ev.stopPropagation()方法: jq对其进行封装，使之兼容各种浏览器。</li>
+<li>ev.target: 获取到触发事件的元素，jq对其封装，避免各大浏览器不同标准的差异。</li>
+<li>ev.relatedTarget: 标准DOM中，mouseover,mouseout所发生的元素通过ev.target来访问，相关元素通过ev.relatedTarget访问。jq对其进行封装，使之兼容各种浏览器。</li>
+<li>ev.pageX ev.pageY: 获取光标相对于页面的x,y坐标</li>
+<li>ev.which: 鼠标单击事件中获取到鼠标的左，右，中键，在键盘事件中获取到键盘的按键<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(el).mousedown(function(ev) &#123;</div><div class="line">    console.log(ev.which);//1 = 左键 2=右键 3=中键</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="移除事件"><a href="#移除事件" class="headerlink" title="移除事件"></a>移除事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">unbind([type], [data]);</div><div class="line">第一个参数是事件类型</div><div class="line">第二个参数是要移除的函数</div><div class="line">如果没有参数，则移除所有绑定事件</div></pre></td></tr></table></figure>
+<p>另外,对于只需要触发一次，随后立即删除绑定的情况，jq提供了One()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;btn&quot;).one(&apos;click&apos;, function()&#123;</div><div class="line">    //conding...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="模拟操作"><a href="#模拟操作" class="headerlink" title="模拟操作"></a>模拟操作</h4><p>场景： 需要通过模拟用户操作，来达到单击效果：用户进入页面后，就触发某元素的单击事件，而不需要用户主动点击。<br>jq提供了trigger()来模拟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//格式</div><div class="line">$(&quot;#btn&quot;).trigger(type, [data]);</div><div class="line"></div><div class="line">//例子</div><div class="line">$(&quot;#btn&quot;).trigger(&quot;click&quot;);</div><div class="line"></div><div class="line">//简写</div><div class="line">$(&quot;#btn&quot;).click();</div><div class="line"></div><div class="line">//传递数据</div><div class="line">//定义</div><div class="line">$(&quot;#btn&quot;).bind(&quot;myclick&quot;, function(ev, message1, message2) &#123;</div><div class="line">    $(&quot;#test&quot;).append(&quot;&lt;p&gt;message1 + message2&lt;/p&gt;&quot;)</div><div class="line">&#125;);</div><div class="line">//模拟</div><div class="line">$(&quot;#btn&quot;).trigger(&quot;myclick&quot;, [&quot;第一个参数&quot;, &quot;第二个&quot;]);</div></pre></td></tr></table></figure></p>
+<h4 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h4><ol>
+<li><p>绑定多个事件类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(el).bind(&quot;mouseover mouseout&quot;, function(e)&#123;</div><div class="line">    //codeing...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加事件命名空间 便于管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(el).bind(&quot;click.plugin&quot;, function(e) &#123;</div><div class="line">    //code</div><div class="line">&#125;).bind(&quot;mouseover.plugin&quot;, function(e)&#123;</div><div class="line">    //code</div><div class="line">&#125;).bind(&quot;dblclick&quot;, function(e)&#123;</div><div class="line">    //code</div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(&quot;#btn&quot;).click(function()&#123;</div><div class="line">    $(el).unbind(&quot;.plugin&quot;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在所绑定的事件类型后面添加命名空间，在删除事件时只需要指定命名空间即可。</p>
+<ol>
+<li>相同事件名称，不同的命名空间执行方法</li>
+</ol>
+<h3 id="JQuery中的动画"><a href="#JQuery中的动画" class="headerlink" title="JQuery中的动画"></a>JQuery中的动画</h3><h4 id="show-hide"><a href="#show-hide" class="headerlink" title="show() hide()"></a>show() hide()</h4><p>实现机制： hide()将元素的display属性设置为”none”之前，会记住display原先的值，当调用show()时，根据记住的方法来是设置display<br>show() hide()会改变元素多个属性：高度 宽度 不透明度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//ms为 使元素在ms内隐藏 是个时间参数 单位为毫秒</div><div class="line">$(el).hide(ms);</div></pre></td></tr></table></figure></p>
+<h4 id="fadeIn-fadeOut"><a href="#fadeIn-fadeOut" class="headerlink" title="fadeIn() fadeOut()"></a>fadeIn() fadeOut()</h4><p>与show()不同的是，这两个方法改变的是不透明度</p>
+<h4 id="slideUp-slideDown"><a href="#slideUp-slideDown" class="headerlink" title="slideUp() slideDown()"></a>slideUp() slideDown()</h4><p>改变元素的高度使其显示隐藏</p>
+<h4 id="animate"><a href="#animate" class="headerlink" title="animate()"></a>animate()</h4><p>使用animate()自定义动画<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//格式</div><div class="line">animate(params, speed, callback);</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>params: 包含样式属性及值的对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    property1: &quot;value1&quot;,</div><div class="line">    property2: &quot;value2&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>speed: 速度参数 可选</p>
+</li>
+<li>callback: 回调函数，动画完成时执行 可选<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;jq&lt;/title&gt;</div><div class="line">    &lt;script typet=&quot;text/javascript&quot; src=&quot;http://libs.baidu.com/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        #panel &#123;</div><div class="line">            position: relative;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: #ddd;</div><div class="line">            cursor: pointer;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;panel&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(function()&#123;</div><div class="line">    $(&quot;#panel&quot;).click(function()&#123;</div><div class="line">        $(this).animate(&#123;</div><div class="line">            left: &quot;500px&quot;&#125;,</div><div class="line">            3000);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这段代码 点击元素后元素在3s内向右移动500px</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">$(function()&#123;</div><div class="line">    $(&quot;#panel&quot;).click(function()&#123;</div><div class="line">        $(this).animate(&#123;left: &quot;500px&quot;&#125;,3000)</div><div class="line">                .animate(&#123;height: &quot;200px&quot;&#125;, 3000);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>按顺序执行动画</p>
+<h4 id="动画回调函数"><a href="#动画回调函数" class="headerlink" title="动画回调函数"></a>动画回调函数</h4><h4 id="停止动画和判断是否处于动画状态"><a href="#停止动画和判断是否处于动画状态" class="headerlink" title="停止动画和判断是否处于动画状态"></a>停止动画和判断是否处于动画状态</h4><ol>
+<li>停止元素的动画<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stop([clearQueue], [gotoEnd]);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>clearQueue和gotoEnd都是可选参数，boolean。<br>cleanQueue是否清空未执行完的动画队列<br>gotoEnd代表是否将正在执行的动画跳转到末状态。</p>
+<ol>
+<li><p>判断是否处于动画状态<br>在使用animate()时，要避免动画积累而导致的动画与用户的行为不一致。<br>当用户快速在某个元素上执行animate()动画，就会出现动画积累。<br>解决：判断元素是否处于动画状态，不处于才添加新的动画，否则不添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if( !$(el).is(:animate) &#123;</div><div class="line">    //当前没有动画 可以添加新动画</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>延迟动画<br>如果想对动画进行延迟操作，可以使用delay()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(this).animate(&#123; left: &quot;300px&quot;, height: &quot;200px&quot;&#125;,</div><div class="line">        3000).delay(1000);</div></pre></td></tr></table></figure>
+</li>
+<li><p>其他动画方法</p>
+<ol>
+<li><p>toggle(speed, [callback])<br>用于切换元素的可见状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(el).toggle(function()&#123;</div><div class="line">        //隐藏</div><div class="line">    &#125;, function()&#123;</div><div class="line">        //显示</div><div class="line">    &#125;</div><div class="line">);</div><div class="line"></div><div class="line">//可以简写</div><div class="line">$(el).toggle();</div></pre></td></tr></table></figure>
+</li>
+<li><p>slideToggle()<br>通过高度变化来切换元素的可见状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(el).slideToggle();</div></pre></td></tr></table></figure>
+</li>
+<li><p>fadeTo(speed, value)<br>把元素的不透明度以渐变方式来调整到指定的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(el).fadeTo(600, 0.2);</div></pre></td></tr></table></figure>
+</li>
+<li><p>fadeToggle()<br>通过不透明度来切换元素的可见状态</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="JQuery对表单的操作"><a href="#JQuery对表单的操作" class="headerlink" title="JQuery对表单的操作"></a>JQuery对表单的操作</h2><h3 id="表单组成"><a href="#表单组成" class="headerlink" title="表单组成"></a>表单组成</h3><ol>
+<li>表单标签： 包含action method等</li>
+<li>表单域： 文本框 密码框 隐藏域 多行文本框 复选框 单选框 下拉选择框 文件上传框。</li>
+<li>表单按钮： 提交按钮 复位按钮等。<h3 id="单行文本框的应用"><a href="#单行文本框的应用" class="headerlink" title="单行文本框的应用"></a>单行文本框的应用</h3>获取和失去焦点改变样式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">input:focus, textarea:focus &#123;</div><div class="line">    //code....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>为了兼容IE6,可以使用jq来封装。</p>
+<h3 id="多行文本框的应用"><a href="#多行文本框的应用" class="headerlink" title="多行文本框的应用"></a>多行文本框的应用</h3><ol>
+<li>高度变化<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</div><div class="line">    &lt;title&gt;jq&lt;/title&gt;</div><div class="line">    &lt;script typet=&quot;text/javascript&quot; src=&quot;http://libs.baidu.com/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">      .ctr-btn &#123;</div><div class="line">        display: inline-block;</div><div class="line">        padding: 10px 18px;</div><div class="line">        color: white;</div><div class="line">        background: black;</div><div class="line">        cursor: pointer;</div><div class="line">      &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;form action=&quot;&quot; method=&quot;POST&quot; id=&quot;reg-form&quot;&gt;</div><div class="line">    &lt;div class=&quot;msg&quot;&gt;</div><div class="line">      &lt;div class=&quot;msg-caption&quot;&gt;</div><div class="line">        &lt;span class=&quot;bigger ctr-btn&quot;&gt;放大&lt;/span&gt;</div><div class="line">        &lt;span class=&quot;smaller ctr-btn&quot;&gt;缩小&lt;/span&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;textarea id=&quot;comment&quot; rows=&quot;10&quot; cols=&quot;30&quot;&gt;</div><div class="line">          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus eveniet nobis aliquam quam odio quisquam cupiditate dicta recusandae ratione saepe impedit, maxime, earum omnis quia sint. Excepturi aliquid, necessitatibus dolore.</div><div class="line">        &lt;/textarea&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/form&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(function()&#123;</div><div class="line">  //缓存下来 可以提高性能</div><div class="line">  let $comment = $(&apos;#comment&apos;);</div><div class="line">  //每次改变的值</div><div class="line">  let changeSize = 50;</div><div class="line">  $(&apos;.bigger&apos;).click(function()&#123;</div><div class="line">    if( ! $comment.is(&quot;:animated&quot;)) &#123;</div><div class="line">      if( $comment.height() &lt; 500 ) &#123;</div><div class="line">        //原来基础上加50</div><div class="line">        $comment.animate(&#123;height: &quot;+=50&quot;&#125;, 400);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">  $(&apos;.smaller&apos;).click(function()&#123;</div><div class="line">    if( ! $comment.is(&quot;:animated&quot;)) &#123;</div><div class="line">      if( $comment.height() &gt; 50 ) &#123;</div><div class="line">        //原来基础上减50</div><div class="line">        $comment.animate(&#123;height: &quot;-=50&quot;&#125;, 400);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>应用动画来控制textarea的高度。</p>
+<h4 id="复选框的应用"><a href="#复选框的应用" class="headerlink" title="复选框的应用"></a>复选框的应用</h4><p>最基本的应用： 全选，反选，全不选。</p>
+<h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/22/js-JQuery/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jsp-javabean" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1036,88 +1225,6 @@
 
 
   
-    <article id="post-ES6-Generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/13/ES6-Generator/">ES6--Generator</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/13/ES6-Generator/" class="archive-article-date">
-  	<time datetime="2018-03-13T13:03:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Generator函数，又称生成器函数"><a href="#1-Generator函数，又称生成器函数" class="headerlink" title="1. Generator函数，又称生成器函数"></a>1. Generator函数，又称生成器函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //1.1 Generator函数用function*声明。</div><div class="line">    //1.2 Generator函数内部有新的关键字：yield</div><div class="line">    function* Hello(name) &#123;</div><div class="line">        yield `hello $&#123;name&#125;`;</div><div class="line">        yield `how are you`;</div><div class="line">        yield `bye`;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //调用hello</div><div class="line">    let ite = Hello(&quot;大帅比&quot;);</div><div class="line"></div><div class="line">    //[object Generator]</div><div class="line">    console.log(ite);</div><div class="line"></div><div class="line">    //&#123;value: &quot;hello 前端君&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: &quot;how are you&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: &quot;bye&quot;, done: false&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //&#123;value: undefined, done: true&#125;</div><div class="line">    console.log(ite.next());</div><div class="line"></div><div class="line">    //Generator函数被调用后得到的生成器</div><div class="line">    //理解成一个遍历器iterator，用于遍历函数内部的状态。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Generator函数被调用后并不会一直执行到最后，它是先回返回一个生成器对象，然后hold住不动<br>等到生成器对象的next( )方法被调用后，函数才会继续执行，<br>直到遇到关键字yield后，又会停止执行，并返回一个Object对象，<br>然后继续等待，直到next( )再一次被调用的时候，<br>才会继续接着往下执行，直到done的值为true。</p>
-<h3 id="2-yield作用"><a href="#2-yield作用" class="headerlink" title="2. yield作用"></a>2. yield作用</h3><p>而yield在这里起到了十分重要的作用，就相当于暂停执行并且返回信息。<br>有点像传统函数的return的作用，但不同的是普通函数只能return一次，但是Generator函数可以有很多个yield。<br>而return代表的是终止执行，yield代表的是暂停执行，后续通过调用生成器的next( )方法，可以恢复执行。</p>
-<h3 id="3-next-接收参数"><a href="#3-next-接收参数" class="headerlink" title="3. next()接收参数"></a>3. next()接收参数</h3><p>next( )方法还可以接受一个参数，<br>它的参数会作为上一个yield的返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function* Hello() &#123;</div><div class="line">        let res = yield `hello`;</div><div class="line">        yield res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let ite = Hello();</div><div class="line"></div><div class="line">    console.log(ite.next());</div><div class="line">    //结果：&#123;value: &quot;hello&quot;, done: false&#125;</div><div class="line"></div><div class="line">    console.log(ite.next(&apos;大帅比&apos;));</div><div class="line">    //&#123;value: &quot;大帅比&quot;, done: false&#125;</div><div class="line"></div><div class="line">    //个人理解</div><div class="line">    //第一次next() 函数给我们返回对象的属性是&quot;hello&quot;,done:false 暂停执行</div><div class="line">    //第二次next(&apos;大帅比&apos;),我们在第一次yield的地方向函数返回了一个&apos;大帅比&apos;</div><div class="line">    //所以res=&apos;大帅比&apos;</div><div class="line">    //所以第二次next()返回&#123;value: &quot;大帅比&quot;, done: false&#125;</div><div class="line">    //总结：next( )的参数会作为上一个yield的返回值（我们返回给函数的）。</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="4-多个Generator互动-yield"><a href="#4-多个Generator互动-yield" class="headerlink" title="4. 多个Generator互动 yield*"></a>4. 多个Generator互动 yield*</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function* gen1() &#123;</div><div class="line">        yield &apos;gen1 start&apos;;</div><div class="line">        yield &apos;gen1 end&apos;;</div><div class="line">    &#125;</div><div class="line">    function* gen2() &#123;</div><div class="line">        yield &apos;gen2 start&apos;;</div><div class="line">        yield &apos;gen2 end&apos;;</div><div class="line">    &#125;</div><div class="line">    function* start() &#123;</div><div class="line">        yield &apos;start&apos;;</div><div class="line"></div><div class="line">        //关键字yield*来实现调用另外两个Generator函数。</div><div class="line">        yield* gen1();</div><div class="line">        yield* gen2();</div><div class="line">        yield &apos;end&apos;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    let ite = start();</div><div class="line"></div><div class="line">    ite.next(); //&#123;value: &quot;start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen1 start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen1 end&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen2 start&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;gen2 end&quot;, done: false&#125;</div><div class="line"></div><div class="line">    ite.next();</div><div class="line">    //&#123;value: &quot;end&quot;, done: false&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果一个Generator函数A执行过程中，进入（调用）了另一个Generator函数B，<br>那么会一直等到Generator函数B全部执行完毕后，才会返回Generator函数A继续执行。</p>
-<hr>
-<p>..未完待续</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/13/ES6-Generator/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1229,11 +1336,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">

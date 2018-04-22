@@ -171,6 +171,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tab变量闭包问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/12/tab变量闭包问题/">tab变量闭包问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/12/tab变量闭包问题/" class="archive-article-date">
+  	<time datetime="2018-01-12T12:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记得刚学到js的时候<br>看着视频有做一个tab切换的demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">html代码</div><div class="line">&lt;div class=&quot;tab&quot;&gt;</div><div class="line">    &lt;ul class=&quot;tab-menuWrapper&quot; id=&quot;tab-menuWrapper&quot;&gt;</div><div class="line">        &lt;li&gt;menu1&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu2&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu3&lt;/li&gt;</div><div class="line">        &lt;li&gt;menu4&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;div class=&quot;tab-contentWrapper&quot; id=&quot;tab-contentWrapper&quot;&gt;</div><div class="line">        &lt;div&gt;content1&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content2&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content3&lt;/div&gt;</div><div class="line">        &lt;div style=&quot;display: none&quot;&gt;content4&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">js代码</div><div class="line">//获取DOM元素</div><div class="line">var tabMenus = document.getElementById(&apos;tab-menuWrapper&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var tabContents = document.getElementById(&apos;tab-contentWrapper&apos;).getElementsByTagName(&apos;div&apos;);</div><div class="line"></div><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>依次点击1，2，3，4<br>理想输出应该为0，1，2，3<br>在浏览器跑一遍 输出确是：4，4，4，4<br>那个时候我搞不懂原理，最后解决方案好像是给每个li加个自定义index，div有对应的index  </p>
+<p>解决方案一：闭包解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    (function(_i)&#123;</div><div class="line">        tabMenus[_i].onclick = function() &#123;</div><div class="line">        console.log(_i);</div><div class="line">    &#125;</div><div class="line">    &#125;)(i);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解决方案二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(var i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line"></div><div class="line">    tabMenus[i].index = i;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(this.index);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解决方案三：基于ES6 let<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//遍历数组 监听click</div><div class="line">for(let i=0; i&lt;tabMenus.length; i++) &#123;</div><div class="line">    tabMenus[i].onclick = function() &#123;</div><div class="line">        console.log(i);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/12/tab变量闭包问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-youmeng-mini-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -665,11 +733,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
