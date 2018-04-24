@@ -171,6 +171,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6-Destructuring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/11/ES6-Destructuring/">ES6--Destructuring</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/11/ES6-Destructuring/" class="archive-article-date">
+  	<time datetime="2018-03-11T13:13:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-传统赋值"><a href="#1-传统赋值" class="headerlink" title="1. 传统赋值"></a>1. 传统赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let arr = [1, 2, 3]; //把数组的值分别赋值给变量</div><div class="line">    let a = arr[0];</div><div class="line">    let b = arr[1];</div><div class="line">    let c = arr[2];</div><div class="line">    console.log(a,b,c); //1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-1-数组的解构赋值"><a href="#2-1-数组的解构赋值" class="headerlink" title="2.1 数组的解构赋值"></a>2.1 数组的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c] = [1, 2, 3];</div><div class="line">    console.log(a,b,c);//1,2,3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-2-嵌套"><a href="#2-2-嵌套" class="headerlink" title="2.2 嵌套"></a>2.2 嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let [a, b, [c1, c2]] = [1, 2, [3.1, 3.2]];</div><div class="line">    console.log(a,b,c1,c2);//1 2 3.1 3.2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-3-不完全解构"><a href="#2-3-不完全解构" class="headerlink" title="2.3 不完全解构"></a>2.3 不完全解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//赋值不成功 值为undefined</div><div class="line">&#123;</div><div class="line">    let [a,b,c] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-4-设定默认值"><a href="#2-4-设定默认值" class="headerlink" title="2.4 设定默认值"></a>2.4 设定默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let[a,b,c=3] = [1, 2];</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-1-对象的赋值解构"><a href="#3-1-对象的赋值解构" class="headerlink" title="3.1 对象的赋值解构"></a>3.1 对象的赋值解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//变量名要和属性名一致</div><div class="line">&#123;</div><div class="line">    //与顺序无关</div><div class="line">    let &#123;a,b,c&#125; = &#123;&quot;a&quot;:1, &quot;c&quot;:3, &quot;b&quot;:2&#125;;</div><div class="line">    console.log(a,b,c); //1 2 3</div><div class="line"></div><div class="line">    //不一致则赋值不成功</div><div class="line">    let &#123; d &#125; = &#123;&quot;b&quot;: 2&#125;;</div><div class="line">    console.log(d); //undefined</div><div class="line"></div><div class="line">    //补救 为e赋&quot;b&quot;的值</div><div class="line">    let &#123; b:e&#125; = &#123; &quot;b&quot;:2 &#125;;</div><div class="line">    console.log(e); //2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-2-嵌套"><a href="#3-2-嵌套" class="headerlink" title="3.2 嵌套"></a>3.2 嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //a的值为一个对象</div><div class="line">    let &#123;a&#125; = &#123; &quot;a&quot;:&#123;&quot;b&quot;: 1&#125;&#125;;</div><div class="line">    console.log(a.b); //1</div><div class="line">    console.log(a); // object</div><div class="line"></div><div class="line">    //c为一个中间量，之后访问不到的</div><div class="line">    //为d赋值</div><div class="line">    let &#123;c:&#123;d&#125;&#125; = &#123; &quot;c&quot;:&#123;d:1&#125; &#125;;</div><div class="line">    //console.log(c); //报错 c is not defined</div><div class="line">    console.log(d); //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-赋值解构的应用-小技巧"><a href="#4-赋值解构的应用-小技巧" class="headerlink" title="4. 赋值解构的应用 小技巧"></a>4. 赋值解构的应用 小技巧</h4><h4 id="4-1-交换变量"><a href="#4-1-交换变量" class="headerlink" title="4.1 交换变量"></a>4.1 交换变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统做法</div><div class="line">    let x = 1, y =2;</div><div class="line">    let z = x;</div><div class="line">    x = y;</div><div class="line">    y = z;</div><div class="line">    console.log(x, y); //2, 1</div><div class="line"></div><div class="line">    //赋值解构</div><div class="line">    let a = 1, b =2;</div><div class="line">    [a,b] = [b, a];</div><div class="line">    console.log(a, b); //2, 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-2-提取函数的多个返回值"><a href="#4-2-提取函数的多个返回值" class="headerlink" title="4.2 提取函数的多个返回值"></a>4.2 提取函数的多个返回值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//一般函数只能返回一个值</div><div class="line">//我们可以通过返回多个值组成的对象或者数组</div><div class="line">//再解构出来</div><div class="line">&#123;</div><div class="line">    let demo = function() &#123;</div><div class="line">        return &#123;</div><div class="line">            &quot;name&quot;: &apos;张三&apos;,</div><div class="line">            &quot;age&quot;: 18</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //快速提取</div><div class="line">    let &#123;name, age&#125; = demo();</div><div class="line">    console.log(name, age);//张三 18</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-3定义函数参数"><a href="#4-3定义函数参数" class="headerlink" title="4.3定义函数参数"></a>4.3定义函数参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//通过这种写法，很方便提取JSON对象中想要的数据</div><div class="line">//不需要关注其他参数</div><div class="line">&#123;</div><div class="line">    let demo = function(&#123;name, weight&#125;) &#123;</div><div class="line">        console.log(&quot;name: &quot;+ name);</div><div class="line">        console.log(&quot;weight: &quot; + weight);</div><div class="line">    &#125;</div><div class="line">    demo(&#123; name: &apos;张三&apos;, weight: &apos;100kg&apos;, height: &apos;100cm&apos;&#125;); //name: 张三 weight: 100kg</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-4-函数参数的默认值"><a href="#4-4-函数参数的默认值" class="headerlink" title="4.4 函数参数的默认值"></a>4.4 函数参数的默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //传统方法：先判断该参数是否undefined</div><div class="line">    //是则代表没传 手动赋值</div><div class="line">    let demo = function(a) &#123;</div><div class="line">        let name;</div><div class="line">        if( a === undefined) &#123;</div><div class="line">            name = &apos;张三&apos;; //设定默认值</div><div class="line">        &#125; else &#123;</div><div class="line">            name = a;</div><div class="line">        &#125;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //解构赋值的方法</div><div class="line">    //原本教程是 function(&#123;name=&quot;张三&quot;&#125;)</div><div class="line">    //但是我这样写就报错了 找不到name</div><div class="line">    let test = function(name=&quot;张三&quot;) &#123;</div><div class="line">        console.log(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //demo 与 test 功能相同</div><div class="line">    demo(); //张三</div><div class="line">    test(); //张三</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/11/ES6-Destructuring/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tab变量闭包问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -738,6 +822,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">

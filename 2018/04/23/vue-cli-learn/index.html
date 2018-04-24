@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
-  <title>codeRule | 林大羽</title>
+  <title>vue-cli-learn | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+  <meta name="description" content="基本使用流程 安装vue-cli命令环境 123npm install --global vue-cli//验证安装vue --version  创建一个基于 webpack 模板的新项目 1vue init webpack &amp;lt;project-name&amp;gt;  进入项目文件 1cd &amp;lt;project-name&amp;gt;  运行 1npm run dev">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeRule">
-<meta property="og:url" content="https://corleoneyu.github.io/2018/01/12/codeRule/index.html">
+<meta property="og:title" content="vue-cli-learn">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/04/23/vue-cli-learn/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+<meta property="og:description" content="基本使用流程 安装vue-cli命令环境 123npm install --global vue-cli//验证安装vue --version  创建一个基于 webpack 模板的新项目 1vue init webpack &amp;lt;project-name&amp;gt;  进入项目文件 1cd &amp;lt;project-name&amp;gt;  运行 1npm run dev">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-12T09:56:39.925Z">
+<meta property="og:updated_time" content="2018-04-23T16:20:40.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codeRule">
-<meta name="twitter:description" content="基本的格式化命名 “计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton  变量（小驼峰）推荐写法123var count = 10;var myName = &amp;quot;John&amp;quot;;var found = true; 不推荐写法 看起来像函数12var getCount = 10;var isFound = true; 尽量在变量名中体现出数据类型，如：    co">
+<meta name="twitter:title" content="vue-cli-learn">
+<meta name="twitter:description" content="基本使用流程 安装vue-cli命令环境 123npm install --global vue-cli//验证安装vue --version  创建一个基于 webpack 模板的新项目 1vue init webpack &amp;lt;project-name&amp;gt;  进入项目文件 1cd &amp;lt;project-name&amp;gt;  运行 1npm run dev">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -170,20 +171,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-codeRule" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue-cli-learn" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      codeRule
+      vue-cli-learn
     </h1>
   
 
         
-        <a href="/2018/01/12/codeRule/" class="archive-article-date">
-  	<time datetime="2018-01-12T09:56:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+        <a href="/2018/04/23/vue-cli-learn/" class="archive-article-date">
+  	<time datetime="2018-04-23T15:42:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-23</time>
 </a>
         
         
@@ -195,46 +196,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基本的格式化"><a href="#基本的格式化" class="headerlink" title="基本的格式化"></a>基本的格式化</h1><h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><blockquote>
-<p>“计算机科学只存在两个难题：缓存失败和命名。”——Phil Karlton</p>
-</blockquote>
-<h3 id="变量（小驼峰）"><a href="#变量（小驼峰）" class="headerlink" title="变量（小驼峰）"></a>变量（小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var count = 10;</div><div class="line">var myName = &quot;John&quot;;</div><div class="line">var found = true;</div></pre></td></tr></table></figure></p>
-<p>不推荐写法 看起来像函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var getCount = 10;</div><div class="line">var isFound = true;</div></pre></td></tr></table></figure></p>
-<p>尽量在变量名中体现出数据类型，如：  </p>
-<ol>
-<li>count,length,size 数字</li>
-<li>name,title,message 字符串</li>
-<li>i,j,k 循环迭代</li>
-</ol>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>虽然ES6之前，JS没有真正的常量概念。<br>但是，为了区分普通的变量、常量，有一种通用的命名约定：大写字母 下划线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var MAX_COUNT = 10;</div><div class="line">var URL = &quot;http://www.baidu.com&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="非构造-函数名-（小驼峰）"><a href="#非构造-函数名-（小驼峰）" class="headerlink" title="(非构造)函数名 （小驼峰）"></a>(非构造)函数名 （小驼峰）</h3><p>推荐写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>不推荐写法 看起来像变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function theName()&#123;</div><div class="line">    return myName;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>第一个单词应该是动词，常见约定如下：</p>
-<ol>
-<li>can has is 函数返回值是一个布尔值</li>
-<li>get 函数返回一个非布尔值</li>
-<li>set 函数用来保存一个值</li>
-</ol>
-<h3 id="构造函数（大驼峰）"><a href="#构造函数（大驼峰）" class="headerlink" title="构造函数（大驼峰）"></a>构造函数（大驼峰）</h3><p>大写字母开头（为了区分构造函数和普通函数）<br>推荐做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用双引号括住字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//创建多行字符串的方式</div><div class="line">var longString = &quot;Here&apos;s the story, of a man&quot; +</div><div class="line">                 &quot;named Brady.&quot;;</div></pre></td></tr></table></figure></p>
-<h2 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h2><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h4 id="在下列场景中使用："><a href="#在下列场景中使用：" class="headerlink" title="在下列场景中使用："></a>在下列场景中使用：</h4><ol>
-<li>用来初始化一个变量，表明这个变量之后可能赋值为一个对象</li>
-<li>用来和一个已经初始化的变量比较。</li>
-<li>当函数参数期望是对象时，用作参数传入</li>
-<li>当函数返回值期望是对象时，用作返回值传出。<br>推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//用来初始化一个变量，表明这个变量之后可能赋值为一个对象</div><div class="line">var person = null；</div><div class="line"></div><div class="line">//当函数返回值期望是对象时，用作返回值传出。</div><div class="line">function get Person() &#123;</div><div class="line">    if( condition ) &#123;</div><div class="line">        return new Person(&quot;John&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//用来和一个已经初始化的变量比较。</div><div class="line">var person = getPerson();</div><div class="line">if( person !== null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="基本使用流程"><a href="#基本使用流程" class="headerlink" title="基本使用流程"></a>基本使用流程</h3><ol>
+<li><p>安装vue-cli命令环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div><div class="line">//验证安装</div><div class="line">vue --version</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<h4 id="在下列场景中不应当使用null"><a href="#在下列场景中不应当使用null" class="headerlink" title="在下列场景中不应当使用null"></a>在下列场景中不应当使用null</h4><ol>
-<li>不要使用null来检测是否传入了某个参数</li>
-<li>不要使用null来检测一个未初始化的变量<br>不推荐<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//不要和未初始化的变量比较</div><div class="line">var person;</div><div class="line">if(person != null) &#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//不要用来检测是否传入了参数 </div><div class="line">function doSomething(arg1, arg2, arg3) &#123;</div><div class="line">    if( arg3 != null) &#123;</div><div class="line">        doSomethingElse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>创建一个基于 webpack 模板的新项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack &lt;project-name&gt;</div></pre></td></tr></table></figure>
 </li>
+<li><p>进入项目文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd &lt;project-name&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h3><p>最流行的方式是使用对象直接量来创建对象，在直接量中直接写出所有的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">title: &quot;Hello World&quot;,</div><div class="line">author: &quot;ShuaiBi Lin&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>相反的 不要使用下面这种做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var book = new Object();</div><div class="line">book.title = &quot;Hellow World&quot;;</div><div class="line">book,author = &quot;ShuaiBi Lin&quot;;</div></pre></td></tr></table></figure></p>
-<h3 id="数组直接量"><a href="#数组直接量" class="headerlink" title="数组直接量"></a>数组直接量</h3><p>推荐的做法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</div><div class="line">var numbers = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;];</div></pre></td></tr></table></figure></p>
-<p>相反的，不要使用Array构造函数来创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var colors = new Array(&quot;red&quot;, &quot;grenn&quot;, &quot;blue&quot;);</div></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1>
+
       
 
       
@@ -268,6 +243,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -318,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/01/12/codeRule/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/04/23/vue-cli-learn/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +318,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/12/youmeng-mini-summary/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          youmeng_mini_summary
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/27/propertyManagementSummary/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">propertyManagementSummary</div>
+    <a href="/2018/04/22/js-JQuery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js-JQuery</div>
       <i class="icon-circle-right"></i>
     </a>
   

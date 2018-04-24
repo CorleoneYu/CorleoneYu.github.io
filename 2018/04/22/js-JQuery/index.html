@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="林大羽">
 <meta property="og:description" content="说起jq, 虽然一直以来有学习有接触一点点，但我深知我只是停留在皮毛之上。刚好师姐有一本《锋利的JQ》在我这里，便从头开始学习jq，并给自己立个flag吧：刷完慕课上的Jq源码课程，学习一下引领了一个时代的jq。  JQuery中的事件和动画JQuery中的事件加载DOM浏览器装载文档，页面加载完毕后，浏览器会通过js为DOM元素添加事件常规的js代码中，通常使用window.onload(fu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-22T16:53:39.579Z">
+<meta property="og:updated_time" content="2018-04-23T17:44:35.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-JQuery">
 <meta name="twitter:description" content="说起jq, 虽然一直以来有学习有接触一点点，但我深知我只是停留在皮毛之上。刚好师姐有一本《锋利的JQ》在我这里，便从头开始学习jq，并给自己立个flag吧：刷完慕课上的Jq源码课程，学习一下引领了一个时代的jq。  JQuery中的事件和动画JQuery中的事件加载DOM浏览器装载文档，页面加载完毕后，浏览器会通过js为DOM元素添加事件常规的js代码中，通常使用window.onload(fu">
@@ -310,8 +310,23 @@
 </li>
 </ol>
 <p>应用动画来控制textarea的高度。</p>
-<h4 id="复选框的应用"><a href="#复选框的应用" class="headerlink" title="复选框的应用"></a>复选框的应用</h4><p>最基本的应用： 全选，反选，全不选。</p>
-<h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4>
+<h4 id="复选框的应用"><a href="#复选框的应用" class="headerlink" title="复选框的应用"></a>复选框的应用</h4><p>最基本的应用： 全选，反选，全不选。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;form&gt;</div><div class="line">    &lt;p&gt;你爱好的运动是？&lt;/p&gt;</div><div class="line">    &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">        &lt;label&gt;全选/清空&lt;/label&gt;</div><div class="line">        &lt;input type=&quot;checkbox&quot; id=&quot;ctr-btn&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;form-checkbox&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;足球&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;checkbox&quot; name=&quot;items&quot; value=&quot;足球&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;篮球&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;checkbox&quot; name=&quot;items&quot; value=&quot;篮球&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;羽毛球&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;checkbox&quot; name=&quot;items&quot; value=&quot;羽毛球&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;乒乓球&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;checkbox&quot; name=&quot;items&quot; value=&quot;乒乓球&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;btn-box&quot;&gt;</div><div class="line">            &lt;button id=&quot;selectAll-btn&quot; class=&quot;btn&quot; type=&quot;button&quot;&gt;全选&lt;/button&gt;</div><div class="line">            &lt;button id=&quot;selectNo-btn&quot; class=&quot;btn&quot; type=&quot;button&quot;&gt;清空&lt;/button&gt;</div><div class="line">            &lt;button id=&quot;selectRev-btn&quot; class=&quot;btn&quot; type=&quot;button&quot;&gt;反选&lt;/button&gt;</div><div class="line">            &lt;button id=&quot;submit-btn&quot; class=&quot;btn&quot; type=&quot;button&quot;&gt;提交&lt;/button&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;script src=&quot;jQuer.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">$(function()&#123;</div><div class="line">    //全选/清空</div><div class="line">    $(&quot;#ctr-btn&quot;).click(function()&#123;</div><div class="line">        $(&apos;[name=items]:checkbox&apos;).prop(&apos;checked&apos;, this.checked);</div><div class="line">    &#125;);</div><div class="line">    //全选</div><div class="line">    $(&quot;#selectAll-btn&quot;).click(function()&#123;</div><div class="line">        $(&apos;[name=items]:checkbox&apos;).prop(&apos;checked&apos;, true);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    //清空</div><div class="line">    $(&quot;#selectNo-btn&quot;).click(function()&#123;</div><div class="line">        $(&apos;[name=items]:checkbox&apos;).prop(&apos;checked&apos;, false);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    //反选</div><div class="line">    $(&quot;#selectRev-btn&quot;).click(function()&#123;</div><div class="line">        $(&apos;[name=items]:checkbox&apos;).each(function()&#123;</div><div class="line">            this.checked = !this.checked;</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">    //提交 打印出所选</div><div class="line">    $(&quot;#submit-btn&quot;).click(function()&#123;</div><div class="line">        let consoleStr = &quot;you choose: &quot;;</div><div class="line">        $(&apos;[name=items]:checkbox:checked&apos;).each(function()&#123;</div><div class="line">            consoleStr += $(this).val() + &quot;\t&quot;;</div><div class="line">        &#125;);</div><div class="line">        console.log(consoleStr);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4><h2 id="jQuery与Ajax的应用"><a href="#jQuery与Ajax的应用" class="headerlink" title="jQuery与Ajax的应用"></a>jQuery与Ajax的应用</h2><h3 id="Ajax的优势"><a href="#Ajax的优势" class="headerlink" title="Ajax的优势"></a>Ajax的优势</h3><ol>
+<li>不需要插件支持： 大多数浏览器支持</li>
+<li>优秀的用户体验：不刷新整个页面的前提下更新数据</li>
+<li>提高Web性能：只是通过XMLHttpRequest对象向服务器提交需要用到的数据，按需发送。</li>
+<li>减轻服务器和带宽的负担： ajax的工作原理相当于在用户和服务器之间加一个中间层，使用户操作与服务器响应异步化。</li>
+</ol>
+<h2 id="Ajax的XMLHttpRequest对象"><a href="#Ajax的XMLHttpRequest对象" class="headerlink" title="Ajax的XMLHttpRequest对象"></a>Ajax的XMLHttpRequest对象</h2><p>核心就是这个对象——用于发送异步请求，接收响应以及执行回调。</p>
+<h3 id="原生使用ajax流程"><a href="#原生使用ajax流程" class="headerlink" title="原生使用ajax流程"></a>原生使用ajax流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">function Ajax()&#123;</div><div class="line">    //1. 声明一个空对象用于XMLHttpRequest对象</div><div class="line">    var xmlHttpReq = null;</div><div class="line"></div><div class="line">    //2. 通过各种兼容判断来赋值</div><div class="line">    if( window.ActiveXObject ) &#123;</div><div class="line">        //IE5\6 是用ActiveXObject来引入的</div><div class="line">        xmlHttpReq = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</div><div class="line">    &#125; else if(window.XMLHttpRequest) &#123;</div><div class="line">        xmlHttpReq = new XMLHttpRequest();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //3. 使用open()初始化，指定HTTP方法和URL</div><div class="line">    //true 表示使用异步</div><div class="line">    xmlHttpReq.open(&apos;GET&apos;, &apos;url&apos;, true);</div><div class="line"></div><div class="line">    //4. 注册一个XMLHttpRequest对象将调用的回调事件处理器</div><div class="line">    xmlHttpReq.onreadystatechange = RequestCallBack;</div><div class="line"></div><div class="line">    //5. 使用send()发送请求</div><div class="line">    //因此上面代码使用的是GET，所以可以用null为参数</div><div class="line">    xmlHttpReq.send(null);</div><div class="line"></div><div class="line">    //与4配合 定义一个回调函数</div><div class="line">    //因为函数声明会提升 所以可以在后面定义而不报错</div><div class="line">    function RequestCallBack() &#123;</div><div class="line">        //如果readState值改变为4 且服务器响应为200</div><div class="line">        if( xmlHttpReq.readyState == 4) &#123;</div><div class="line">            if(xmlHttpReq.status == 200) &#123;</div><div class="line">                //code....</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="jQuery中的Ajax"><a href="#jQuery中的Ajax" class="headerlink" title="jQuery中的Ajax"></a>jQuery中的Ajax</h2><p>jQuery对Ajax进行了封装:</p>
+<ol>
+<li>$.ajax()属于最底层(开发者配置权限最高)</li>
+<li>load(), $.get(), $.post()属于第二层，jq使用了$.ajax()来进行封装</li>
+<li>$.getScript() $.getJSON()</li>
+</ol>
+<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><p>作用： 载入远程HTML代码并插入DOM<br>格式： load( url[, data][, callback])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//构建一个被load()加载并插入的HTML</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -419,6 +434,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/04/23/vue-cli-learn/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue-cli-learn
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/17/jsp-javabean/" id="article-nav-older" class="article-nav-link-wrap">
@@ -567,6 +591,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
