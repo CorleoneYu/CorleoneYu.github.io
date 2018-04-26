@@ -171,6 +171,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-newCode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/newCode/">newCode</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/newCode/" class="archive-article-date">
+  	<time datetime="2018-03-20T09:48:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="题目：-移除数组-arr-中的所有值与-item-相等的元素。不要直接修改数组-arr，结果返回新的数组"><a href="#题目：-移除数组-arr-中的所有值与-item-相等的元素。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="题目： 移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组"></a>题目： 移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function remove(arr, item) &#123;</div><div class="line">        let result = arr.filter(function(i,index)&#123;</div><div class="line">            return i != item</div><div class="line">        &#125;)</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">    console.log(remove([1,2,3,4,2], 2));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="题目：-移除数组-arr-中的所有值与-item-相等的元素，直接在给定的-arr-数组上进行操作，并将结果返回"><a href="#题目：-移除数组-arr-中的所有值与-item-相等的元素，直接在给定的-arr-数组上进行操作，并将结果返回" class="headerlink" title="题目： 移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回"></a>题目： 移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    /*这样遍历会丢失</div><div class="line">    比如说 第一次遍历到index为1的2</div><div class="line">    删除之后 数组为[1,2,3,4,2] 接下来会遍历index为2的3</div><div class="line">    而不会继续遍历index为1的2</div><div class="line">    */</div><div class="line">    // function removeWithoutCopy(arr, item) &#123;</div><div class="line">    //     arr.forEach(function(i,index,Ary)&#123;</div><div class="line">    //         if( i === item ) &#123;</div><div class="line">    //             console.log(Ary,index);</div><div class="line">    //             Ary.splice(index,1);</div><div class="line">    //         &#125;</div><div class="line">    //     &#125;)</div><div class="line">    //     return arr;</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">    function removeWithoutCopy(arr, item) &#123;</div><div class="line">        for(var i=0; i&lt;arr.length; i++) &#123;</div><div class="line">            if( item === arr[i]) &#123;</div><div class="line">                arr.splice(i,1);</div><div class="line">                i--;//关键在这里</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return arr;</div><div class="line">    &#125;</div><div class="line">    console.log(removeWithoutCopy([1,2,2,3,4,2],2))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="题目：-在数组-arr-末尾添加元素-item。不要直接修改数组-arr，结果返回新的数组"><a href="#题目：-在数组-arr-末尾添加元素-item。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="题目： 在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组"></a>题目： 在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function append(arr, item) &#123;</div><div class="line">        return arr.concat(item);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="删除数组-arr-最后一个元素。不要直接修改数组-arr，结果返回新的数组"><a href="#删除数组-arr-最后一个元素。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组"></a>删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function truncate(arr) &#123;</div><div class="line">        return arr.slice(0, -1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="在数组-arr-开头添加元素-item。不要直接修改数组-arr，结果返回新的数组"><a href="#在数组-arr-开头添加元素-item。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组"></a>在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function prepend(arr, item) &#123;</div><div class="line">        var result = [item];</div><div class="line">        return result.concat(arr);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="删除数组-arr-第一个元素。不要直接修改数组-arr，结果返回新的数组"><a href="#删除数组-arr-第一个元素。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组"></a>删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function curtail(arr) &#123;</div><div class="line">        return arr.slice(1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="在数组-arr-的-index-处添加元素-item。不要直接修改数组-arr，结果返回新的数组"><a href="#在数组-arr-的-index-处添加元素-item。不要直接修改数组-arr，结果返回新的数组" class="headerlink" title="在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组"></a>在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function insert(arr, item, index) &#123;</div><div class="line">        var result = arr.concat();//复制数组</div><div class="line">        result.splice(index, 0, item);</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">    console.log(insert([1,2,3,4],&apos;z&apos;,2));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="题目：-找出数组-arr-中重复出现过的元素"><a href="#题目：-找出数组-arr-中重复出现过的元素" class="headerlink" title="题目： 找出数组 arr 中重复出现过的元素"></a>题目： 找出数组 arr 中重复出现过的元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">这道题感觉还可以优化</div><div class="line">这里的思路是 外层用forEachd迭代</div><div class="line">内层用filter迭代出当前值在数组中的个数</div><div class="line">如果个数不为1( len2 != len-1)</div><div class="line">再判断res中是否有当前值</div><div class="line">没有的话就push当前值进res</div><div class="line"> */</div><div class="line">&#123;</div><div class="line">    function duplicates(arr) &#123;</div><div class="line">        var res = [];</div><div class="line">        arr.forEach(function(item)&#123;</div><div class="line">            var len = arr.length;</div><div class="line">            var len2 = arr.filter(function(val)&#123; return item != val;&#125;).length;</div><div class="line"></div><div class="line">            if( len2 != len-1 &amp;&amp; !res.some(function(val)&#123;</div><div class="line">                return val == item;</div><div class="line">            &#125;)) &#123;</div><div class="line">                res.push(item);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    console.log(duplicates([1,2,4,4,3,3,1,5,3]));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="函数定义问题"><a href="#函数定义问题" class="headerlink" title="函数定义问题"></a>函数定义问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"></div><div class="line">    function functions(flag) &#123;</div><div class="line">        if (flag) &#123;</div><div class="line">          function getValue() &#123; return &apos;a&apos;; &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">          function getValue() &#123; return &apos;b&apos;; &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return getValue();</div><div class="line">    &#125;</div><div class="line">    修改以上错误代码</div><div class="line">    函数定义问题，JS高程有讲过</div><div class="line"> */</div><div class="line"></div><div class="line">&#123;</div><div class="line">    function functions(flag) &#123;</div><div class="line">        if (flag) &#123;</div><div class="line">          var getValue = function()&#123; return &apos;a&apos;; &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">          var getValue = function()&#123; return &apos;b&apos;; &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return getValue();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="函数链式调用（大概这个意思）"><a href="#函数链式调用（大概这个意思）" class="headerlink" title="函数链式调用（大概这个意思）"></a>函数链式调用（大概这个意思）</h5><p>实现一个函数，运算结果可以满足如下预期结果：<br>    add(1)(2) // 3<br>    add(1, 2, 3)(10) // 16<br>    add(1)(2)(3)(4)(5) // 15<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function add() &#123;</div><div class="line">        //将argument转换成数组</div><div class="line">        var args = Array.prototype.slice.call(arguments);</div><div class="line">        var fn = function()&#123;</div><div class="line">            //拼接多次调用的参数为数组</div><div class="line">            var arg_fn = Array.prototype.slice.call(arguments);</div><div class="line"></div><div class="line">            //递归调用</div><div class="line">            return add.apply(null, args.concat(arg_fn));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //最后一次返回时，自动调用valueOf</div><div class="line">        fn.valueOf = function() &#123;</div><div class="line">            return args.reduce(function(a,b)&#123;</div><div class="line">                return a + b;</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">        return fn;</div><div class="line">    &#125;</div><div class="line">    console.log(add(1)(2)(3)(4));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>实现函数 functionFunction，调用之后满足如下条件：<br>1、返回值为一个函数 f<br>2、调用返回的函数 f，返回值为按照调用顺序的参数拼接，拼接字符为英文逗号加一个空格，即 ‘, ‘<br>3、所有函数的参数数量为 1，且均为 String 类型<br>输入： functionFunction(‘Hello’)(‘world’)<br>输出： Hello, world<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    function functionFunction() &#123;</div><div class="line">        var args = Array.prototype.slice.call(arguments);</div><div class="line">        var f = function() &#123;</div><div class="line">            var arg_fn = Array.prototype.slice.call(arguments);</div><div class="line">            //递归调用</div><div class="line">            args = args.concat(arg_fn);</div><div class="line">            return functionFunction.apply(null, args);</div><div class="line">        &#125;</div><div class="line">        //调用valueOf()时打印</div><div class="line">        f.valueOf = function() &#123;</div><div class="line">            console.log(args.join(&apos;, &apos;));</div><div class="line">            return args.join(&apos;, &apos;);</div><div class="line">        &#125;</div><div class="line">        return f;</div><div class="line">    &#125;</div><div class="line">    functionFunction(&apos;Hello&apos;)(&apos;world&apos;)(&quot;heihe&quot;).valueOf();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/newCode/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES6-Promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -926,85 +1011,6 @@
 
 
   
-    <article id="post-ES6-const" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/11/ES6-const/">ES6--const</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/11/ES6-const/" class="archive-article-date">
-  	<time datetime="2018-03-11T14:18:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="1-不可修改"><a href="#1-不可修改" class="headerlink" title="1.不可修改"></a>1.不可修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    const Name = &apos;张三&apos;;</div><div class="line">    //Name = &apos;李四&apos;; //错误 企图修改常量const Assignment to constant variable.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-只在块级作用域生效"><a href="#2-只在块级作用域生效" class="headerlink" title="2.只在块级作用域生效"></a>2.只在块级作用域生效</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    const Person = &apos;李四&apos;;</div><div class="line">&#125;</div><div class="line">// console.log(Person); //Person is not defined</div></pre></td></tr></table></figure>
-<h4 id="3-不存在变量提升-与let类似"><a href="#3-不存在变量提升-与let类似" class="headerlink" title="3.不存在变量提升 与let类似"></a>3.不存在变量提升 与let类似</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //console.log(Person);//Person is not defined</div><div class="line">    //const Person = &apos;李四&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="4-不可重复声明同一个变量-与let类似"><a href="#4-不可重复声明同一个变量-与let类似" class="headerlink" title="4.不可重复声明同一个变量 与let类似"></a>4.不可重复声明同一个变量 与let类似</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    var Name = &apos;张三&apos;;</div><div class="line">    //const Name = &apos;李四&apos;; // Identifier &apos;Name&apos; has already been declared</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="5-声明后必须赋值"><a href="#5-声明后必须赋值" class="headerlink" title="5.声明后必须赋值"></a>5.声明后必须赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //const Name; //Missing initializer in const declaration</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="6-常量是一个对象的情况"><a href="#6-常量是一个对象的情况" class="headerlink" title="6.常量是一个对象的情况"></a>6.常量是一个对象的情况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    //6.1 改变地址（指针）所指向的对象的值无影响</div><div class="line">    //理解Person是一个地址</div><div class="line">    //改变Person.name以及添加age并不会改变Person的值</div><div class="line">    const Person  = &#123; &quot;name&quot;: &apos;张三&apos;&#125;;</div><div class="line">    Person.name = &apos;李四&apos;;</div><div class="line">    Person.age = 20;</div><div class="line">    console.log(Person); //&#123;name: &quot;李四&quot;, age: 20&#125;</div><div class="line">&#125;</div><div class="line">&#123;</div><div class="line">    //6.2 改变地址（指针）会报错</div><div class="line">    const Person = &#123; &quot;name&quot;: &apos;张三&apos;&#125;;</div><div class="line">    //企图给常量Person赋新值（新地址）</div><div class="line">    //Person = &#123;&#125;;//Assignment to constant variable.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/11/ES6-const/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1125,6 +1131,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

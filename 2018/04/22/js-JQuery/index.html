@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="林大羽">
 <meta property="og:description" content="说起jq, 虽然一直以来有学习有接触一点点，但我深知我只是停留在皮毛之上。刚好师姐有一本《锋利的JQ》在我这里，便从头开始学习jq，并给自己立个flag吧：刷完慕课上的Jq源码课程，学习一下引领了一个时代的jq。  JQuery中的事件和动画JQuery中的事件加载DOM浏览器装载文档，页面加载完毕后，浏览器会通过js为DOM元素添加事件常规的js代码中，通常使用window.onload(fu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-23T17:44:35.171Z">
+<meta property="og:updated_time" content="2018-04-24T04:16:59.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-JQuery">
 <meta name="twitter:description" content="说起jq, 虽然一直以来有学习有接触一点点，但我深知我只是停留在皮毛之上。刚好师姐有一本《锋利的JQ》在我这里，便从头开始学习jq，并给自己立个flag吧：刷完慕课上的Jq源码课程，学习一下引领了一个时代的jq。  JQuery中的事件和动画JQuery中的事件加载DOM浏览器装载文档，页面加载完毕后，浏览器会通过js为DOM元素添加事件常规的js代码中，通常使用window.onload(fu">
@@ -211,8 +211,9 @@
 <h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p>文档装载完成后($()后)，为元素绑定事件：使用bind()来匹配元素进行特定事件的绑定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind(type[, data], fn);</div></pre></td></tr></table></figure></p>
 <p>第一个参数是事件类型： blur, focus, load, resize, scroll, unload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error.<br>第二个参数为可选参数： 作为event.data属性值传递给事件对象的额外数据对象<br>第三个参数是绑定的处理函数</p>
 <blockquote>
-<p>经常使用原生js的会发现，jq的事件绑定类型少了’on’，比如： click()-&gt;onclick()<br>实例<br>需求： 实现一个折叠栏 点击展开再次点击缩回（想起了bing首页）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//伪代码</div><div class="line">if(&quot;内容&quot;显示) &#123;</div><div class="line">    &quot;内容&quot;隐藏</div><div class="line">&#125; else &#123;</div><div class="line">    &quot;内容&quot;显示</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(function() &#123;</div><div class="line">    $(el).bind(&quot;click&quot;, function() &#123;</div><div class="line">        if($(this).is(&quot;:visible&quot;)) &#123;</div><div class="line">            $(this).hide();</div><div class="line">        &#125; else &#123;</div><div class="line">            $(this).show();</div><div class="line">    &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">//使用jq自定义方法toggle()</div><div class="line">$(function()&#123;</div><div class="line">    $(el).toggle(function()&#123;</div><div class="line">            //show</div><div class="line">        &#125;, function()&#123;</div><div class="line">            //hide</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">&#125;)</div><div class="line">//用于模拟连续点击事件：第一次点击触发第一个，第二次点击触发第二个，依次循环</div><div class="line">//如果有更多函数，则依次触发。</div></pre></td></tr></table></figure></p>
+<p>经常使用原生js的会发现，jq的事件绑定类型少了’on’，比如： click()-&gt;onclick()</p>
 </blockquote>
+<p>实例<br>需求： 实现一个折叠栏 点击展开再次点击缩回（想起了bing首页）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//伪代码</div><div class="line">if(&quot;内容&quot;显示) &#123;</div><div class="line">    &quot;内容&quot;隐藏</div><div class="line">&#125; else &#123;</div><div class="line">    &quot;内容&quot;显示</div><div class="line">&#125;</div><div class="line"></div><div class="line">$(function() &#123;</div><div class="line">    $(el).bind(&quot;click&quot;, function() &#123;</div><div class="line">        if($(this).is(&quot;:visible&quot;)) &#123;</div><div class="line">            $(this).hide();</div><div class="line">        &#125; else &#123;</div><div class="line">            $(this).show();</div><div class="line">    &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">//使用jq自定义方法toggle()</div><div class="line">$(function()&#123;</div><div class="line">    $(el).toggle(function()&#123;</div><div class="line">            //show</div><div class="line">        &#125;, function()&#123;</div><div class="line">            //hide</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">&#125;)</div><div class="line">//用于模拟连续点击事件：第一次点击触发第一个，第二次点击触发第二个，依次循环</div><div class="line">//如果有更多函数，则依次触发。</div></pre></td></tr></table></figure></p>
 <h4 id="合成事件"><a href="#合成事件" class="headerlink" title="合成事件"></a>合成事件</h4><p>jq两个合成事件——hover(),toggle()</p>
 <h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><ol>
 <li><p>获取事件对象</p>
@@ -325,7 +326,6 @@
 <li>load(), $.get(), $.post()属于第二层，jq使用了$.ajax()来进行封装</li>
 <li>$.getScript() $.getJSON()</li>
 </ol>
-<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><p>作用： 载入远程HTML代码并插入DOM<br>格式： load( url[, data][, callback])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//构建一个被load()加载并插入的HTML</div></pre></td></tr></table></figure></p>
 
       
 
@@ -595,6 +595,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
