@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
-  <title>jsp-javabean | 林大羽</title>
+  <title>summary-blog | 林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
-<meta name="keywords" content="java,jsp">
+  <meta name="description" content="好像是从去年开始说要和坑爹的后台儿子做一个博客系统，期间配置过hexo个人博客，所以一直跳票。直到最近看了技术胖的vue-cli等教程，就决定动手做一个博客，主要技术栈：vue,脚手架vue-cli,前后端对接axios，路由vue-router,参考的是gitHub的JohnX大佬的，在此致敬。  vue-cli安装配置什么的我在这里就不讲了吧 创建项目12345//cmd中//初始化： 格式">
+<meta name="keywords" content="vue,vue-cli,blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jsp-javabean">
-<meta property="og:url" content="https://corleoneyu.github.io/2018/04/17/jsp-javabean/index.html">
+<meta property="og:title" content="summary-blog">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/05/09/summary-blog/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
+<meta property="og:description" content="好像是从去年开始说要和坑爹的后台儿子做一个博客系统，期间配置过hexo个人博客，所以一直跳票。直到最近看了技术胖的vue-cli等教程，就决定动手做一个博客，主要技术栈：vue,脚手架vue-cli,前后端对接axios，路由vue-router,参考的是gitHub的JohnX大佬的，在此致敬。  vue-cli安装配置什么的我在这里就不讲了吧 创建项目12345//cmd中//初始化： 格式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T12:22:06.797Z">
+<meta property="og:updated_time" content="2018-05-09T09:36:53.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jsp-javabean">
-<meta name="twitter:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
+<meta name="twitter:title" content="summary-blog">
+<meta name="twitter:description" content="好像是从去年开始说要和坑爹的后台儿子做一个博客系统，期间配置过hexo个人博客，所以一直跳票。直到最近看了技术胖的vue-cli等教程，就决定动手做一个博客，主要技术栈：vue,脚手架vue-cli,前后端对接axios，路由vue-router,参考的是gitHub的JohnX大佬的，在此致敬。  vue-cli安装配置什么的我在这里就不讲了吧 创建项目12345//cmd中//初始化： 格式">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -171,20 +171,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsp-javabean" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-summary-blog" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      jsp-javabean
+      summary-blog
     </h1>
   
 
         
-        <a href="/2018/04/17/jsp-javabean/" class="archive-article-date">
-  	<time datetime="2018-04-17T11:39:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+        <a href="/2018/05/09/summary-blog/" class="archive-article-date">
+  	<time datetime="2018-05-09T03:11:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
 </a>
         
         
@@ -196,80 +196,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Javabean"><a href="#Javabean" class="headerlink" title="Javabean"></a>Javabean</h2><p>定义：Javabeans就是符合某种特定的规范Java类。<br>目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。</p>
-<h3 id="Javabean设计原则"><a href="#Javabean设计原则" class="headerlink" title="Javabean设计原则"></a>Javabean设计原则</h3><ol>
-<li>公有类</li>
-<li>无参的共有构造方法</li>
-<li>属性私有</li>
-<li>getter() setter()</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//学生类</div><div class="line">//1. 公有类</div><div class="line">public class Students &#123;</div><div class="line">    //3. 属性私有</div><div class="line">    private String name;</div><div class="line">    //2. 无参的共有构造方法</div><div class="line">    public Students() &#123;&#125;</div><div class="line">    //4. setter getter</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="jsp动作元素"><a href="#jsp动作元素" class="headerlink" title="jsp动作元素"></a>jsp动作元素</h3><p>(action elements)动作元素: 为请求处理阶段提供信息。<br>遵循XML元素语法，有一个包含元素名的开始标签，可以有属性，可选内容，结束标签</p>
+        <blockquote>
+<p>好像是从去年开始说要和坑爹的后台儿子做一个博客系统，期间配置过hexo个人博客，所以一直跳票。直到最近看了技术胖的vue-cli等教程，就决定动手做一个博客，主要技术栈：vue,脚手架vue-cli,前后端对接axios，路由vue-router,参考的是gitHub的JohnX大佬的，在此致敬。</p>
+</blockquote>
+<h2 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h2><p>安装配置什么的我在这里就不讲了吧</p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//cmd中</div><div class="line">//初始化： 格式</div><div class="line">vue init &lt;template-name&gt; &lt;project-name&gt;</div><div class="line">//例如：</div><div class="line">vue init webpack vueclitest</div></pre></td></tr></table></figure>
+<p>输入命令后，会询问我们几个简单的选项，我们根据自己的需要进行填写就可以了。</p>
 <ol>
-<li>存取javaBean有关的<ol>
-<li>&lt; jsp:useBean&gt;</li>
-<li>&lt; jsp:setProperty&gt;</li>
-<li>&lt; jsp:getProperty&gt;</li>
-</ol>
+<li>Project name :项目名称 ，如果不需要更改直接回车就可以了。注意：这里不能使用大写</li>
+<li>Project description:项目描述，默认为A Vue.js project,直接回车，不用编写。</li>
+<li>Author：作者，如果你有配置git的作者，他会读取。</li>
+<li>nstall  vue-router? 是否安装vue的路由插件，我们这里需要安装，所以选择Y</li>
+<li>Use ESLint to lint your code? 是否用ESLint来限制你的代码错误和风格。我们这里不需要输入n，如果你是大型团队开发，最好是进行配置。</li>
+<li>setup unit tests with  Karma + Mocha? 是否需要安装单元测试工具Karma+Mocha，我们这里不需要，所以输入n。</li>
+<li>Setup e2e tests with Nightwatch?是否安装e2e来进行用户行为模拟测试，我们这里不需要，所以输入n。<br>成功创建项目后，我们需要进入项目文件然后下载相关依赖包<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1、cd vuecliTest //进入我们的vue项目目录。</div><div class="line"></div><div class="line">2、npm install //安装我们的项目依赖包，也就是安装package.json里的包 建议使用cnpm来安装。</div><div class="line"></div><div class="line">3、npm run dev //开发模式下运行我们的程序。给我们自动构建了开发用的服务器环境和在浏览器中打开，并实时监视我们的代码更改（Ctrl+s就可以更新）</div></pre></td></tr></table></figure>
 </li>
-<li>基本元素<ol>
-<li>&lt; jsp:include&gt;</li>
-<li>&lt; jsp:forward&gt;</li>
-<li>&lt; jsp:param&gt;</li>
-<li>&lt; jsp:plugin&gt;</li>
-<li>&lt; jsp:params&gt;</li>
-<li>&lt; jsp:fallback&gt;</li>
 </ol>
-</li>
-<li>jsp Document有关<ol>
-<li>&lt; jsp:root&gt;</li>
-<li>&lt; jsp:declaration&gt;</li>
-<li>&lt; jsp:scriptlet&gt;</li>
-<li>&lt; jsp:expression&gt;</li>
-<li>&lt; jsp:text&gt;</li>
-<li>&lt; jsp:output&gt;</li>
+<h3 id="项目文件分析"><a href="#项目文件分析" class="headerlink" title="项目文件分析"></a>项目文件分析</h3><p>转自技术胖（有改动）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">|-- build                            // 项目构建(webpack)相关代码</div><div class="line">|   |-- build.js                     // 生产环境构建代码</div><div class="line">|   |-- check-version.js             // 检查node、npm等版本</div><div class="line">|   |-- dev-client.js                // 热重载相关</div><div class="line">|   |-- dev-server.js                // 构建本地服务器</div><div class="line">|   |-- utils.js                     // 构建工具相关</div><div class="line">|   |-- webpack.base.conf.js         // webpack基础配置</div><div class="line">|   |-- webpack.dev.conf.js          // webpack开发环境配置</div><div class="line">|   |-- webpack.prod.conf.js         // webpack生产环境配置</div><div class="line">|-- config                           // 项目开发环境配置</div><div class="line">|   |-- dev.env.js                   // 开发环境变量</div><div class="line">|   |-- index.js                     // 项目一些配置变量</div><div class="line">|   |-- prod.env.js                  // 生产环境变量</div><div class="line">|-- src                              // 源码目录</div><div class="line">|   |-- components                     // vue公共组件</div><div class="line">|   |   |-- About.vue                   //关于页面，是一个路由组件</div><div class="line">|   |   |-- Article.vue                 //文章详情页面，是一个路由组件</div><div class="line">|   |   |-- Error.vue                   //错误页面，统一用来响应未标识的路由，是一个路由组件</div><div class="line">|   |   |-- footer.vue                  //尾部组件，是一个页面组件</div><div class="line">|   |   |-- Header.vue                  //头部组件，是一个页面组件</div><div class="line">|   |   |-- Home.vue                    //主页页面，是一个路由组件（默认）</div><div class="line">|   |   |-- Message.vue                 //留言页面，是一个路由组件</div><div class="line">|   |-- store                          // vuex的状态管理，本项目没有使用vuex(后期迭代版本可能会考虑使用)</div><div class="line">|   |-- router                          //路由模块</div><div class="line">|   |   |-- index.js                    //配置路由</div><div class="line">|   |-- utils                           //工具文件</div><div class="line">|   |   |-- date.js                     //用来提供时间戳转换的js</div><div class="line">|   |-- App.vue                        // 页面入口文件</div><div class="line">|   |-- main.js                        // 程序入口文件，加载各种公共组件</div><div class="line">|-- node_modules</div><div class="line">|   |-- 各种依赖                        //cnpm install命令下载的依赖包</div><div class="line">|-- static                           // 静态文件，比如一些图片，json数据等</div><div class="line">|   |-- css</div><div class="line">|   |   |-- base.css                //个人习惯使用的css原子文件</div><div class="line">|-- .babelrc                         // ES6语法编译配置</div><div class="line">|-- .editorconfig                    // 定义代码格式</div><div class="line">|-- .gitignore                       // git上传需要忽略的文件格式，主要忽略node_modules（减少文件体积）</div><div class="line">|-- README.md                        // 项目说明</div><div class="line">|-- favicon.ico</div><div class="line">|-- index.html                       // 入口页面</div><div class="line">|-- package.json                     // 项目基本信息</div><div class="line">.</div></pre></td></tr></table></figure></p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>package.json文件是项目根目录下的一个文件，定义该项目开发所需要的各种模块以及一些项目配置信息（如项目名称、版本、描述、作者等）。</p>
+<h4 id="package-json的scripts字段"><a href="#package-json的scripts字段" class="headerlink" title="package.json的scripts字段"></a>package.json的scripts字段</h4><p>需要特别注意的是里面的scripts字段，这个字段定义了你可以用npm运行的命令。在开发环境下，在命令行工具中运行npm run dev 就相当于执行 node build/dev-server.js  .也就是开启了一个node写的开发行建议服务器。由此可以看出script字段是用来指定npm相关命令的缩写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">   &quot;dev&quot;: &quot;node build/dev-server.js&quot;,</div><div class="line">   &quot;build&quot;: &quot;node build/build.js&quot;</div><div class="line"> &#125;,</div></pre></td></tr></table></figure></p>
+<h4 id="package-json的dependencies字段和devDependencies字段"><a href="#package-json的dependencies字段和devDependencies字段" class="headerlink" title="package.json的dependencies字段和devDependencies字段"></a>package.json的dependencies字段和devDependencies字段</h4><ol>
+<li>dependencies字段指项目运行时所依赖的模块；</li>
+<li>devDependencies字段指定了项目开发时所依赖的模块；<br>我们在使用cnpm install <module> –save的时候会放在dependencies，这一类模块有axios等<br>而cnpm install <module> –save-dev放在devDependencies里面,表示只有在开发的时候才会用到</module></module></li>
 </ol>
-</li>
-<li>用来动态生成XML元素标签的值<ol>
-<li>&lt; jsp:attribut&gt;</li>
-<li>&lt; jsp:body&gt;</li>
-<li>&lt; jsp:element&gt;</li>
-</ol>
-</li>
-<li>用在Tag File<ol>
-<li>&lt; jsp:invoke&gt;</li>
-<li>&lt; jsp:dobody&gt;<h3 id="在jsp页面中使用javabeans"><a href="#在jsp页面中使用javabeans" class="headerlink" title="在jsp页面中使用javabeans"></a>在jsp页面中使用javabeans</h3></li>
-</ol>
-</li>
-<li>像使用普通的java类一样，创建javabean实例</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//类文件路径： java web工程——javaResources——src——com.po(自定义包名)——Users(类名)</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//jsp文件路径：java web工程——WebContent——index.jsp</div><div class="line"></div><div class="line"></div><div class="line">//在开头引入Users类</div><div class="line">&lt;%@ page import=&quot;com.po.Users&quot; %&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h2&gt;使用普通方式创建javaBean实例&lt;/h2&gt;</div><div class="line">    &lt;%</div><div class="line">        Users user = new Users();</div><div class="line">        user.setPassword(&quot;123456&quot;);</div><div class="line">        user.setUsername(&quot;admin&quot;);</div><div class="line">    %&gt;</div><div class="line">    用户名： &lt;%=user.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=user.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;!--</div><div class="line">输出：</div><div class="line">用户名： admin</div><div class="line">密码： 123456</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
-<a id="more"></a>
+<h4 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h4><p>该文件定义项目的编码规范，编译器的行为会与.editorconfig文件中定义的一致，并且其优先级比编译器自身的设置要高，这在多人合作开发项目时十分有用而且必要。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">root = true</div><div class="line"></div><div class="line">[*]    // 对所有文件应用下面的规则</div><div class="line">charset = utf-8                    // 编码规则用utf-8</div><div class="line">indent_style = space               // 缩进用空格</div><div class="line">indent_size = 2                    // 缩进数量为2个空格</div><div class="line">end_of_line = lf                   // 换行符格式</div><div class="line">insert_final_newline = true        // 是否在文件的最后插入一个空行</div><div class="line">trim_trailing_whitespace = true    // 是否删除行尾的空格</div></pre></td></tr></table></figure></p>
+<h2 id="vue-router路由"><a href="#vue-router路由" class="headerlink" title="vue-router路由"></a>vue-router路由</h2><p>路由就是SPA（单页应用）的路径管理器。再通俗的说，vue-router就是我们WebApp的链接路径管理系统。<br>为什么我们不能像原来一样直接用<a></a>标签编写链接哪？因为我们用Vue作的都是单页应用，就相当于只有一个主的index.html页面，所以你写的<a></a>标签是不起作用的，你必须使用vue-router来进行管理。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//1. 引入vue</div><div class="line">import Vue from &apos;vue&apos;</div><div class="line"></div><div class="line">//2. 引入router</div><div class="line">import Router from &apos;vue-router&apos;</div><div class="line"></div><div class="line">//3. 从componetns引入路由组件</div><div class="line">import Home from &apos;../components/Home&apos;</div><div class="line">...</div><div class="line">import Article from &apos;../components/Article&apos;</div><div class="line"></div><div class="line">//4. Vue全局使用Router</div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line">//5.配置</div><div class="line">export default new Router(&#123;</div><div class="line">  routes: [              //配置路由，这里是个数组</div><div class="line">    &#123;                    //每一个链接都是一个对象</div><div class="line">      path: &apos;/&apos;,         //链接路径</div><div class="line">      name: &apos;Home&apos;,     //路由名称，</div><div class="line">      component: Home  //对应的组件模板</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>控制路由跳转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//Header.vue</div><div class="line">&lt;div class=&quot;header-nav&quot;&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;</div><div class="line">    //使用router-link,配置to属性用于跳转到指定组件模块</div><div class="line">        &lt;router-link to=&quot;/&quot;&gt;</div><div class="line">            &lt;i class=&quot;icon iconfont icon-home&quot;&gt;&lt;/i&gt;&lt;span&gt;首页&lt;/span&gt;</div><div class="line">        &lt;/router-link&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>然后在页面中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//App.vue</div><div class="line">&lt;router-view&gt;&lt;/router-view&gt; //在这里渲染相应的路由页面</div></pre></td></tr></table></figure></p>
+<h3 id="数据传递"><a href="#数据传递" class="headerlink" title="数据传递"></a>数据传递</h3><p>在这次博客中，有一个业务逻辑：首页点击某篇文章的’阅读全文’按钮，传递这篇文章的id给文章详情页，然后文章详情页用这个id去查询信息用于渲染，那么怎么传递这个id呢<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// router/index.js</div><div class="line">//其实不在这里配置也是可以的，不过就是不能保存这个id</div><div class="line">//就是说如果跳转到文章详情页后刷新一下，id就undefined了</div><div class="line"> &#123;</div><div class="line">      path: &apos;/Article/:id&apos;,</div><div class="line">      name: &apos;Article&apos;,</div><div class="line">      component: Article</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>路由跳转的时候通过params:{}来传递<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;tc more mb20 mt20&quot;&gt;</div><div class="line">    &lt;router-link :to=&quot;&#123;name: &apos;Article&apos;,params:&#123;id:item.id&#125;&#125;&quot;&gt;</div><div class="line">        阅读全文</div><div class="line">    &lt;/router-link&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>文章详情页接收<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//使用这个this.$route.params就可以拿到相应参数 如</div><div class="line">this.$route.params.id</div></pre></td></tr></table></figure></p>
+<h2 id="Axios的使用"><a href="#Axios的使用" class="headerlink" title="Axios的使用"></a>Axios的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//cmd中</div><div class="line">cnpm install axios --save</div></pre></td></tr></table></figure>
+<p>由于axios是需要打包到生产环境中的，所以我们使用–save来进行安装。</p>
+<p>引入Axios<br>我们在页面引入Axios，由于使用了npm来进行安装，所以这里不需要填写路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//Hmoe.vue中js部分</div><div class="line">import axios from &apos;axios&apos;</div><div class="line"></div><div class="line">//axios使用</div><div class="line">/*无限制查询文章列表*/</div><div class="line">      getArticlesListAll() &#123;</div><div class="line">        axios.get(this.urlPre + &apos;blogs?currentPage=&apos; +</div><div class="line">            this.aboutDivide.currentPage + &apos;&amp;countPerPage=&apos; + this.aboutDivide.countPerPage)</div><div class="line">          .then(res =&gt; &#123;</div><div class="line">            if (res.data.success == true) &#123;</div><div class="line">              this.articleList = res.data.data;</div><div class="line"></div><div class="line">              this.aboutDivide.count = res.data.extraData.count;</div><div class="line">              this.aboutDivide.sumPage = res.data.extraData.sumPage;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">          &#125;)</div><div class="line">          .catch(error =&gt; &#123;</div><div class="line">            console.log(error);</div><div class="line">            alert(&apos;网络错误，不能访问&apos;);</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div></pre></td></tr></table></figure></p>
+<h2 id="查询文章以及分页功能的设计"><a href="#查询文章以及分页功能的设计" class="headerlink" title="查询文章以及分页功能的设计"></a>查询文章以及分页功能的设计</h2><h3 id="分层统一思想"><a href="#分层统一思想" class="headerlink" title="分层统一思想"></a>分层统一思想</h3><p>因为本次查询文章有两种方式，一种是全部查询，另一种是使用标签查询，为了实现的统一以及优雅，我设定了一个”Taglimit”: 0,0表示没有标签限制，如果有的话，这个Taglimt就是标签的id。<br>大概思路确定后，我需要一个统一的接口：getArticlesList(),我在上层调用这个方法，不用去管到底是全部查询还是标签查询，理所当然的，在这个接口里面要判断此时vue对象的taglimt是否为0，然后调用底层的两个方法： getArticlesListAll()以及getArticlesListByTag()。<br>完成了这些方法之后，我就可以安心地调用getArticlesList()了，这也为我分页时候提供了思路。<br>暂且叫这个思路为分层统一思想吧，分层是方法分了上下两层，统一是统一了查询都需要一个Taglimt。  </p>
+<h3 id="分页的设计"><a href="#分页的设计" class="headerlink" title="分页的设计"></a>分页的设计</h3><p>搞定了查询后，分页的思路也很清晰了，考虑到要兼容手机端，不可能把每一页的页码都渲染出来（其实就算不兼容手机端也不要都渲染，比如如果现在有100页，不可能页面都要出来吧，既不美观用户也不需要），所以我设计了[上，首，页码，末页，下]这种形式，页码最大渲染5个。<br>按照这个思路，我设计了一个computed用来生成页码的数组dynamicPages<br>具体逻辑为</p>
 <ol>
-<li>在jsp页面通常使用jsp动作标签来使用javabean</li>
+<li>当页码sum小于5的时候，dynamicPages为从一到总页数sum组成的数组</li>
+<li>页码大于5<ol>
+<li>当前页cur小于3，dynamicPages=[1,2,3,4,5]</li>
+<li>当前页cur大于3且大于总页数sum-2 dynamicPages=[sum-4,sum-3,sum-2,sum-1,sum];</li>
+<li>当前页cur大于3且小于总页数sum-2 dynamicPages=[cur-2,cur-1,cur,cur+1, cur+2]<br>然后页码的点击事件逻辑为：改变cur的数值，另发送查询文章的请求(调用etArticlesList())</li>
 </ol>
-<h4 id="jsp-useBeans"><a href="#jsp-useBeans" class="headerlink" title="jsp:useBeans"></a>jsp:useBeans</h4><p>作用： 在jsp中实例化或者在指定范围使用javabean</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//格式&lt;jsp:useBean id=&quot;标志符&quot; class=&quot;java类名&quot; scope=&quot;作用范围&quot; /&gt;</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;&gt;</div><div class="line">    &lt;h2&gt;使用useBean动作来创建javabean实例&lt;/h2&gt;</div><div class="line">    用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/jsp:useBean&gt;</div></pre></td></tr></table></figure>
-<p>配合使用 jsp:setProperty</p>
-<ol>
-<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”*”/&gt;(跟表单相关联-&gt;自动匹配)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//login.jsp</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;form name=&quot;loginForm&quot; action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">//doLogin.jsp</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;h2&gt;setProperty动作元素&lt;/h2&gt;</div><div class="line">&lt;!-- 根据表单匹配元素 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;myUser&quot;/&gt;</div><div class="line">用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line"></div><div class="line">//实现：</div><div class="line">//在login.jsp中输入的用户名 密码</div><div class="line">//在doLogin.jsp中显示出来</div></pre></td></tr></table></figure>
 </li>
-<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名”/&gt;(跟表单关联-&gt;部分匹配)</p>
+</ol>
+<h2 id="vue语法的掌握程度"><a href="#vue语法的掌握程度" class="headerlink" title="vue语法的掌握程度"></a>vue语法的掌握程度</h2><p>在这里记下一个教训，在开发的过程中，因为对于vue的语法不大熟悉，犯了很多错误，印象最深的一个（因为当时后台儿子在旁边看）是在给页码加点击事件的时候，错吧@click写成了:click，，当时记得已经绑定了axios，所以浏览器疯狂发请求疯狂报错，一开始还以为是我的axios出错了，网上查了好久都没有找到相关的报错，困扰了很久最后锁定在了:click=””这个属性上，再去翻文档才知道写错了，浪费了好多时间精力，在这里记一下，emmm,顺便偷偷骂一下后台，我觉得他看不到的hh。</p>
+<h2 id="showdownjs的使用"><a href="#showdownjs的使用" class="headerlink" title="showdownjs的使用"></a>showdownjs的使用</h2><p>因为后台提供的文章content是md格式的文件，所以我们要做的是优雅的把他们编译成html（比如大概思路是将 ‘## XXX’编译成’\</p><h2>XXX\</h2>）本博客使用的是showdownjs，使用也很简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//引入工具文件 在index.html中</div><div class="line">&lt;script src=&quot;https://cdn.bootcss.com/showdown/1.3.0/showdown.min.js&quot;&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">//Article.vue</div><div class="line">//使用showdown.js将Markdown文档转换为HTML</div><div class="line">let converter = new showdown.Converter();</div><div class="line">//转换为HTML</div><div class="line">let html = converter.makeHtml(this.item.content);</div><div class="line">this.item.content = html;</div><div class="line"></div><div class="line">//然后再配上自己的css文件食用口感更好 assets/css/markdown.css</div></pre></td></tr></table></figure><p></p>
+<h2 id="现阶段的不足"><a href="#现阶段的不足" class="headerlink" title="现阶段的不足"></a>现阶段的不足</h2><h3 id="css模块化思想"><a href="#css模块化思想" class="headerlink" title="css模块化思想"></a>css模块化思想</h3><ol>
+<li>因为vue提供了scoped来实现css只作用于本组件，看了编译之后的文件，我们会发现他给元素添加了hash值用来做标记，再加上网上看了一篇关于scoped的文章，也是说到这一点，个人觉得这里没什么必要，因为既然你想让他只作用于本模块，何不给他一个作用范围，比如 #compoent xxx，限定在id为compoent的范围里。  </li>
+<li>第二点我想说的是，sytle如果加上scoped后只能使用一个sytle了，一开始我想要把Home中的.content{//coding…}暴露出去，然后另一些css使用scoped隐藏起来，可是发现如果<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;style scoped&gt;//1..&lt;/style&gt;  </div><div class="line">&lt;style&gt;//2..&lt;/style&gt;</div></pre></td></tr></table></figure>
 </li>
-<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” value=”BeanValue”/&gt;(手工设置)</li>
-<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” param=”request对象中的参数名”/&gt;(与request关联：可以是url传参)</li>
 </ol>
-<p>配合&lt; jsp:getProperty&gt;<br>作用： 获取javabean对象的属性值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//格式： &lt;jsp:getProperty name=&quot;javaBean实例名&quot; property=&quot;属性名&quot; /&gt;</div><div class="line">用户名： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;username&quot; /&gt;&lt;br&gt;</div><div class="line">密码： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;password&quot; /&gt;&lt;hr&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="javabean的四个作用域范围"><a href="#javabean的四个作用域范围" class="headerlink" title="javabean的四个作用域范围"></a>javabean的四个作用域范围</h4><p>说明： 使用useBeans的scope属性可以指定javabean作用范围</p>
+<p>则标号2的css会失效，所以做不到我想要的效果，在这里记下来，想知道大佬们有更好的解决方法吗  </p>
 <ol>
-<li>page//当前页有效</li>
-<li>request //可以通过HttpRequest.getAttribute()方法取得JavaBean对象</li>
-<li>session //可以通过HttpSession.getAttribute()方法取得JavaBean对象</li>
-<li>application //可以通过application.getAttribute()方法取得javaBean对象</li>
+<li>单组件引用单css文件<br>需求：在做到Article后，我想去引用一个单独的markdown.css文件让他只作用于我的文章展示而不影响其他，但是发现网上的写法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;style scoped src=&quot;xxx.css&quot;&gt;&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><h4 id="Mode1介绍"><a href="#Mode1介绍" class="headerlink" title="Mode1介绍"></a>Mode1介绍</h4><p>状况： Mode1出现之前，整个web应用几乎全部由jsp处理，jsp接收处理客户端请求，对请求处理后直接作出响应。<br>弊端： 界面层充斥大量业务逻辑代码和数据访问层的代码，可扩展性和可维护性差<br>解决方式： 使用javabean封装数据或者调用javabean业务逻辑代码，大大提升了程序的可维护性</p>
-<h3 id="使用javabean与jsp实现简单登录例子"><a href="#使用javabean与jsp实现简单登录例子" class="headerlink" title="使用javabean与jsp实现简单登录例子"></a>使用javabean与jsp实现简单登录例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">package com.po;</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 封装用户类登录的业务逻辑</div><div class="line"> */</div><div class="line">package com.dao;</div><div class="line"></div><div class="line">import com.po.Users;</div><div class="line"></div><div class="line">public class UserDao &#123;</div><div class="line">    public boolean userLogin(Users u) &#123;</div><div class="line">        if( &quot;admin&quot;.equals(u.getUsername()) &amp;&amp; &quot;admin&quot;.equals(u.getPassword())) &#123;</div><div class="line">            return true;</div><div class="line">        &#125; else &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//login.jsp</div><div class="line">    &lt;h2&gt;登录页面&lt;/h2&gt;</div><div class="line">    &lt;form action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line"></div><div class="line">//login页面后提交到doLogin.jsp</div><div class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</div><div class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</div><div class="line">&lt;!-- 实例化javabean --&gt;</div><div class="line">&lt;jsp:useBean id=&quot;loginUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;jsp:useBean id=&quot;userDAO&quot; class=&quot;com.dao.UserDao&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;!-- 用表单数据给loginUser赋值 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;loginUser&quot;/&gt;</div><div class="line">&lt;%</div><div class="line">    //调用dao层业务逻辑代码</div><div class="line">    if(userDAO.userLogin(loginUser)) &#123;</div><div class="line">        session.setAttribute(&quot;loginUser&quot;, loginUser.getUsername());</div><div class="line">        request.getRequestDispatcher(&quot;login_success.jsp&quot;).forward(request, response);</div><div class="line">    &#125; else &#123;</div><div class="line">        response.sendRedirect(&quot;login_failure.jsp&quot;);</div><div class="line">    &#125;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+<p>css是引进来了，但是我在全局范围内又有一个base.css，然后xxx.css的权限没有高过base.css，造成了部分样式无法正常工作。<br>你也许会想，那你把xx.css的权限提高一点就行了呀？<br>可是，xx.css既然我已经单独做成css引用，这证明他是一个相对独立的，不受某个页面特定元素束缚的，所以不可能限定他的范围从而只让他作用于我一个组件，而且这种文件很可能是第三方css，我们不能也不想去修改他。<br>话是这么说，最后实在没办法了，我就只能一个去提高他的权值来使他正常工作。<br>在这里记一下，恳请大佬们给点建议。</p>
+
       
 
       
@@ -308,11 +293,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">vue-cli</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
         		</li>
       		
 		</ul>
@@ -368,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/04/17/jsp-javabean/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/05/09/summary-blog/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -382,18 +371,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/22/js-JQuery/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js-JQuery
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/17/jsp-state/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsp-state</div>
+    <a href="/2018/05/05/md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://corleoneyu.github.io">
-  <title>jsp-javabean | 林大羽</title>
+  <title>林大羽</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
-<meta name="keywords" content="java,jsp">
+  <meta name="description" content="body {     -ms-text-size-adjust: 100%;     -webkit-text-size-adjust: 100%;     line-height: 1.5;     color: #333;     font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Ari">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jsp-javabean">
-<meta property="og:url" content="https://corleoneyu.github.io/2018/04/17/jsp-javabean/index.html">
+<meta property="og:title" content="林大羽">
+<meta property="og:url" content="https://corleoneyu.github.io/2018/05/05/md/index.html">
 <meta property="og:site_name" content="林大羽">
-<meta property="og:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
+<meta property="og:description" content="body {     -ms-text-size-adjust: 100%;     -webkit-text-size-adjust: 100%;     line-height: 1.5;     color: #333;     font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Ari">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-17T12:22:06.797Z">
+<meta property="og:updated_time" content="2018-05-04T16:57:32.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jsp-javabean">
-<meta name="twitter:description" content="Javabean定义：Javabeans就是符合某种特定的规范Java类。目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。 Javabean设计原则 公有类 无参的共有构造方法 属性私有 getter() setter()  12345678910111213141516//学生类//1. 公有类public class Students &amp;#123;    //3. 属性私有">
+<meta name="twitter:title" content="林大羽">
+<meta name="twitter:description" content="body {     -ms-text-size-adjust: 100%;     -webkit-text-size-adjust: 100%;     line-height: 1.5;     color: #333;     font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Ari">
   
     <link rel="alternative" href="/atom.xml" title="林大羽" type="application/atom+xml">
   
@@ -171,105 +170,773 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsp-javabean" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      jsp-javabean
-    </h1>
-  
-
-        
-        <a href="/2018/04/17/jsp-javabean/" class="archive-article-date">
-  	<time datetime="2018-04-17T11:39:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
-</a>
-        
-        
-            <span class="archive-article-date">
-              阅读量 <span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Javabean"><a href="#Javabean" class="headerlink" title="Javabean"></a>Javabean</h2><p>定义：Javabeans就是符合某种特定的规范Java类。<br>目的：解决代码重复编写，减少代码冗余，功能区分明确，提高代码维护性。</p>
-<h3 id="Javabean设计原则"><a href="#Javabean设计原则" class="headerlink" title="Javabean设计原则"></a>Javabean设计原则</h3><ol>
-<li>公有类</li>
-<li>无参的共有构造方法</li>
-<li>属性私有</li>
-<li>getter() setter()</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//学生类</div><div class="line">//1. 公有类</div><div class="line">public class Students &#123;</div><div class="line">    //3. 属性私有</div><div class="line">    private String name;</div><div class="line">    //2. 无参的共有构造方法</div><div class="line">    public Students() &#123;&#125;</div><div class="line">    //4. setter getter</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="jsp动作元素"><a href="#jsp动作元素" class="headerlink" title="jsp动作元素"></a>jsp动作元素</h3><p>(action elements)动作元素: 为请求处理阶段提供信息。<br>遵循XML元素语法，有一个包含元素名的开始标签，可以有属性，可选内容，结束标签</p>
-<ol>
-<li>存取javaBean有关的<ol>
-<li>&lt; jsp:useBean&gt;</li>
-<li>&lt; jsp:setProperty&gt;</li>
-<li>&lt; jsp:getProperty&gt;</li>
-</ol>
-</li>
-<li>基本元素<ol>
-<li>&lt; jsp:include&gt;</li>
-<li>&lt; jsp:forward&gt;</li>
-<li>&lt; jsp:param&gt;</li>
-<li>&lt; jsp:plugin&gt;</li>
-<li>&lt; jsp:params&gt;</li>
-<li>&lt; jsp:fallback&gt;</li>
-</ol>
-</li>
-<li>jsp Document有关<ol>
-<li>&lt; jsp:root&gt;</li>
-<li>&lt; jsp:declaration&gt;</li>
-<li>&lt; jsp:scriptlet&gt;</li>
-<li>&lt; jsp:expression&gt;</li>
-<li>&lt; jsp:text&gt;</li>
-<li>&lt; jsp:output&gt;</li>
-</ol>
-</li>
-<li>用来动态生成XML元素标签的值<ol>
-<li>&lt; jsp:attribut&gt;</li>
-<li>&lt; jsp:body&gt;</li>
-<li>&lt; jsp:element&gt;</li>
-</ol>
-</li>
-<li>用在Tag File<ol>
-<li>&lt; jsp:invoke&gt;</li>
-<li>&lt; jsp:dobody&gt;<h3 id="在jsp页面中使用javabeans"><a href="#在jsp页面中使用javabeans" class="headerlink" title="在jsp页面中使用javabeans"></a>在jsp页面中使用javabeans</h3></li>
-</ol>
-</li>
-<li>像使用普通的java类一样，创建javabean实例</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//类文件路径： java web工程——javaResources——src——com.po(自定义包名)——Users(类名)</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//jsp文件路径：java web工程——WebContent——index.jsp</div><div class="line"></div><div class="line"></div><div class="line">//在开头引入Users类</div><div class="line">&lt;%@ page import=&quot;com.po.Users&quot; %&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h2&gt;使用普通方式创建javaBean实例&lt;/h2&gt;</div><div class="line">    &lt;%</div><div class="line">        Users user = new Users();</div><div class="line">        user.setPassword(&quot;123456&quot;);</div><div class="line">        user.setUsername(&quot;admin&quot;);</div><div class="line">    %&gt;</div><div class="line">    用户名： &lt;%=user.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=user.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;!--</div><div class="line">输出：</div><div class="line">用户名： admin</div><div class="line">密码： 123456</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ol>
-<li>在jsp页面通常使用jsp动作标签来使用javabean</li>
-</ol>
-<h4 id="jsp-useBeans"><a href="#jsp-useBeans" class="headerlink" title="jsp:useBeans"></a>jsp:useBeans</h4><p>作用： 在jsp中实例化或者在指定范围使用javabean</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//格式&lt;jsp:useBean id=&quot;标志符&quot; class=&quot;java类名&quot; scope=&quot;作用范围&quot; /&gt;</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;&gt;</div><div class="line">    &lt;h2&gt;使用useBean动作来创建javabean实例&lt;/h2&gt;</div><div class="line">    用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">    密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line">&lt;/jsp:useBean&gt;</div></pre></td></tr></table></figure>
-<p>配合使用 jsp:setProperty</p>
-<ol>
-<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”*”/&gt;(跟表单相关联-&gt;自动匹配)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//login.jsp</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;form name=&quot;loginForm&quot; action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">//doLogin.jsp</div><div class="line">&lt;jsp:useBean id=&quot;myUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;h2&gt;setProperty动作元素&lt;/h2&gt;</div><div class="line">&lt;!-- 根据表单匹配元素 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;myUser&quot;/&gt;</div><div class="line">用户名： &lt;%=myUser.getUsername() %&gt;&lt;br&gt;</div><div class="line">密码： &lt;%=myUser.getPassword() %&gt;&lt;hr&gt;</div><div class="line"></div><div class="line">//实现：</div><div class="line">//在login.jsp中输入的用户名 密码</div><div class="line">//在doLogin.jsp中显示出来</div></pre></td></tr></table></figure>
-</li>
-<li><p>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名”/&gt;(跟表单关联-&gt;部分匹配)</p>
-</li>
-<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” value=”BeanValue”/&gt;(手工设置)</li>
-<li>&lt; jsp:setProperty name=”javaBean实例名” property=”JavaBean属性名” param=”request对象中的参数名”/&gt;(与request关联：可以是url传参)</li>
-</ol>
-<p>配合&lt; jsp:getProperty&gt;<br>作用： 获取javabean对象的属性值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//格式： &lt;jsp:getProperty name=&quot;javaBean实例名&quot; property=&quot;属性名&quot; /&gt;</div><div class="line">用户名： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;username&quot; /&gt;&lt;br&gt;</div><div class="line">密码： &lt;jsp:getProperty name=&quot;myUser&quot; property=&quot;password&quot; /&gt;&lt;hr&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="javabean的四个作用域范围"><a href="#javabean的四个作用域范围" class="headerlink" title="javabean的四个作用域范围"></a>javabean的四个作用域范围</h4><p>说明： 使用useBeans的scope属性可以指定javabean作用范围</p>
-<ol>
-<li>page//当前页有效</li>
-<li>request //可以通过HttpRequest.getAttribute()方法取得JavaBean对象</li>
-<li>session //可以通过HttpSession.getAttribute()方法取得JavaBean对象</li>
-<li>application //可以通过application.getAttribute()方法取得javaBean对象</li>
-</ol>
-<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><h4 id="Mode1介绍"><a href="#Mode1介绍" class="headerlink" title="Mode1介绍"></a>Mode1介绍</h4><p>状况： Mode1出现之前，整个web应用几乎全部由jsp处理，jsp接收处理客户端请求，对请求处理后直接作出响应。<br>弊端： 界面层充斥大量业务逻辑代码和数据访问层的代码，可扩展性和可维护性差<br>解决方式： 使用javabean封装数据或者调用javabean业务逻辑代码，大大提升了程序的可维护性</p>
-<h3 id="使用javabean与jsp实现简单登录例子"><a href="#使用javabean与jsp实现简单登录例子" class="headerlink" title="使用javabean与jsp实现简单登录例子"></a>使用javabean与jsp实现简单登录例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">package com.po;</div><div class="line">/**</div><div class="line"> * 用户类</div><div class="line"> */</div><div class="line">public class Users &#123;</div><div class="line">    private String username; //用户名</div><div class="line">    private String password; //密码</div><div class="line">    //保留此默认构造方法</div><div class="line">    public Users() &#123;&#125;</div><div class="line">    //set get</div><div class="line">    public String getUsername() &#123;</div><div class="line">        return username;</div><div class="line">    &#125;</div><div class="line">    public void setUsername(String username) &#123;</div><div class="line">        this.username = username;</div><div class="line">    &#125;</div><div class="line">    public String getPassword() &#123;</div><div class="line">        return password;</div><div class="line">    &#125;</div><div class="line">    public void setPassword(String password) &#123;</div><div class="line">        this.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 封装用户类登录的业务逻辑</div><div class="line"> */</div><div class="line">package com.dao;</div><div class="line"></div><div class="line">import com.po.Users;</div><div class="line"></div><div class="line">public class UserDao &#123;</div><div class="line">    public boolean userLogin(Users u) &#123;</div><div class="line">        if( &quot;admin&quot;.equals(u.getUsername()) &amp;&amp; &quot;admin&quot;.equals(u.getPassword())) &#123;</div><div class="line">            return true;</div><div class="line">        &#125; else &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//login.jsp</div><div class="line">    &lt;h2&gt;登录页面&lt;/h2&gt;</div><div class="line">    &lt;form action=&quot;doLogin.jsp&quot; method=&quot;post&quot;&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;用户名： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;label&gt;密码： &lt;/label&gt;</div><div class="line">            &lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-inline&quot;&gt;</div><div class="line">            &lt;input class=&quot;submit-btn&quot; type=&quot;submit&quot; value=&quot;登录&quot;&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line"></div><div class="line">//login页面后提交到doLogin.jsp</div><div class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</div><div class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</div><div class="line">&lt;!-- 实例化javabean --&gt;</div><div class="line">&lt;jsp:useBean id=&quot;loginUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;jsp:useBean id=&quot;userDAO&quot; class=&quot;com.dao.UserDao&quot; scope=&quot;page&quot;/&gt;</div><div class="line">&lt;!-- 用表单数据给loginUser赋值 --&gt;</div><div class="line">&lt;jsp:setProperty property=&quot;*&quot; name=&quot;loginUser&quot;/&gt;</div><div class="line">&lt;%</div><div class="line">    //调用dao层业务逻辑代码</div><div class="line">    if(userDAO.userLogin(loginUser)) &#123;</div><div class="line">        session.setAttribute(&quot;loginUser&quot;, loginUser.getUsername());</div><div class="line">        request.getRequestDispatcher(&quot;login_success.jsp&quot;).forward(request, response);</div><div class="line">    &#125; else &#123;</div><div class="line">        response.sendRedirect(&quot;login_failure.jsp&quot;);</div><div class="line">    &#125;</div><div class="line">%&gt;</div></pre></td></tr></table></figure>
+        body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,
+.pl-s .pl-v {
+    color: #0086b3;
+}
+
+.pl-e,
+.pl-en {
+    color: #795da3;
+}
+
+.pl-smi,
+.pl-s .pl-s1 {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k {
+    color: #a71d5d;
+}
+
+.pl-s,
+.pl-pds,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sre,
+.pl-sr .pl-sra {
+    color: #183691;
+}
+
+.pl-v {
+    color: #ed6a43;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    color: #f8f8f8;
+    background-color: #b52a1d;
+}
+
+.pl-sr .pl-cce {
+    font-weight: bold;
+    color: #63a35c;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+    font-weight: bold;
+    color: #1d3e81;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    font-style: italic;
+    color: #333;
+}
+
+.pl-mb {
+    font-weight: bold;
+    color: #333;
+}
+
+.pl-md {
+    color: #bd2c00;
+    background-color: #ffecec;
+}
+
+.pl-mi1 {
+    color: #55a532;
+    background-color: #eaffea;
+}
+
+.pl-mdr {
+    font-weight: bold;
+    color: #795da3;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+
+.octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+strong {
+    font-weight: inherit;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+img {
+    border-style: none;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+code,
+kbd,
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+input {
+    font: inherit;
+    margin: 0;
+}
+
+input {
+    overflow: visible;
+}
+
+[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: 600;
+}
+
+hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+hr::before {
+    display: table;
+    content: "";
+}
+
+hr::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+blockquote {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+dd {
+    margin-left: 0;
+}
+
+code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.octicon {
+    vertical-align: text-bottom;
+}
+
+input {
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
+}
+
+.markdown-body::before {
+    display: table;
+    content: "";
+}
+
+.markdown-body::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.markdown-body>*:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+}
+
+.anchor:focus {
+    outline: none;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e7e7e7;
+    border: 0;
+}
+
+blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+}
+
+blockquote>:first-child {
+    margin-top: 0;
+}
+
+blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+    color: #000;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    text-decoration: none;
+}
+
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+    visibility: visible;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: #777;
+}
+
+ul,
+ol {
+    padding-left: 2em;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li>p {
+    margin-top: 16px;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+dl {
+    padding: 0;
+}
+
+dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+}
+
+code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+}
+
+code::before,
+code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+pre {
+    word-wrap: normal;
+}
+
+pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+.highlight {
+    margin-bottom: 16px;
+}
+
+.highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+}
+
+.highlight pre,
+pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+
+pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+pre code::before,
+pre code::after {
+    content: normal;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+.pl-1 {
+    padding-left: 3px !important;
+}
+
+.pl-2 {
+    padding-left: 6px !important;
+}
+
+.pl-3 {
+    padding-left: 12px !important;
+}
+
+.pl-4 {
+    padding-left: 24px !important;
+}
+
+.pl-5 {
+    padding-left: 36px !important;
+}
+
+.pl-6 {
+    padding-left: 48px !important;
+}
+
+.full-commit .btn-outline:not(:disabled):hover {
+    color: #4078c0;
+    border: 1px solid #4078c0;
+}
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fcfcfc;
+    border: solid 1px #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+:checked+.radio-label {
+    position: relative;
+    z-index: 1;
+    border-color: #4078c0;
+}
+
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item+.task-list-item {
+    margin-top: 3px;
+}
+
+.task-list-item input {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+hr {
+    border-bottom-color: #eee;
+}
+
+
+/** Theming **/
+
+body {
+    color: #333;
+    background: white;
+    padding: 0 25px;
+}
+
+.vscode-light,
+.vscode-light pre code {
+    color: #333;
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+    color: #333;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+    color: #333;
+}
+
+.vscode-light code {
+    color: #333;
+}
+
+.vscode-dark code {
+    color: #333;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code>div {
+    background-color: #F6F8FA;
+}
+
+.vscode-high-contrast h1 {
+    border-color: transparent;
+}
+
+.vscode-light table>thead>tr>th {
+    border-color: #EAECEF;
+}
+
+.vscode-dark table>thead>tr>th {
+    border-color: #EAECEF;
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table>tbody>tr+tr>td {
+    border-color: #EAECEF;
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table>tbody>tr+tr>td {
+    border-color: #EAECEF;
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+    background: transparent;
+}
+
+.vscode-high-contrast blockquote {
+    padding: 0 1em;
+    color: #777;
+    border-left: 0.25em solid #ddd;
+    background: transparent;
+}
       
 
       
@@ -303,21 +970,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -368,7 +1020,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/04/17/jsp-javabean/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://corleoneyu.github.io/2018/05/05/md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -382,18 +1034,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/22/js-JQuery/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/05/09/summary-blog/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          js-JQuery
+          summary-blog
         
       </div>
     </a>
   
   
-    <a href="/2018/04/17/jsp-state/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsp-state</div>
+    <a href="/2018/05/04/Data-Link-computer-netword/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Data Link--computer netword</div>
       <i class="icon-circle-right"></i>
     </a>
   
